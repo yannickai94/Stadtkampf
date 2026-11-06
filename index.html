@@ -21,7 +21,7 @@
   --roll:540ms;
 }
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html,body{margin:0;height:100%;overflow:hidden;background:var(--bg);color:var(--txt);
+html,body{margin:0;height:var(--appH,100%);min-height:100%;overflow:hidden;background:var(--bg);color:var(--txt);
   font-family:ui-rounded,"SF Pro Rounded",-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
   overscroll-behavior:none;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;-webkit-font-smoothing:antialiased}
 button{font:inherit;color:inherit;border:0;background:none;padding:0;cursor:pointer;touch-action:manipulation}
@@ -36,7 +36,8 @@ button{font:inherit;color:inherit;border:0;background:none;padding:0;cursor:poin
 #aurora i:nth-child(4){background:radial-gradient(circle,#ffb800 0,transparent 60%);right:10%;bottom:5%;animation-duration:29s;animation-delay:-4s;opacity:.55}
 @keyframes drift{0%{transform:translate(0,0) scale(1)}50%{transform:translate(8vmax,-6vmax) scale(1.15)}100%{transform:translate(-6vmax,7vmax) scale(.92)}}
 #grain{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.07;background-image:radial-gradient(rgba(255,255,255,.6) 1px,transparent 1px);background-size:3px 3px}
-#app{position:fixed;left:0;top:0;width:100%;height:var(--appH,100%);overflow:hidden;overflow:clip;transform:translateZ(0);contain:size layout}
+#app{position:absolute;left:0;top:0;width:100%;height:var(--appH,100%);overflow:hidden;overflow:clip;transform:translateZ(0);contain:size layout}
+html{background:var(--bg)}
 canvas#map{position:fixed;inset:0;width:100%;height:100%;z-index:1;touch-action:none;display:block}
 
 /* ---------- Liquid Glass ---------- */
@@ -456,6 +457,8 @@ body.rec #fight{bottom:max(var(--sb),10px)}
     <div class="opt" data-tg="hl"><div>Highlight-Modus<small>Wichtige Kämpfe ausführlich, alle anderen im Schnelldurchlauf</small></div><div class="tg"></div></div>
     <div class="opt" data-tg="top3"><div>Top-3-Leiste<small>Die drei größten Reiche immer im Blick</small></div><div class="tg"></div></div>
     <div class="opt" data-tg="comm"><div>Kommentator<small>Sprüche wie bei einer Sportübertragung</small></div><div class="tg"></div></div>
+    <div class="opt" data-tg="voice"><div>Sprecher<small>Eine Stimme liest den Live-Kommentar vor</small></div><div class="tg"></div></div>
+    <div class="lrow" id="voiceRow"><select class="mini" id="voiceSel" style="flex:1;min-width:0;color:#fff;-webkit-appearance:none;appearance:none"></select><button class="mini press" id="voiceTest">▶︎ Probe</button></div>
     <div class="opt" data-tg="haptic"><div>Haptik<small>Kurzes Vibrieren bei Würfen & Eroberungen</small></div><div class="tg"></div></div>
     <div class="opt" data-tg="lines"><div>Kreisgrenzen<small>Feine Linien innerhalb der Reiche</small></div><div class="tg"></div></div>
     <div class="opt" data-tg="coa"><div>Wappen<small id="coaState">Offizielle Wappen von Wikipedia</small></div><div class="tg"></div></div>
@@ -556,7 +559,7 @@ const COMBOS=(()=>{const out=[];for(const a of PAL)for(const b of PAL){if(a===b)
 function colorsKreis(seed){const r=mulberry(seed);const ord=cells.map(c=>c.i).sort(()=>r()-.5);const col=new Array(N);for(const i of ord){let best=null;for(let t=0;t<40;t++){const cb=COMBOS[r()*COMBOS.length|0];let ok=true;for(const n of cells[i].nb){const o=col[n];if(o&&(o[0]===cb[0]||(o[0]===cb[1]&&o[1]===cb[0]))){ok=false;break}}if(ok){best=cb;break}if(!best)best=cb}col[i]=best}return col}
 
 /* ================= State ================= */
-const DEF_SET={fav:null,selfRoll:true,follow:true,lines:true,sound:true,coa:true,speed:0,mode:'kreis',rule:'total',lands:null,scope:'bund',final:true,command:false,bets:false,hl:true,top3:true,comm:true,haptic:true,evCap:true,evRev:true,evAlly:true,evRand:true,epLen:0,multi:false,aiPer:2,players:[{name:'Spieler 1',cell:null},{name:'Spieler 2',cell:null}]};
+const DEF_SET={fav:null,selfRoll:true,follow:true,lines:true,sound:true,coa:true,speed:0,mode:'kreis',rule:'total',lands:null,scope:'bund',final:true,command:false,bets:false,hl:true,top3:true,comm:true,haptic:true,voice:true,voiceName:'',evCap:true,evRev:true,evAlly:true,evRand:true,epLen:0,multi:false,aiPer:2,players:[{name:'Spieler 1',cell:null},{name:'Spieler 2',cell:null}]};
 let SET=Object.assign({},DEF_SET,store.get('kk_set')||{});
 if(!Array.isArray(SET.lands)||!SET.lands.length)SET.lands=LAND_KEYS.slice();
 if(!Array.isArray(SET.players)||SET.players.length<2)SET.players=DEF_SET.players.map(p=>({...p}));
@@ -1039,7 +1042,7 @@ async function episodeCard(){const len=S.cfg.ep;const n=Math.round(S.fights/len)
   const el=$('#epCard');el.innerHTML=h;el.classList.remove('off');sfx('win');
   await new Promise(res=>{epResolver=res;if(abortFlag)res()});epResolver=null;el.classList.add('off')}
 /* ---- animated fight ---- */
-function showEv(x){const t=evText(x);miniToast(t.em,t.t1,t.t2,2200/Math.min(speedMul,3));evFx(x)}
+function showEv(x){const t=evText(x);miniToast(t.em,t.t1,t.t2,2200/Math.min(speedMul,3));evFx(x);say(t.t1+'. '+t.t2)}
 function setFightHead(A){const ep=S.cfg.ep;$('#fNo').textContent=ep?('Ep. '+(Math.floor((S.fights-1)/ep)+1)+' · Kampf '+((S.fights-1)%ep+1)+' von '+ep):'Kampf '+fmtInt(S.fights);
   $('#fRule').textContent=(S.phase==='land'?'Landesliga '+LAND_SHORT[facLand(A)]+' · ':(S.scope==='land'?'Bundesfinale · ':''))+(S.rule==='grenz'?'Grenzkampf':'Totaler Krieg');setBetChip()}
 function isImportant(fi){const A=fi.A,D=fi.D;return !!fi.cmd||isMine(A.id)||isMine(D.id)||pct(A)>=5||pct(D)>=5||S.fights<=3||aliveF().length<=12||Math.max(A.cells.size,D.cells.size)>=12}
@@ -1058,6 +1061,7 @@ async function fightAnimated(){
   showFight(true);
   if(SET.follow&&!userCam)flyTo(fightBox(fi),quick?520:950);
   sfx('start');
+  if(!quick)say((S.cfg.ep?'':'Kampf '+S.fights+': ')+shortName(A.name)+' greift '+shortName(D.name)+' an!');
   await sleep(quick?440:950);
   const bet=quick?null:await askBet(fi);
   const res=resolve(fi);
@@ -1099,7 +1103,7 @@ async function fightAnimated(){
     await sleep(step)}
   const af=afterFight(fi,res,Wf,Lf,take,aW,aL);
   updateHeader();saveGame();saveHof();
-  const cm=comment(fi,res,Wf,Lf,take,af.up,leadBefore,aW,aL);if(!quick||cm.n)showComm(cm.t);
+  const cm=comment(fi,res,Wf,Lf,take,af.up,leadBefore,aW,aL);if(!quick||cm.n){showComm(cm.t);await sleep(200);await sayWait(5000)}
   if(rankOpen())renderRank();
   await sleep(quick?(cm.n?1200:380):1000);
   if(af.rv){showEv(af.rv);applyRevolt(af.rv);updateHeader();await sleep(1800)}
@@ -1138,7 +1142,7 @@ function checkEnd(){if(S.over)return true;if(hasFight())return false;
     if(S.final&&aliveF().length>1){S.phase='bund';ver++;saveGame();phaseAnnounce();return false}
     S.over=true;S.champ=null;hofGameEnd(null);saveGame();running=false;setPlayIcon();setTimeout(victory,isTurbo()?300:900);return true}
   const al=aliveF();S.over=true;S.champ=al[0]?al[0].id:null;hofGameEnd(S.champ);saveGame();running=false;setPlayIcon();setTimeout(victory,isTurbo()?300:900);return true}
-function phaseAnnounce(){holdUntil=performance.now()+3200;const n=aliveF().length;
+function phaseAnnounce(){holdUntil=performance.now()+3200;const n=aliveF().length;say('Alle Landesmeister stehen fest! Jetzt beginnt das Bundesfinale mit '+n+' Meistern.',{hype:true});
   miniToast('🏆','Alle Landesmeister stehen fest!','Bundesfinale: '+n+' Meister kämpfen jetzt um Deutschland',3000);
   sfx('fan');shake(8);
   aliveF().forEach((f,k)=>{const L=facLabel(f);setTimeout(()=>{ring(L.x,L.y,'rgba(255,224,138,.95)',90,1100);burst(L.x,L.y,[f.c1,f.c2,'#ffe08a'],18,200)},k*90)});
@@ -1184,7 +1188,24 @@ function updateTop3(force){const el=$('#top3'),app=$('#app');const on=SET.top3&&
 /* ---- Kommentator ---- */
 const CAPS=new Set(['Kiel','Hamburg','Bremen','Region Hannover','Düsseldorf','Wiesbaden','Mainz','Regionalverband Saarbrücken','Stuttgart','München','Dresden','Magdeburg','Erfurt','Potsdam','Schwerin','Berlin']);
 let commT=null;
-function showComm(t){if(!SET.comm||!t||isTurbo())return;const el=$('#comm');$('#commT').textContent=t;aboveFight(el,10);el.classList.remove('on');void el.offsetWidth;el.classList.add('on');clearTimeout(commT);commT=setTimeout(()=>el.classList.remove('on'),3400/Math.min(speedMul,3))}
+/* ---- Sprecher (Web Speech API) ---- */
+const SYN=('speechSynthesis' in window)?window.speechSynthesis:null;let VOICE=null,voiceOK=false;
+function pickVoice(){if(!SYN)return;const vs=SYN.getVoices().filter(v=>/^de/i.test(v.lang));if(!vs.length)return;
+  const score=v=>(SET.voiceName&&v.name===SET.voiceName?100:0)+(/premium|erweitert|enhanced/i.test(v.name)?20:0)+(/anna|helena|markus|petra|yannick|viktor/i.test(v.name)?6:0)+(v.lang==='de-DE'?4:0)+(v.localService?2:0);
+  VOICE=vs.sort((a,b)=>score(b)-score(a))[0];const sel=$('#voiceSel');if(sel){sel.innerHTML=vs.map(v=>'<option value="'+esc(v.name)+'"'+(v===VOICE?' selected':'')+'>🎙️ '+esc(v.name.replace(/\s*\(.*\)/,''))+(/premium|erweitert|enhanced/i.test(v.name)?' ★':'')+'</option>').join('')}}
+if(SYN){pickVoice();SYN.onvoiceschanged=pickVoice;setTimeout(pickVoice,800)}
+function voiceUnlock(){if(!SYN||voiceOK)return;try{const u=new SpeechSynthesisUtterance(' ');u.volume=0;SYN.speak(u);voiceOK=true}catch(e){}}
+function voiceStop(){try{SYN&&SYN.cancel()}catch(e){}}
+let sayEnd=0;
+function say(t,o){o=o||{};if(!SYN||!t||(!SET.voice&&!o.force)||(isTurbo()&&!o.force))return 0;try{if(!VOICE)pickVoice();if(o.cut!==false)SYN.cancel();
+  const u=new SpeechSynthesisUtterance(t.replace(/×/g,' mal ').replace(/ – /g,', ').replace(/(\d),(\d)/g,'$1 Komma $2'));u.lang='de-DE';if(VOICE)u.voice=VOICE;
+  u.rate=clamp((o.hype?1.12:1.04)*(speedMul>=2?1.15:1),.5,1.6);u.pitch=o.hype?1.15:1;u.volume=1;SYN.speak(u);
+  const est=Math.min(6000,600+t.length*62/u.rate);sayEnd=performance.now()+est;return est}catch(e){return 0}}
+async function sayWait(maxMs){if(!SYN||!SET.voice||isTurbo())return;const t0=performance.now();while((SYN.speaking||SYN.pending)&&performance.now()-t0<maxMs&&!abortFlag){await new Promise(r=>setTimeout(r,120))}}
+$('#voiceSel').addEventListener('change',e=>{SET.voiceName=e.target.value;saveSet();pickVoice();voiceUnlock();say('So klinge ich als Kommentator.',{force:true})});
+$('#voiceTest').addEventListener('click',()=>{voiceUnlock();say('Kampf zwölf: Unna greift Dortmund an! Dreimal die Sechs – was für ein Wurf!',{force:true,hype:true})});
+['pointerdown','touchend','click'].forEach(n=>document.addEventListener(n,()=>{if(SET.voice)voiceUnlock()},{passive:true}));
+function showComm(t){say(t,{hype:/Sensation|Unfassbar|Dreimal|Goliath|Landeshauptstadt|Tabellenführung/.test(t||'')});if(!SET.comm||!t||isTurbo())return;const el=$('#comm');$('#commT').textContent=t;aboveFight(el,10);el.classList.remove('on');void el.offsetWidth;el.classList.add('on');clearTimeout(commT);commT=setTimeout(()=>el.classList.remove('on'),3400/Math.min(speedMul,3))}
 function comment(fi,res,W,L,take,up,leadBefore,aW,aL){const rr=a=>a[Math.random()*a.length|0];const w=shortName(W.name),l=shortName(L.name);
   const dice=res.r[res.aw?'A':'D'];const sumW=dice.reduce((a,b)=>a+b,0);const cap=take.find(c=>CAPS.has(cells[c].name));
   if(up)return{n:1,t:rr(['Was für eine Sensation! '+w+' schlägt das '+fmt1(aL/Math.max(1,aW))+'× größere '+l+'!','David gegen Goliath – und David gewinnt! '+w+' wirft '+l+' raus!','Unfassbar! '+w+' dreht die Partie gegen '+l+'!'])};
@@ -1220,7 +1241,7 @@ function setSpeedUI(){const v=SPEEDS[SET.speed];$('#spdTxt').textContent=v==='tu
 function moveBlob(btn){const b=$('#blob');const r=btn.getBoundingClientRect(),p=$('#tabs').getBoundingClientRect();b.style.left=(r.left-p.left)+'px';b.style.width=r.width+'px';b.style.transform='scale(1.12,.9)';setTimeout(()=>b.style.transform='',180)}
 
 /* ================= Controls ================= */
-function startGame(fresh,shared){
+function startGame(fresh,shared){voiceUnlock();if(fresh&&SET.voice)setTimeout(()=>say('Willkommen zum Kreis-Krieg! Wer erobert Deutschland?',{hype:true}),300);
   if(fresh){
     if(shared){newGame(shared.m,shared.r,shared.s,{lands:shared.l,scope:shared.sc,final:shared.f,ev:shared.e,ep:shared.ep})}
     else{if(!selValid(SET.mode,SET.lands)){miniToast('⚠️','Auswahl reicht nicht','Bitte mindestens zwei Kreise bzw. Länder wählen');openSheet('shSet');return}
@@ -1341,7 +1362,7 @@ $('#lAll').addEventListener('click',()=>{SET.lands=LAND_KEYS.slice();saveSet();r
 $('#lNone').addEventListener('click',()=>{SET.lands=[];saveSet();renderLandGrid()});
 $('#lMine').addEventListener('click',()=>{if(SET.fav==null){miniToast('📍','Erst „Mein Kreis“ wählen','Dann wird dessen Bundesland ausgewählt');return}SET.lands=[cells[SET.fav].land];saveSet();renderLandGrid()});
 document.querySelectorAll('[data-tg]').forEach(o=>o.addEventListener('click',()=>{const k=o.dataset.tg;SET[k]=!SET[k];saveSet();renderSet();dirty=true;
-  if(k==='follow'){setUserCam(false);if(SET.follow&&camBox)flyTo(camBox,600)}if(k==='selfRoll'&&!SET.selfRoll&&tapResolver)tapResolver();if(k==='sound'&&SET.sound)sfx('tap');if(k==='coa'){Object.keys(coaImgs).forEach(x=>delete coaImgs[x]);refreshCoaUI()}if(k==='final')renderSet();if(k==='top3')updateTop3(true);if(k==='multi')renderPlayers();if(k==='bets')setBetChip()}));
+  if(k==='follow'){setUserCam(false);if(SET.follow&&camBox)flyTo(camBox,600)}if(k==='selfRoll'&&!SET.selfRoll&&tapResolver)tapResolver();if(k==='sound'&&SET.sound)sfx('tap');if(k==='coa'){Object.keys(coaImgs).forEach(x=>delete coaImgs[x]);refreshCoaUI()}if(k==='final')renderSet();if(k==='top3')updateTop3(true);if(k==='voice'){if(SET.voice){voiceUnlock();say('Sprecher ist an.',{force:true})}else voiceStop()}if(k==='multi')renderPlayers();if(k==='bets')setBetChip()}));
 let newArmed=false;
 $('#btnNew').addEventListener('click',()=>{if(!selValid(SET.mode,SET.lands)){sfx('tap');return}if(S&&S.fights>0&&!S.over&&!newArmed){newArmed=true;$('#btnNew').textContent='Sicher? Nochmal tippen';return}
   closeSheet();abortAll(()=>startGame(true))});
@@ -1392,7 +1413,7 @@ function showPop(i){const c=cells[i];if(!S.act[i]){miniToast('🚫',c.name,'Nich
 function closePop(){$('#pop').classList.add('off')}
 
 /* ---------- Victory ---------- */
-function victory(){if(S.scope==='land'&&!S.final&&S.champ==null){victoryLand();return}const f=F[S.champ]||aliveF()[0];if(!f)return;
+function victory(){if(S.scope==='land'&&!S.final&&S.champ==null){victoryLand();return}const f=F[S.champ]||aliveF()[0];if(!f)return;{const hv=humanOf(f.id);say((hv&&S.humans.length>1?hv.name+' gewinnt! ':'')+'Abpfiff! '+shortName(f.name)+' erobert '+(S.lands.length===16?'ganz Deutschland':'das gesamte Spielgebiet')+'!',{force:SET.voice,hype:true})}
   showFight(false);focus=null;setUserCam(false);flyTo(PBOX,1200);
   const most=[...F].sort((a,b)=>b.conq-a.conq)[0];
   const hw=humanOf(f.id);let hs='';
@@ -1407,7 +1428,7 @@ function victory(){if(S.scope==='land'&&!S.final&&S.champ==null){victoryLand();r
   const cols=[f.c1,f.c2,'#ffe08a','#ffffff','#8fd3ff'];confettiRain(cols);setTimeout(()=>confettiRain(cols),1400);sfx('fan');
   for(let k=0;k<6;k++)setTimeout(()=>{const c=cells[(rnd()*N)|0];ring(c.cx,c.cy,pick(cols),160,1200);burst(c.cx,c.cy,cols,30,260)},k*260)}
 
-function victoryLand(){showFight(false);focus=null;setUserCam(false);flyTo(PBOX,1200);
+function victoryLand(){say('Die Landesmeisterschaft ist entschieden!',{force:SET.voice,hype:true});showFight(false);focus=null;setUserCam(false);flyTo(PBOX,1200);
   const rows=S.lands.map((k,idx)=>{const f=F[S.champs[k]];if(!f)return '';return '<div class="row" style="animation-delay:'+idx*60+'ms">'+landCoaHTML(k)+'<div class="tx"><div class="n1">'+esc(shortName(f.name))+'</div><div class="n2">Meister '+esc(LANDS[k])+' · '+f.wins+' Siege</div></div>'+badgeHTML(f,'mb')+'</div>'}).join('');
   $('#win').innerHTML='<div class="wcard glass dark"><div class="wcrown">🏆</div><div class="phase">Landesmeisterschaft</div><div class="wname">Die Landesmeister</div><div class="wsub">'+fmtInt(S.fights)+' Kämpfe · '+S.upsets+' Sensationen</div><div class="champs">'+rows+'</div>'+
     '<button class="big glass tint press" id="wNew">⚔️ Neues Spiel</button><button class="big glass press" id="wClose" style="margin-top:8px">Karte ansehen</button></div>';
