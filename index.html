@@ -122,6 +122,8 @@ canvas#map{position:fixed;inset:0;width:100%;height:100%;z-index:1;touch-action:
   border-radius:15px 15px 50% 50%/15px 15px 44% 44%;
   background:repeating-linear-gradient(135deg,var(--c1) 0 9px,var(--c2) 9px 18px);
   border:3px solid #fff;box-shadow:0 8px 20px rgba(0,0,0,.45),inset 0 2px 1px rgba(255,255,255,.55),inset 0 -6px 10px rgba(0,0,0,.25);transition:transform .5s var(--spring)}
+.badge.club{border-radius:50%;background:radial-gradient(circle,var(--c1) 0 56%,var(--c2) 57% 69%,var(--c1) 70%)}
+.badge.club span{font-size:.92em}
 .badge.split{background:linear-gradient(135deg,var(--c1) 0 50%,var(--c2) 50% 100%)}
 .badge span{position:relative;z-index:2;font-weight:900;font-size:17px;color:#fff;padding:1px 6px;border-radius:7px;background:rgba(8,10,16,.72);letter-spacing:-.3px;line-height:1.25;max-width:92%;overflow:hidden;white-space:nowrap}
 .badge::after{content:"";position:absolute;inset:-20%;z-index:1;background:linear-gradient(115deg,transparent 40%,rgba(255,255,255,.65) 50%,transparent 60%);transform:translateX(-120%);animation:shine 4.5s ease-in-out infinite}
@@ -276,7 +278,10 @@ canvas#map{position:fixed;inset:0;width:100%;height:100%;z-index:1;touch-action:
 .lchip.on .lw{filter:none}
 .lchip .lw img{max-width:100%;max-height:100%;object-fit:contain}
 .lchip .lw b{font-size:11px;padding:3px 4px;border-radius:6px;background:linear-gradient(135deg,var(--c1) 50%,var(--c2) 50%);color:#fff;text-shadow:0 0 2px #000}
-.seg.dis,.opt.dis{opacity:.35;pointer-events:none}
+.seg.dis,.opt.dis,.landsel.dis{opacity:.35;pointer-events:none}
+.mb.club{width:28px;height:28px}
+.mb.club span{font-size:7.5px;padding:0 2px;letter-spacing:-.4px}
+.t3 .badge.club span{display:none}
 .warn{color:#ffb38f!important;font-weight:800}
 /* Feldherr / Tipp / Episoden / Aufnahme */
 #cmdBar{position:fixed;z-index:13;left:12px;right:12px;top:calc(var(--st) + 80px + var(--tb));max-width:540px;margin:0 auto;padding:12px 12px 12px 16px;border-radius:24px;display:flex;align-items:center;gap:10px;animation:dropIn .6s var(--spring) both;border-color:var(--pc,#7cc8ff)}
@@ -419,7 +424,7 @@ body.rec #fight{bottom:max(var(--sb),10px)}
 </section>
 <section class="sheet glass" id="shSearch">
   <div class="grab"></div>
-  <div class="shd"><h2>Mein Kreis</h2><button class="xbtn press" data-close>✕</button></div>
+  <div class="shd"><h2 id="qTitle">Mein Kreis</h2><button class="xbtn press" data-close>✕</button></div>
   <div class="sbody">
     <input class="search" id="q" placeholder="Kreis, Stadt oder Kennzeichen …" autocomplete="off" autocorrect="off" spellcheck="false">
     <div id="qList"></div>
@@ -430,12 +435,13 @@ body.rec #fight{bottom:max(var(--sb),10px)}
   <div class="shd"><h2>Einstellungen</h2><button class="xbtn press" data-close>✕</button></div>
   <div class="sbody">
     <div class="lbl">Startaufstellung</div>
-    <div class="seg" id="segMode"><div class="hl"></div><button data-v="kreis">400 Kreise</button><button data-v="land">16 Länder</button></div>
+    <div class="seg" id="segMode"><div class="hl"></div><button data-v="kreis">400 Kreise</button><button data-v="land">16 Länder</button><button data-v="liga">⚽ Vereine</button></div>
+    <div class="note hidden" id="ligaNote" style="padding-top:2px">Alle 56 Vereine der 1. bis 3. Liga 2026/27. Jeder Kreis gehört anfangs zum nächstgelegenen Verein. Teilen sich Vereine eine Stadt, startet der höherklassige dort, die anderen im Nachbarkreis. Leichter Liga-Bonus: 1. Liga +1, 2. Liga +0,5.</div>
     <div class="lbl">Eroberungsregel</div>
     <div class="seg" id="segRule"><div class="hl"></div><button data-v="total">Totaler Krieg</button><button data-v="grenz">Grenzkampf</button></div>
-    <div class="lbl">Bundesländer im Spiel <span id="landCnt" style="color:#fff"></span></div>
-    <div class="lrow"><button class="mini press" id="lAll">Alle</button><button class="mini press" id="lNone">Keine</button><button class="mini press" id="lMine">Nur mein Land</button></div>
-    <div class="lgrid" id="lgrid"></div>
+    <div class="lbl landsel">Bundesländer im Spiel <span id="landCnt" style="color:#fff"></span></div>
+    <div class="lrow landsel"><button class="mini press" id="lAll">Alle</button><button class="mini press" id="lNone">Keine</button><button class="mini press" id="lMine">Nur mein Land</button></div>
+    <div class="lgrid landsel" id="lgrid"></div>
     <div class="note" style="padding-top:2px">Nicht zusammenhängende Länder werden über gestrichelte Luftbrücken verbunden – Randkreise greifen über die Lücke an.</div>
     <div class="lbl">Wettbewerb</div>
     <div class="seg" id="segScope"><div class="hl"></div><button data-v="bund">Alle gegen alle</button><button data-v="land">Nur im eigenen Land</button></div>
@@ -492,8 +498,8 @@ body.rec #fight{bottom:max(var(--sb),10px)}
 
 <div id="intro">
   <div class="icard glass">
-    <div class="ititle"><span>400 Kreise.</span><span>1 Karte.</span><span>Wer erobert Deutschland?</span></div>
-    <div class="isub">Alle Landkreise und kreisfreien Städte. Würfel, Flächenbonus, Eroberung.</div>
+    <div class="ititle" id="ititle"><span>400 Kreise.</span><span>1 Karte.</span><span>Wer erobert Deutschland?</span></div>
+    <div class="isub" id="isub">Alle Landkreise und kreisfreien Städte. Würfel, Flächenbonus, Eroberung.</div>
     <div class="ichips"><button class="ichip glass press" id="iPlayers">👥 <span id="iPlTxt">Mehrspieler</span></button><button class="ichip glass press" id="iMine">📍 <span id="iMineTxt">Mein Kreis wählen</span></button><button class="ichip glass press" id="iSet">⚙︎ <span id="iSetTxt">Alle Länder · Totaler Krieg</span></button></div>
     <div class="ibtns">
       <button class="big glass press hidden" id="iShared">🔗 Geteilte Partie starten</button>
@@ -552,6 +558,77 @@ function pipRing(x,y,a){let ins=false;for(let k=0,j=a.length-2;k<a.length;j=k,k+
 function pipCell(x,y,c){let n=0;for(const r of c.rings)if(pipRing(x,y,r))n++;return n%2===1}
 function cellAt(x,y){for(const c of cells){const b=c.bb;if(x<b[0]-.5||x>b[2]+.5||y<b[1]-.5||y>b[3]+.5)continue;if(pipCell(x,y,c))return c.i}return -1}
 function landName(k){return LANDS[k]||k}
+
+/* ================= Bundesliga-Modus: 1. bis 3. Liga 2026/27 ================= */
+/* [Name, Kurzname, Kürzel, Liga, Start-Kreis, Farbe 1, Farbe 2, Stadt] – teilen sich Vereine eine Stadt, startet der höherklassige dort, die anderen im Nachbarkreis */
+const CLUBS=[
+['FC Bayern München','Bayern','FCB',1,'München','#dc052d','#ffffff'],
+['Borussia Dortmund','Dortmund','BVB',1,'Dortmund','#fde100','#111111'],
+['FC Schalke 04','Schalke','S04',1,'Gelsenkirchen','#004d9d','#ffffff'],
+['VfB Stuttgart','Stuttgart','VFB',1,'Stuttgart','#e32219','#ffffff'],
+['Eintracht Frankfurt','Frankfurt','SGE',1,'Frankfurt am Main','#111111','#e1000f'],
+['Hamburger SV','HSV','HSV',1,'Hamburg','#0a3f86','#ffffff'],
+['1. FC Köln','FC Köln','KOE',1,'Köln','#ed1c24','#ffffff'],
+['Borussia Mönchengladbach','Gladbach','BMG',1,'Mönchengladbach','#111111','#00a24f'],
+['RB Leipzig','Leipzig','RBL',1,'Leipzig','#dd0741','#ffffff'],
+['SV Werder Bremen','Bremen','SVW',1,'Bremen','#1d9053','#ffffff'],
+['SC Freiburg','Freiburg','SCF',1,'Freiburg im Breisgau','#e2001a','#111111'],
+['1. FSV Mainz 05','Mainz','M05',1,'Mainz','#c3141e','#ffffff'],
+['FC Augsburg','Augsburg','FCA',1,'Augsburg','#ba3733','#46714d'],
+['Bayer 04 Leverkusen','Leverkusen','B04',1,'Leverkusen','#e32221','#111111'],
+['TSG Hoffenheim','Hoffenheim','TSG',1,'Rhein-Neckar-Kreis','#1c63b7','#ffffff','Sinsheim'],
+['1. FC Union Berlin','Union','FCU',1,'Berlin','#eb1923','#ffffff'],
+['SC Paderborn 07','Paderborn','SCP',1,'Paderborn','#005ca9','#111111'],
+['SV Elversberg','Elversberg','SVE',1,'Neunkirchen','#111111','#ffffff','Spiesen-Elversberg'],
+['1. FC Heidenheim','Heidenheim','FCH',2,'Heidenheim','#e2001a','#003b79'],
+['1. FC Kaiserslautern','Lautern','FCK',2,'Kaiserslautern','#e30613','#ffffff'],
+['1. FC Magdeburg','Magdeburg','FCM',2,'Magdeburg','#0060a8','#ffffff'],
+['1. FC Nürnberg','Nürnberg','FCN',2,'Nürnberg','#9b1b30','#111111'],
+['Arminia Bielefeld','Bielefeld','DSC',2,'Bielefeld','#004e95','#111111'],
+['Eintracht Braunschweig','Braunschweig','EBS',2,'Braunschweig','#ffd200','#1f4fa8'],
+['Energie Cottbus','Cottbus','FCE',2,'Cottbus','#e30613','#ffffff'],
+['FC St. Pauli','St. Pauli','STP',2,'Stormarn','#5c3a21','#ffffff','Hamburg'],
+['Hannover 96','Hannover','H96',2,'Region Hannover','#1a7a3b','#111111','Hannover'],
+['Hertha BSC','Hertha','BSC',2,'Havelland','#005ca9','#ffffff','Berlin'],
+['Holstein Kiel','Kiel','KSV',2,'Kiel','#0050a0','#e30613'],
+['Karlsruher SC','KSC','KSC',2,'Karlsruhe','#0b4ea2','#ffffff'],
+['Dynamo Dresden','Dresden','SGD',2,'Dresden','#ffd200','#111111'],
+['SpVgg Greuther Fürth','Fürth','SGF',2,'Fürth','#00915a','#ffffff'],
+['SV Darmstadt 98','Darmstadt','D98',2,'Darmstadt','#004e9e','#ffffff'],
+['VfL Bochum','Bochum','BOC',2,'Bochum','#005ca9','#ffffff'],
+['VfL Osnabrück','Osnabrück','OSN',2,'Osnabrück','#5a2d82','#ffffff'],
+['VfL Wolfsburg','Wolfsburg','WOB',2,'Wolfsburg','#65b32e','#ffffff'],
+['1. FC Saarbrücken','Saarbrücken','FCS',3,'Regionalverband Saarbrücken','#005ca9','#111111','Saarbrücken'],
+['Alemannia Aachen','Aachen','AAC',3,'Städteregion Aachen','#ffd200','#111111','Aachen'],
+['FC Ingolstadt 04','Ingolstadt','FCI',3,'Ingolstadt','#c8102e','#111111'],
+['Fortuna Düsseldorf','Düsseldorf','F95',3,'Düsseldorf','#e30613','#ffffff'],
+['Hansa Rostock','Rostock','HRO',3,'Rostock','#005ca9','#ffffff'],
+['MSV Duisburg','Duisburg','MSV',3,'Duisburg','#005ca9','#ffffff'],
+['Preußen Münster','Münster','PRM',3,'Münster','#111111','#00843d'],
+['Rot-Weiss Essen','RW Essen','RWE',3,'Essen','#e30613','#ffffff'],
+['SC Fortuna Köln','Fortuna Köln','FOR',3,'Rhein-Erft-Kreis','#d0021b','#ffffff','Köln'],
+['SC Verl','Verl','SCV',3,'Gütersloh','#111111','#ffffff','Verl'],
+['SG Sonnenhof Großaspach','Großaspach','SGS',3,'Rems-Murr-Kreis','#111111','#ffffff','Aspach'],
+['SSV Jahn Regensburg','Regensburg','SSV',3,'Regensburg','#d7192d','#ffffff'],
+['SV Meppen','Meppen','SVM',3,'Emsland','#0057b8','#ffffff','Meppen'],
+['SV Waldhof Mannheim','Waldhof','WAL',3,'Mannheim','#0a3a8c','#111111'],
+['SV Wehen Wiesbaden','Wehen','WEH',3,'Wiesbaden','#e30613','#111111'],
+['TSG Hoffenheim II','Hoffenheim II','TSG2',3,'Landkreis Heilbronn','#1c63b7','#ffffff','Sinsheim'],
+['TSV Havelse','Havelse','HAV',3,'Schaumburg','#0057b8','#ffffff','Garbsen'],
+['VfB Stuttgart II','VfB II','VFB2',3,'Ludwigsburg','#e32219','#ffffff','Stuttgart'],
+['FC Viktoria Köln','Viktoria','VIK',3,'Rheinisch-Bergischer Kreis','#e30613','#ffffff','Köln'],
+['Würzburger Kickers','Würzburg','FWK',3,'Würzburg','#e30613','#ffffff']];
+const CLUB=CLUBS.map((r,i)=>({i,name:r[0],mid:r[1],short:r[2],liga:r[3],home:cells.findIndex(c=>c.name===r[4]),c1:r[5],c2:r[6],town:r[7]||r[4]}));
+/* Jeder Kreis gehört anfangs dem (über Nachbarkreise gemessen) nächstgelegenen Verein */
+const CLUB_OF=(()=>{const own=new Array(N).fill(-1),dist=new Array(N).fill(Infinity);const adj=cells.map(()=>[]);for(const s of segs){adj[s.a].push(s.b);adj[s.b].push(s.a)}
+  const pq=[];CLUB.forEach(k=>{if(k.home<0)return;own[k.home]=k.i;dist[k.home]=0;pq.push([0,k.home])});
+  while(pq.length){let bi=0;for(let j=1;j<pq.length;j++)if(pq[j][0]<pq[bi][0])bi=j;const [d,x]=pq.splice(bi,1)[0];if(d>dist[x])continue;
+    for(const y of adj[x]){if(dist[y]===0)continue;const nd=d+Math.hypot(cells[x].cx-cells[y].cx,cells[x].cy-cells[y].cy);if(nd<dist[y]){dist[y]=nd;own[y]=own[x];pq.push([nd,y])}}}
+  cells.forEach(c=>{if(own[c.i]>=0)return;let b=0,bd=1e18;CLUB.forEach(k=>{const h=cells[k.home];const d=(h.cx-c.cx)**2+(h.cy-c.cy)**2;if(d<bd){bd=d;b=k.i}});own[c.i]=b});
+  return own})();
+const clubOfCell=ci=>CLUB[CLUB_OF[ci]];
+const ligaName=l=>l===1?'Bundesliga':l===2?'2. Bundesliga':'3. Liga';
+function clubBadgeHTML(k,cls){return '<div class="badge club '+(cls||'')+'" style="--c1:'+k.c1+';--c2:'+k.c2+'"><span>'+esc(k.short)+'</span></div>'}
 function kindName(c){return c.kind==='S'?'Kreisfreie Stadt':(/^(Region|Städteregion|Regionalverband)/.test(c.name)?'Kommunalverband':'Landkreis')}
 
 /* ================= Colors ================= */
@@ -561,7 +638,7 @@ const COMBOS=(()=>{const out=[];for(const a of PAL)for(const b of PAL){if(a===b)
 function colorsKreis(seed){const r=mulberry(seed);const ord=cells.map(c=>c.i).sort(()=>r()-.5);const col=new Array(N);for(const i of ord){let best=null;for(let t=0;t<40;t++){const cb=COMBOS[r()*COMBOS.length|0];let ok=true;for(const n of cells[i].nb){const o=col[n];if(o&&(o[0]===cb[0]||(o[0]===cb[1]&&o[1]===cb[0]))){ok=false;break}}if(ok){best=cb;break}if(!best)best=cb}col[i]=best}return col}
 
 /* ================= State ================= */
-const DEF_SET={fav:null,selfRoll:true,follow:true,lines:true,sound:true,coa:true,speed:0,mode:'kreis',rule:'total',lands:null,scope:'bund',final:true,command:false,bets:false,hl:true,top3:true,comm:true,haptic:true,voice:true,voiceName:'',evCap:true,evRev:true,evAlly:true,evRand:true,epLen:0,multi:false,aiPer:2,players:[{name:'Spieler 1',cell:null},{name:'Spieler 2',cell:null}]};
+const DEF_SET={fav:null,selfRoll:true,follow:true,lines:true,sound:true,coa:true,speed:0,mode:'kreis',rule:'total',lands:null,scope:'bund',final:true,command:false,bets:false,hl:true,top3:true,comm:true,haptic:true,voice:true,voiceName:'',voiceURI:'',evCap:true,evRev:true,evAlly:true,evRand:true,epLen:0,multi:false,aiPer:2,players:[{name:'Spieler 1',cell:null},{name:'Spieler 2',cell:null}]};
 let SET=Object.assign({},DEF_SET,store.get('kk_set')||{});
 if(!Array.isArray(SET.lands)||!SET.lands.length)SET.lands=LAND_KEYS.slice();
 if(!Array.isArray(SET.players)||SET.players.length<2)SET.players=DEF_SET.players.map(p=>({...p}));
@@ -569,11 +646,11 @@ let S=null,F=[];
 let ver=0;
 let PBOX=null;
 function mkFac(id,name,short,c1,c2,home,sub){return{id,name,short,c1,c2,home,sub,cells:new Set(),area:0,alive:true,wins:0,conq:0,taken:0,path:null,pat:null,lab:null}}
-function selValid(mode,lands){const act=cells.filter(c=>lands.includes(c.land));if(mode==='land')return lands.length>=2;return act.length>=2}
+function selValid(mode,lands){if(mode==='liga')return true;const act=cells.filter(c=>lands.includes(c.land));if(mode==='land')return lands.length>=2;return act.length>=2}
 function curCfg(){return{lands:SET.lands.slice(),scope:SET.scope,final:SET.final,ev:{cap:SET.evCap,rev:SET.evRev,ally:SET.evAlly,rand:SET.evRand},ep:SET.epLen|0,command:SET.command,multi:SET.multi,players:SET.players.map(p=>({name:p.name,cell:p.cell})),aiPer:SET.aiPer|0||2}}
 function newGame(mode,rule,seed,opt){
   opt=Object.assign(curCfg(),opt||{});
-  let lands=(opt.lands||LAND_KEYS).filter(k=>LANDS[k]);if(!selValid(mode,lands))lands=LAND_KEYS.slice();
+  let lands=(opt.lands||LAND_KEYS).filter(k=>LANDS[k]);if(!selValid(mode,lands)||mode==='liga')lands=LAND_KEYS.slice();
   const scope=mode==='kreis'&&opt.scope==='land'?'land':'bund';
   S={v:4,mode,rule,seed,lands,scope,final:opt.final!==false,phase:scope==='land'?'land':'bund',champs:{},owner:new Array(N).fill(-1),fights:0,upsets:0,log:[],best:null,over:false,champ:null,
      cfg:{ev:Object.assign({cap:true,rev:true,ally:true,rand:true},opt.ev||{}),ep:opt.ep|0,command:!!opt.command,multi:!!opt.multi,aiPer:opt.aiPer||2,players:opt.players||[]},
@@ -584,6 +661,9 @@ function newGame(mode,rule,seed,opt){
   if(mode==='land'){
     LAND_KEYS.forEach((k,idx)=>{const st=LAND_STYLE[k];const home=cells.filter(c=>c.land===k).sort((a,b)=>b.area-a.area)[0].i;F.push(mkFac(idx,LANDS[k],st[0],st[1],st[2],home,'Bundesland'))});
     cells.forEach(c=>{if(S.act[c.i])S.owner[c.i]=LAND_KEYS.indexOf(c.land)});
+  }else if(mode==='liga'){
+    CLUB.forEach(k=>{const f=mkFac(k.i,k.name,k.short,k.c1,k.c2,k.home,ligaName(k.liga)+' · '+k.town);f.mid=k.mid;f.liga=k.liga;F.push(f)});
+    cells.forEach(c=>{S.owner[c.i]=CLUB_OF[c.i]});
   }else{
     const col=colorsKreis(seed);
     cells.forEach(c=>{F.push(mkFac(c.i,c.name,c.label,col[c.i][0],col[c.i][1],c.i,kindName(c)+' · '+c.land));if(S.act[c.i])S.owner[c.i]=c.i});
@@ -595,7 +675,7 @@ function newGame(mode,rule,seed,opt){
   rebuildFac();
 }
 const PCOLS=['#7cc8ff','#ff8a5c','#9cff8a','#ffd84d','#d68cff','#ff6b9a'];
-function cellFac(ci){return S.mode==='land'?LAND_KEYS.indexOf(cells[ci].land):ci}
+function cellFac(ci){return S.mode==='land'?LAND_KEYS.indexOf(cells[ci].land):S.mode==='liga'?CLUB_OF[ci]:ci}
 function setupHumans(){S.humans=[];const seen=new Set();
   if(S.cfg.multi){S.cfg.players.forEach((p,k)=>{if(p.cell==null||!S.act[p.cell])return;const fid=cellFac(p.cell);if(seen.has(fid))return;seen.add(fid);S.humans.push({name:p.name||('Spieler '+(k+1)),fid,cell:p.cell,color:PCOLS[k%6]})})}
   else if(S.cfg.command&&SET.fav!=null&&S.act[SET.fav]){S.humans.push({name:'Du',fid:cellFac(SET.fav),cell:SET.fav,color:PCOLS[0]})}}
@@ -629,7 +709,7 @@ function saveSet(){store.set('kk_set',SET)}
 const aliveF=()=>F.filter(f=>f.alive);
 const pct=f=>f.area/S.total*100;
 const mult=f=>Math.min(2,1+Math.floor(pct(f)/4)*.1);
-function favFac(){if(SET.fav==null||!S)return -1;return S.mode==='land'?LAND_KEYS.indexOf(cells[SET.fav].land):SET.fav}
+function favFac(){if(SET.fav==null||!S)return -1;return cellFac(SET.fav)}
 const facLand=f=>cells[f.home].land;
 function landStatus(k){const own=new Map();let n=0;cells.forEach(c=>{if(c.land!==k||!S.act[c.i])return;n++;const o=S.owner[c.i];own.set(o,(own.get(o)||0)+1)});let lead=-1,lc=0;own.forEach((v,o)=>{if(v>lc){lc=v;lead=o}});return{n,lead,lc,owners:own.size}}
 function boxOfCells(set,minS){let b=[1e9,1e9,-1e9,-1e9];for(const c of set){const q=cells[c].bb;b[0]=Math.min(b[0],q[0]);b[1]=Math.min(b[1],q[1]);b[2]=Math.max(b[2],q[2]);b[3]=Math.max(b[3],q[3])}const m=minS==null?70:minS;const cx=(b[0]+b[2])/2,cy=(b[1]+b[3])/2,w=Math.max(m,b[2]-b[0]),h=Math.max(m,b[3]-b[1]);return[cx-w/2,cy-h/2,cx+w/2,cy+h/2]}
@@ -647,7 +727,7 @@ function titlesFor(c){const n=c.name;
   if(/kreis|^Region |^Städteregion|^Regionalverband/i.test(n))return[n,'Landkreis '+n.replace(/^Landkreis /,'')];
   if(c.land==='NW'||c.land==='SH')return['Kreis '+n,'Landkreis '+n];
   return['Landkreis '+n,'Kreis '+n];}
-const coaKeyFac=f=>S&&S.mode==='land'?'L'+LAND_KEYS[f.id]:'c'+f.home;
+const coaKeyFac=f=>S&&S.mode==='land'?'L'+LAND_KEYS[f.id]:S&&S.mode==='liga'?'V'+f.id:'c'+f.home;
 function coaURL(f){return 'https://commons.wikimedia.org/wiki/Special:FilePath/'+encodeURIComponent(f)+'?width=128'}
 function coaFile(key){return SET.coa&&COA[key]?COA[key]:null}
 function coaImg(key){const f=coaFile(key);if(!f)return null;let im=coaImgs[key];if(!im){im=new Image();im.decoding='async';im.onload=()=>{im._ok=true;dirty=true};im.onerror=()=>{im._bad=true};im.src=coaURL(f);coaImgs[key]=im}return im._ok?im:null}
@@ -779,20 +859,28 @@ function renderBase(){
 function glow(p,rgb,a,s){if(!p)return;ctx.strokeStyle='rgba('+rgb+','+(a*.22).toFixed(3)+')';ctx.lineWidth=9/s;ctx.stroke(p);ctx.strokeStyle='rgba('+rgb+','+(a*.5).toFixed(3)+')';ctx.lineWidth=4.5/s;ctx.stroke(p);ctx.strokeStyle='rgba(255,255,255,'+(a*.95).toFixed(3)+')';ctx.lineWidth=1.6/s;ctx.stroke(p)}
 const FONT='ui-rounded,-apple-system,system-ui,sans-serif';
 function txt(str,x,y,fs,alpha,wt){ctx.font=(wt||900)+' '+fs.toFixed(1)+'px '+FONT;ctx.globalAlpha=alpha;ctx.lineWidth=Math.max(2,fs*.24);ctx.strokeStyle='rgba(0,0,0,.78)';ctx.strokeText(str,x,y);ctx.fillStyle='#fff';ctx.fillText(str,x,y);ctx.globalAlpha=1}
+const clubImgs={};
+function clubImg(f){let c=clubImgs[f.id];if(c)return c;c=document.createElement('canvas');const Z=96,r=Z/2;c.width=c.height=Z;const x=c.getContext('2d');
+  x.beginPath();x.arc(r,r,r-2,0,Math.PI*2);x.fillStyle='rgba(255,255,255,.95)';x.fill();
+  x.beginPath();x.arc(r,r,r-7,0,Math.PI*2);x.fillStyle=f.c2;x.fill();
+  x.beginPath();x.arc(r,r,r-15,0,Math.PI*2);x.fillStyle=f.c1;x.fill();
+  const t=f.short;x.font='900 '+(t.length>3?21:27)+'px '+FONT;x.textAlign='center';x.textBaseline='middle';
+  const light=lum(f.c1)>.4;x.lineWidth=4;x.strokeStyle=light?'rgba(255,255,255,.6)':'rgba(0,0,0,.45)';x.strokeText(t,r,r+1);x.fillStyle=light?'#111':'#fff';x.fillText(t,r,r+1);
+  c.naturalWidth=Z;c.naturalHeight=Z;clubImgs[f.id]=c;return c}
 function drawCoa(im,x,y,sz,alpha){const iw=im.naturalWidth||1,ih=im.naturalHeight||1;const k=sz/Math.max(iw,ih);const w=iw*k,h=ih*k;ctx.globalAlpha=alpha;ctx.save();ctx.drawImage(im,x-w/2,y-h/2,w,h);ctx.restore();ctx.globalAlpha=1}
 const CITY_NAMES=new Set(cells.filter(c=>c.kind==='S').map(c=>c.name));
 function mapNameStr(n,kind){let b=n.replace(/^Landkreis /,'');const dup=kind==='L'&&CITY_NAMES.has(b)&&n!==b;
   b=b.replace(/^Städteregion /,'Städteregion ').replace(/^Regionalverband /,'RV ').replace(/^Eifelkreis /,'').replace(/^Kreis /,'').replace(/-Kreis$/,'')
      .replace(/ an der /g,' a. d. ').replace(/ in der /g,' i. d. ').replace(/ am /g,' a. ').replace(/ im /g,' i. ');
   return dup?'Lkr. '+b:b}
-function mapName(f){if(f._mn)return f._mn;f._mn=S.mode==='land'?f.name:mapNameStr(f.name,cells[f.home].kind);return f._mn}
+function mapName(f){if(f._mn)return f._mn;f._mn=S.mode==='land'?f.name:S.mode==='liga'?f.mid:mapNameStr(f.name,cells[f.home].kind);return f._mn}
 function cellMapName(c){if(c._mn)return c._mn;c._mn=mapNameStr(c.name,c.kind);return c._mn}
 function wrapLabel(name,maxW){const w=ctx.measureText(name).width;if(w<=maxW)return[[name],w];
   let best=null;for(let k=1;k<name.length-1;k++){const ch=name[k];if(ch!==' '&&ch!=='-')continue;const a=name.slice(0,ch==='-'?k+1:k),b=name.slice(k+1);const m=Math.max(ctx.measureText(a).width,ctx.measureText(b).width);if(!best||m<best[1])best=[[a,b],m]}
   return best&&best[1]<=maxW?best:null}
 function drawLabels(){
   ctx.textAlign='center';ctx.textBaseline='middle';ctx.lineJoin='round';
-  const s=cam.s,fav=favFac();const placed=[];let coats=0;const foc=focus&&focus.on;const maxCoats=foc?3:7;
+  const s=cam.s,fav=favFac();const placed=[];let coats=0;const foc=focus&&focus.on;const lg=S.mode==='liga';const maxCoats=foc?3:lg?14:7;
   const hit=r=>{if(r[2]<0||r[0]>W||r[3]<0||r[1]>H)return false;for(const q of placed)if(r[0]<q[2]&&r[2]>q[0]&&r[1]<q[3]&&r[3]>q[1])return true;return false};
   const list=[];const vis=new Map();const m=20;
   for(const c of cells){const o=S.owner[c.i];if(o<0)continue;const [x,y]=w2s(c.cx,c.cy);if(x<m||x>W-m||y<vp.y||y>H-m)continue;let v=vis.get(o);if(!v){v={a:0,best:null};vis.set(o,v)}v.a+=c.area;if(!v.best||c.area>v.best.area)v.best=c}
@@ -814,7 +902,7 @@ function drawLabels(){
     if(!wl){const w=ctx.measureText(f.short).width;if(w>maxW*1.3&&!inv&&!mine)continue;wl=[[f.short],w]}
     const lines=wl[0],tw=wl[1],th=lines.length*fs*1.08;
     let im=null,sz=0;
-    if(SET.coa&&(inv||mine||(coats<maxCoats&&side>=110))){im=coaImg(coaKeyFac(f));if(im)sz=inv?50:mine?36:Math.min(40,side*.26)}
+    if((SET.coa||lg)&&(inv||mine||(coats<maxCoats&&side>=(lg?70:110)))){im=lg?clubImg(f):coaImg(coaKeyFac(f));if(im)sz=inv?50:mine?36:Math.min(40,side*.26)}
     let tot=th+(im?sz+3:0),top=y-tot/2,ww=Math.max(tw,sz);
     let r=[x-ww/2-4,top-3,x+ww/2+4,top+tot+3];
     if(hit(r)){if(im&&!inv){im=null;sz=0;tot=th;top=y-tot/2;r=[x-tw/2-4,top-3,x+tw/2+4,top+tot+3]}if(hit(r)&&inv){for(const dy of [tot+8,-(tot+8),2*(tot+8)]){const r2=[r[0],r[1]+dy,r[2],r[3]+dy];if(!hit(r2)){top+=dy;r=r2;break}}}if(hit(r)&&!inv&&!mine)continue}
@@ -918,10 +1006,10 @@ function showDie(el,v){const c=el.firstChild;const b=BASE[v];const nx=b[0]+360*(
 /* ================= Fight card ================= */
 const sideEl={A:$('#sA'),D:$('#sD')};
 function coaTag(f){const file=f&&S?coaFile(coaKeyFac(f)):null;return file?'<img class="coa" alt="" src="'+coaURL(file)+'" onload="this.classList.add(\'ok\')" onerror="this.parentNode.classList.remove(\'has-coa\');this.remove()">':''}
-function setBadge(el,f){el.style.setProperty('--c1',f.c1);el.style.setProperty('--c2',f.c2);const t=coaTag(f);el.classList.toggle('has-coa',!!t);el.innerHTML=t+'<span>'+esc(f.short)+'</span>'}
-function badgeHTML(f,cls){const t=coaTag(f);return '<div class="badge '+(cls||'')+(t?' has-coa':'')+'" style="--c1:'+f.c1+';--c2:'+f.c2+'">'+t+'<span>'+esc(f.short)+'</span></div>'}
+function setBadge(el,f){el.style.setProperty('--c1',f.c1);el.style.setProperty('--c2',f.c2);const t=coaTag(f);el.classList.toggle('has-coa',!!t);el.classList.toggle('club',!!(S&&S.mode==='liga'));el.innerHTML=t+'<span>'+esc(f.short)+'</span>'}
+function badgeHTML(f,cls){const t=coaTag(f);return '<div class="badge '+(cls||'')+(S&&S.mode==='liga'?' club':'')+(t?' has-coa':'')+'" style="--c1:'+f.c1+';--c2:'+f.c2+'">'+t+'<span>'+esc(f.short)+'</span></div>'}
 function landCoaHTML(k,cls){const file=coaFile('L'+k);const st=LAND_STYLE[k];return file?'<img class="'+(cls||'lw-sm')+'" alt="" src="'+coaURL(file)+'">':'<div class="badge mb" style="--c1:'+st[1]+';--c2:'+st[2]+'"><span>'+LAND_SHORT[k]+'</span></div>'}
-function fillSide(k,f){const el=sideEl[k];el.className='side '+(k==='A'?'att':'def');const b=el.querySelector('.badge');b.style.animation='none';void b.offsetWidth;b.style.animation='';setBadge(b,f);el.querySelector('.nm').textContent=shortName(f.name);el.querySelector('.inf').textContent=fmtPct(pct(f))+' Fläche · ×'+fmt1(mult(f));el.querySelector('.score').textContent='0,0'}
+function fillSide(k,f){const el=sideEl[k];el.className='side '+(k==='A'?'att':'def');const b=el.querySelector('.badge');b.style.animation='none';void b.offsetWidth;b.style.animation='';setBadge(b,f);el.querySelector('.nm').textContent=S&&S.mode==='liga'?f.mid:shortName(f.name);el.querySelector('.inf').textContent=fmtPct(pct(f))+' Fläche · ×'+fmt1(mult(f));el.querySelector('.score').textContent='0,0'}
 function shortName(n){return n.replace(/^Landkreis /,'').replace(/^Städteregion /,'StR ').replace(/^Regionalverband /,'RV ').replace(/^Region /,'Region ')}
 function setScore(k,v){const e=sideEl[k].querySelector('.score');const from=parseFloat(e.textContent.replace(',','.'))||0;const t0=performance.now(),d=320/Math.min(speedMul,4);(function step(n){const p=clamp((n-t0)/d,0,1);e.textContent=fmt1(lerp(from,v,easeOut(p)));if(p<1)requestAnimationFrame(step)})(t0);e.classList.add('bump');setTimeout(()=>e.classList.remove('bump'),220)}
 function showFight(on){const el=$('#fight');const was=!el.classList.contains('off');if(on===was)return;el.classList.toggle('off',!on);updateVP();if(!on&&camBox&&!userCam)flyTo(camBox,600)}
@@ -958,6 +1046,7 @@ function transfer(ci,W,L){S.owner[ci]=W.id;L.cells.delete(ci);W.cells.add(ci);co
 function finishTransfer(W,L){if(L.cells.size===0){L.alive=false;L.pat=null;W.conq++}}
 function bonusOf(f,role,fi){let b=0;const tags=[];
   const bo=S.fx.boost[f.id];if(bo&&bo.n>0){b+=bo.v;tags.push(bo.e+(bo.v>0?'+':'−')+Math.abs(bo.v))}
+  if(S.mode==='liga'&&f.liga<3){const v=f.liga===1?1:.5;b+=v;tags.push('⚽+'+(v===1?'1':'0,5'))}
   if(S.cfg.ev.ally&&allyOf(f.id).length){b+=2;tags.push('🤝+2')}
   if(S.cfg.ev.cap&&role==='D'&&S.owner[f.home]===f.id){if(S.rule==='grenz'){if(fi.cd===f.home){b+=2;tags.push('🏰+2')}}else{b+=1;tags.push('🏰+1')}}
   return{b,tags}}
@@ -991,11 +1080,11 @@ function afterFight(fi,res,W,L,take,aW,aL){
   return{up,elim,rv}}
 /* ---- events, alliances, revolts ---- */
 const EVENTS=[
- {id:'flood',em:'🌊',t:'Hochwasser',d:f=>shortName(f.name)+' ist 5 Kämpfe lang nicht angreifbar',apply:f=>{S.fx.shield[f.id]=S.fights+5}},
- {id:'fest',em:'🎪',t:'Volksfest',d:f=>shortName(f.name)+' feiert: +3 im nächsten Kampf',apply:f=>{S.fx.boost[f.id]={v:3,n:1,e:'🎪'}}},
- {id:'fund',em:'💰',t:'Fördergelder',d:f=>shortName(f.name)+' kämpft 4 Kämpfe lang mit +1',apply:f=>{S.fx.boost[f.id]={v:1,n:4,e:'💰'}}},
- {id:'flu',em:'🤧',t:'Grippewelle',d:f=>shortName(f.name)+' ist geschwächt: −2 im nächsten Kampf',apply:f=>{S.fx.boost[f.id]={v:-2,n:1,e:'🤧'}}},
- {id:'road',em:'🚧',t:'Vollsperrung',d:f=>shortName(f.name)+' kann 4 Kämpfe lang nicht angreifen',apply:f=>{S.fx.stun[f.id]=S.fights+4}}];
+ {id:'flood',em:'🌊',t:'Hochwasser',lt:'Länderspielpause',d:f=>shortName(f.name)+' ist 5 Kämpfe lang nicht angreifbar',apply:f=>{S.fx.shield[f.id]=S.fights+5}},
+ {id:'fest',em:'🎪',t:'Volksfest',lt:'Fan-Choreo',d:f=>shortName(f.name)+' feiert: +3 im nächsten Kampf',apply:f=>{S.fx.boost[f.id]={v:3,n:1,e:'🎪'}}},
+ {id:'fund',em:'💰',t:'Fördergelder',lt:'Neuer Sponsor',d:f=>shortName(f.name)+' kämpft 4 Kämpfe lang mit +1',apply:f=>{S.fx.boost[f.id]={v:1,n:4,e:'💰'}}},
+ {id:'flu',em:'🤧',t:'Grippewelle',lt:'Verletzungspech',d:f=>shortName(f.name)+' ist geschwächt: −2 im nächsten Kampf',apply:f=>{S.fx.boost[f.id]={v:-2,n:1,e:'🤧'}}},
+ {id:'road',em:'🚧',t:'Vollsperrung',lt:'Transfersperre',d:f=>shortName(f.name)+' kann 4 Kämpfe lang nicht angreifen',apply:f=>{S.fx.stun[f.id]=S.fights+4}}];
 function preEvents(){const out=[];if(S.fights<3)return out;const al=aliveF().sort((a,b)=>a.id-b.id);if(al.length<3)return out;
   if(S.cfg.ev.ally){S.allies=S.allies.filter(x=>x.until>S.fights&&F[x.a].alive&&F[x.b].alive);
     if(al.length>3&&S.allies.length<Math.floor(al.length/6)+1&&grnd()<.08){const f=gpick(al);const m=fightPairs(f.id,true);const ns=[...new Set((m.get(f.id)||[]).map(p=>S.owner[p[1]]))].filter(d=>!allied(f.id,d)).sort((a,b)=>a-b);
@@ -1017,7 +1106,7 @@ function applyRevolt(e){const big=F[e.big],R=F[e.rebel];R.alive=true;
   if(isMine(R.id))unlock('rebel');
   S.log.push({n:S.fights,rv:1,a:big.id,d:R.id,k:e.cells.length});}
 function evText(x){if(x.type==='ally'){const a=F[x.a],b=F[x.b];return{em:'🤝',t1:'Bündnis: '+a.short+' & '+b.short,t2:'Kein Angriff aufeinander · beide kämpfen mit +2'}}
-  if(x.type==='event'){const e=EVENTS.find(q=>q.id===x.e);const f=F[x.f];return{em:e.em,t1:e.t+' in '+shortName(f.name),t2:e.d(f)}}
+  if(x.type==='event'){const e=EVENTS.find(q=>q.id===x.e);const f=F[x.f];if(S.mode==='liga')return{em:e.em,t1:e.lt+' bei '+f.mid,t2:e.d(f).replace(shortName(f.name),f.mid)};return{em:e.em,t1:e.t+' in '+shortName(f.name),t2:e.d(f)}}
   if(x.type==='revolt'){const b=F[x.big],r=F[x.rebel];return{em:'🔥',t1:'Aufstand gegen '+b.short+'!',t2:x.cells.length+' '+(x.cells.length===1?'Kreis reißt':'Kreise reißen')+' sich los · '+r.short+' ist zurück'}}
   return{em:'ℹ️',t1:'',t2:''}}
 function evFx(x){if(x.type==='revolt'){x.cells.forEach(c=>{ring(cells[c].cx,cells[c].cy,'rgba(255,90,60,.95)',70,900);burst(cells[c].cx,cells[c].cy,['#ff5a36','#ffd84d','#fff'],14,180)});shake(8);sfx('sens')}
@@ -1180,7 +1269,7 @@ function phaseAnnounce(){holdUntil=performance.now()+3200;const n=aliveF().lengt
 const HOF_KEY='kk_hof';
 let HOF=Object.assign({games:0,fights:0,titles:{},ltitles:{},kreis:{},rec:{},bets:{pts:0,n:0,ok:0,best:0},ach:{},cmdWins:0},store.get(HOF_KEY)||{});
 function saveHof(){store.set(HOF_KEY,HOF)}
-const hofKey=f=>S.mode==='land'?'L'+LAND_KEYS[f.id]:'c'+f.home;
+const hofKey=f=>S.mode==='land'?'L'+LAND_KEYS[f.id]:S.mode==='liga'?'V'+f.id:'c'+f.home;
 function hofFight(W,L,up,aW,aL){HOF.fights++;const a=HOF.kreis[hofKey(W)]=HOF.kreis[hofKey(W)]||[0,0];a[0]++;a[1]++;const b=HOF.kreis[hofKey(L)]=HOF.kreis[hofKey(L)]||[0,0];b[1]++;
   if(up){const r=aL/Math.max(1,aW);if(!HOF.rec.upset||r>HOF.rec.upset.r)HOF.rec.upset={r,w:hofKey(W),l:hofKey(L)}}}
 function hofGameEnd(champ){HOF.games++;
@@ -1197,10 +1286,11 @@ const ACH=[['first','🏆','Erster Titel','Dein Kreis gewinnt ein Spiel'],['unde
  ['turbo','🚀','Turbo-Fan','Spiel im Turbo beendet'],['hotseat','👥','Spieleabend','Mehrspieler-Spiel beendet'],['collector','👑','Dynastie','Mein Kreis holt 3 Titel']];
 function unlock(id){if(HOF.ach[id])return;HOF.ach[id]=Date.now();saveHof();const a=ACH.find(x=>x[0]===id);if(!a)return;
   setTimeout(()=>{miniToast('🏅','Erfolg: '+a[2],a[3],2800);sfx('win');confettiRain(['#ffe08a','#ffffff','#8fd3ff'])},isTurbo()?0:500)}
-function hofItem(key){if(key[0]==='L'){const k=key.slice(1);const st=LAND_STYLE[k];return{short:st[0],name:LANDS[k],c1:st[1],c2:st[2],coa:key}}
+function hofItem(key){if(key[0]==='V'){const k=CLUB[+key.slice(1)]||CLUB[0];return{short:k.short,name:k.name,c1:k.c1,c2:k.c2,coa:key,club:1}}
+  if(key[0]==='L'){const k=key.slice(1);const st=LAND_STYLE[k];return{short:st[0],name:LANDS[k],c1:st[1],c2:st[2],coa:key}}
   const i=+key.slice(1);const c=cells[i];const f=S&&S.mode==='kreis'?F[i]:null;return{short:c.label,name:c.name,c1:f?f.c1:'#3a4766',c2:f?f.c2:'#ffffff',coa:key}}
 function hofBadge(it){const file=coaFile(it.coa);const t=file?'<img class="coa" alt="" src="'+coaURL(file)+'" onload="this.classList.add(\'ok\')" onerror="this.parentNode.classList.remove(\'has-coa\');this.remove()">':'';
-  return '<div class="badge mb'+(t?' has-coa':'')+'" style="--c1:'+it.c1+';--c2:'+it.c2+'">'+t+'<span>'+esc(it.short)+'</span></div>'}
+  return '<div class="badge mb'+(it.club?' club':'')+(t?' has-coa':'')+'" style="--c1:'+it.c1+';--c2:'+it.c2+'">'+t+'<span>'+esc(it.short)+'</span></div>'}
 
 /* ================= UI updates ================= */
 /* ---- Haptik ---- */
@@ -1219,17 +1309,39 @@ const CAPS=new Set(['Kiel','Hamburg','Bremen','Region Hannover','Düsseldorf','W
 let commT=null;
 /* ---- Sprecher (Web Speech API) ---- */
 const SYN=('speechSynthesis' in window)?window.speechSynthesis:null;let VOICE=null,voiceOK=false;
-function pickVoice(){if(!SYN)return;const all=SYN.getVoices();if(!all.length)return;const vs=all.filter(v=>/^de/i.test(v.lang));
-  if(SET.voiceName){const m=all.find(v=>v.name===SET.voiceName);if(m){VOICE=m;fillVoices(all);return}}
-  if(!vs.length){VOICE=null;fillVoices(all);return}
-  const score=v=>(SET.voiceName&&v.name===SET.voiceName?100:0)+(/premium|erweitert|enhanced/i.test(v.name)?20:0)+(/anna|helena|markus|petra|yannick|viktor/i.test(v.name)?6:0)+(v.lang==='de-DE'?4:0)+(v.localService?2:0);
-  VOICE=vs.sort((a,b)=>score(b)-score(a))[0];fillVoices(all)}
-function fillVoices(all){const sel=$('#voiceSel');if(!sel)return;let dn=null;try{dn=new Intl.DisplayNames(['de'],{type:'language'})}catch(e){}
-  const groups=new Map();all.forEach(v=>{const base=(v.lang||'?').replace('_','-');let lab=base;try{lab=dn?dn.of(base):base}catch(e){}if(!groups.has(lab))groups.set(lab,[]);groups.get(lab).push(v)});
-  const keys=[...groups.keys()].sort((a,b)=>(/^Deutsch/.test(b)-/^Deutsch/.test(a))||a.localeCompare(b,'de'));
-  sel.innerHTML=keys.map(k=>'<optgroup label="'+esc(k)+'">'+groups.get(k).sort((a,b)=>a.name.localeCompare(b.name)).map(v=>'<option value="'+esc(v.name)+'"'+(v===VOICE?' selected':'')+'>'+esc(v.name)+(/premium|erweitert|enhanced/i.test(v.name)?' ★':'')+'</option>').join('')+'</optgroup>').join('');
-  const n=$('#voiceNote');if(n)n.textContent=all.length+' Stimmen auf diesem Gerät · aktuell: '+(VOICE?VOICE.name:'Standard')+(VOICE&&!/^de/i.test(VOICE.lang)?' (liest Deutsch mit Akzent)':'')}
-if(SYN){pickVoice();SYN.onvoiceschanged=pickVoice;setTimeout(pickVoice,800)}
+/* Alle deutschen (Deutschland) iOS-Stimmen. Webseiten sehen nur geladene Stimmen; der Rest wird grau gezeigt. */
+const DE_CAT=[['Anna',['compact','enhanced','premium']],['Helena',['compact']],['Markus',['compact','enhanced']],['Martin',['compact']],['Petra',['compact','enhanced','premium']],['Viktor',['compact','enhanced']],['Yannick',['compact','enhanced']]];
+const DE_ELO=['Eddy','Flo','Grandma','Grandpa','Reed','Rocko','Sandy','Shelley'];
+const ELO_DE={Grandma:'Oma',Grandpa:'Opa'};
+const QORD={compact:0,enhanced:1,premium:2};
+const isDE=v=>/^de[-_]DE$/i.test(v.lang||'');
+function vQual(v){const u=(v.voiceURI||'')+' '+v.name;if(/eloquence/i.test(u))return'elo';if(/premium/i.test(u))return'premium';if(/enhanced|erweitert|verbessert/i.test(u))return'enhanced';if(/compact|kompakt|ttsbundle|Standard/i.test(u))return'compact';return null}
+function vBase(v){return String(v.name||'').replace(/\s*\(.*\)\s*$/,'').trim()}
+const qSuf=q=>q==='enhanced'?' (erweitert)':q==='premium'?' (premium)':'';
+function vLabel(v){const b=vBase(v),q=vQual(v);return q==='elo'?(ELO_DE[b]?ELO_DE[b]+' ('+b+')':b):b+qSuf(q)}
+function deVoices(){return SYN?SYN.getVoices().filter(isDE):[]}
+function voiceKey(v){return v.voiceURI||v.name}
+function pickVoice(){if(!SYN)return;const vs=deVoices();let m=null;
+  if(SET.voiceURI)m=vs.find(v=>voiceKey(v)===SET.voiceURI)||null;
+  if(!m&&SET.voiceName)m=vs.find(v=>v.name===SET.voiceName)||null;
+  if(!m&&vs.length){const sc=v=>{const q=vQual(v);return(q==='premium'?30:q==='enhanced'?20:q==='elo'?-20:0)+(/anna|petra|helena|markus|yannick|viktor|martin/i.test(v.name)?6:0)+(v.localService?2:0)};m=vs.slice().sort((a,b)=>sc(b)-sc(a))[0]}
+  VOICE=m;fillVoices()}
+function voiceCatalog(){const vs=deVoices();const used=new Set();const main=[],elo=[];
+  DE_CAT.forEach(([n,qs])=>{const mine=vs.filter(v=>vBase(v)===n&&vQual(v)!=='elo');mine.forEach(v=>used.add(v));
+    const rows=mine.map(v=>({l:vLabel(v),k:voiceKey(v),ok:true,o:QORD[vQual(v)]!=null?QORD[vQual(v)]:1}));
+    const known=mine.every(v=>QORD[vQual(v)]!=null);const have=new Set(mine.map(vQual));
+    if(known)qs.forEach(q=>{if(!have.has(q))rows.push({l:n+qSuf(q),ok:false,o:QORD[q]})});
+    rows.sort((a,b)=>a.o-b.o).forEach(r=>main.push(r))});
+  DE_ELO.forEach(n=>{const mine=vs.filter(v=>vBase(v)===n);mine.forEach(v=>used.add(v));
+    if(mine.length)mine.forEach(v=>elo.push({l:vLabel(v),k:voiceKey(v),ok:true}));else elo.push({l:ELO_DE[n]?ELO_DE[n]+' ('+n+')':n,ok:false})});
+  vs.filter(v=>!used.has(v)).forEach(v=>(vQual(v)==='elo'?elo:main).push({l:vLabel(v),k:voiceKey(v),ok:true}));
+  return{main,elo,have:vs.length,total:main.length+elo.length}}
+function fillVoices(){const sel=$('#voiceSel');if(!sel)return;const cat=voiceCatalog();const cur=VOICE?voiceKey(VOICE):'';
+  const opt=r=>r.ok?'<option value="'+esc(r.k)+'"'+(r.k===cur?' selected':'')+'>'+esc(r.l)+'</option>':'<option disabled>'+esc(r.l)+' – nicht geladen</option>';
+  sel.innerHTML=(cur?'':'<option value="" selected>Standard (Deutsch)</option>')+'<optgroup label="Deutsch (Deutschland)">'+cat.main.map(opt).join('')+'</optgroup><optgroup label="Eloquence">'+cat.elo.map(opt).join('')+'</optgroup>';
+  const n=$('#voiceNote');if(n)n.innerHTML=(cat.have?cat.have+' von '+cat.total+' deutschen Stimmen geladen':'Noch keine deutsche Stimme geladen')+' · aktiv: '+esc(VOICE?vLabel(VOICE):'Standard')+
+    (cat.have<cat.total?'<br>Graue Stimmen laden: iPhone-Einstellungen › Bedienungshilfen › Gesprochene Inhalte › Stimmen › Deutsch. Danach die App neu öffnen.':'')}
+if(SYN){pickVoice();SYN.onvoiceschanged=pickVoice;setTimeout(pickVoice,800);setTimeout(pickVoice,2500)}
 function voiceUnlock(){if(!SYN||voiceOK)return;try{const u=new SpeechSynthesisUtterance(' ');u.volume=0;SYN.speak(u);voiceOK=true}catch(e){}}
 function voiceStop(){try{SYN&&SYN.cancel()}catch(e){}}
 let sayEnd=0;
@@ -1238,11 +1350,12 @@ function say(t,o){o=o||{};if(!SYN||!t||(!SET.voice&&!o.force)||(isTurbo()&&!o.fo
   u.rate=clamp((o.hype?1.12:1.04)*(speedMul>=2?1.15:1),.5,1.6);u.pitch=o.hype?1.15:1;u.volume=1;SYN.speak(u);
   const est=Math.min(6000,600+t.length*62/u.rate);sayEnd=performance.now()+est;return est}catch(e){return 0}}
 async function sayWait(maxMs){if(!SYN||!SET.voice||isTurbo())return;const t0=performance.now();while((SYN.speaking||SYN.pending)&&performance.now()-t0<maxMs&&!abortFlag){await new Promise(r=>setTimeout(r,120))}}
-$('#voiceSel').addEventListener('change',e=>{SET.voiceName=e.target.value;saveSet();pickVoice();voiceUnlock();say('So klinge ich als Kommentator.',{force:true})});
+$('#voiceSel').addEventListener('change',e=>{SET.voiceURI=e.target.value;SET.voiceName='';saveSet();pickVoice();voiceUnlock();say('So klinge ich als Kommentator.',{force:true})});
 $('#voiceTest').addEventListener('click',()=>{voiceUnlock();say('Kampf zwölf: Unna greift Dortmund an! Dreimal die Sechs – was für ein Wurf!',{force:true,hype:true})});
 ['pointerdown','touchend','click'].forEach(n=>document.addEventListener(n,()=>{if(SET.voice)voiceUnlock()},{passive:true}));
 function showComm(t){say(t,{hype:/Sensation|Unfassbar|Dreimal|Goliath|Landeshauptstadt|Tabellenführung/.test(t||'')});if(!SET.comm||!t||isTurbo())return;const el=$('#comm');$('#commT').textContent=t;aboveFight(el,10);el.classList.remove('on');void el.offsetWidth;el.classList.add('on');clearTimeout(commT);commT=setTimeout(()=>el.classList.remove('on'),3400/Math.min(speedMul,3))}
-function comment(fi,res,W,L,take,up,leadBefore,aW,aL){const rr=a=>a[Math.random()*a.length|0];const w=shortName(W.name),l=shortName(L.name);
+function comment(fi,res,W,L,take,up,leadBefore,aW,aL){const rr=a=>a[Math.random()*a.length|0];const lg=S.mode==='liga';const w=lg?W.mid:shortName(W.name),l=lg?L.mid:shortName(L.name);
+  if(lg&&W.liga-L.liga>=2)return{n:1,t:rr(['Pokalsensation! Drittligist '+w+' schlägt Erstligist '+l+'!','Der Underdog beißt zu: '+w+' aus der 3. Liga besiegt '+l+'!'])};
   const dice=res.r[res.aw?'A':'D'];const sumW=dice.reduce((a,b)=>a+b,0);const cap=take.find(c=>CAPS.has(cells[c].name));
   if(up)return{n:1,t:rr(['Was für eine Sensation! '+w+' schlägt das '+fmt1(aL/Math.max(1,aW))+'× größere '+l+'!','David gegen Goliath – und David gewinnt! '+w+' wirft '+l+' raus!','Unfassbar! '+w+' dreht die Partie gegen '+l+'!'])};
   if(cap!=null&&cells[cap].name!==W.name)return{n:1,t:w+' erobert die Landeshauptstadt '+shortName(cells[cap].name)+'!'};
@@ -1252,10 +1365,11 @@ function comment(fi,res,W,L,take,up,leadBefore,aW,aL){const rr=a=>a[Math.random(
   if(Math.abs(res.sA-res.sD)<=1)return{n:0,t:rr(['Hauchdünn! '+fmt1(res.sA)+' zu '+fmt1(res.sD)+' – das war knapp.','Ein Krimi bis zum letzten Würfel!'])};
   if(!res.aw)return{n:0,t:rr([w+' steht wie eine Mauer!','Abgewehrt! '+w+' lässt '+l+' abblitzen.','Was für eine Verteidigung von '+w+'!'])};
   if(cells[fi.A.home].land===cells[fi.D.home].land&&fi.A.cells.size<=2&&fi.D.cells.size<=2)return{n:0,t:rr(['Landesderby! '+w+' setzt sich gegen '+l+' durch.','Nachbarschaftsduell entschieden: '+w+' gewinnt.'])};
+  if(lg&&facLand(fi.A)===facLand(fi.D))return{n:0,t:rr(['Derbysieg für '+w+'!','Das Derby geht an '+w+'.',w+' gewinnt das Duell gegen '+l+'.'])};
   return{n:0,t:rr([w+' marschiert in '+l+' ein.',w+' schnappt sich '+l+'.','Klarer Sieg für '+w+'.',w+' baut sein Reich weiter aus.',w+' lässt nichts anbrennen.'])}}
-function updateHeader(){updateTop3();const al=aliveF().length;const tot=S.mode==='land'?S.lands.length:S.act.filter(Boolean).length;
+function updateHeader(){updateTop3();const al=aliveF().length;const tot=S.mode==='land'?S.lands.length:S.mode==='liga'?CLUB.length:S.act.filter(Boolean).length;const tl=$('#hdr .title');const tw=S.mode==='liga'?'Liga':'Kreis';if(tl.dataset.w!==tw){tl.dataset.w=tw;tl.innerHTML=tw+'<span>-Krieg</span>'}
   let pre='';if(S.phase==='land'){const done=S.lands.filter(k=>landStatus(k).owners<=1).length;pre='Landesliga '+done+'/'+S.lands.length+' Meister · '}else if(S.scope==='land')pre='Bundesfinale · ';
-  $('#subt').textContent=pre+(S.fights?'Kampf '+fmtInt(S.fights)+' · ':'')+fmtInt(al)+' '+(S.mode==='land'?(al===1?'Land':'Länder'):(al===1?'Reich':'Reiche'));
+  $('#subt').textContent=pre+(S.fights?'Kampf '+fmtInt(S.fights)+' · ':'')+fmtInt(al)+' '+(S.mode==='land'?(al===1?'Land':'Länder'):S.mode==='liga'?(al===1?'Verein':'Vereine'):(al===1?'Reich':'Reiche'));
   $('#aliveN').textContent=al;
   const p=1-(al-1)/Math.max(1,tot-1);$('#ringP').style.strokeDashoffset=(119.4*(1-p)).toFixed(1)}
 let toastT=null;
@@ -1346,7 +1460,7 @@ function renderRank(){segSet($('#rankSeg'),rankTab);if(!S){$('#rankList').innerH
     if(R.conq)h+=recRow('⚔️','Meiste K.-o.-Siege in einem Spiel',esc(hofItem(R.conq.k).name)+' · '+R.conq.v);
     if(R.long)h+=recRow('⏳','Längster Grenzkampf',fmtInt(R.long.v)+' Kämpfe · Sieger '+esc(hofItem(R.long.k).name));
     h+=recRow('🎯','Tippspiel',fmtInt(HOF.bets.pts)+' Punkte · '+HOF.bets.ok+'/'+HOF.bets.n+' richtig · beste Serie '+HOF.bets.best);
-    if(SET.fav!=null){const k='c'+SET.fav;const st=HOF.kreis[k]||[0,0];h+=recRow('📍','Mein Kreis: '+esc(shortName(cells[SET.fav].name)),(HOF.titles[k]||0)+' Titel · '+st[0]+' Siege in '+st[1]+' Kämpfen')}
+    if(SET.fav!=null){const lg=S.mode==='liga';const k=lg?'V'+CLUB_OF[SET.fav]:'c'+SET.fav;const st=HOF.kreis[k]||[0,0];h+=recRow('📍',lg?'Mein Verein: '+esc(clubOfCell(SET.fav).name):'Mein Kreis: '+esc(shortName(cells[SET.fav].name)),(HOF.titles[k]||0)+' Titel · '+st[0]+' Siege in '+st[1]+' Kämpfen')}
     h+='<div class="lbl">Erfolge</div><div class="achs">'+ACH.map(a=>'<div class="ach '+(HOF.ach[a[0]]?'got':'lock')+'"><b>'+a[1]+'</b><i>'+a[2]+'</i><small>'+a[3]+'</small></div>').join('')+'</div>';
     h+='<button class="big glass danger press" id="hofReset">Ruhmeshalle zurücksetzen</button>';
   }else if(rankTab==='lands'){
@@ -1365,17 +1479,22 @@ function forceFly(b,d){camAnim={from:{...cam},to:fitBox(b,.1),t0:performance.now
 const norm=s=>s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/ß/g,'ss');
 cells.forEach(c=>c._n=norm(c.name+' '+c.plate+' '+c.label+' '+landName(c.land)));
 const sortedCells=[...cells].sort((a,b)=>a.name.replace(/^Landkreis /,'').localeCompare(b.name.replace(/^Landkreis /,''),'de'));
-function renderSearch(){const q=norm($('#q').value.trim());let list=q?sortedCells.filter(c=>c._n.includes(q)):sortedCells;
+function renderSearch(){const q=norm($('#q').value.trim());$('#qTitle').textContent=SET.mode==='liga'&&pickFor==null?'Mein Verein':'Mein Kreis';let list=q?sortedCells.filter(c=>c._n.includes(q)):sortedCells;
   if(q){const ex=list.filter(c=>norm(c.plate)===q||norm(c.label)===q);list=ex.concat(list.filter(c=>!ex.includes(c)))}
-  let h='';if(SET.fav!=null&&!q){const c=cells[SET.fav];h+='<div class="lbl">Aktuell</div>'+cellRow(c,true)+'<div class="lbl">Alle '+N+' Kreise & Städte</div>'}
-  list.slice(0,120).forEach(c=>h+=cellRow(c,false));if(!list.length)h='<div class="empty-msg">Nichts gefunden.</div>';if(list.length>120)h+='<div class="note" style="text-align:center">Tippe weiter, um einzugrenzen …</div>';
+  let h='';
+  if(SET.mode==='liga'){const ks=CLUB.filter(k=>!q||norm(k.name+' '+k.mid+' '+k.short+' '+k.town).includes(q)).sort((a,b)=>a.liga-b.liga||a.name.localeCompare(b.name,'de'));
+    if(ks.length){h+='<div class="lbl">Vereine</div>';ks.forEach(k=>{const me=SET.fav!=null&&CLUB_OF[SET.fav]===k.i;h+='<div class="row'+(me?' me':'')+'" data-c="'+k.home+'" style="animation:none">'+clubBadgeHTML(k,'mb')+'<div class="tx"><div class="n1">'+esc(k.name)+'</div><div class="n2">'+ligaName(k.liga)+' · '+esc(k.town)+'</div></div></div>'})}
+    if(!q){h+='<div class="lbl">Oder über deinen Kreis</div>'}else if(list.length)h+='<div class="lbl">Kreise</div>';
+    if(!q)list=[]}
+  else if(SET.fav!=null&&!q){const c=cells[SET.fav];h+='<div class="lbl">Aktuell</div>'+cellRow(c,true)+'<div class="lbl">Alle '+N+' Kreise & Städte</div>'}
+  list.slice(0,120).forEach(c=>h+=cellRow(c,false));if(!list.length&&!h)h='<div class="empty-msg">Nichts gefunden.</div>';if(SET.mode==='liga'&&!q)h+='<div class="note" style="text-align:center">Tippe deinen Kreis ein – du spielst dann für den Verein deiner Region.</div>';if(list.length>120)h+='<div class="note" style="text-align:center">Tippe weiter, um einzugrenzen …</div>';
   $('#qList').innerHTML=h}
-function cellRow(c,me){const o=S&&S.owner[c.i]>=0?F[S.owner[c.i]]:null;const own=S&&o&&(S.mode==='kreis'?o.id!==c.i:false);
+function cellRow(c,me){const o=S&&S.owner[c.i]>=0?F[S.owner[c.i]]:null;const own=S&&o&&(S.mode==='kreis'?o.id!==c.i:S.mode==='liga');
   const cf=coaFile('c'+c.i);
   return '<div class="row'+(me||SET.fav===c.i?' me':'')+'" data-c="'+c.i+'" style="animation:none">'+(cf?'<img class="lw-sm" alt="" loading="lazy" src="'+coaURL(cf)+'">':'')+'<div class="plate">'+esc(c.label)+'</div><div class="tx"><div class="n1">'+esc(c.name)+'</div><div class="n2">'+kindName(c)+' · '+landName(c.land)+(S&&!S.act[c.i]?' · nicht im Spiel':(own?' · gehört zu '+esc(o.short):''))+'</div></div>'+(o?badgeHTML(o,'mb'):'')+'</div>'}
 $('#q').addEventListener('input',renderSearch);
 $('#qList').addEventListener('click',e=>{const r=e.target.closest('[data-c]');if(!r)return;if(pickFor!=null){SET.players[pickFor].cell=+r.dataset.c;saveSet();pickFor=null;openSheet('shPlayers');renderPlayers();return}setFav(+r.dataset.c);closeSheet()});
-function setFav(i){SET.fav=i;saveSet();updateIntro();const c=cells[i];forceFly(boxOfCells([i]),900);if(S&&running){setUserCam(true)}miniToast('📍','Mein Kreis: '+shortName(c.name),kindName(c)+' · '+landName(c.land));dirty=true}
+function setFav(i){SET.fav=i;saveSet();updateIntro();const c=cells[i];forceFly(boxOfCells([i]),900);if(S&&running){setUserCam(true)}if(SET.mode==='liga'){const k=clubOfCell(i);miniToast('⚽','Mein Verein: '+k.name,ligaName(k.liga)+(k.home===i?' · '+k.town:' · über '+shortName(c.name)))}else miniToast('📍','Mein Kreis: '+shortName(c.name),kindName(c)+' · '+landName(c.land));dirty=true}
 function miniToast(em,t1,t2,dur){const el=$('#toast');el.className='glass';void el.offsetWidth;el.querySelector('.em').textContent=em;el.querySelector('.t1').textContent=t1;el.querySelector('.t2').textContent=t2;el.classList.add('show');$('#app').classList.add('toasting');clearTimeout(toastT);toastT=setTimeout(()=>{el.classList.remove('show');el.classList.add('hide');$('#app').classList.remove('toasting')},dur||2000)}
 
 if(window.visualViewport){const vv=window.visualViewport;const adj=()=>{const kb=Math.max(0,innerHeight-vv.height-vv.offsetTop);document.querySelectorAll('.sheet').forEach(sh=>sh.style.bottom=kb>60?(kb+8)+'px':'');};vv.addEventListener('resize',adj);vv.addEventListener('scroll',adj)}
@@ -1384,10 +1503,10 @@ function renderLandGrid(){const g=$('#lgrid');g.innerHTML=LAND_KEYS.map(k=>{cons
     return '<button class="lchip'+(SET.lands.includes(k)?' on':'')+'" data-l="'+k+'" style="--c1:'+st[1]+';--c2:'+st[2]+'"><div class="lw">'+(file?'<img alt="" src="'+coaURL(file)+'">':'<b>'+LAND_SHORT[k]+'</b>')+'</div>'+esc(k==='NW'?'NRW':LANDS[k].replace('Mecklenburg-Vorpommern','Meck-Pomm').replace('Schleswig-Holstein','Schl.-Holst.').replace('Baden-Württemberg','Baden-Württ.').replace('Rheinland-Pfalz','Rheinl.-Pfalz').replace('Niedersachsen','Nieder­sachsen'))+'</button>'}).join('');
   const act=cells.filter(c=>SET.lands.includes(c.land)).length;
   $('#landCnt').textContent='· '+SET.lands.length+'/16 · '+act+' Kreise';
-  const ok=selValid(SET.mode,SET.lands);$('#setWarn').textContent=ok?'':(SET.mode==='land'?'Mindestens zwei Länder auswählen.':'Mindestens zwei Kreise nötig – wähle ein weiteres Land.');
+  const ok=SET.mode==='liga'||selValid(SET.mode,SET.lands);$('#setWarn').textContent=ok?'':(SET.mode==='land'?'Mindestens zwei Länder auswählen.':'Mindestens zwei Kreise nötig – wähle ein weiteres Land.');
   $('#btnNew').style.opacity=ok?'':'.4';updateIntro()}
 function renderSet(){segSet($('#segEp'),String(SET.epLen|0));segSet($('#segMode'),SET.mode);segSet($('#segRule'),SET.rule);segSet($('#segScope'),SET.scope);
-  $('#segScope').classList.toggle('dis',SET.mode==='land');$('#optFinal').classList.toggle('dis',SET.mode==='land'||SET.scope!=='land');
+  $('#segScope').classList.toggle('dis',SET.mode!=='kreis');$('#optFinal').classList.toggle('dis',SET.mode!=='kreis'||SET.scope!=='land');document.querySelectorAll('.landsel').forEach(e=>e.classList.toggle('dis',SET.mode==='liga'));$('#ligaNote').classList.toggle('hidden',SET.mode!=='liga');
   document.querySelectorAll('[data-tg]').forEach(o=>o.querySelector('.tg').classList.toggle('on',!!SET[o.dataset.tg]));newArmed=false;$('#btnNew').textContent='↻ Neues Spiel starten';
   renderLandGrid();refreshCoaUI()}
 $('#segMode').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;SET.mode=b.dataset.v;saveSet();renderSet();updateIntro()});
@@ -1430,7 +1549,7 @@ $('#epCard').addEventListener('click',e=>{if(e.target.closest('#epGo')){sfx('tap
 function shareCode(){const c={s:S.seed,m:S.mode,r:S.rule,l:S.lands.join(','),sc:S.scope,f:S.final?1:0,e:['cap','rev','ally','rand'].map(k=>S.cfg.ev[k]?1:0).join(''),ep:S.cfg.ep};
   return btoa(unescape(encodeURIComponent(JSON.stringify(c)))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'')}
 function parseShare(){const m=location.hash.match(/p=([A-Za-z0-9_-]+)/);if(!m)return null;try{const j=JSON.parse(decodeURIComponent(escape(atob(m[1].replace(/-/g,'+').replace(/_/g,'/')))));
-  const e=String(j.e||'1111');return{s:j.s|0,m:j.m==='land'?'land':'kreis',r:j.r==='grenz'?'grenz':'total',l:String(j.l||'').split(',').filter(k=>LANDS[k]),sc:j.sc==='land'?'land':'bund',f:!!j.f,e:{cap:e[0]==='1',rev:e[1]==='1',ally:e[2]==='1',rand:e[3]==='1'},ep:[0,3,5,10].includes(j.ep)?j.ep:0}}catch(e){return null}}
+  const e=String(j.e||'1111');return{s:j.s|0,m:j.m==='land'?'land':j.m==='liga'?'liga':'kreis',r:j.r==='grenz'?'grenz':'total',l:String(j.l||'').split(',').filter(k=>LANDS[k]),sc:j.sc==='land'?'land':'bund',f:!!j.f,e:{cap:e[0]==='1',rev:e[1]==='1',ally:e[2]==='1',rand:e[3]==='1'},ep:[0,3,5,10].includes(j.ep)?j.ep:0}}catch(e){return null}}
 $('#btnShare').addEventListener('click',async()=>{if(!S)return;const url=location.href.split('#')[0]+'#p='+shareCode();const txt='Kreis-Krieg: Wer erobert Deutschland? Spiel diese Partie nach (Code '+S.seed.toString(36).toUpperCase()+')';
   try{if(navigator.share){await navigator.share({title:'Kreis-Krieg',text:txt,url});return}}catch(e){return}
   try{await navigator.clipboard.writeText(url);miniToast('🔗','Link kopiert','Mit dem Link startet exakt diese Partie')}catch(e){prompt('Link kopieren:',url)}});
@@ -1497,9 +1616,11 @@ document.addEventListener('pointermove',e=>{const g=e.target.closest&&e.target.c
 document.addEventListener('pointerdown',e=>{const g=e.target.closest&&e.target.closest('.glass');if(!g)return;const r=g.getBoundingClientRect();g.style.setProperty('--mx',((e.clientX-r.left)/r.width*100).toFixed(1)+'%');g.style.setProperty('--my',((e.clientY-r.top)/r.height*100).toFixed(1)+'%')},{passive:true});
 
 /* ---------- Intro ---------- */
-function updateIntro(){const ok=SET.players.filter(p=>p.cell!=null).length;$('#iPlTxt').textContent=SET.multi?ok+' Spieler':'Mehrspieler';$('#iMineTxt').textContent=SET.fav!=null?'Mein Kreis: '+shortName(cells[SET.fav].name):'Mein Kreis wählen';
+function updateIntro(){const ok=SET.players.filter(p=>p.cell!=null).length;$('#iPlTxt').textContent=SET.multi?ok+' Spieler':'Mehrspieler';const LG=SET.mode==='liga';$('#iMineTxt').textContent=SET.fav!=null?(LG?'Mein Verein: '+clubOfCell(SET.fav).mid:'Mein Kreis: '+shortName(cells[SET.fav].name)):(LG?'Mein Verein wählen':'Mein Kreis wählen');
+  const it=$('#ititle');const ik=SET.mode==='liga'?'liga':SET.mode==='land'?'land':'kreis';if(it.dataset.k!==ik){it.dataset.k=ik;const T=ik==='liga'?['56 Vereine.','1 Karte.','Wer wird Meister?']:ik==='land'?['16 Länder.','1 Karte.','Wer erobert Deutschland?']:['400 Kreise.','1 Karte.','Wer erobert Deutschland?'];
+    it.innerHTML=T.map(x=>'<span>'+x+'</span>').join('');$('#isub').textContent=ik==='liga'?'Alle Vereine der 1. bis 3. Liga, jeder dort, wo er spielt. Würfel, Flächenbonus, Eroberung.':'Alle Landkreise und kreisfreien Städte. Würfel, Flächenbonus, Eroberung.'}
   const nl=SET.lands.length;const ls=nl===16?'Alle Länder':(nl<=2?SET.lands.map(k=>LAND_SHORT[k]).join(' + '):nl+' Länder');
-  $('#iSetTxt').textContent=ls+' · '+(SET.mode==='land'?'Länder':(SET.scope==='land'?'Landesliga'+(SET.final?' + Finale':''):'Kreise'))+' · '+(SET.rule==='grenz'?'Grenzkampf':'Totaler Krieg')}
+  $('#iSetTxt').textContent=(LG?'⚽ 1.–3. Liga':ls)+' · '+(LG?'Vereine':SET.mode==='land'?'Länder':(SET.scope==='land'?'Landesliga'+(SET.final?' + Finale':''):'Kreise'))+' · '+(SET.rule==='grenz'?'Grenzkampf':'Totaler Krieg')}
 $('#iMine').addEventListener('click',()=>openSheet('shSearch'));
 $('#iSet').addEventListener('click',()=>openSheet('shSet'));
 $('#iNew').addEventListener('click',()=>startGame(true));
