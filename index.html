@@ -74,8 +74,9 @@ canvas#map{position:fixed;inset:0;width:100%;height:100%;z-index:1;touch-action:
 .ring .prg{stroke:url(#rg);stroke-dasharray:119.4;stroke-dashoffset:0;transition:stroke-dashoffset .8s var(--ease)}
 .ring b{font-size:13px;font-weight:900;font-variant-numeric:tabular-nums;position:relative}
 
-#ticker{position:fixed;z-index:9;top:calc(var(--st) + 80px + var(--tb));left:0;right:0;display:flex;flex-direction:column;align-items:center;gap:6px;pointer-events:none}
-.tick{font-size:12.5px;font-weight:800;padding:6px 12px 6px 8px;border-radius:99px;display:flex;align-items:center;gap:7px;animation:tickIn .6s var(--spring) both}
+#app.toasting #ticker{opacity:0}
+#ticker{transition:opacity .3s;position:fixed;z-index:9;top:calc(var(--st) + 80px + var(--tb));left:0;right:0;display:flex;flex-direction:column;align-items:center;gap:6px;pointer-events:none}
+.tick{max-width:calc(100vw - 40px);overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font-size:12.5px;font-weight:800;padding:6px 12px 6px 8px;border-radius:99px;display:flex;align-items:center;gap:7px;animation:tickIn .6s var(--spring) both}
 .tick.out{animation:tickOut .5s var(--ease) both}
 @keyframes tickIn{from{transform:translateY(-14px) scale(.8);opacity:0;filter:blur(6px)}}
 @keyframes tickOut{to{transform:translateY(-10px) scale(.9);opacity:0;filter:blur(4px)}}
@@ -459,6 +460,7 @@ body.rec #fight{bottom:max(var(--sb),10px)}
     <div class="opt" data-tg="comm"><div>Kommentator<small>Sprüche wie bei einer Sportübertragung</small></div><div class="tg"></div></div>
     <div class="opt" data-tg="voice"><div>Sprecher<small>Eine Stimme liest den Live-Kommentar vor</small></div><div class="tg"></div></div>
     <div class="lrow" id="voiceRow"><select class="mini" id="voiceSel" style="flex:1;min-width:0;color:#fff;-webkit-appearance:none;appearance:none"></select><button class="mini press" id="voiceTest">▶︎ Probe</button></div>
+    <div class="note" id="voiceNote" style="padding-top:0">Stimmen werden geladen …</div>
     <div class="opt" data-tg="haptic"><div>Haptik<small>Kurzes Vibrieren bei Würfen & Eroberungen</small></div><div class="tg"></div></div>
     <div class="opt" data-tg="lines"><div>Kreisgrenzen<small>Feine Linien innerhalb der Reiche</small></div><div class="tg"></div></div>
     <div class="opt" data-tg="coa"><div>Wappen<small id="coaState">Offizielle Wappen von Wikipedia</small></div><div class="tg"></div></div>
@@ -776,28 +778,54 @@ function renderBase(){
 }
 function glow(p,rgb,a,s){if(!p)return;ctx.strokeStyle='rgba('+rgb+','+(a*.22).toFixed(3)+')';ctx.lineWidth=9/s;ctx.stroke(p);ctx.strokeStyle='rgba('+rgb+','+(a*.5).toFixed(3)+')';ctx.lineWidth=4.5/s;ctx.stroke(p);ctx.strokeStyle='rgba(255,255,255,'+(a*.95).toFixed(3)+')';ctx.lineWidth=1.6/s;ctx.stroke(p)}
 const FONT='ui-rounded,-apple-system,system-ui,sans-serif';
-function txt(str,x,y,fs,alpha){ctx.font='900 '+fs.toFixed(1)+'px '+FONT;ctx.globalAlpha=alpha;ctx.lineWidth=Math.max(2,fs*.24);ctx.strokeStyle='rgba(0,0,0,.78)';ctx.strokeText(str,x,y);ctx.fillStyle='#fff';ctx.fillText(str,x,y);ctx.globalAlpha=1}
+function txt(str,x,y,fs,alpha,wt){ctx.font=(wt||900)+' '+fs.toFixed(1)+'px '+FONT;ctx.globalAlpha=alpha;ctx.lineWidth=Math.max(2,fs*.24);ctx.strokeStyle='rgba(0,0,0,.78)';ctx.strokeText(str,x,y);ctx.fillStyle='#fff';ctx.fillText(str,x,y);ctx.globalAlpha=1}
 function drawCoa(im,x,y,sz,alpha){const iw=im.naturalWidth||1,ih=im.naturalHeight||1;const k=sz/Math.max(iw,ih);const w=iw*k,h=ih*k;ctx.globalAlpha=alpha;ctx.save();ctx.drawImage(im,x-w/2,y-h/2,w,h);ctx.restore();ctx.globalAlpha=1}
+const CITY_NAMES=new Set(cells.filter(c=>c.kind==='S').map(c=>c.name));
+function mapNameStr(n,kind){let b=n.replace(/^Landkreis /,'');const dup=kind==='L'&&CITY_NAMES.has(b)&&n!==b;
+  b=b.replace(/^Städteregion /,'Städteregion ').replace(/^Regionalverband /,'RV ').replace(/^Eifelkreis /,'').replace(/^Kreis /,'').replace(/-Kreis$/,'')
+     .replace(/ an der /g,' a. d. ').replace(/ in der /g,' i. d. ').replace(/ am /g,' a. ').replace(/ im /g,' i. ');
+  return dup?'Lkr. '+b:b}
+function mapName(f){if(f._mn)return f._mn;f._mn=S.mode==='land'?f.name:mapNameStr(f.name,cells[f.home].kind);return f._mn}
+function cellMapName(c){if(c._mn)return c._mn;c._mn=mapNameStr(c.name,c.kind);return c._mn}
+function wrapLabel(name,maxW){const w=ctx.measureText(name).width;if(w<=maxW)return[[name],w];
+  let best=null;for(let k=1;k<name.length-1;k++){const ch=name[k];if(ch!==' '&&ch!=='-')continue;const a=name.slice(0,ch==='-'?k+1:k),b=name.slice(k+1);const m=Math.max(ctx.measureText(a).width,ctx.measureText(b).width);if(!best||m<best[1])best=[[a,b],m]}
+  return best&&best[1]<=maxW?best:null}
 function drawLabels(){
   ctx.textAlign='center';ctx.textBaseline='middle';ctx.lineJoin='round';
-  const s=cam.s,fav=favFac();const used=new Set();
-  const showCells=s>2.2;
-  const inView=(x,y)=>x>-60&&x<W+60&&y>-60&&y<H+60;
-  for(const f of F){if(!f.alive||!f.cells.size)continue;
-    const L=facLabel(f);const [x,y]=w2s(L.x,L.y);if(!inView(x,y))continue;
-    const side=Math.sqrt(f.area)*s;let fs=Math.min(30,side*.34/Math.max(1,f.short.length*.42));
-    const inv=focus&&(f.id===focus.a||f.id===focus.d);
-    if(inv)fs=Math.max(fs,14+4*focusAmt);else if(f.id===fav)fs=Math.max(fs,10);
-    if(fs<7.5)continue;
-    const dim=focus&&!inv?1-.5*focusAmt:1;
-    const im=fs>=10?coaImg(coaKeyFac(f)):null;
-    if(im){const sz=Math.min(inv?64:54,Math.max(fs*1.8,side*.32));const tot=sz+fs*.9;const top=y-tot/2;drawCoa(im,x,top+sz/2,sz,dim);txt(f.short,x,top+sz+fs*.5,fs*.82,dim)}
-    else txt(f.short,x,y,fs,dim);
-    used.add(L.cell);
+  const s=cam.s,fav=favFac();const placed=[];let coats=0;const foc=focus&&focus.on;const maxCoats=foc?3:7;
+  const hit=r=>{if(r[2]<0||r[0]>W||r[3]<0||r[1]>H)return false;for(const q of placed)if(r[0]<q[2]&&r[2]>q[0]&&r[1]<q[3]&&r[3]>q[1])return true;return false};
+  const list=[];const vis=new Map();const m=20;
+  for(const c of cells){const o=S.owner[c.i];if(o<0)continue;const [x,y]=w2s(c.cx,c.cy);if(x<m||x>W-m||y<vp.y||y>H-m)continue;let v=vis.get(o);if(!v){v={a:0,best:null};vis.set(o,v)}v.a+=c.area;if(!v.best||c.area>v.best.area)v.best=c}
+  for(const f of F){if(!f.alive||!f.cells.size)continue;const L=facLabel(f);let [x,y]=w2s(L.x,L.y);let cell=L.cell;let area=f.area;
+    const inView=x>=m&&x<=W-m&&y>=vp.y&&y<=H-m;const v=vis.get(f.id);
+    if(!inView){if(!v)continue;const c=v.best;[x,y]=w2s(c.cx,c.cy);cell=c.i;area=Math.min(f.area,v.a)}
+    const inv=!!(focus&&(f.id===focus.a||f.id===focus.d));const mine=isMine(f.id);const side=Math.sqrt(area)*s;
+    list.push({f,x,y,side,inv,mine,pr:(inv?1e9:0)+(mine?1e8:0)+area,cell})}
+  list.sort((a,b)=>b.pr-a.pr);
+  const used=new Set();
+  for(const o of list){const {f,x,y,side,inv,mine}=o;
+    if(foc&&!inv&&!mine&&side<150)continue;
+    if(side<34&&!inv&&!mine)continue;
+    let fs=clamp(side*.15,9.5,21);if(inv)fs=Math.max(fs,15);else if(mine)fs=Math.max(fs,11);
+    const dim=focus&&!inv?1-.55*focusAmt:1;
+    const maxW=Math.max(side*1.1,inv?230:mine?150:0);
+    ctx.font='800 '+fs.toFixed(1)+'px '+FONT;let wl=wrapLabel(mapName(f),maxW);
+    if(!wl&&fs>11){fs=Math.max(10,fs*.8);ctx.font='800 '+fs.toFixed(1)+'px '+FONT;wl=wrapLabel(mapName(f),maxW)}
+    if(!wl){const w=ctx.measureText(f.short).width;if(w>maxW*1.3&&!inv&&!mine)continue;wl=[[f.short],w]}
+    const lines=wl[0],tw=wl[1],th=lines.length*fs*1.08;
+    let im=null,sz=0;
+    if(SET.coa&&(inv||mine||(coats<maxCoats&&side>=110))){im=coaImg(coaKeyFac(f));if(im)sz=inv?50:mine?36:Math.min(40,side*.26)}
+    let tot=th+(im?sz+3:0),top=y-tot/2,ww=Math.max(tw,sz);
+    let r=[x-ww/2-4,top-3,x+ww/2+4,top+tot+3];
+    if(hit(r)){if(im&&!inv){im=null;sz=0;tot=th;top=y-tot/2;r=[x-tw/2-4,top-3,x+tw/2+4,top+tot+3]}if(hit(r)&&inv){for(const dy of [tot+8,-(tot+8),2*(tot+8)]){const r2=[r[0],r[1]+dy,r[2],r[3]+dy];if(!hit(r2)){top+=dy;r=r2;break}}}if(hit(r)&&!inv&&!mine)continue}
+    placed.push(r);used.add(o.cell);
+    if(im){drawCoa(im,x,top+sz/2,sz,dim);coats++;top+=sz+3}
+    lines.forEach((ln,k)=>txt(ln,x,top+fs*.54+k*fs*1.08,fs,dim,800));
   }
-  if(showCells){for(const c of cells){if(used.has(c.i)||!S.act[c.i])continue;const [x,y]=w2s(c.cx,c.cy);if(!inView(x,y))continue;const fs=Math.min(13,c.side*s*.3/Math.max(1,c.label.length*.42));if(fs<7)continue;
-    const im=S.mode==='kreis'&&c.side*s>80?coaImg('c'+c.i):null;
-    if(im){const sz=Math.min(30,c.side*s*.22);drawCoa(im,x,y-fs*.5-sz/2+2,sz,.7);txt(c.label,x,y+fs*.35,fs,.6)}else txt(c.label,x,y,fs,.55)}}
+  if(s>4.2&&!foc){for(const c of cells){if(used.has(c.i)||!S.act[c.i])continue;const sp=c.side*s;if(sp<130)continue;const [x,y]=w2s(c.cx,c.cy);if(x<-60||x>W+60||y<-40||y>H+40)continue;
+    const fs=clamp(sp*.08,9,12.5);ctx.font='700 '+fs.toFixed(1)+'px '+FONT;const wl=wrapLabel(cellMapName(c),sp*.95);if(!wl)continue;
+    const th=wl[0].length*fs*1.08;const r=[x-wl[1]/2-3,y-th/2-2,x+wl[1]/2+3,y+th/2+2];if(hit(r))continue;placed.push(r);
+    wl[0].forEach((ln,k)=>txt(ln,x,y-th/2+fs*.54+k*fs*1.08,fs,.5,700))}}
 }
 function drawCmdTargets(t,s){if(!S.cmd)return;const a=.45;ctx.fillStyle='rgba(255,60,60,'+a.toFixed(3)+')';
   if(S.rule==='grenz'){for(const c of S.cmd.targets.keys())ctx.fill(cells[c].path,'evenodd')}else{for(const d of S.cmd.facs)ctx.fill(facPath(F[d]),'evenodd')}
@@ -1087,6 +1115,7 @@ async function fightAnimated(){
   await sleep(quick?320:750);
   const leadBefore=(topF()||{}).id;
   const {take,capFall}=takeList(fi,res);
+  if(!take.length||take.some(c=>S.owner[c]!==Lf.id)){focus.on=false;return}
   const [cx,cy]=contact(Wf,Lf,take);
   take.sort((p,q)=>((cells[p].cx-cx)**2+(cells[p].cy-cy)**2)-((cells[q].cx-cx)**2+(cells[q].cy-cy)**2));
   const cols=[Wf.c1,Wf.c2,'#ffffff'];
@@ -1190,15 +1219,22 @@ const CAPS=new Set(['Kiel','Hamburg','Bremen','Region Hannover','Düsseldorf','W
 let commT=null;
 /* ---- Sprecher (Web Speech API) ---- */
 const SYN=('speechSynthesis' in window)?window.speechSynthesis:null;let VOICE=null,voiceOK=false;
-function pickVoice(){if(!SYN)return;const vs=SYN.getVoices().filter(v=>/^de/i.test(v.lang));if(!vs.length)return;
+function pickVoice(){if(!SYN)return;const all=SYN.getVoices();if(!all.length)return;const vs=all.filter(v=>/^de/i.test(v.lang));
+  if(SET.voiceName){const m=all.find(v=>v.name===SET.voiceName);if(m){VOICE=m;fillVoices(all);return}}
+  if(!vs.length){VOICE=null;fillVoices(all);return}
   const score=v=>(SET.voiceName&&v.name===SET.voiceName?100:0)+(/premium|erweitert|enhanced/i.test(v.name)?20:0)+(/anna|helena|markus|petra|yannick|viktor/i.test(v.name)?6:0)+(v.lang==='de-DE'?4:0)+(v.localService?2:0);
-  VOICE=vs.sort((a,b)=>score(b)-score(a))[0];const sel=$('#voiceSel');if(sel){sel.innerHTML=vs.map(v=>'<option value="'+esc(v.name)+'"'+(v===VOICE?' selected':'')+'>🎙️ '+esc(v.name.replace(/\s*\(.*\)/,''))+(/premium|erweitert|enhanced/i.test(v.name)?' ★':'')+'</option>').join('')}}
+  VOICE=vs.sort((a,b)=>score(b)-score(a))[0];fillVoices(all)}
+function fillVoices(all){const sel=$('#voiceSel');if(!sel)return;let dn=null;try{dn=new Intl.DisplayNames(['de'],{type:'language'})}catch(e){}
+  const groups=new Map();all.forEach(v=>{const base=(v.lang||'?').replace('_','-');let lab=base;try{lab=dn?dn.of(base):base}catch(e){}if(!groups.has(lab))groups.set(lab,[]);groups.get(lab).push(v)});
+  const keys=[...groups.keys()].sort((a,b)=>(/^Deutsch/.test(b)-/^Deutsch/.test(a))||a.localeCompare(b,'de'));
+  sel.innerHTML=keys.map(k=>'<optgroup label="'+esc(k)+'">'+groups.get(k).sort((a,b)=>a.name.localeCompare(b.name)).map(v=>'<option value="'+esc(v.name)+'"'+(v===VOICE?' selected':'')+'>'+esc(v.name)+(/premium|erweitert|enhanced/i.test(v.name)?' ★':'')+'</option>').join('')+'</optgroup>').join('');
+  const n=$('#voiceNote');if(n)n.textContent=all.length+' Stimmen auf diesem Gerät · aktuell: '+(VOICE?VOICE.name:'Standard')+(VOICE&&!/^de/i.test(VOICE.lang)?' (liest Deutsch mit Akzent)':'')}
 if(SYN){pickVoice();SYN.onvoiceschanged=pickVoice;setTimeout(pickVoice,800)}
 function voiceUnlock(){if(!SYN||voiceOK)return;try{const u=new SpeechSynthesisUtterance(' ');u.volume=0;SYN.speak(u);voiceOK=true}catch(e){}}
 function voiceStop(){try{SYN&&SYN.cancel()}catch(e){}}
 let sayEnd=0;
 function say(t,o){o=o||{};if(!SYN||!t||(!SET.voice&&!o.force)||(isTurbo()&&!o.force))return 0;try{if(!VOICE)pickVoice();if(o.cut!==false)SYN.cancel();
-  const u=new SpeechSynthesisUtterance(t.replace(/×/g,' mal ').replace(/ – /g,', ').replace(/(\d),(\d)/g,'$1 Komma $2'));u.lang='de-DE';if(VOICE)u.voice=VOICE;
+  const u=new SpeechSynthesisUtterance(t.replace(/×/g,' mal ').replace(/ – /g,', ').replace(/(\d),(\d)/g,'$1 Komma $2'));u.lang=VOICE?VOICE.lang:'de-DE';if(VOICE)u.voice=VOICE;
   u.rate=clamp((o.hype?1.12:1.04)*(speedMul>=2?1.15:1),.5,1.6);u.pitch=o.hype?1.15:1;u.volume=1;SYN.speak(u);
   const est=Math.min(6000,600+t.length*62/u.rate);sayEnd=performance.now()+est;return est}catch(e){return 0}}
 async function sayWait(maxMs){if(!SYN||!SET.voice||isTurbo())return;const t0=performance.now();while((SYN.speaking||SYN.pending)&&performance.now()-t0<maxMs&&!abortFlag){await new Promise(r=>setTimeout(r,120))}}
@@ -1224,15 +1260,15 @@ function updateHeader(){updateTop3();const al=aliveF().length;const tot=S.mode==
   const p=1-(al-1)/Math.max(1,tot-1);$('#ringP').style.strokeDashoffset=(119.4*(1-p)).toFixed(1)}
 let toastT=null;
 function toast(Wf,Lf,take,up,elim,aw){const el=$('#toast');el.className='glass';void el.offsetWidth;const k=take.length;
-  const tgt=S.rule==='grenz'?shortName(cells[take[0]].name):shortName(Lf.name);
+  const tgt=S.rule==='grenz'?cellMapName(cells[take[0]]):mapName(Lf);const wn=mapName(Wf),ln=mapName(Lf);
   el.querySelector('.em').textContent=up?'🤯':(aw?'⚔️':'🛡️');
-  el.querySelector('.t1').textContent=up?'SENSATION! '+Wf.short+' schlägt '+Lf.short:(aw?Wf.short+' erobert '+tgt:Wf.short+' hält & '+(S.rule==='grenz'?'holt '+tgt:'übernimmt '+Lf.short));
+  el.querySelector('.t1').textContent=up?'SENSATION! '+wn+' schlägt '+ln:(aw?wn+' erobert '+tgt:wn+' hält & '+(S.rule==='grenz'?'holt '+tgt:'übernimmt '+ln));
   let np=pct(Wf);for(const c of take)np+=cells[c].area/S.total*100;
-  el.querySelector('.t2').textContent='+'+k+' '+(k===1?'Kreis':'Kreise')+' · '+Wf.short+' jetzt '+fmtPct(np)+(elim?' · '+Lf.short+' ist raus':'');
-  el.classList.add('show');if(up)el.classList.add('sens');
-  clearTimeout(toastT);toastT=setTimeout(()=>{el.classList.remove('show');el.classList.add('hide')},2300/Math.min(speedMul,3))}
+  el.querySelector('.t2').textContent='+'+k+' '+(k===1?'Kreis':'Kreise')+' · jetzt '+fmtPct(np)+(elim?' · '+ln+' ist raus':'');
+  el.classList.add('show');$('#app').classList.add('toasting');if(up)el.classList.add('sens');
+  clearTimeout(toastT);toastT=setTimeout(()=>{el.classList.remove('show');el.classList.add('hide');$('#app').classList.remove('toasting')},2300/Math.min(speedMul,3))}
 function tickerText(txt){const t=$('#ticker');const e=document.createElement('div');e.className='tick glass';e.innerHTML='<span>'+esc(txt)+'</span>';t.prepend(e);while(t.children.length>2)t.lastChild.remove();setTimeout(()=>{e.classList.add('out');setTimeout(()=>e.remove(),500)},3500)}
-function ticker(Wf,Lf,k,up){const t=$('#ticker');const e=document.createElement('div');e.className='tick glass';e.innerHTML=badgeHTML(Wf,'mb')+'<span>'+(up?'🤯 ':'')+esc(Wf.short)+' ⟶ '+esc(Lf.short)+(k>1?' <span style="opacity:.6">+'+k+'</span>':'')+'</span>';t.prepend(e);
+function ticker(Wf,Lf,k,up){const t=$('#ticker');const e=document.createElement('div');e.className='tick glass';e.innerHTML=badgeHTML(Wf,'mb')+'<span>'+(up?'🤯 ':'')+esc(mapName(Wf))+' ⟶ '+esc(mapName(Lf))+(k>1?' <span style="opacity:.6">+'+k+'</span>':'')+'</span>';t.prepend(e);
   while(t.children.length>2)t.lastChild.remove();
   [...t.children].forEach((c,i)=>{c.style.opacity=(1-i*.28).toFixed(2);c.style.transform='scale('+(1-i*.06)+')'});
   setTimeout(()=>{e.classList.add('out');setTimeout(()=>e.remove(),500)},3500)}
@@ -1340,7 +1376,7 @@ function cellRow(c,me){const o=S&&S.owner[c.i]>=0?F[S.owner[c.i]]:null;const own
 $('#q').addEventListener('input',renderSearch);
 $('#qList').addEventListener('click',e=>{const r=e.target.closest('[data-c]');if(!r)return;if(pickFor!=null){SET.players[pickFor].cell=+r.dataset.c;saveSet();pickFor=null;openSheet('shPlayers');renderPlayers();return}setFav(+r.dataset.c);closeSheet()});
 function setFav(i){SET.fav=i;saveSet();updateIntro();const c=cells[i];forceFly(boxOfCells([i]),900);if(S&&running){setUserCam(true)}miniToast('📍','Mein Kreis: '+shortName(c.name),kindName(c)+' · '+landName(c.land));dirty=true}
-function miniToast(em,t1,t2,dur){const el=$('#toast');el.className='glass';void el.offsetWidth;el.querySelector('.em').textContent=em;el.querySelector('.t1').textContent=t1;el.querySelector('.t2').textContent=t2;el.classList.add('show');clearTimeout(toastT);toastT=setTimeout(()=>{el.classList.remove('show');el.classList.add('hide')},dur||2000)}
+function miniToast(em,t1,t2,dur){const el=$('#toast');el.className='glass';void el.offsetWidth;el.querySelector('.em').textContent=em;el.querySelector('.t1').textContent=t1;el.querySelector('.t2').textContent=t2;el.classList.add('show');$('#app').classList.add('toasting');clearTimeout(toastT);toastT=setTimeout(()=>{el.classList.remove('show');el.classList.add('hide');$('#app').classList.remove('toasting')},dur||2000)}
 
 if(window.visualViewport){const vv=window.visualViewport;const adj=()=>{const kb=Math.max(0,innerHeight-vv.height-vv.offsetTop);document.querySelectorAll('.sheet').forEach(sh=>sh.style.bottom=kb>60?(kb+8)+'px':'');};vv.addEventListener('resize',adj);vv.addEventListener('scroll',adj)}
 /* ---------- Settings ---------- */
