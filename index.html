@@ -265,15 +265,17 @@ body.tw .dice{display:none}body.tw .shots{display:flex}
 body.career #tabs,body.career #top3,body.career #fight,body.career #comm,body.career #betBar,body.career #rollBtn,body.career #cmdBar{display:none!important}
 #car{position:fixed;left:0;right:0;bottom:0;z-index:29;padding:0 10px max(var(--sb),10px);transition:transform .55s var(--spring),opacity .4s}
 #car.off{transform:translateY(110%);opacity:0;pointer-events:none}
-.carCard{max-width:560px;margin:0 auto;border-radius:32px;padding:14px 14px 12px;max-height:64vh;display:flex;flex-direction:column}
+.carCard{max-width:560px;margin:0 auto;border-radius:32px;padding:14px 14px 12px;max-height:64vh;max-height:64dvh;display:flex;flex-direction:column;overflow:hidden}
 .carTop{display:flex;align-items:center;gap:10px;margin-bottom:6px}.carTop .badge{flex:none}
 .carT{flex:1;min-width:0}.carT1{font-size:17px;font-weight:900;letter-spacing:-.3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1}.carT2{font-size:12px;font-weight:800;color:var(--sub)}
 .carStats{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:12.5px;font-weight:800;color:#fff;margin:0 2px 8px}.carStats span{white-space:nowrap}
 .xpbar{flex-basis:100%;height:5px;border-radius:9px;background:rgba(255,255,255,.12);overflow:hidden}.xpbar i{display:block;height:100%;background:linear-gradient(90deg,#ffe08a,#ff9c7a);border-radius:9px}
 #carTabs{margin-bottom:8px}#carTabs button{font-size:13px}
-.carBody{overflow-y:auto;-webkit-overflow-scrolling:touch;margin:0 -4px;padding:0 4px 4px}
+.carBody{flex:1 1 auto;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;touch-action:pan-y;margin:0 -4px;padding:0 4px 4px}
+.carCard>*:not(.carBody){flex:none}
 .carH{font-size:20px;font-weight:900;letter-spacing:-.4px;margin:4px 0 6px}
-.carList{display:flex;flex-direction:column;gap:6px;margin:10px 0;max-height:34vh;overflow-y:auto}
+.carList{display:flex;flex-direction:column;gap:6px;margin:10px 0}
+.carRow,.carBody button{touch-action:pan-y}
 .carRow{display:flex;align-items:center;gap:10px;padding:9px 11px;border-radius:16px;background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.1);color:#fff;text-align:left}
 .carRow span{flex:1;min-width:0}.carRow b{display:block;font-size:14.5px}.carRow small{color:var(--sub);font-weight:700;font-size:12px}.carRow em{font-style:normal;color:#7dffa0;font-weight:900}
 .carRow.on{border-color:#8fd3ff;background:rgba(143,211,255,.14)}
@@ -942,6 +944,8 @@ async function fetchFiles(qids){const out={};for(let k=0;k<qids.length;k+=45){co
   const j=await jget('https://www.wikidata.org/w/api.php?action=wbgetentities&format=json&origin=*&props=claims&ids='+ch.join('|'));
   for(const id in (j.entities||{})){const cl=(j.entities[id].claims)||{};for(const P of ['P94','P154']){const arr=cl[P];if(!arr||!arr.length)continue;const best=arr.find(c=>c.rank==='preferred')||arr.find(c=>c.rank!=='deprecated')||arr[0];const v=best&&best.mainsnak&&best.mainsnak.datavalue&&best.mainsnak.datavalue.value;if(v){out[id]=v;break}}}}return out}
 let vcoaLoading=false;
+const CLUB_COA_FIX={WEH:'dw:Logo SV Wehen Wiesbaden.svg'};
+function clubCoaFix(){CLUB.forEach(k=>{const f=CLUB_COA_FIX[k.short];if(f)COA['V'+k.i]=f})}
 const isLogoFile=f=>/logo|wappen|emblem|crest|signet/i.test(f||'');
 async function loadClubCoas(force){
   if(vcoaLoading||!SET.coa)return;if(!force&&VCOA._v===2&&Date.now()-VCOA._t<14*864e5&&VCOA._n>=40)return;
@@ -955,7 +959,7 @@ async function loadClubCoas(force){
     const out={_v:2,_t:Date.now()};let n=0;
     CLUB_WIKI.forEach((t,i)=>{const pi=page[t],lg=qid[t]&&wd[qid[t]];const f=(pi&&(isLogoFile(pi)||/\.(svg|png|gif)$/i.test(pi)))?pi:(lg||pi);if(f){out['V'+i]='dw:'+f;n++}});
     out._n=n;VCOA=out;store.set(VCOA_KEY,out);
-    Object.keys(COA).forEach(k=>{if(k[0]==='V')delete COA[k]});Object.keys(out).forEach(k=>{if(k[0]==='V')COA[k]=out[k]});
+    Object.keys(COA).forEach(k=>{if(k[0]==='V')delete COA[k]});Object.keys(out).forEach(k=>{if(k[0]==='V')COA[k]=out[k]});clubCoaFix();
     Object.keys(coaImgs).forEach(k=>{if(k[0]==='V')delete coaImgs[k]});refreshCoaUI();if(S)updateTop3(true);
   }catch(e){console.warn('Vereinswappen',e)}
   vcoaLoading=false}
@@ -991,7 +995,7 @@ function appHeight(){const st=navigator.standalone===true||(window.matchMedia&&m
   if(st&&screen&&screen.height){const portrait=innerHeight>=innerWidth;const sh=portrait?Math.max(screen.height,screen.width):Math.min(screen.height,screen.width);h=Math.max(innerHeight,sh)}
   document.documentElement.style.setProperty('--appH',h+'px');return h}
 function resize(){DPR=Math.min(window.devicePixelRatio||1,2);W=innerWidth;H=appHeight();cv.width=Math.round(W*DPR);cv.height=Math.round(H*DPR);bcv.width=cv.width;bcv.height=cv.height;baseCam=null;updateVP();if(!camAnim)snapTo(camBox||PBOX||WBOX);dirty=true}
-function updateVP(){const h=$('#hdr');const fight=$('#fight');const tabs=$('#tabs');let bottom=document.body.classList.contains('rec')?H-10:tabs.offsetTop;if(document.body.classList.contains('career')){const cc=$('#car .carCard');bottom=cc?cc.getBoundingClientRect().top:H*.4}if(!fight.classList.contains('off'))bottom=fight.offsetTop;const intro=$('#intro');if(!intro.classList.contains('gone'))bottom=Math.min(bottom,$('.icard').getBoundingClientRect().top);const top=h.offsetTop+h.offsetHeight+(running&&isTurbo()?92:8)+($('#app').classList.contains('has3')?36:0);vp={x:8,y:top,w:W-16,h:Math.max(120,bottom-top-8)};const fb=$('#followBtn');fb.style.top=Math.max(top+4,top+vp.h-44)+'px'}
+function updateVP(){const h=$('#hdr');const fight=$('#fight');const tabs=$('#tabs');let bottom=document.body.classList.contains('rec')?H-10:tabs.offsetTop;if(document.body.classList.contains('career')){const cc=$('#car .carCard');bottom=cc?$('#car').offsetTop+cc.offsetTop:H*.4}if(!fight.classList.contains('off'))bottom=fight.offsetTop;const intro=$('#intro');if(!intro.classList.contains('gone'))bottom=Math.min(bottom,$('.icard').getBoundingClientRect().top);const top=h.offsetTop+h.offsetHeight+(running&&isTurbo()?92:8)+($('#app').classList.contains('has3')?36:0);vp={x:8,y:top,w:W-16,h:Math.max(120,bottom-top-8)};const fb=$('#followBtn');fb.style.top=Math.max(top+4,top+vp.h-44)+'px'}
 function fitBox(b,pad){pad=pad==null?.08:pad;const bw=(b[2]-b[0])*(1+pad*2),bh=(b[3]-b[1])*(1+pad*2);const s=clamp(Math.min(vp.w/bw,vp.h/bh),sMin(),40);return{x:(b[0]+b[2])/2,y:(b[1]+b[3])/2,s,px:vp.x+vp.w/2,py:vp.y+vp.h/2}}
 function sMin(){return Math.min(vp.w/(WBOX[2]-WBOX[0]),vp.h/(WBOX[3]-WBOX[1]))*.7}
 function snapTo(b){Object.assign(cam,fitBox(b,b===PBOX?.04:.08))}
@@ -1831,7 +1835,7 @@ function endPtr(e){if(!ptrs.has(e.pointerId))return;ptrs.delete(e.pointerId);
 cv.addEventListener('pointerup',endPtr);cv.addEventListener('pointercancel',endPtr);
 cv.addEventListener('wheel',e=>{e.preventDefault();setUserCam(true);const f=Math.exp(-e.deltaY*.0015);const wx=(e.clientX-cam.px)/cam.s+cam.x,wy=(e.clientY-cam.py)/cam.s+cam.y;cam.s=clamp(cam.s*f,sMin(),40);cam.x=wx-(e.clientX-cam.px)/cam.s;cam.y=wy-(e.clientY-cam.py)/cam.s;dirty=true},{passive:false});
 ['gesturestart','gesturechange','gestureend'].forEach(n=>document.addEventListener(n,e=>e.preventDefault()));
-document.addEventListener('touchmove',e=>{if(!e.target.closest('.sbody'))e.preventDefault()},{passive:false});
+document.addEventListener('touchmove',e=>{if(!e.target.closest('.sbody,.carBody,.icard'))e.preventDefault()},{passive:false});
 
 /* ---------- Specular highlight follows finger ---------- */
 document.addEventListener('pointermove',e=>{const g=e.target.closest&&e.target.closest('.glass');if(!g)return;const r=g.getBoundingClientRect();g.style.setProperty('--mx',((e.clientX-r.left)/r.width*100).toFixed(1)+'%');g.style.setProperty('--my',((e.clientY-r.top)/r.height*100).toFixed(1)+'%')},{passive:true});
@@ -2142,13 +2146,13 @@ function carHeader(){const tl=$('#hdr .title');if(tl.dataset.w!=='car'){tl.datas
   $('#aliveN').textContent=pos;const n=CAR.lg[l].length;$('#ringP').style.strokeDashoffset=(119.4*((pos-1)/Math.max(1,n-1))).toFixed(1)}
 /* ---- Darstellung ---- */
 function carRender(){const b=$('#carBody');if(!b)return;
-  if(!CAR){$('#carTop').innerHTML='<div class="carT1">🏆 Neue Karriere</div><button class="xbtn press" id="carHomeB" aria-label="Startbildschirm">⌂</button>';$('#carStats').innerHTML='';$('#carTabs').classList.add('hidden');b.innerHTML=carSetupHTML();carBind();return}
+  if(!CAR){$('#carTop').innerHTML='<div class="carT1">🏆 Neue Karriere</div><button class="xbtn press" id="carHomeB" aria-label="Startbildschirm">⌂</button>';$('#carStats').innerHTML='';$('#carTabs').classList.add('hidden');b.innerHTML=carSetupHTML();carBind();carFit();return}
   const k=CLUB[CAR.club],l=carMyL();
   $('#carTop').innerHTML=clubBadgeHTML(k,'mb')+'<div class="carT"><div class="carT1">'+esc(k.name)+'</div><div class="carT2">'+CL_NAME[l]+' · Saison '+seasonLbl(CAR.season)+'</div></div><button class="xbtn press" id="carSetB" aria-label="Einstellungen">⚙︎</button><button class="xbtn press" id="carHomeB" aria-label="Startbildschirm">⌂</button>';
   const need=xpNeed(CAR.lvl);$('#carStats').innerHTML='<span>💰 '+fmtMoney(CAR.money)+'</span><span>⭐ Lv '+CAR.lvl+' · '+carTitle()+'</span><div class="xpbar"><i style="width:'+Math.round(CAR.xp/need*100)+'%"></i></div>';
   $('#carTabs').classList.remove('hidden');segSet($('#carTabs'),carView);
-  b.innerHTML=carView==='tab'?carTabHTML():carView==='club'?carClubHTML():carView==='tro'?carTroHTML():carDayHTML();carBind();if(S&&S.career){updateHeader();carFit()}}
-let carFitT=null;function carFit(){clearTimeout(carFitT);carFitT=setTimeout(()=>{const pv=vp&&vp.h;updateVP();if(!userCam&&camBox&&(!pv||Math.abs(vp.h-pv)>20))flyTo(camBox,500)},60)}
+  b.innerHTML=carView==='tab'?carTabHTML():carView==='club'?carClubHTML():carView==='tro'?carTroHTML():carDayHTML();carBind();if(S&&S.career)updateHeader();if(document.body.classList.contains('career'))carFit()}
+let carFitT=null;function carFit(){clearTimeout(carFitT);carFitT=setTimeout(()=>{const pv=vp&&vp.h;updateVP();if(!userCam&&(!pv||Math.abs(vp.h-pv)>20))flyTo(camBox||PBOX,500)},60)}
 function carSetupHTML(){const ls=[1,2,3];const list=CLUB.filter(k=>k.liga===carPickL).sort((a,b)=>a.name.localeCompare(b.name,'de'));
   return '<div class="carH">Wähle deinen Verein</div><div class="note" style="padding-top:0">Du startest in der echten Liga deines Vereins (Saison 2026/27). 34 Spieltage (3. Liga: 38), Auf- und Abstieg wie in echt – inklusive Relegation.</div>'+
   '<div class="seg" id="carPL"><div class="hl"></div>'+ls.map(l=>'<button data-v="'+l+'">'+CL_SHORT[l]+'</button>').join('')+'</div>'+
@@ -2236,7 +2240,7 @@ setSpeedUI();
 const had=loadGame();setTimeout(()=>loadClubCoas(),1200);
 if(!had)newGame(SET.mode,SET.rule,(Math.random()*1e9)|0);
 if(had&&S.fights>0){$('#iCont').classList.remove('hidden');$('#iNew').classList.remove('tint')}else{$('#iNew').classList.add('tint')}
-updateIntro();updateHeader();carHomeBtn();
+clubCoaFix();updateIntro();updateHeader();carHomeBtn();
 resize();camBox=PBOX;snapTo(PBOX);
 requestAnimationFrame(t=>{lastT=t;moveBlob($('#bPlay'));requestAnimationFrame(frame)});
 // idle intro effect: random sparkles on the map
