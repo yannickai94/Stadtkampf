@@ -557,6 +557,10 @@ body.rec #fight{bottom:max(var(--sb),10px)}
 #app.has3{--tb:38px}
 @media (min-height:900px){.ititle{font-size:46px}}
 @media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+.kit svg{display:block;width:100%;height:auto;overflow:visible;filter:drop-shadow(0 2px 3px rgba(0,0,0,.35))}
+.carRes.draw{background:rgba(160,190,255,.12)}
+.ctr{grid-template-columns:18px 26px 1fr 22px 62px 28px 26px}.ctr span:nth-child(5){white-space:nowrap;font-size:12px}
+.sc-n{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}.ctr .ii{font-style:normal;font-size:9px;font-weight:900;opacity:.6;margin-left:3px;border:1px solid currentColor;border-radius:4px;padding:0 2px}
 </style>
 </head>
 <body>
@@ -891,11 +895,11 @@ const CLUBS=[
 ['1. FC Lokomotive Leipzig','Lok Leipzig','LOK',4,['Leipzig','Landkreis Leipzig'],'#0057b8','#ffd200','Leipzig'],
 ['SV Sandhausen','Sandhausen','SVS',4,['Rhein-Neckar-Kreis','Heidelberg'],'#111111','#ffffff','Sandhausen'],
 ['SpVgg Unterhaching','Unterhaching','SVU',4,['Landkreis München','Ebersberg'],'#d7192d','#003b79','Unterhaching'],
-['Kickers Offenbach','Offenbach','OFC',4,'Offenbach am Main','#d7192d','#ffffff']];
+['Kickers Offenbach','Offenbach','OFC',4,'Offenbach am Main','#d7192d','#ffffff'],['FC Carl Zeiss Jena','Jena','FCC',4,['Jena','Saale-Holzland-Kreis'],'#0b3c8c','#f6d200','Jena'],['Chemnitzer FC','Chemnitz','CFC',4,['Chemnitz','Mittelsachsen'],'#5fb7e8','#ffffff','Chemnitz'],['Hallescher FC','Halle','HFC',4,['Halle (Saale)','Saalekreis'],'#e30613','#ffffff','Halle (Saale)'],['FC Rot-Weiß Erfurt','Erfurt','ERF',4,['Erfurt','Weimarer Land'],'#e30613','#ffffff','Erfurt'],['Rot-Weiß Oberhausen','Oberhausen','RWO',4,['Oberhausen','Mülheim an der Ruhr'],'#e30613','#ffffff','Oberhausen'],['Borussia Dortmund II','BVB II','BVB2',4,['Unna','Dortmund'],'#fde100','#111111','Dortmund'],['FC Schalke 04 II','Schalke II','S042',4,['Recklinghausen','Gelsenkirchen','Bottrop'],'#004d9d','#ffffff','Gelsenkirchen'],['Stuttgarter Kickers','K. Stuttgart','SVK',4,['Esslingen','Stuttgart'],'#003b79','#ffffff','Stuttgart'],['KSV Hessen Kassel','Kassel','KAS',4,['Kassel','Landkreis Kassel'],'#e30613','#ffffff','Kassel'],['FC 08 Homburg','Homburg','HOM',4,'Saarpfalz-Kreis','#00843d','#ffffff','Homburg'],['VfB Oldenburg','Oldenburg','VFO',4,['Oldenburg','Ammerland','Landkreis Oldenburg'],'#0057b8','#ffffff','Oldenburg'],['Hannover 96 II','H96 II','H962',4,['Hildesheim','Region Hannover'],'#1a7a3b','#111111','Hannover']];
 /* Wikipedia-Artikel je Verein (II-Mannschaften nutzen das Wappen des Hauptvereins) */
 const CLUB_WIKI=['FC Bayern München','Borussia Dortmund','FC Schalke 04','VfB Stuttgart','Eintracht Frankfurt','Hamburger SV','1. FC Köln','Borussia Mönchengladbach','RB Leipzig','SV Werder Bremen','SC Freiburg','1. FSV Mainz 05','FC Augsburg','Bayer 04 Leverkusen','TSG 1899 Hoffenheim','1. FC Union Berlin','SC Paderborn 07','SV Elversberg',
  '1. FC Heidenheim 1846','1. FC Kaiserslautern','1. FC Magdeburg','1. FC Nürnberg','DSC Arminia Bielefeld','Eintracht Braunschweig','FC Energie Cottbus','FC St. Pauli','Hannover 96','Hertha BSC','Holstein Kiel','Karlsruher SC','SG Dynamo Dresden','SpVgg Greuther Fürth','SV Darmstadt 98','VfL Bochum','VfL Osnabrück','VfL Wolfsburg',
- '1. FC Saarbrücken','Alemannia Aachen','FC Ingolstadt 04','Fortuna Düsseldorf','F.C. Hansa Rostock','MSV Duisburg','SC Preußen Münster','Rot-Weiss Essen','SC Fortuna Köln','SC Verl','SG Sonnenhof Großaspach','SSV Jahn Regensburg','SV Meppen','SV Waldhof Mannheim','SV Wehen Wiesbaden','TSG 1899 Hoffenheim','TSV Havelse','VfB Stuttgart','FC Viktoria Köln','FC Würzburger Kickers','SSV Ulm 1846 Fußball','TSV 1860 München','FC Erzgebirge Aue','1. FC Schweinfurt 05','1. FC Lokomotive Leipzig','SV Sandhausen','SpVgg Unterhaching','Kickers Offenbach'];
+ '1. FC Saarbrücken','Alemannia Aachen','FC Ingolstadt 04','Fortuna Düsseldorf','F.C. Hansa Rostock','MSV Duisburg','SC Preußen Münster','Rot-Weiss Essen','SC Fortuna Köln','SC Verl','SG Sonnenhof Großaspach','SSV Jahn Regensburg','SV Meppen','SV Waldhof Mannheim','SV Wehen Wiesbaden','TSG 1899 Hoffenheim','TSV Havelse','VfB Stuttgart','FC Viktoria Köln','FC Würzburger Kickers','SSV Ulm 1846 Fußball','TSV 1860 München','FC Erzgebirge Aue','1. FC Schweinfurt 05','1. FC Lokomotive Leipzig','SV Sandhausen','SpVgg Unterhaching','Kickers Offenbach','FC Carl Zeiss Jena','Chemnitzer FC','Hallescher FC','FC Rot-Weiß Erfurt','Rot-Weiß Oberhausen','Borussia Dortmund','FC Schalke 04','Stuttgarter Kickers','KSV Hessen Kassel','FC 08 Homburg','VfB Oldenburg','Hannover 96'];
 const CLUB=CLUBS.map((r,i)=>{const pl=Array.isArray(r[4])?r[4]:[r[4]];const pref=pl.map(n=>cells.findIndex(c=>c.name===n)).filter(x=>x>=0);
   return{i,name:r[0],mid:r[1],short:r[2],liga:r[3],pref,home:pref[0],c1:r[5],c2:r[6],town:r[7]||pl[0]}});
 /* Startaufstellung je Liga-Auswahl: Heimatkreise vergeben (höhere Liga zuerst), dann jeder Kreis an den nächstgelegenen Verein */
@@ -1974,6 +1978,971 @@ function openSetup(){if(document.body.classList.contains('career'))carExit();abo
   const has=!!(S&&S.fights>0&&!S.over);$('#iCont').classList.toggle('hidden',!has);wizGo(1);wizPreview()})}
 
 
+/* ================= EA SPORTS FC 27 Spielerwerte ================= */
+const EA_PL=`Harry Kane|90|94|83|0|1
+Michael Olise|90|82|69|0|1
+Joshua Kimmich|88|73|79|0|1
+Luis Díaz|88|82|74|0|1
+Dayot Upamecano|87|45|83|0|1
+Nico Schlotterbeck|87|60|84|0|1
+Gregor Kobel|87|85|86|1|1
+Jonathan Tah|87|38|86|0|1
+Jamal Musiala|87|81|65|0|1
+Felix Nmecha|85|78|88|0|1
+Konrad Laimer|85|69|77|0|1
+Serhou Guirassy|85|85|83|0|1
+Deniz Undav|85|86|81|0|1
+Aleix García|84|75|69|0|1
+Oliver Baumann|84|81|81|1|1
+Waldemar Anton|84|47|85|0|1
+David Raum|83|62|79|0|1
+Ismael Saibari|83|78|82|0|1
+Aleksandar Pavlović|83|68|79|0|1
+Exequiel Palacios|83|76|71|0|1
+Maximilian Mittelstädt|83|63|74|0|1
+Angelo Stiller|83|59|72|0|1
+Serge Gnabry|83|83|65|0|1
+Patrik Schick|83|83|78|0|1
+Matthias Ginter|83|58|77|0|1
+Kim Min Jae|83|32|82|0|1
+Willi Orbán|83|40|83|0|1
+Alphonso Davies|82|66|76|0|1
+Julian Ryerson|82|63|82|0|1
+Edmond Tapsoba|82|58|80|0|1
+Christoph Baumgartner|82|79|68|0|1
+Palhinha|82|68|84|0|1
+Jonathan Burkardt|82|83|76|0|1
+Joey Veerman|82|74|71|0|1
+Marcel Sabitzer|81|79|77|0|1
+Emre Can|81|76|82|0|1
+Nicolas Seiwald|81|62|79|0|1
+Kaishū Sano|81|59|76|0|1
+Maximilian Beier|81|80|65|0|1
+Nathaniel Brown|81|60|59|0|1
+Manuel Neuer|81|80|82|1|1
+Castello Lukeba|81|43|76|0|1
+Andrej Kramarić|81|83|72|0|1
+Julian Chabot|81|38|85|0|1
+Miguel Gutiérrez|80|71|67|0|1
+Nadiem Amiri|80|80|73|0|1
+Ibrahim Maza|80|69|66|0|1
+Vladimír Coufal|80|57|78|0|1
+Ermedin Demirović|80|82|78|0|1
+Josip Stanišić|80|46|75|0|1
+Ritsu Doan|80|71|64|0|1
+Tim Kleindienst|80|80|86|0|1
+Ridle Baku|79|72|76|0|1
+Ramy Bensebaini|79|70|78|0|1
+Jens Stage|79|76|80|0|1
+Malik Tillman|79|77|76|0|1
+Noah Atubolu|79|74|76|1|1
+Daniel Heuer Fernandes|79|77|79|1|1
+Daniel Svensson|79|60|75|0|1
+Leon Avdullahu|79|61|75|0|1
+Jonas Urbig|79|76|77|1|1
+Tom Bischof|79|72|68|0|1
+Moritz Nicolas|79|80|78|1|1
+Facundo Medina|79|44|81|0|1
+Vincenzo Grifo|79|74|66|0|1
+Giannis Konstantelias|79|69|63|0|1
+Robin Koch|79|44|82|0|1
+Fisnik Asllani|79|80|76|0|1
+Philipp Lienhart|79|28|77|0|1
+Wouter Burger|78|68|83|0|1
+Maarten Vandevoordt|78|77|76|1|1
+Robin Gosens|78|73|75|0|1
+Raphael Onyedika|78|64|84|0|1
+Carney Chukwuemeka|78|69|70|0|1
+Marvin Schwäbe|78|74|78|1|1
+Robert Andrich|78|72|81|0|1
+Frederik Rønnow|78|78|77|1|1
+Afonso Moreira|78|71|70|0|1
+Saïd El Mala|78|78|67|0|1
+Franck Honorat|78|75|63|0|1
+Jamie Leweling|78|73|76|0|1
+Hiroki Ito|78|57|72|0|1
+Nathan Tella|78|74|60|0|1
+Chris Führich|78|72|58|0|1
+Benjamin Henrichs|78|54|70|0|1
+Antonio Nusa|78|73|64|0|1
+Rômulo|78|78|81|0|1
+Can Uzun|78|81|64|0|1
+Fábio Silva|78|75|76|0|1
+Arthur Theate|78|40|80|0|1
+Bilal El Khannouss|78|66|56|0|1
+Edin Džeko|78|81|75|0|1
+Ozan Kabak|78|37|80|0|1
+Jobe Bellingham|77|69|83|0|1
+Kevin Diks|77|67|78|0|1
+Rocco Reitz|77|70|72|0|1
+Grischa Prömel|77|75|79|0|1
+Hugo Larsson|77|72|76|0|1
+Alexis Claude-Maurice|77|73|66|0|1
+Mitchell Weiser|77|63|68|0|1
+Mats Rots|74|60|75|0|1
+Alessio Castro-Montes|74|69|69|0|1
+Tom Krauß|74|65|78|0|1
+Adam Daghim|74|67|72|0|1
+Loris Karius|74|70|74|1|1
+Ísak Bergmann Jóhannesson|74|64|71|0|1
+Michel Aebischer|74|67|70|0|1
+Felix Agu|74|56|62|0|1
+Ørjan Nyland|74|73|73|1|1
+András Schäfer|74|62|70|0|1
+Alexander Meyer|74|71|74|1|1
+Joe Scally|74|54|77|0|1
+Enzo Leopold|74|60|70|0|1
+Sheraldo Becker|74|72|71|0|1
+Patrick Osterhage|74|56|73|0|1
+Yannik Engelhardt|74|51|78|0|1
+Marius Bülter|74|77|76|0|1
+Aljoscha Kemlein|74|61|73|0|1
+Gideon Mensah|74|57|67|0|1
+Kevin Stöger|74|72|61|0|1
+Janis Blaswich|74|68|76|1|1
+Kenan Karaman|74|73|74|0|1
+Jordan Torunarigha|74|39|81|0|1
+Nnamdi Collins|74|30|75|0|1
+Jean-Luc Dompé|74|71|54|0|1
+Samuel Mbangula|74|71|55|0|1
+Chema|74|47|69|0|1
+Eliesse Ben Seghir|74|72|61|0|1
+Valentin Gendrey|74|37|72|0|1
+Badredine Bouanani|74|68|58|0|1
+Marius Wolf|73|70|76|0|1
+Dejan Ljubičić|73|68|76|0|1
+Olivier Deman|73|63|72|0|1
+Josip Juranović|73|64|65|0|1
+Silvan Widmer|73|62|72|0|1
+Soufiane El-Faouzi|73|61|72|0|1
+Albert Grønbæk|73|67|66|0|1
+Lukas Petkov|73|70|64|0|1
+Ezechiel Banzuzi|73|63|74|0|1
+Oliver Burke|73|70|73|0|1
+Ron-Robert Zieler|73|70|76|1|1
+Janik Haberer|73|67|70|0|1
+Martin Adeline|73|67|66|0|1
+Florian Neuhaus|73|69|67|0|1
+Yukhym Konoplia|73|47|71|0|1
+Florian Müller|73|68|70|1|1
+Silas|73|68|70|0|1
+Marco Grüll|73|74|68|0|1
+Niklas Stark|73|50|75|0|1
+Alexander Schwolow|73|72|73|1|1
+Isac Lidberg|73|71|81|0|1
+Tom Rothe|73|50|76|0|1
+Arthur|73|46|58|0|1
+Leo Sauer|73|64|63|0|1
+Karl Hein|73|71|73|1|1
+Sven Ulreich|73|69|73|1|1
+Eren Dinkçi|73|73|60|0|1
+Bilal Nadir|73|64|66|0|1
+Nathanaël Mbuku|73|63|58|0|1
+Ilyas Ansah|73|71|73|0|1
+Derry Scherhant|73|67|66|0|1
+Jeong Woo Yeong|73|62|61|0|1
+Maximilian Wöber|73|52|70|0|1
+Hennes Behrens|73|39|63|0|1
+Luca Waldschmidt|73|78|59|0|1
+Andreas Hanche-Olsen|73|38|78|0|1
+Max Rosenfelder|73|30|67|0|1
+Linton Maina|73|62|56|0|1
+Terem Moffi|73|72|72|0|1
+Mert Kömür|73|67|53|0|1
+Noel Futkeu|73|72|70|0|1
+Dan-Axel Zagadou|73|34|72|0|1
+Stefan Bell|73|38|71|0|1
+Junior Dina Ebimbe|72|64|74|0|1
+Laurin Curda|72|58|84|0|1
+Robert Skov|72|77|66|0|1
+Raphael Obermair|72|64|71|0|1
+Tim Skarke|72|73|65|0|1
+Timo Becker|72|58|79|0|1
+Jan Thielmann|72|69|67|0|1
+Max Finkgräfe|72|54|68|0|1
+Noël Aséko|72|61|67|0|1
+Alexander Schlager|72|70|72|1|1
+Niels Nkounkou|72|49|65|0|1
+Lukas Ullrich|72|56|70|0|1
+Shuto Machino|72|73|71|0|1
+Adil Aouchiche|72|65|57|0|1
+Dennis Seimen|72|68|67|1|1
+Felix Götze|72|51|73|0|1
+Rihito Yamamoto|72|64|64|0|1
+Livan Burcu|72|67|58|0|1
+Luca Sirch|72|46|73|0|1
+Justin Njinmah|72|72|60|0|1
+Nediljko Labrović|72|67|72|1|1
+Hugo Bolin|72|71|58|0|1
+Nicolas Kristof|72|72|71|1|1
+Daniel Elfadli|72|52|76|0|1
+Cedric Itten|72|74|79|0|1
+Lucas Höler|72|71|79|0|1
+Jordy Makengo|72|36|74|0|1
+Moussa Sylla|72|71|67|0|1
+Lennard Maloney|72|44|84|0|1
+Tim Oermann|72|34|76|0|1
+Ayoube Amaimouni|72|71|56|0|1
+Rayan Philippe|72|70|66|0|1
+Luca Jaquez|72|42|73|0|1
+Hasan Kuruçay|72|49|80|0|1
+Warmed Omari|72|34|74|0|1
+Berkay Yilmaz|72|35|62|0|1
+Bruno Ogbus|72|27|70|0|1
+Florent Muslija|72|66|44|0|1
+Chuki|72|68|47|0|1
+Jahmai Simpson-Pusey|72|28|70|0|1
+Noahkai Banks|72|35|73|0|1
+Keisuke Gotō|72|72|68|0|1
+Timo Hübers|72|40|70|0|1
+Marvin Friedrich|72|41|71|0|1
+Nikola Katić|72|35|86|0|1
+Joël Schmied|72|33|73|0|1
+Hong Hyun Seok|71|70|58|0|1
+Sander Tangvik|71|68|70|1|1
+Yussuf Poulsen|71|67|76|0|1
+Ransford-Yeboah Königsdörffer|71|68|66|0|1
+Laurin Ulrich|71|61|64|0|1
+Sota Kawasaki|71|62|63|0|1
+Stanley Nsoki|71|38|76|0|1
+Łukasz Poręba|71|53|72|0|1
+Marco Richter|71|70|62|0|1
+Tomáš Čvančara|71|69|77|0|1
+Leonidas Stergiou|71|42|74|0|1
+Elias Baum|71|50|68|0|1
+Calvin Brackelmann|71|47|80|0|1
+Fabian Bredlow|71|67|68|1|1
+William Bøving|71|69|63|0|1
+Patrick Drewes|71|70|71|1|1
+Lukas Pinckert|71|41|78|0|1
+Jeanuël Belocian|71|41|68|0|1
+Ron Schallenberg|71|49|75|0|1
+Kauã Santos|71|65|62|1|1
+Maximilian Rohr|71|53|76|0|1
+Nathan De Cat|71|50|68|0|1
+Andrija Maksimović|71|70|58|0|1
+David Herold|71|37|74|0|1
+Tom Zimmerschied|71|61|62|0|1
+Dennis Geiger|71|53|56|0|1
+Zento Uno|71|39|66|0|1
+Tidiam Gomis|71|63|58|0|1
+Rav van den Berg|71|35|71|0|1
+Ameen Al Dakhil|71|27|71|0|1
+Wael Mohya|71|65|38|0|1
+Tjark Scheller|71|36|74|0|1
+Kacper Potulski|71|29|74|0|1
+Luka Lochoshvili|71|28|82|0|1
+Ludovit Reis|70|63|71|0|1
+Lasse Günther|70|62|66|0|1
+Bakery Jatta|70|66|73|0|1
+Daiki Hashioka|70|59|76|0|1
+Kevin Müller|70|66|70|1|1
+Emmanuel Latte Lath|70|67|68|0|1
+Steve Mounié|70|70|79|0|1
+Santiago Castañeda|70|49|68|0|1
+Yannik Keitel|70|48|72|0|1
+Francis Onyeka|70|69|58|0|1
+Cyriaque Irié|70|62|70|0|1
+Montrell Culbreath|70|59|49|0|1
+Dawid Kownacki|70|71|67|0|1
+Anthony Jung|70|56|72|0|1
+Matheo Raab|70|69|70|1|1
+Bambasé Conté|70|64|61|0|1
+Oliver Batista Meier|70|66|54|0|1
+Younes Ebnoutalib|70|68|71|0|1
+Samuele Inácio|70|58|49|0|1
+Junior Adamu|70|70|61|0|1
+Fabio Chiarodia|70|33|68|0|1
+Fabio Gruber|70|36|71|0|1
+Nahuel Noll|69|65|69|1|1
+Finn Porath|69|63|68|0|1
+Jannik Huth|69|64|67|1|1
+Satoshi Tanaka|69|57|67|0|1
+Mertcan Ayhan|69|54|71|0|1
+Amara Condé|69|59|68|0|1
+Kofi Jeremy Amoako|69|49|68|0|1
+Abdoul Koné|69|43|78|0|1
+Jan Gyamerah|69|48|70|0|1
+Leopold Zingerle|69|66|68|1|1
+Cajetan Lenz|69|54|71|0|1
+Julián Malatini|69|35|74|0|1
+Keita Kosugi|69|40|61|0|1
+Mattes Hansen|69|40|70|0|1
+Marin Ljubičić|69|70|73|0|1
+Immanuël Pherai|69|58|50|0|1
+Rodrigo Ribeiro|69|66|61|0|1
+Alessandro Vogt|69|70|73|0|1
+Oskar Wójcik|69|33|75|0|1
+Max Moerstedt|69|67|63|0|1
+Florian Le Joncour|69|38|76|0|1
+Vitalie Becker|68|59|65|0|1
+Felix Keidel|68|48|62|0|1
+Emir Sahiti|68|65|63|0|1
+Skelly Alvero|68|52|81|0|1
+Sebastian Klaas|68|62|53|0|1
+Jessic Ngankam|68|67|74|0|1
+Maurice Krattenmacher|68|64|57|0|1
+Kennet Eichhorn|68|49|62|0|1
+Marius Funk|68|68|68|1|1
+Patson Daka|68|66|64|0|1
+Carl Klaus|68|69|66|1|1
+Deniz Zeitler|68|68|56|0|1
+Steffen Tigges|68|66|80|0|1
+Luca Philipp|68|64|69|1|1
+Jano ter Horst|68|37|68|0|1
+Suleman Sani|68|62|57|0|1
+Tomáš Kalas|68|47|74|0|1
+Tim Breithaupt|68|44|68|0|1
+Keke Topp|68|68|77|0|1
+Gabriel Vidović|68|67|54|0|1
+Joane Gadou|68|34|72|0|1
+Kenny Quetant|68|67|63|0|1
+Julian Pauli|68|26|70|0|1
+Tom Baack|67|57|76|0|1
+Marcel Hoffmeier|67|44|73|0|1
+Frederik Schmahl|67|59|67|0|1
+Nick Bätzner|67|60|59|0|1
+Adrian Gantenbein|67|48|71|0|1
+Timur Gayret|67|58|62|0|1
+Ruben Müller|67|57|54|0|1
+Markus Kolke|67|65|69|1|1
+Sven Michel|67|69|69|0|1
+Luka Đurić|67|58|61|0|1
+Bryan Lasme|67|64|75|0|1
+Axel Tape|67|42|59|0|1
+Noah Darvich|67|63|58|0|1
+Kauã Prates|67|37|64|0|1
+Luca Schnellbacher|67|66|71|0|1
+Jan Olschowsky|67|68|66|1|1
+Jason Ceka|67|62|48|0|1
+Stefano Marino|67|64|65|0|1
+Cole Campbell|67|57|42|0|1
+David Mokwa|67|67|58|0|1
+Nyamekye Awortwie-Grant|67|27|76|0|1
+Luca Reggiani|67|30|65|0|1
+Justin Lerma|66|59|60|0|1
+Dariusz Stalmach|66|57|63|0|1
+Christian Gomis|66|65|68|0|1
+Sima Suso|66|46|67|0|1
+Janik Bachmann|66|57|80|0|1
+Otto Ruoppi|66|53|58|0|1
+Niklas Lomb|66|58|63|1|1
+Jonah Sticker|66|30|63|0|1
+Uchenna Ogundu|66|64|64|0|1
+Stefan Drljača|66|62|64|1|1
+Nicholas Mickelson|66|33|70|0|1
+Otto Stange|66|66|64|0|1
+Justin Diehl|66|65|44|0|1
+Sean Dulić|66|25|76|0|1
+Jeremy Arévalo Mera|66|67|60|0|1
+Patrice Čović|66|55|39|0|1
+Mathis Albert|66|59|37|0|1
+Imad Rondić|66|65|72|0|1
+Luca Pfeiffer|66|66|78|0|1
+Love Arrhov|65|59|59|0|1
+Luis Engelns|65|53|61|0|1
+Markus Schubert|65|63|60|1|1
+Kennedy Okpala|65|64|63|0|1
+Max Grüger|65|49|66|0|1
+Lúkas Petersson|65|60|64|1|1
+Clemens Lippmann|65|33|67|0|1
+Paul Okon-Engstler|65|39|63|0|1
+Jarzinho Malanga|65|57|59|0|1
+Filippo Mané|65|25|61|0|1
+Tristan Zobel|65|27|74|0|1
+Elias Bakatukanda|65|25|64|0|1
+Anton Donkor|64|60|78|0|1
+Bara Sapoko Ndiaye|64|55|57|0|1
+Tobias Sippel|64|60|64|1|1
+Tim Boss|64|62|62|1|1
+Ayodele Thomas|64|62|54|0|1
+Felipe Chávez|64|51|53|0|1
+Youssoupha Niang|64|61|54|0|1
+Malik Pimpong|64|63|60|0|1
+Mirza Ćatović|64|46|70|0|1
+Salim Musah|64|63|67|0|1
+Lazar Jovanović|64|56|46|0|1
+Jeremiaha Maluze|64|32|71|0|1
+Martin Wasinski|64|27|63|0|1
+Timmy Chandler|63|67|65|0|1
+Filimon Gerezgiher|63|58|61|0|1
+Jens Grahl|63|60|62|1|1
+Viggo Gebel|63|57|47|0|1
+Karl Steinmann|63|41|61|0|1
+Silas Ostrzinski|63|60|62|1|1
+Reigan Heskey|63|55|59|0|1
+Andrik Markgraf|63|39|52|0|1
+Oluwaseun Ogbemudia|63|35|71|0|1
+Fritz Fleck|63|59|45|0|1
+Dylan Leonard|63|34|66|0|1
+Alexander Røssing-Lelesiit|63|55|44|0|1
+Thomas Kastanaras|63|64|62|0|1
+Otávio|63|23|64|0|1
+Albert Millgramm|62|63|50|0|1
+Fayssal Harchaoui|62|36|55|0|1
+Mussa Kaba|62|35|62|0|1
+Raif Adam|62|59|47|0|1
+Jan Leszczyński|62|38|66|0|1
+Alynho Haidara|62|62|67|0|1
+Enzo dos Santos|61|40|58|0|1
+Mathieu Nguefack|61|46|63|0|1
+Frank Lehmann|61|62|57|1|1
+Martin James|61|55|58|1|1
+Danfa|61|63|54|0|1
+Emil Højlund|61|57|67|0|1
+Niklas Mohr|61|46|55|0|1
+Joyeux Masanka Bungi|60|51|61|0|1
+Elias Etringer|60|58|60|1|1
+Julien Friedrich|60|60|41|0|1
+Rouven Tarnutzer|60|44|55|0|1
+Rael Nakuzola|60|41|66|0|1
+Florian Pruhs|60|58|50|1|1
+Amil Šiljević|60|54|56|1|1
+Mekhi Gray|60|60|69|0|1
+Mahmut Kücüksahin|60|36|47|0|1
+Joel Agyekum|60|29|64|0|1
+Malek El Mala|59|58|59|0|1
+Santos Daiber|59|49|47|0|1
+Stefan Smarkalev|59|57|55|1|1
+Benno Kaltefleiter|59|46|58|0|1
+Maximilian Kinzig|59|58|59|1|1
+Samba Konaté|59|58|60|0|1
+Johannes Siebeking|59|56|55|1|1
+Maycon Cardozo|59|52|37|0|1
+Lasse Eickel|59|60|57|0|1
+Natnael Abraha|59|26|57|0|1
+Julian Etse|59|29|60|0|1
+Shafiq Nandja|59|33|61|0|1
+Mick Schmetgens|59|33|59|0|1
+Ertugrul Yigit|58|47|61|0|1
+Tim Blaszczak|58|48|54|0|1
+Gil Neves|58|47|62|0|1
+Tim Schnitzer|58|46|56|0|1
+Faik Sakar|58|51|49|0|1
+Zaid Tchibara|58|57|51|0|1
+Luis Seifert|58|32|57|0|1
+Luca Vozar|57|48|54|0|1
+Fernando Dickes|57|56|52|1|1
+Fritz Gagzow|57|56|53|1|1
+Tristan Spranger|57|26|61|0|1
+Matthias Köbbing|56|57|51|1|1
+Tom Wisbereit|56|54|55|1|1
+Bryan Zaragoza|77|72|44|0|1
+Lennart Karl|77|73|43|0|1
+Mario Götze|77|73|64|0|1
+Konstantinos Karetsas|76|71|47|0|1
+Philipp Treu|76|46|67|0|1
+Farès Chaïbi|76|68|72|0|1
+Ansgar Knauff|76|71|64|0|1
+Sacha Boey|75|55|76|0|1
+Arijon Ibrahimović|75|68|58|0|1
+Christian Günter|75|59|80|0|1
+Lukas Kübler|75|54|76|0|1
+Kamil Grabara|81|79|83|1|2
+Maximilian Arnold|79|80|75|0|2
+Mohamed Amoura|79|81|60|0|2
+Christian Eriksen|77|74|56|0|2
+Mattias Svanberg|76|70|73|0|2
+Joakim Mæhle|76|56|75|0|2
+Timon Wellenreuther|76|74|73|1|2
+Marcel Hartel|76|73|65|0|2
+Denis Vavro|76|59|81|0|2
+Patrick Mainka|76|44|82|0|2
+Marvin Wanitzek|75|74|69|0|2
+Fabian Reese|75|74|78|0|2
+Vinicius Souza|75|57|82|0|2
+Saël Kumbedi|75|45|62|0|2
+Aaron Zehnter|74|68|63|0|2
+Yannick Gerhardt|74|70|74|0|2
+Eric Smith|74|59|76|0|2
+Hauke Wahl|74|32|76|0|2
+Moritz Jenz|74|29|80|0|2
+Mathias Rasmussen|73|68|67|0|2
+Alexander Bernhardsson|73|72|71|0|2
+Elvis Rexhbeçaj|73|67|74|0|2
+Joel Chima Fujita|73|61|73|0|2
+Timo Horn|73|75|69|1|2
+Julian Justvan|73|63|53|0|2
+Barış Atik|73|70|57|0|2
+Naatan Skyttä|73|65|53|0|2
+Josip Brekalo|73|71|55|0|2
+Mathias Pereira Lage|72|72|67|0|2
+Maximilian Wittek|72|67|72|0|2
+Mathias Honsak|72|69|69|0|2
+Marcel Schuhen|72|69|71|1|2
+Mateusz Żukowski|72|75|68|0|2
+Marnon Busch|72|53|74|0|2
+Jan Schöppner|72|57|80|0|2
+Pascal Loretz|72|70|72|1|2
+Leonardo Bittencourt|72|68|59|0|2
+Aster Vranckx|72|65|70|0|2
+Maurice Neubauer|72|50|69|0|2
+Martijn Kaars|72|71|72|0|2
+Julian Niehues|72|61|79|0|2
+Kilian Fischer|72|38|70|0|2
+Mohamed Alì Zoma|72|71|64|0|2
+Finn Ole Becker|72|55|60|0|2
+Benjamin Källman|72|69|80|0|2
+Ron-Thorben Hoffmann|72|70|73|1|2
+Bence Dárdai|72|62|58|0|2
+Budu Zivzivadze|72|72|73|0|2
+Marvin Pieringer|72|71|79|0|2
+Muhammed Damar|72|66|61|0|2
+Fraser Hornby|72|71|77|0|2
+Paul Joly|72|34|72|0|2
+Philipp Hofmann|72|72|79|0|2
+Robert Glatzel|72|72|76|0|2
+Marlon Ritter|71|69|68|0|2
+Ole Pohlmann|71|65|72|0|2
+Felix Klaus|71|69|69|0|2
+John Tolkin|71|48|67|0|2
+Adam Markhiev|71|58|70|0|2
+Paul Seguin|71|61|73|0|2
+Leart Paçarada|71|47|68|0|2
+Kai Klefisch|71|53|80|0|2
+Mërgim Berisha|71|71|69|0|2
+Semih Sahin|71|57|64|0|2
+Julian Krahl|71|70|70|1|2
+Hiroki Akiyama|71|44|61|0|2
+Karol Mets|71|48|78|0|2
+Jonas Föhrenbach|71|43|72|0|2
+Branimir Hrgota|71|72|65|0|2
+Jonas Meffert|71|48|75|0|2
+Boris Tomiak|71|47|80|0|2
+David Zec|71|40|77|0|2
+Lee Ho Jae|71|75|80|0|2
+Tim Siersleben|71|42|73|0|2
+Alexander Nollenberger|70|63|67|0|2
+Fabian Nürnberger|70|61|64|0|2
+Rafael Lubach|70|62|63|0|2
+Mustapha Bundu|70|66|71|0|2
+Gerrit Holtmann|70|64|58|0|2
+Oliver Olsen|70|58|75|0|2
+Arkadiusz Pyrka|70|56|63|0|2
+Stefán Teitur Þórðarson|70|66|66|0|2
+Tim Handwerker|70|54|69|0|2
+Jón Dagur Þorsteinsson|70|64|73|0|2
+Steven Skrzybski|70|74|65|0|2
+Joel Grodowski|70|68|72|0|2
+Mads Pedersen|70|52|64|0|2
+Alexander Rossipal|70|55|73|0|2
+Frank Feller|70|71|73|1|2
+Mika Haas|70|50|62|0|2
+Luca Marseiler|70|67|60|0|2
+Marcus Mathisen|70|55|80|0|2
+Monju Momuluh|70|63|64|0|2
+Tolcay Ciğerci|70|66|67|0|2
+Noah Weißhaupt|70|60|60|0|2
+Niklas Hauptmann|70|58|54|0|2
+Berkan Taz|70|68|64|0|2
+Márton Dárdai|70|36|73|0|2
+Lars Gindorf|70|76|61|0|2
+Jan Reichert|70|68|69|0|2
+Giorgi Kvilitaia|70|68|74|0|2
+Virgil Ghiță|70|44|81|0|2
+Jacob Rasmussen|70|39|80|0|2
+Fabian Kunze|70|40|79|0|2
+Phil Harres|70|71|73|0|2
+Ivan Prtajin|70|71|75|0|2
+Linus Gechter|70|34|78|0|2
+Vincent Vermeij|70|70|74|0|2
+Patric Pfeiffer|70|35|75|0|2
+Philipp Strompf|70|35|83|0|2
+Tomoya Andō|70|34|71|0|2
+Aleksandar Vukotić|70|43|82|0|2
+Christoph Kobald|70|26|68|0|2
+Jonas Adjetey|70|23|69|0|2
+Marcel Franke|70|31|78|0|2
+Adrian Beck|69|70|76|0|2
+Louis Oppie|69|60|78|0|2
+Lino Tempelmann|69|58|68|0|2
+Marcel Costly|69|57|72|0|2
+Dimitar Mitov|69|69|70|1|2
+Jonas Therkelsen|69|61|67|0|2
+Mehmet Can Aydın|69|62|68|0|2
+Oualid Mhamdi|69|59|69|0|2
+Luca Kerber|69|62|72|0|2
+Enis Çokaj|69|59|68|0|2
+Stefano Russo|69|53|77|0|2
+Henri Koudossou|69|53|66|0|2
+Deyovaisio Zeefuik|69|41|78|0|2
+Thomas Dähne|69|65|67|1|2
+Sirlord Conteh|69|64|63|0|2
+Sebastian Jung|69|52|68|0|2
+Maxwell Gyamfi|69|38|78|0|2
+Jean Hugonet|69|46|74|0|2
+Robert Wagner|69|46|76|0|2
+Erik Engelhardt|69|69|80|0|2
+Rogério|69|53|50|0|2
+Moritz Broschinski|69|68|70|0|2
+Koji Miyoshi|69|65|44|0|2
+Adrián Kaprálik|69|61|63|0|2
+Kolja Oudenne|69|62|58|0|2
+Jan Elvedi|69|35|78|0|2
+Jannis Heuer|69|52|74|0|2
+Pavao Pervan|69|70|65|1|2
+Luca Schuler|69|66|77|0|2
+Ibrahim Sissoko|69|70|75|0|2
+Daniel Hanslik|69|68|74|0|2
+Adam Dźwigała|69|44|73|0|2
+Maximilian Entrup|69|69|72|0|2
+Kento Shiogai|69|69|61|0|2
+Thomas Keller|69|48|71|0|2
+Robin Meißner|69|67|72|0|2
+Nicolai Rapp|69|43|74|0|2
+Daniel-Kofi Kyereh|69|67|47|0|2
+Kevin Ehlers|69|29|70|0|2
+David Nemeth|69|29|76|0|2
+Maximilian Bauer|69|26|73|0|2
+Emmanuel Iyoha|68|63|73|0|2
+Marius Wörl|68|62|66|0|2
+Connor Metcalfe|68|60|73|0|2
+Lubambo Musonda|68|62|63|0|2
+Marvin Mehlem|68|65|64|0|2
+Herbert Bockhorn|68|61|67|0|2
+Falko Michel|68|56|73|0|2
+Giannis Masouras|68|49|67|0|2
+Dominik Reimann|68|66|64|1|2
+Timon Weiner|68|67|65|1|2
+Paul Will|68|51|77|0|2
+Robin Heußer|68|52|73|0|2
+Simon Asta|68|36|71|0|2
+Max Marie|68|58|60|0|2
+Leon Jensen|68|62|58|0|2
+Lasse Rosenboom|68|47|74|0|2
+Jonas Sterner|68|44|64|0|2
+Lars Kehl|68|66|59|0|2
+Mats Pannewig|68|61|72|0|2
+Lars Ritzka|68|48|65|0|2
+Michael Heule|68|53|59|0|2
+Benjamin Uphoff|68|69|68|1|2
+Hans Christian Bernat|68|68|66|1|2
+Ricky-Jade Jones|68|64|66|0|2
+Lance Duijvestijn|68|68|66|0|2
+Louey Ben Farhat|68|67|51|0|2
+Jakob Lemmer|68|62|63|0|2
+Kasper Davidsen|68|48|73|0|2
+Benedikt Pichler|68|66|72|0|2
+Waniss Taïbi|68|57|67|0|2
+Jonas Kersken|68|53|71|1|2
+Rayan Ghrieb|68|66|60|0|2
+Farid Alfa-Ruprecht|68|61|53|0|2
+Matthias Bader|68|41|64|0|2
+Tim Schreiber|68|63|67|1|2
+Christian Conteh|68|60|58|0|2
+Ben Bobzien|68|68|54|0|2
+Mikkel Kaufmann|68|67|71|0|2
+Ibrahim Kanaté|68|63|56|0|2
+Marko Ivezić|68|39|74|0|2
+Rafael Pinto Pedrosa|68|29|61|0|2
+Hiroki Sekine|68|31|73|0|2
+Kenneth Schmidt|68|26|70|0|2
+Marcel Lotka|68|65|69|1|2
+Shinta Appelkamp|68|58|45|0|2
+Jannik Dehm|67|50|68|0|2
+Luca Itter|67|43|69|0|2
+Aaron Keller|67|58|65|0|2
+Christian Ortag|66|66|68|1|2
+Dennis Srbeny|66|64|70|0|2
+Florian Hellstern|66|62|64|0|2
+Doni Arifi|65|55|69|0|2
+Sacha Bansé|64|51|61|0|2
+Mika Wallentowitz|64|55|62|0|2
+Lukas Reich|64|42|68|0|2
+Silas Prüfrock|64|58|61|1|2
+Philipp Müller|64|39|67|0|2
+Pelle Boevink|64|59|62|1|2
+Omar Sillah|63|61|74|0|2
+Benjamin Zank|63|65|76|0|2
+Krisztián Keresztes|63|25|64|0|2
+Noah König|62|31|67|0|2
+Leander Popp|61|58|59|0|2
+Raul Mariţa|59|27|56|0|2
+Mehmet Avlayici|58|42|54|0|2
+Omar Megeed|58|53|52|0|2
+Maxim Dal|58|41|61|0|2
+Hayate Matsuda|67|40|49|0|2
+Husseyn Chakroun|67|56|49|0|2
+Elias Bethke|67|65|68|1|2
+Leon Robinson|67|32|66|0|2
+Paul Hennrich|67|62|55|0|2
+Abdoulie Ceesay|67|67|67|0|2
+Marius Gersbeck|67|70|64|1|2
+Christian Mathenia|67|66|65|1|2
+Lukas Boeder|67|36|73|0|2
+Sigurd Haugen|67|65|77|0|2
+Sebastian Grønning|67|65|74|0|2
+Patrick Kammerbauer|67|53|71|0|2
+Lennart Grill|67|60|64|1|2
+Torben Müsel|67|63|70|0|2
+Dominik Pelivan|67|51|75|0|2
+Bjarke Jacobsen|67|56|78|0|2
+Jean-Manuel Mbom|67|60|75|0|2
+Kevin Sessa|67|63|56|0|2
+Moritz-Broni Kwarteng|67|64|49|0|2
+David Kopacz|67|61|64|0|2
+Taichi Hara|67|65|71|0|2
+Aaron Opoku|67|56|61|0|2
+Niklas Wiemann|67|39|75|0|2
+Florian Flick|67|49|71|0|2
+Jannik Rochelt|67|61|64|0|2
+Ben Voll|67|64|66|1|2
+Frederik Jäkel|67|29|73|0|2
+Erencan Yardımcı|67|62|73|0|2
+Kwon Hyeok Kyu|67|53|78|0|2
+Merveille Papela|67|54|53|0|2
+Lilian Egloff|67|63|65|0|2
+Fynn Otto|67|33|69|0|2
+Christopher Lannert|67|44|64|0|2
+Tim Ceveja|67|57|65|0|2
+Bastian Allgeier|67|39|76|0|2
+Jonas Krumrey|67|64|64|1|2
+Anselmo García Macnulty|67|35|75|0|2
+Konrad Faber|67|59|62|0|2
+Johan Arath Gómez|67|62|67|0|2
+Guillermo Balzi|67|65|60|0|2
+Alessio Besio|67|66|67|0|2
+Julian Eitschberger|67|50|63|0|2
+Daniel Heber|67|42|73|0|2
+Fabio Di Michele Sanchez|67|44|67|0|2
+Noel Eichinger|67|65|65|0|2
+Andi Hoti|67|27|71|0|2
+Viktor Bergh|67|54|67|0|2
+Christian Rasmussen|67|65|66|0|2
+Pascal Klemens|67|37|71|0|2
+Lukas Frenkert|67|25|72|0|2
+Mikayil Faye|67|52|70|0|2
+Shio Fukuda|66|67|48|0|2
+Benjamin Boakye|66|56|61|0|2
+Luka Hyryläinen|66|43|74|0|2
+Lukas Michelbrink|66|54|62|0|2
+Robin Fabinski|66|31|70|0|2
+Cleiton|66|34|69|0|2
+Adriano Grimaldi|66|66|76|0|2
+Sebastian Schonlau|66|41|69|0|2
+Axel Borgmann|66|56|75|0|2
+Joel Felix|66|39|70|0|2
+Raoul Petretta|66|36|71|0|2
+Leo Weinkauf|66|67|69|1|2
+Fridolin Wagner|66|59|75|0|2
+Carlo Sickinger|66|49|66|0|2
+Julian Guttau|66|64|62|0|2
+Leon Schneider|66|40|71|0|2
+Noah Katterbach|66|41|56|0|2
+Richmond Tachie|66|65|64|0|2
+Henry Rorig|66|56|74|0|2
+Williams Kokolo|66|44|76|0|2
+Florian Kleinhansl|66|39|62|0|2
+Leonhard Münst|66|58|61|0|2
+Jonas Oehmichen|66|52|47|0|2
+Faride Alidou|66|59|63|0|2
+Tim Janisch|66|54|54|0|2
+Moritz Hannemann|66|63|72|0|2
+Yann Sturm|66|63|53|0|2
+King Samuel Manu|66|31|77|0|2
+Ismail Badjie|65|58|54|0|2
+Andu Kelati|65|56|38|0|2
+Pierre Nadjombe|65|46|61|0|2
+Jorrit Hendrix|71|66|75|0|3
+Dominique Heintz|71|37|73|0|3
+Tim Oberdorf|70|46|74|0|3
+Fabian Schleusener|70|68|75|0|3
+Manuel Riemann|69|67|70|1|3
+Mika Schroers|69|71|57|0|3
+Florian Stritzel|69|68|73|1|3
+Jakob Golz|69|64|68|1|3
+Philipp Förster|68|69|77|0|3
+Andreas Müller|68|63|59|0|3
+Joshua Bitter|68|51|82|0|3
+Matthias Zimmermann|68|58|69|0|3
+Joshua Mees|68|66|56|0|3
+Florian Pick|68|66|52|0|3
+Philipp Hercher|67|62|72|0|3
+Marvin Schulz|67|63|71|0|3
+Max Besuschkow|67|61|72|0|3
+Lucas Brumme|67|64|70|0|3
+Fredrik Carlsen|67|63|68|0|3
+Can Coşkun|67|59|67|0|3
+Marco Schuster|67|58|74|0|3
+Luca Unbehaun|67|61|68|1|3
+Tim Rossmann|67|59|62|0|3
+Niklas May|67|48|62|0|3
+Yassine Bouchama|67|59|66|0|3
+Rico Preißinger|67|56|77|0|3
+David Otto|67|67|69|0|3
+Lex-Tyger Lobinger|67|66|79|0|3
+Lasse Rieß|67|65|67|1|3
+Leon Dajaku|67|61|64|0|3
+José-Enrique Ríos Alonso|67|40|72|0|3
+Martin Ens|67|40|71|0|3
+Dominik Kother|67|61|54|0|3
+Steven van der Sloot|67|32|59|0|3
+Klaus Gjasula|67|56|80|0|3
+Moritz Flotho|67|67|72|0|3
+Emil Holten|67|67|74|0|3
+Elias Egouli|67|28|79|0|3
+Florian Carstens|67|27|78|0|3
+Tarik Gözüsirin|66|59|69|0|3
+Christian Viet|66|54|69|0|3
+Kenan Fatkic|66|63|70|0|3
+Calogero Rizzuto|66|55|71|0|3
+Andreas Voglsammer|66|65|75|0|3
+Lukas Klünter|66|41|75|0|3
+Charalambos Makridis|66|65|57|0|3
+Aljaž Casar|66|54|78|0|3
+Max Brandt|66|58|65|0|3
+Patrick Sontheimer|66|51|68|0|3
+Adrian Fein|66|57|68|0|3
+Conor Noß|66|65|60|0|3
+Dennis Waidner|66|53|61|0|3
+Nishan Velupillay|66|58|57|0|3
+Tim Kloss|66|50|69|0|3
+Zidan Sertdemir|66|56|60|0|3
+Marcel Benger|66|56|74|0|3
+Lukas Schleimer|66|60|58|0|3
+Nicolás Sessa|66|63|52|0|3
+Lars Lokotsch|66|63|84|0|3
+Mehdi Loune|66|58|51|0|3
+Maximilian Krauß|66|63|61|0|3
+Maximilian Braune|66|62|62|1|3
+Florian Bohnert|66|40|70|0|3
+Jannik Hofmann|66|39|62|0|3
+Vinko Šapina|66|49|80|0|3
+Jasper Löffelsend|66|41|67|0|3
+Niklas Tauer|66|46|68|0|3
+Joshua Eze|66|45|69|0|3
+Semir Telalović|66|66|74|0|3
+Patrick Sussek|66|61|57|0|3
+Dickson Abiama|66|63|62|0|3
+Simon Lorenz|66|40|83|0|3
+Eric Hottmann|66|64|75|0|3
+Noah Joel Sarenren Bazee|66|59|56|0|3
+Kai Brünker|66|67|80|0|3
+Leroy-Jacques Mickels|66|61|56|0|3
+Marek Janssen|66|65|81|0|3
+Max Geschwill|66|31|69|0|3
+Oscar Vilhelmsson|66|64|67|0|3
+Ahmet Gürleyen|66|37|86|0|3
+Terrence Boyd|66|66|77|0|3
+Siemen Voet|66|40|73|0|3
+Rasim Bulić|66|36|80|0|3
+Tobias Fleckstein|66|25|75|0|3
+Jonas Scholz|66|34|69|0|3
+Leopold Wurm|66|21|66|0|3
+Jordy Gillekens|66|23|66|0|3
+Yannick Deichmann|65|59|76|0|3
+Christian Kühlwetter|65|65|75|0|3
+Benno Dietze|65|52|75|0|3
+Yari Otto|65|61|66|0|3
+Philipp Ochs|65|63|61|0|3
+Benjamin Kanuric|65|59|72|0|3
+Faton Ademi|65|52|67|0|3
+Niklas Kölle|65|47|72|0|3
+Dennis Kaygin|65|65|66|0|3
+Lukas Scepanik|65|60|65|0|3
+Frederik Christensen|65|55|65|0|3
+Jomaine Consbruch|65|60|51|0|3
+Linus Rosenlöcher|65|45|72|0|3
+John Posselt|64|66|60|0|3
+Petros Bagalianis|64|39|70|0|3
+Jermain Nischalke|64|62|66|0|3
+Yasin Zor|64|61|52|0|3
+Vincent Thill|64|53|48|0|3
+Malte Karbstein|64|36|71|0|3
+André Leipold|64|58|50|0|3
+Ben Hüning|64|42|65|0|3
+Lukas Wallner|64|29|67|0|3
+Mladen Cvjetinović|64|27|70|0|3
+Ben Schlicke|64|25|74|0|3
+Robin Ziegele|64|28|76|0|3
+David Kamm Al-Azzawe|64|31|72|0|3
+Mika Hanraths|64|27|74|0|3
+Antonio Tikvić|64|31|70|0|3
+Florian Hübner|64|43|66|0|3
+Nico Thier|63|55|73|0|3
+Fabian Wessig|63|62|65|0|3
+Jesse Tugbenyo|63|45|71|0|3
+Miguel Gonçalves|63|41|64|0|3
+Erik Zenga|63|54|65|0|3
+Florian Heister|63|50|63|0|3
+Oscar Schönfelder|63|55|57|0|3
+Sinan Karweina|63|61|64|0|3
+Fabian Greilinger|63|47|61|0|3
+Marius Kunde|63|52|60|0|3
+Abdoulaye Kamara|63|43|65|0|3
+Timo Bornemann|63|60|67|0|3
+Kevin Schumacher|63|60|66|0|3
+Philip Fahrner|63|46|65|0|3
+Matteo Bignetti|63|63|61|1|3
+Niklas Jessen|63|48|56|0|3
+Adrian Stanilewicz|63|49|61|0|3
+Dominik Nothnagel|63|42|71|0|3
+Thorben Deters|63|51|57|0|3
+Matthis Harsman|63|64|63|1|3
+Florian Bähr|63|31|68|0|3
+Marco Wörner|63|60|59|0|3
+Kwasi Okyere Wriedt|63|61|77|0|3
+Dominik Meisel|63|47|54|0|3
+Kushtrim Asallari|63|59|57|0|3
+Yannick Tonye|63|49|60|0|3
+Lovis Bierschenk|63|59|58|0|3
+Kasra Ghawilu|63|59|57|0|3
+Johann Hipper|63|62|65|1|3
+Abdenego Nankishi|63|54|56|0|3
+Ekin Celebi|63|40|65|0|3
+Franci Bouebari|63|37|64|0|3
+Matti Wagner|63|41|50|0|3
+Arlind Rexhepi|63|56|53|0|3
+Richard Meier|63|61|72|0|3
+Julius Pünt|63|60|65|1|3
+Tom Geerkens|63|40|68|0|3
+Noah Brdar|63|61|64|1|3
+Maximilian Thalhammer|63|49|73|0|3
+Cyrill Akono|63|61|68|0|3
+Hamadi Al Ghaddioui|63|63|77|0|3
+Fabio Torsiello|63|63|56|0|3
+Max Lamby|63|29|58|0|3
+Lucas Hermes|63|63|61|0|3
+Niklas Castelle|63|63|55|0|3
+Ben Opoku Labes|63|64|69|0|3
+Lennart Winkler|63|65|61|1|3
+Robin Velasco|63|57|42|0|3
+Jaka Čuber Potočnik|63|64|56|0|3
+Florian Dietz|63|60|72|0|3
+Aiman Dardari|63|59|42|0|3
+Finn Kiszka|63|63|62|0|3
+Obed Ugondu|63|60|57|0|3
+Jonas Michelbrink|63|51|37|0|3
+Jakob Lewald|63|31|74|0|3
+Bennit Bröger|63|45|44|0|3
+Yannis Hör|63|24|58|0|3
+Peter Kiedl|63|61|67|0|3
+Patrick Schmidt|63|64|71|0|3
+Verthomy Schilo Boboy|63|26|71|0|3
+Kevin Broll|63|62|60|1|3
+Leo Mätzler|63|29|67|0|3
+Lorenzo Paldino|63|62|61|0|3
+Arbnor Nuraj|63|23|70|0|3
+Michael Glück|63|27|66|0|3
+Antonis Aidonis|63|31|66|0|3
+Lucas Zeller|63|22|72|0|3
+Jonas Fedl|63|26|64|0|3
+Luis Sprekelmeyer|63|23|68|0|3
+Maximilian Fischer|63|31|70|0|3
+Maximilian Herwerth|63|23|67|0|3
+Vleron Statovci|62|56|65|0|3
+Almin Mešanović|62|59|63|0|3
+Eroll Zejnullahu|62|57|62|0|3
+Marc Richter|62|58|61|0|3
+Luca Molinari|62|50|65|0|3
+Niklas Pollex|62|62|66|0|3
+Jid Okeke|62|38|69|0|3
+Diren Dağdeviren|62|48|59|0|3
+Georg Strauch|62|44|65|0|3
+Mika Stuhlmacher|62|58|69|0|3
+Dennis Borkowski|62|61|64|0|3
+Amin Farouk|62|55|57|0|3
+Philipp Klewin|62|60|63|1|3`;
 /* ================= Torwandschießen ================= */
 /* Zwei Löcher wie an der klassischen Torwand: unten links, oben rechts. Koordinaten relativ zur Wand (u: links→rechts, v: unten→oben) */
 const TW_HOLES=[{u:.25,v:.27,n:'unten'},{u:.75,v:.73,n:'oben'}];
@@ -1982,9 +2951,9 @@ const twClampP=x=>clamp(x,.08,.86);
 function twProbFac(f,bonus){return twClampP(.34+(mult(f)-1)*.5+bonus*.035)}
 function twPack(fi,sh,st,pA,pD,bA,bD){const cnt=a=>a.filter(Boolean).length;const a=cnt(sh.A)+st.reduce((s,x)=>s+(x[0]?1:0),0),d=cnt(sh.D)+st.reduce((s,x)=>s+(x[1]?1:0),0);
   return{tw:true,sh,st,pA,pD,bA,bD,m:{A:mult(fi.A),D:mult(fi.D)},r:{A:[1,1,1],D:[1,1,1]},sA:a,sD:d,aw:a>d}}
-function twSimShots(pA,pD,R){R=R||grnd;const sh={A:[],D:[]};for(let k=0;k<3;k++){sh.A.push(R()<pA);sh.D.push(R()<pD)}
+function twSimShots(pA,pD,R,draw){R=R||grnd;const sh={A:[],D:[]};for(let k=0;k<3;k++){sh.A.push(R()<pA);sh.D.push(R()<pD)}
   const st=[];let a=sh.A.filter(Boolean).length,d=sh.D.filter(Boolean).length;
-  while(a===d&&st.length<10){const x=R()<pA,y=R()<pD;st.push([x,y]);a+=x?1:0;d+=y?1:0}
+  while(!draw&&a===d&&st.length<10){const x=R()<pA,y=R()<pD;st.push([x,y]);a+=x?1:0;d+=y?1:0}
   return{sh,st,a,d}}
 function twResolve(fi){const bA=bonusOf(fi.A,'A',fi),bD=bonusOf(fi.D,'D',fi);const pA=twProbFac(fi.A,bA.b),pD=twProbFac(fi.D,bD.b);
   const o=twSimShots(pA,pD);return twPack(fi,o.sh,o.st,pA,pD,bA,bD)}
@@ -2160,10 +3129,11 @@ async function twMatch(o){const el=$('#tw');const n=o.n||3;twCtx={open:true,ball
     if(hit&&me&&SET.voice)say(['Drin!','Tor!','Versenkt!'][Math.random()*3|0],{cut:true});
     await twWait(hit?700:520);return hit}
   for(let k=0;k<n;k++)for(const sd of ['A','D']){const h=await shot(sd,k,false);sc[sd][k]=h;out.sh[sd].push(h);if(h)sc[sd==='A'?'a':'d']++;twRender(o,sc,'Schuss '+Math.min(n,k+(sd==='D'?2:1))+'/'+n)}
-  let j=0;while(sc.a===sc.d&&j<10){if(j===0){twMsg('Gleichstand – Stechen!','big');if(SET.voice)say('Gleichstand! Stechen!');await twWait(1300)}twCtx.stechen=true;
+  let j=0;while(!o.draw&&sc.a===sc.d&&j<10){if(j===0){twMsg('Gleichstand – Stechen!','big');if(SET.voice)say('Gleichstand! Stechen!');await twWait(1300)}twCtx.stechen=true;
     const x=await shot('A',n+j,true);sc.A.push(x);if(x)sc.a++;twRender(o,sc,'Stechen '+(j+1));const y=await shot('D',n+j,true);sc.D.push(y);if(y)sc.d++;out.st.push([x,y]);twRender(o,sc,'Stechen '+(j+1));j++}
   out.a=sc.a;out.d=sc.d;out.auto=autoAll;twWindUI(null);
-  if(o.mine&&o.mine!=='both'){const won=(o.mine==='A'?sc.a>sc.d:sc.d>sc.a);twMsg(won?'Gewonnen!':'Verloren',won?'win':'lose');sfx(won?'fan':'land');if(won)haptic(2)}
+  if(sc.a===sc.d){twMsg('Unentschieden','sm');sfx('land')}
+  else if(o.mine&&o.mine!=='both'){const won=(o.mine==='A'?sc.a>sc.d:sc.d>sc.a);twMsg(won?'Gewonnen!':'Verloren',won?'win':'lose');sfx(won?'fan':'land');if(won)haptic(2)}
   else{twMsg((sc.a>sc.d?o.A.name:o.D.name)+' gewinnt!','win');sfx('fan')}
   await twWait(1600);el.classList.add('off');twCtx.open=false;twCtx=null;return out}
 
@@ -2174,6 +3144,34 @@ const CL_NAME={1:'Bundesliga',2:'2. Bundesliga',3:'3. Liga',4:'Regionalliga'};
 const CL_SHORT={1:'1. Liga',2:'2. Liga',3:'3. Liga',4:'Regionalliga'};
 const CL_BASE={1:72,2:62,3:54,4:47};
 const CBIG={FCB:12,BVB:7,B04:7,RBL:6,VFB:4,SGE:4,SCF:2,TSG:2,S04:2,HSV:2,BSC:2,FCK:2,H96:2,SGD:2,'1860':2,TSV:2};
+/* Stärken nach EA SPORTS FC 27 (Team-Gesamtwert); Regionalliga geschätzt, da nicht im Spiel */
+const CLUB_EA={FCB:86,BVB:82,B04:81,VFB:78,M05:78,RBL:77,TSG:77,SCF:77,SGE:76,FCA:76,SVW:75,BMG:74,S04:74,KOE:72,FCU:72,SVE:71,HSV:69,SCP:69,
+  FCH:71,FCK:70,BOC:70,WOB:70,STP:70,H96:70,BSC:69,OSN:69,FCN:69,DSC:69,KSV:68,FCM:68,D98:68,SGD:68,KSC:68,SGF:67,EBS:66,FCE:66,
+  F95:66,FCS:66,RWE:66,HRO:65,MSV:65,WEH:65,WAL:64,AAC:64,PRM:64,SSV:63,FCI:63,SGS:63,VIK:63,FOR:62,SCV:62,HAV:62,VFB2:61,FWK:61,SVM:60,TSG2:60,
+  TSV:61,ULM:60,AUE:60,SVS:59,FCC:59,S05:58,LOK:58,SVU:58,OFC:58,CFC:58,HFC:58,RWO:58,ERF:57,SVK:57,BVB2:57,S042:56,KAS:56,HOM:56,VFO:56,H962:55};
+const eaRt=o=>Math.round(40+(o-55)*1.6);
+const clubEA=id=>CLUB_EA[CLUB[id].short]||({1:72,2:67,3:62,4:57}[CLUB[id].liga]);
+/* Zweite Mannschaften: kein Aufstieg in die 2. Liga, nicht im DFB-Pokal, nie in der Liga der ersten Mannschaft */
+const CLUB_II={VFB2:'VFB',TSG2:'TSG',BVB2:'BVB',S042:'S04',H962:'H96'};
+const CLUB_EN={VFB2:'VfB Stuttgart II',TSG2:'TSG 1899 Hoffenheim II',BVB2:'Borussia Dortmund II',S042:'FC Schalke 04 II',H962:'Hannover 96 II'};
+const isII=id=>typeof id==='number'&&!!CLUB[id]&&!!CLUB_II[CLUB[id].short];
+const iiParent=id=>CLUB.findIndex(k=>k.short===CLUB_II[CLUB[id].short]);
+/* Echte Europapokal-Starter 2026/27 */
+const EURO_START={FCB:'cl',BVB:'cl',RBL:'cl',VFB:'cl',TSG:'el',B04:'el',SCF:'ecl'};
+/* Aufstiegsberechtigte Reihenfolge einer Tabelle (Ziel-Liga = l-1) */
+function carUpList(l,T,nl){return T.filter(id=>{if(!isII(id))return true;if(l-1<3)return false;const p=iiParent(id);const pl=nl?[1,2,3,4].find(x=>nl[x].includes(p)):carLeagueOf(p);return pl<l-1})}
+function carNewLeagues(T,w1,l1,w2,l2){const nl={1:[],2:[],3:[],4:[]};
+  nl[1]=T[1].slice(0,15).concat(T[2].slice(0,2),[w1]);
+  nl[2]=T[2].slice(3,15).concat(T[1].slice(16,18),[l1,w2]);const up3=carUpList(3,T[3]).filter(id=>id!==w2&&id!==l2).slice(0,2);nl[2]=nl[2].concat(up3);
+  const down3=T[3].slice(T[3].length-4);
+  nl[3]=T[3].filter(id=>!up3.includes(id)&&id!==w2&&id!==l2&&!down3.includes(id)).concat(T[2].slice(16,18),[l2]);
+  const up4=carUpList(4,T[4],nl).slice(0,4);nl[3]=nl[3].concat(up4);
+  nl[4]=T[4].filter(id=>!up4.includes(id)).concat(down3);
+  /* neue Vereine (Regionalliga-Erweiterung) */
+  const all=new Set([1,2,3,4].flatMap(l=>nl[l]));CLUB.forEach(k=>{if(!all.has(k.i))nl[4].push(k.i)});
+  /* II-Mannschaft darf nicht in der Liga der ersten Mannschaft spielen */
+  nl[3].slice().forEach(id=>{if(isII(id)&&nl[3].includes(iiParent(id))){const rep=carUpList(4,T[4].filter(x=>nl[4].includes(x)),nl)[0];if(rep!=null){nl[3]=nl[3].filter(x=>x!==id).concat([rep]);nl[4]=nl[4].filter(x=>x!==rep).concat([id])}}});
+  return nl}
 const CPRIZE={1:4000,2:1500,3:600,4:160},CTV={1:180,2:80,3:30,4:10},CGATE={1:120,2:50,3:20,4:6},CWINB={1:80,2:40,3:20,4:8},CPROMO={2:900,3:450,4:220};
 const CUPG=[{k:'fans',em:'📣',n:'Fan-Power',d:'Gegner treffen bei deinen Heimspielen schlechter',base:360},
   {k:'stadium',em:'🏟️',n:'Stadionausbau',d:'+25 % Zuschauer-Einnahmen pro Stufe',base:400}];
@@ -2184,7 +3182,7 @@ const CACH=[['win1','🥇','Erster Sieg','Gewinne dein erstes Spiel'],['perfect'
   ['streak5','🔥','Serie','5 Siege in Folge'],['streak10','☄️','Unaufhaltsam','10 Siege in Folge'],['hits50','⚽','Torjäger','50 eigene Treffer'],['hits200','💥','Kanonier','200 eigene Treffer'],
   ['up','📈','Aufsteiger','Steige in eine höhere Liga auf'],['rel','🛡️','Relegation gewonnen','Gewinne eine Relegation'],['m3','🥉','Drittliga-Meister','Werde Meister der 3. Liga'],
   ['m2','🥈','Zweitliga-Meister','Werde Meister der 2. Bundesliga'],['m1','🏆','Deutscher Meister','Gewinne die Meisterschale'],['season3','📅','Treuer Trainer','Beende 3 Saisons'],
-  ['maxup','🏗️','Ausgebaut','Ein Upgrade auf Stufe 5'],['daily5','📆','Dranbleiber','Schaffe 5 Tagesaufgaben'],['rich','💰','Krösus','20 Mio. € in der Kasse'],['pokal','🏆','Pokalsieger','Gewinne den DFB-Pokal'],['euro','🌍','International','Bestreite ein Europapokal-Spiel'],['cl','⭐','Henkelpott','Gewinne die Champions League'],['el','🏅','Europapokalsieger','Gewinne die Europa League'],['collector','🎴','Sammler','Besitze 20 Schützen-Karten'],['legend','💜','Legende','Ziehe eine Legenden-Karte']];
+  ['maxup','🏗️','Ausgebaut','Ein Upgrade auf Stufe 5'],['daily5','📆','Dranbleiber','Schaffe 5 Tagesaufgaben'],['rich','💰','Krösus','20 Mio. € in der Kasse'],['pokal','🏆','Pokalsieger','Gewinne den DFB-Pokal'],['euro','🌍','International','Bestreite ein Europapokal-Spiel'],['cl','⭐','Henkelpott','Gewinne die Champions League'],['el','🏅','Europapokalsieger','Gewinne die Europa League'],['ecl','🟢','Conference-Sieger','Gewinne die Conference League'],['collector','🎴','Sammler','Besitze 20 Schützen-Karten'],['legend','💜','Weltklasse','Ziehe eine Weltklasse-Karte (84+)']];
 const CDAILY=[{id:'hits4',t:'Triff heute 4-mal selbst',g:4,ev:'hit'},{id:'win2',t:'Gewinne heute 2 Spiele',g:2,ev:'win'},{id:'top2',t:'Triff 2-mal das obere Loch',g:2,ev:'top'},
   {id:'clean',t:'Gewinne ein Spiel ohne Stechen',g:1,ev:'cleanwin'},{id:'days3',t:'Bestreite 3 Spieltage',g:3,ev:'played'},{id:'perf',t:'Schieß ein perfektes Spiel (3 von 3)',g:1,ev:'perfect'},
   {id:'away',t:'Gewinne ein Auswärtsspiel',g:1,ev:'awaywin'},{id:'self3',t:'Schieß 3 Spiele selbst',g:3,ev:'self'}];
@@ -2198,10 +3196,10 @@ const carTitle=()=>{let t=CTITLES[0][1];CTITLES.forEach(([l,n])=>{if(CAR.lvl>=l)
 function makeFix(ids,R){const t=ids.slice();for(let i=t.length-1;i>0;i--){const j=R()*(i+1)|0;[t[i],t[j]]=[t[j],t[i]]}if(t.length%2)t.push(-1);const n=t.length;let arr=t.slice();const rounds=[];
   for(let r=0;r<n-1;r++){const m=[];for(let i=0;i<n/2;i++){const a=arr[i],b=arr[n-1-i];if(a<0||b<0)continue;m.push((i===0?r%2:(i+r)%2)?[b,a]:[a,b])}rounds.push(m);arr=[arr[0],arr[n-1]].concat(arr.slice(1,n-1))}
   return rounds.concat(rounds.map(m=>m.map(([a,b])=>[b,a])))}
-function carFixtures(){const R=carMul(CAR.seed+CAR.season*7919);CAR.fx={};CAR.tab={};for(const l of [1,2,3,4]){CAR.fx[l]=makeFix(CAR.lg[l],R);CAR.lg[l].forEach(id=>CAR.tab[id]={sp:0,s:0,n:0,tf:0,tg:0,pk:0,fo:[]})}
+function carFixtures(){const R=carMul(CAR.seed+CAR.season*7919);CAR.fx={};CAR.tab={};for(const l of [1,2,3,4]){CAR.fx[l]=makeFix(CAR.lg[l],R);CAR.lg[l].forEach(id=>CAR.tab[id]={sp:0,s:0,u:0,n:0,tf:0,tg:0,pk:0,fo:[]})}
   CAR.R=0;CAR.last=null;CAR.phase='season';CAR.relq=null;CAR.relr=null;CAR.sum=null;carCupInit();carEuroInit()}
 function carNew(club,map){const seed=(Math.random()*1e9)|0;const R=carMul(seed);const lg={1:[],2:[],3:[],4:[]};CLUB.forEach(k=>lg[k.liga].push(k.i));
-  CAR={v:1,club,season:2026,lg,rt:CLUB.map(k=>CL_BASE[k.liga]+(CBIG[k.short]||0)+Math.round((R()-.5)*4)),money:1000,up:{fans:0,stadium:0},xp:0,lvl:1,tro:[],ach:{},daily:null,
+  CAR={v:1,club,season:2026,lg,rt:CLUB.map(k=>Math.round(clamp(eaRt(clubEA(k.i))+(R()-.5)*2,38,95))),v42:1,eaDone:true,euroNext:EURO_START[CLUB[club].short]||null,money:1000,up:{fans:0,stadium:0},xp:0,lvl:1,tro:[],ach:{},daily:null,
     st:{pl:0,w:0,hits:0,shots:0,perfect:0,streak:0,best:0,stw:0,dailies:0,self:0},map:map||'live',own:null,hist:[],seed,ball:'classic'};
   carFixtures();carMigrate();carSave()}
 function carTable(l){return CAR.lg[l].slice().sort((a,b)=>{const A=CAR.tab[a],B=CAR.tab[b];return B.pk-A.pk||(B.tf-B.tg)-(A.tf-A.tg)||B.tf-A.tf||CLUB[a].name.localeCompare(CLUB[b].name,'de')})}
@@ -2216,7 +3214,7 @@ function carEv(ev,n){const d=carDaily();const D=CDAILY.find(x=>x.id===d.id);if(d
 let carToastQ=[];
 function carXP(n){CAR.xp+=n;while(CAR.xp>=xpNeed(CAR.lvl)){CAR.xp-=xpNeed(CAR.lvl);CAR.lvl++;const bonus=100*CAR.lvl;CAR.money+=bonus;
   const unl=Object.entries(TW_BALLS).find(([k,b])=>b.lv===CAR.lvl);carToastQ.push(['⭐','Level '+CAR.lvl+' – '+carTitle(),'+'+fmtMoney(bonus)+(unl?' · Ball „'+unl[1].n+'“ freigeschaltet':'')]);carGivePack(CAR.lvl%5===0?'gold':'std','Level-Belohnung')}}
-function carUnlock(id){if(CAR.ach[id])return;CAR.ach[id]=CAR.season;const a=CACH.find(x=>x[0]===id);carXP(60);carToastQ.push([a[1],'Erfolg: '+a[2],a[3]+' · +60 XP'])}
+function carUnlock(id){if(CAR.ach[id])return;CAR.ach[id]=CAR.season;const a=CACH.find(x=>x[0]===id);if(!a)return;carXP(60);carToastQ.push([a[1],'Erfolg: '+a[2],a[3]+' · +60 XP'])}
 function carCheckAch(){const s=CAR.st;if(s.w>=1)carUnlock('win1');if(s.perfect>=1)carUnlock('perfect');if(s.stw>=1)carUnlock('stechen');if(s.best>=5)carUnlock('streak5');if(s.best>=10)carUnlock('streak10');
   if(s.hits>=50)carUnlock('hits50');if(s.hits>=200)carUnlock('hits200');if(CAR.hist.length>=3)carUnlock('season3');if(Object.values(CAR.up).some(v=>v>=5))carUnlock('maxup');if(s.dailies>=5)carUnlock('daily5');if(CAR.money>=20000)carUnlock('rich');if(CAR.cards&&CAR.cards.length>=20)carUnlock('collector');if(CAR.cards&&CAR.cards.some(c=>c.r==='l'))carUnlock('legend')}
 let carFlushing=false;
@@ -2237,15 +3235,15 @@ function carMapInit(){newGame('liga','total',CAR.seed,{ligen:LIGA_ALL});S.career
   F.forEach(f=>{f.home=lm.home[f.id];f.sub=CL_NAME[carLeagueOf(f.id)]+' · '+CLUB[f.id].town});
   const own=(CAR.map==='live'&&Array.isArray(CAR.own)&&CAR.own.length===N)?CAR.own:lm.own;cells.forEach(c=>S.owner[c.i]=own[c.i]);rebuildFac();running=false;dirty=true;carLiveMap()}
 /* ---- Spieltag ---- */
-function carApply(r){const H=CAR.tab[r.h],A=CAR.tab[r.a];const hw=r.gh>r.ga;H.sp++;A.sp++;H.tf+=r.gh;H.tg+=r.ga;A.tf+=r.ga;A.tg+=r.gh;
-  if(hw){H.s++;A.n++;H.pk+=3}else{A.s++;H.n++;A.pk+=3}H.fo.push(hw?'S':'N');A.fo.push(hw?'N':'S');if(H.fo.length>5)H.fo.shift();if(A.fo.length>5)A.fo.shift()}
-function carSim(h,a){const o=twSimShots(carP(h,true),carP(a,false),Math.random);return{h,a,gh:o.a,ga:o.d,st:o.st.length>0}}
+function carApply(r){const H=CAR.tab[r.h],A=CAR.tab[r.a];const hw=r.gh>r.ga,dr=r.gh===r.ga;H.sp++;A.sp++;H.tf+=r.gh;H.tg+=r.ga;A.tf+=r.ga;A.tg+=r.gh;
+  if(dr){H.u=(H.u||0)+1;A.u=(A.u||0)+1;H.pk++;A.pk++}else if(hw){H.s++;A.n++;H.pk+=3}else{A.s++;H.n++;A.pk+=3}H.fo.push(dr?'U':hw?'S':'N');A.fo.push(dr?'U':hw?'N':'S');if(H.fo.length>5)H.fo.shift();if(A.fo.length>5)A.fo.shift()}
+function carSim(h,a,ko){const o=twSimShots(carP(h,true),carP(a,false),Math.random,!ko);return{h,a,gh:o.a,ga:o.d,st:o.st.length>0}}
 function carNextMatch(){const l=carMyL();const rd=CAR.fx[l][CAR.R];return rd?rd.find(m=>m[0]===CAR.club||m[1]===CAR.club):null}
 async function carPlay(self){if(carBusy)return;carBusy=true;try{
   carCupCatchUp();const l=carMyL();const m=carNextMatch();let my=null;
   if(m){const home=m[0]===CAR.club,opp=home?m[1]:m[0];const pMe=carP(CAR.club,home),pOp=twClampP(carP(opp,!home)-(home?CAR.up.fans*.02:0));
     if(CAR.map==='venue'&&S&&S.career){focus={a:m[0],d:m[1],on:true,ver:-1,cA:null,cD:null};setUserCam(false);flyTo(carBox([m[0],m[1]]),700)}
-    if(self){const out=await twMatch({A:carSide(m[0]),D:carSide(m[1]),pA:home?pMe:pOp,pD:home?pOp:pMe,mine:home?'A':'D',aim:carMyAim(pMe),title:(CAR.R+1)+'. Spieltag',logo:compLogo(l),sub:CL_NAME[l],ball:CAR.ball});
+    if(self){const out=await twMatch({A:carSide(m[0]),D:carSide(m[1]),pA:home?pMe:pOp,pD:home?pOp:pMe,mine:home?'A':'D',aim:carMyAim(pMe),draw:true,title:(CAR.R+1)+'. Spieltag',logo:compLogo(l),sub:CL_NAME[l],ball:CAR.ball});
       my={h:m[0],a:m[1],gh:out.a,ga:out.d,st:out.st.length>0,self:!out.auto,hits:out.hits,top:out.top,perf:out.sh[home?'A':'D'].every(Boolean)}}
     else my=carSim(m[0],m[1])}
   carRound(my);focus&&(focus.on=false);if(S&&S.career){setUserCam(false);flyTo(PBOX,700)}
@@ -2255,29 +3253,26 @@ let carBusy=false;
 function carRound(my){const out={};for(const l of [1,2,3,4]){if(CAR.R>=CAR.fx[l].length)continue;out[l]=[];
     for(const [h,a] of CAR.fx[l][CAR.R]){const r=(my&&my.h===h&&my.a===a)?my:carSim(h,a);carApply(r);out[l].push(r)}}
   let earn=0,xp=0;
-  if(my){const l=carMyL();const home=my.h===CAR.club;const won=home?my.gh>my.ga:my.ga>my.gh;
-    earn+=CTV[l]+(home?Math.round(CGATE[l]*(1+.25*CAR.up.stadium)):0)+(won?CWINB[l]:0);xp+=20+(won?30:0)+(my.st&&won?15:0);
+  if(my){const l=carMyL();const home=my.h===CAR.club;const won=home?my.gh>my.ga:my.ga>my.gh;const dr=my.gh===my.ga;
+    earn+=CTV[l]+(home?Math.round(CGATE[l]*(1+.25*CAR.up.stadium)):0)+(won?CWINB[l]:dr?Math.round(CWINB[l]/3):0);xp+=20+(won?30:dr?10:0)+(my.st&&won?15:0);
     if(my.self){earn+=my.hits*5;xp+=my.hits*5+(my.perf?25:0)}carStatsMatch(my,home,won);CAR.money+=earn;carXP(xp);carCheckAch()}
   CAR.last={R:CAR.R+1,res:out,my,earn,xp};CAR.R++;
   carLiveMap();updateHeader()}
 /* ---- Saisonende, Relegation ---- */
-function carSeasonEnd(){while(CAR.cup&&CAR.cup.st<6){if(CAR.cup.alive.includes(CAR.club)&&!CAR.cup.myOut){const m=carCupMine();carCupResolve(carSim(m[0],m[1]))}else{CAR.cup.myOut=true;CAR.cup.sl[CAR.cup.st]=0;carCupCatchUp()}}
-  while(CAR.euro&&!CAR.euro.out&&!CAR.euro.won&&(CAR.euro.md<6||CAR.euro.ko<4)){const E=CAR.euro;const m=E.cur||carEuroMatch();E.cur=null;const o=twSimShots(teamP(m[0],true),teamP(m[1],false),Math.random);carEuroResolve({h:m[0],a:m[1],gh:o.a,ga:o.d,st:o.st.length>0},E.md<6?'Gruppe':EU_KO[E.ko])}
-  CAR.last=null;for(const l of [1,2,3,4])while(CAR.R<CAR.fx[l].length){for(const [h,a] of CAR.fx[l][CAR.R])carApply(carSim(h,a));CAR.R++}
+function carSeasonEnd(){while(CAR.cup&&CAR.cup.st<6){if(CAR.cup.alive.includes(CAR.club)&&!CAR.cup.myOut){const m=carCupMine();carCupResolve(carSim(m[0],m[1],true))}else{CAR.cup.myOut=true;CAR.cup.sl[CAR.cup.st]=0;carCupCatchUp()}}
+  while(CAR.euro&&!CAR.euro.out&&!CAR.euro.won&&(CAR.euro.md<6||CAR.euro.ko<4)){const E=CAR.euro;const m=E.cur||carEuroMatch();E.cur=null;const o=twSimShots(teamP(m[0],true),teamP(m[1],false),Math.random,E.md<6);carEuroResolve({h:m[0],a:m[1],gh:o.a,ga:o.d,st:o.st.length>0},E.md<6?'Gruppe':EU_KO[E.ko])}
+  CAR.last=null;while([1,2,3,4].some(l=>CAR.R<CAR.fx[l].length)){for(const l of [1,2,3,4])if(CAR.R<CAR.fx[l].length)for(const [h,a] of CAR.fx[l][CAR.R])carApply(carSim(h,a));CAR.R++}
   CAR.fin={};for(const l of [1,2,3,4])CAR.fin[l]=carTable(l);
-  CAR.relq=[[CAR.fin[1][15],CAR.fin[2][2]],[CAR.fin[2][15],CAR.fin[3][2]]];CAR.relr=null;CAR.phase='rel';carLiveMap();carSave()}
+  CAR.relq=[[CAR.fin[1][15],CAR.fin[2][2]],[CAR.fin[2][15],carUpList(3,CAR.fin[3])[2]]];CAR.relr=null;CAR.phase='rel';carLiveMap();carSave()}
 async function carRelegation(){if(carBusy)return;carBusy=true;try{CAR.relr=[];
   for(const [hi,lo] of CAR.relq){let w;if(hi===CAR.club||lo===CAR.club){const home=hi===CAR.club;const pMe=carP(CAR.club,home),pOp=carP(home?lo:hi,!home);
       const out=await twMatch({A:carSide(hi),D:carSide(lo),pA:home?pMe:pOp,pD:home?pOp:pMe,mine:home?'A':'D',aim:carMyAim(pMe),title:'Relegation',sub:CL_SHORT[carLeagueOf(hi)]+' gegen '+CL_SHORT[carLeagueOf(lo)],ball:CAR.ball});
       w=out.a>out.d?hi:lo;CAR.relr.push({hi,lo,w,a:out.a,d:out.d})}
-    else{const r=carSim(hi,lo);w=r.gh>r.ga?hi:lo;CAR.relr.push({hi,lo,w,a:r.gh,d:r.ga})}}
+    else{const r=carSim(hi,lo,true);w=r.gh>r.ga?hi:lo;CAR.relr.push({hi,lo,w,a:r.gh,d:r.ga})}}
   carFinish();carSave();carRender()}finally{carBusy=false}carFlushToasts()}
 function carFinish(){const T=CAR.fin,rr=CAR.relr;const oldL=carMyL();const pos=T[oldL].indexOf(CAR.club)+1,n=T[oldL].length;
   const w1=rr[0].w,l1=rr[0].w===rr[0].hi?rr[0].lo:rr[0].hi,w2=rr[1].w,l2=rr[1].w===rr[1].hi?rr[1].lo:rr[1].hi;
-  const nl={1:T[1].slice(0,15).concat(T[2].slice(0,2),[w1]),
-    2:T[2].slice(3,15).concat(T[1].slice(16,18),[l1,w2],T[3].slice(0,2)),
-    3:T[3].slice(3,16).concat(T[2].slice(16,18),[l2],T[4].slice(0,4)),
-    4:T[4].slice(4).concat(T[3].slice(16,20))};
+  const nl=carNewLeagues(T,w1,l1,w2,l2);
   const newL=[1,2,3,4].find(l=>nl[l].includes(CAR.club));const sum={season:CAR.season,oldL,newL,pos,n,earn:0,xp:0,tro:[]};
   const prize=Math.round(CPRIZE[oldL]*(n-pos+1)/n);sum.earn+=prize;sum.xp+=150+(n-pos)*10;
   if(pos===1){const k='m'+oldL;CAR.tro.push({k,s:CAR.season,l:oldL});sum.tro.push(k);if(oldL<=3)carUnlock(k)}
@@ -2285,9 +3280,9 @@ function carFinish(){const T=CAR.fin,rr=CAR.relr;const oldL=carMyL();const pos=T
   if(rr.some(r=>r.w===CAR.club)){CAR.tro.push({k:'rel',s:CAR.season,l:newL});sum.tro.push('rel');carUnlock('rel')}
   CAR.money+=sum.earn;carXP(sum.xp);
   // Stärke-Entwicklung
-  [1,2,3,4].forEach(l=>nl[l].forEach(id=>{const was=carLeagueOf(id);let r=CAR.rt[id];if(l<was)r+=3;if(l>was)r-=3;r+=(CL_BASE[l]+(CBIG[CLUB[id].short]||0)-r)*.1+(Math.random()-.5)*3;CAR.rt[id]=Math.round(clamp(r,38,92))}));
+  [1,2,3,4].forEach(l=>nl[l].forEach(id=>{const was=carLeagueOf(id);let r=CAR.rt[id];if(l<was)r+=3;if(l>was)r-=3;r+=(eaRt(clubEA(id))+(CLUB[id].liga-l)*2-r)*.12+(Math.random()-.5)*3;CAR.rt[id]=Math.round(clamp(r,38,93))}));
   if(T[1][0]!=null)CAR.rt[T[1][0]]+=1;
-  CAR.hist.push({s:CAR.season,l:oldL,p:pos,nl:newL});if(oldL===1&&newL===1){if(pos<=4)CAR.euroNext='cl';else if(pos<=6)CAR.euroNext='el'}sum.euro=CAR.euroNext||null;carGivePack(pos<=3?'gold':'std','Saisonabschluss: Platz '+pos);CAR.sum=sum;CAR.nl=nl;CAR.phase='end';carCheckAch()}
+  CAR.hist.push({s:CAR.season,l:oldL,p:pos,nl:newL});if(oldL===1&&newL===1){if(pos<=4)CAR.euroNext='cl';else if(pos===5)CAR.euroNext='el';else if(pos===6)CAR.euroNext='ecl'}if(newL===1&&CAR.cup&&CAR.cup.won===CAR.club&&CAR.euroNext!=='cl')CAR.euroNext='el';sum.euro=CAR.euroNext||null;carGivePack(pos<=3?'gold':'std','Saisonabschluss: Platz '+pos);CAR.sum=sum;CAR.nl=nl;CAR.phase='end';carCheckAch()}
 function carNewSeason(){CAR.lg=CAR.nl;CAR.nl=null;CAR.season++;carFixtures();carLiveMap();carSave();if(S&&S.career){F.forEach(f=>f.sub=CL_NAME[carLeagueOf(f.id)]+' · '+CLUB[f.id].town);updateHeader()}carView='day';carRender();
   miniToast('🗓️','Saison '+seasonLbl(CAR.season),CL_NAME[carMyL()]+' · '+CAR.fx[carMyL()].length+' Spieltage')}
 /* ---- Öffnen / Schließen ---- */
@@ -2315,15 +3310,15 @@ function carRender(){const b=$('#carBody');if(!b)return;
   $('#carTabs').classList.remove('hidden');segSet($('#carTabs'),carView);
   b.innerHTML=carView==='tab'?carTabHTML():carView==='club'?carClubHTML():carView==='tro'?carTroHTML():carView==='kader'?carKaderHTML():carDayHTML();carBind();if(S&&S.career)updateHeader();if(document.body.classList.contains('career'))carFit()}
 let carFitT=null;function carFit(){clearTimeout(carFitT);carFitT=setTimeout(()=>{const pv=vp&&vp.h;updateVP();if(!userCam&&(!pv||Math.abs(vp.h-pv)>20))flyTo(camBox||PBOX,500)},60)}
-function carSetupHTML(){const ls=[1,2,3];const list=CLUB.filter(k=>k.liga===carPickL).sort((a,b)=>a.name.localeCompare(b.name,'de'));
-  return '<div class="carH">Wähle deinen Verein</div><div class="note" style="padding-top:0">Du startest in der echten Liga deines Vereins (Saison 2026/27). 34 Spieltage (3. Liga: 38), Auf- und Abstieg wie in echt – inklusive Relegation.</div>'+
-  '<div class="seg" id="carPL"><div class="hl"></div>'+ls.map(l=>'<button data-v="'+l+'">'+CL_SHORT[l]+'</button>').join('')+'</div>'+
+function carSetupHTML(){const ls=[1,2,3,4];const list=CLUB.filter(k=>k.liga===carPickL).sort((a,b)=>a.name.localeCompare(b.name,'de'));
+  return '<div class="carH">Wähle deinen Verein</div><div class="note" style="padding-top:0">Du startest in der echten Liga deines Vereins (Saison 2026/27). 34 Spieltage (3. Liga & Regionalliga: 38), Auf- und Abstieg wie in echt – inklusive Relegation. Top-Klubs starten direkt im Europapokal.</div>'+
+  '<div class="seg" id="carPL"><div class="hl"></div>'+ls.map(l=>'<button data-v="'+l+'">'+(l===4?'RL':CL_SHORT[l])+'</button>').join('')+'</div>'+
   '<div class="carList">'+list.map(k=>'<button class="carRow press'+(carPick===k.i?' on':'')+'" data-pick="'+k.i+'">'+clubBadgeHTML(k,'mb')+'<span><b>'+esc(k.name)+'</b><small>'+esc(k.town)+'</small></span>'+(carPick===k.i?'<em>✓</em>':'')+'</button>').join('')+'</div>'+
   '<div class="lbl">Karte während der Saison</div><div class="seg" id="carPM"><div class="hl"></div><button data-v="live">Lebende Tabelle</button><button data-v="venue">Spielorte</button></div>'+
   '<div class="note">'+(carPickMap==='live'?'Die Karte zeigt die Tabelle: Wer viele Punkte holt, dehnt sein Gebiet aus. Größere Gebiete treffen etwas besser.':'Die Gebiete bleiben fest, die Karte zeigt, wo gespielt wird.')+'</div>'+
   '<button class="big glass tint press" id="carStart"'+(carPick==null?' disabled style="opacity:.5"':'')+'>'+(carPick==null?'Verein wählen':'🏆 Karriere mit '+esc(CLUB[carPick].mid)+' starten')+'</button>'}
-function resLine(r,hl){const H=teamOf(r.h),A=teamOf(r.a);const me=r.h===CAR.club||r.a===CAR.club;const hw=r.gh>r.ga;
-  return '<div class="rline'+(me&&hl?' me':'')+'"><span class="'+(hw?'w':'')+'">'+esc(H.mid)+'</span><b>'+r.gh+':'+r.ga+(r.st?'<small> n.S.</small>':'')+'</b><span class="'+(!hw?'w':'')+'">'+esc(A.mid)+'</span></div>'}
+function resLine(r,hl){const H=teamOf(r.h),A=teamOf(r.a);const me=r.h===CAR.club||r.a===CAR.club;const hw=r.gh>r.ga,aw=r.ga>r.gh;
+  return '<div class="rline'+(me&&hl?' me':'')+'"><span class="'+(hw?'w':'')+'">'+esc(H.mid)+'</span><b>'+r.gh+':'+r.ga+(r.st?'<small> n.S.</small>':'')+'</b><span class="'+(aw?'w':'')+'">'+esc(A.mid)+'</span></div>'}
 function carDailyHTML(){const d=carDaily();const D=CDAILY.find(x=>x.id===d.id);return '<div class="carCard2 daily'+(d.done?' done':'')+'"><span>📆</span><div><b>Tagesaufgabe</b><small>'+D.t+'</small></div><em>'+(d.done?'✓':d.p+'/'+D.g)+'</em></div>'}
 function carClubHTML(){const s=CAR.st;const ck='V'+CAR.club;
   let h='<div class="lbl">Trikots '+seasonLbl(CAR.season)+'</div><div class="kits"><div>'+kitHTML(ck,{w:92,full:1})+'<small>Heim</small></div>'+(WX.kit[ck]&&WX.kit[ck].a?'<div>'+kitHTML(ck,{w:92,full:1,away:1})+'<small>Auswärts</small></div>':'')+'</div>'+(WX.kit[ck]?'':'<div class="note">Original-Trikot wird geladen – bis dahin in Vereinsfarben.</div>');
@@ -2345,8 +3340,8 @@ function carEventCard(kind){const pre=kind==='cup';const C=CAR.cup,E=CAR.euro;le
 function carDayHTML(){const l=carMyL();let h='';
   if(CAR.last&&CAR.phase!=='end'&&!CAR.last.shown){const L=CAR.last,my=L.my;
     const title=L.cup?'DFB-Pokal · '+CUP_ST[L.stage]:L.euro?euName(CAR.euro?CAR.euro.comp:'cl')+' · '+L.label:L.R+'. Spieltag';
-    if(my){const home=my.h===CAR.club;const won=home?my.gh>my.ga:my.ga>my.gh;
-      h+='<div class="carRes '+(won?'win':'lose')+'"><div class="crT">'+title+' · '+(won?'Sieg!':'Niederlage')+'</div><div class="crS">'+teamBadge(my.h,'mb')+'<b>'+my.gh+' : '+my.ga+'</b>'+teamBadge(my.a,'mb')+'</div><div class="crN">'+esc(teamOf(my.h).mid)+' – '+esc(teamOf(my.a).mid)+(my.st?' · nach Stechen':'')+'</div>'+
+    if(my){const home=my.h===CAR.club;const won=home?my.gh>my.ga:my.ga>my.gh;const dr=my.gh===my.ga;
+      h+='<div class="carRes '+(won?'win':dr?'draw':'lose')+'"><div class="crT">'+title+' · '+(won?'Sieg!':dr?'Unentschieden':'Niederlage')+'</div><div class="crS">'+teamBadge(my.h,'mb')+'<b>'+my.gh+' : '+my.ga+'</b>'+teamBadge(my.a,'mb')+'</div><div class="crN">'+esc(teamOf(my.h).mid)+' – '+esc(teamOf(my.a).mid)+(my.st?' · nach Stechen':'')+'</div>'+
         (L.cup&&!won?'<div class="crN">Aus im Pokal</div>':'')+'<div class="crE">+'+fmtMoney(L.earn)+' · +'+L.xp+' XP</div></div>'}
     const rs=L.cup?(L.res.cup||[]).filter(r=>r!==my).slice(0,10):L.euro?(L.res.eu||[]).filter(r=>r!==my):(L.res[l]||[]).filter(r=>r!==my);
     if(rs.length)h+='<div class="lbl">'+(L.cup?'Weitere Pokalspiele':L.euro?'Gruppe':'Weitere Ergebnisse · '+CL_SHORT[l])+'</div><div class="rlist">'+rs.map(r=>resLine(r)).join('')+'</div>';
@@ -2379,24 +3374,24 @@ function carDayHTML(){const l=carMyL();let h='';
       '<button class="big glass tint press" id="carNext">🗓️ Saison '+seasonLbl(CAR.season+1)+' starten</button>'}
   const pk=(CAR.packs.std||0)+(CAR.packs.gold||0);if(pk)h+='<button class="carCard2 press pkhint" id="pkGo"><span>🎴</span><div><b>'+pk+' '+(pk===1?'Paket':'Pakete')+' bereit</b><small>Neue Schützen im Kader-Tab öffnen</small></div><em>›</em></button>';
   h+=carDailyHTML();return h}
-const troName=(k,l)=>k==='m1'?'🏆 Deutscher Meister':k==='m2'?'🥈 Meister 2. Bundesliga':k==='m3'?'🥉 Meister 3. Liga':k==='m4'?'🎖️ Meister Regionalliga':k==='auf'?'📈 Aufstieg':k==='rel'?'🛡️ Relegation gewonnen':k==='pokal'?'🏆 DFB-Pokalsieger':k==='cl'?'⭐ Champions-League-Sieger':k==='el'?'🏅 Europa-League-Sieger':k;
+const troName=(k,l)=>k==='m1'?'🏆 Deutscher Meister':k==='m2'?'🥈 Meister 2. Bundesliga':k==='m3'?'🥉 Meister 3. Liga':k==='m4'?'🎖️ Meister Regionalliga':k==='auf'?'📈 Aufstieg':k==='rel'?'🛡️ Relegation gewonnen':k==='pokal'?'🏆 DFB-Pokalsieger':k==='cl'?'⭐ Champions-League-Sieger':k==='el'?'🏅 Europa-League-Sieger':k==='ecl'?'🟢 Conference-League-Sieger':k;
 function carTabHTML(){const my=carMyL();const l=carTabL||my;const hasEu=!!CAR.euro;
   let h='<div class="seg sm" id="carTL"><div class="hl"></div>'+[1,2,3,4].map(x=>'<button data-v="'+x+'">'+(x===4?'RL':x+'. L')+'</button>').join('')+'<button data-v="cup">Pokal</button>'+(hasEu?'<button data-v="eu">Europa</button>':'')+'</div>';
-  if(l==='cup'){const C=CAR.cup;const mine=C.alive.includes(CAR.club);const outAt=C.myOut?C.res.findIndex(rs=>rs.some(r=>(r.h===CAR.club||r.a===CAR.club)&&((r.h===CAR.club)!==(r.gh>r.ga)))):-1;h+='<div class="cupst">'+CUP_ST.map((n,i)=>'<span class="'+(outAt>=0?(i<outAt?'done':i===outAt?'out':''):(i<C.st?'done':i===C.st?'now':''))+'">'+n.replace(' in Berlin','')+'</span>').join('')+'</div>';
-    h+='<div class="note">'+(C.won!=null?'🏆 Pokalsieger: '+esc(teamOf(C.won).name):mine?'Du bist noch dabei! Nächste Runde: '+CUP_ST[C.st]+' vor dem '+(C.sl[C.st]+1)+'. Spieltag.':'Du bist ausgeschieden. Noch '+C.alive.length+' Vereine im Wettbewerb.')+'</div>';
+  if(l==='cup'){const C=CAR.cup;const mine=C.alive.includes(CAR.club);const part=!C.part||C.part.includes(CAR.club);const outAt=C.myOut?C.res.findIndex(rs=>rs.some(r=>(r.h===CAR.club||r.a===CAR.club)&&((r.h===CAR.club)!==(r.gh>r.ga)))):-1;h+='<div class="cupst">'+CUP_ST.map((n,i)=>'<span class="'+(outAt>=0?(i<outAt?'done':i===outAt?'out':''):(i<C.st?'done':i===C.st?'now':''))+'">'+n.replace(' in Berlin','')+'</span>').join('')+'</div>';
+    h+='<div class="note">'+(C.won!=null?'🏆 Pokalsieger: '+esc(teamOf(C.won).name):!part?'Zweite Mannschaften sind im DFB-Pokal nicht startberechtigt. Noch '+C.alive.length+' Vereine im Wettbewerb.':mine?'Du bist noch dabei! Nächste Runde: '+CUP_ST[C.st]+' vor dem '+(C.sl[C.st]+1)+'. Spieltag.':'Du bist ausgeschieden. Noch '+C.alive.length+' Vereine im Wettbewerb.')+'</div>';
     const last=C.res[C.res.length-1];if(last)h+='<div class="lbl">'+CUP_ST[C.res.length-1]+'</div><div class="rlist">'+last.map(r=>resLine(r,true)).join('')+'</div>';return h}
-  if(l==='eu'&&hasEu){const E=CAR.euro;const T=carEuroTable();h+='<div class="lbl">'+euName(E.comp)+' · Gruppe</div><div class="ctab"><div class="ctr th"><span>#</span><span></span><span>Verein</span><span>Sp</span><span>S:N</span><span>Tr</span><span>Pkt</span></div>'+
-    T.map((id,i)=>{const t=E.tab[id];return '<div class="ctr '+(i<2?'z-u':'')+(id===CAR.club?' me':'')+'"><span>'+(i+1)+'</span>'+teamBadge(id,'mb')+'<span class="cn">'+esc(teamOf(id).mid)+'</span><span>'+t.sp+'</span><span>'+t.s+':'+t.n+'</span><span>'+(t.tf-t.tg>0?'+':'')+(t.tf-t.tg)+'</span><b>'+t.pk+'</b></div>'}).join('')+'</div>';
+  if(l==='eu'&&hasEu){const E=CAR.euro;const T=carEuroTable();h+='<div class="lbl">'+euName(E.comp)+' · Gruppe</div><div class="ctab"><div class="ctr th"><span>#</span><span></span><span>Verein</span><span>Sp</span><span>S-U-N</span><span>Tr</span><span>Pkt</span></div>'+
+    T.map((id,i)=>{const t=E.tab[id];return '<div class="ctr '+(i<2?'z-u':'')+(id===CAR.club?' me':'')+'"><span>'+(i+1)+'</span>'+teamBadge(id,'mb')+'<span class="cn">'+esc(teamOf(id).mid)+'</span><span>'+t.sp+'</span><span>'+t.s+'-'+(t.u||0)+'-'+t.n+'</span><span>'+(t.tf-t.tg>0?'+':'')+(t.tf-t.tg)+'</span><b>'+t.pk+'</b></div>'}).join('')+'</div>';
     const gOut=E.md>=6&&E.out&&E.ko===0&&carEuroTable().indexOf(CAR.club)>1;h+='<div class="cupst">'+['Gruppe'].concat(EU_KO).map((n,i)=>'<span class="'+(i===0?(gOut?'out':E.md>=6?'done':'now'):(gOut?'':i-1<E.ko?'done':i-1===E.ko&&E.md>=6?(E.out?'out':'now'):''))+'">'+n+'</span>').join('')+'</div>';
     h+='<div class="note">'+(E.won?'⭐ Titel gewonnen!':E.out?'Ausgeschieden.':'Die ersten zwei der Gruppe erreichen das Achtelfinale.')+'</div>';return h}
   const T=carTable(l);h+='<div class="lbl lgo">'+compLogo(l,'sm')+CL_NAME[l]+' '+seasonLbl(CAR.season)+'</div>';
-  const zone=i=>l===1?(i<1?'z-m':i>=16?'z-d':i===15?'z-r':i<6?'z-e':''):l===2?(i<2?'z-u':i===2||i===15?'z-r':i>=16?'z-d':''):l===3?(i<2?'z-u':i===2?'z-r':i>=16?'z-d':''):(i<4?'z-u':'');
-  return h+'<div class="ctab"><div class="ctr th"><span>#</span><span></span><span>Verein</span><span>Sp</span><span>S:N</span><span>Tr</span><span>Pkt</span></div>'+
-  T.map((id,i)=>{const t=CAR.tab[id];return '<div class="ctr '+zone(i)+(id===CAR.club?' me':'')+'"><span>'+(i+1)+'</span>'+clubBadgeHTML(CLUB[id],'mb')+'<span class="cn">'+esc(CLUB[id].mid)+'</span><span>'+t.sp+'</span><span>'+t.s+':'+t.n+'</span><span>'+(t.tf-t.tg>0?'+':'')+(t.tf-t.tg)+'</span><b>'+t.pk+'</b></div>'}).join('')+'</div>'+
-  '<div class="note">'+(l===1?'🔵 Meister · 🟣 Europapokal · 🟠 Relegation · 🔴 Abstieg':l===4?'🟢 Aufstieg in die 3. Liga (Regionalliga vereinfacht als ein Pool)':'🟢 Aufstieg · 🟠 Relegation · 🔴 Abstieg')+' · Tr = Treffer-Differenz</div>'}
+  const up=l>=3?carUpList(l,T):T;const n=T.length;const zone=(i,id)=>{const u=up.indexOf(id);return l===1?(i<1?'z-m':i>=16?'z-d':i===15?'z-r':i<6?'z-e':''):l===2?(i<2?'z-u':i===2||i===15?'z-r':i>=16?'z-d':''):l===3?(u>=0&&u<2?'z-u':u===2?'z-r':i>=n-4?'z-d':''):(u>=0&&u<4?'z-u':'')};
+  return h+'<div class="ctab"><div class="ctr th"><span>#</span><span></span><span>Verein</span><span>Sp</span><span>S-U-N</span><span>Tr</span><span>Pkt</span></div>'+
+  T.map((id,i)=>{const t=CAR.tab[id];return '<div class="ctr '+zone(i,id)+(id===CAR.club?' me':'')+'"><span>'+(i+1)+'</span>'+clubBadgeHTML(CLUB[id],'mb')+'<span class="cn">'+esc(CLUB[id].mid)+(isII(id)?'<i class="ii">II</i>':'')+'</span><span>'+t.sp+'</span><span>'+t.s+'-'+(t.u||0)+'-'+t.n+'</span><span>'+(t.tf-t.tg>0?'+':'')+(t.tf-t.tg)+'</span><b>'+t.pk+'</b></div>'}).join('')+'</div>'+
+  '<div class="note">'+(l===1?'🔵 Meister · 🟣 Europapokal · 🟠 Relegation · 🔴 Abstieg':l===4?'🟢 Aufstieg in die 3. Liga (Regionalliga vereinfacht als ein Pool)':'🟢 Aufstieg · 🟠 Relegation · 🔴 Abstieg')+' · Sieg 3, Remis 1 Punkt · Tr = Treffer-Differenz'+(l>=3&&T.some(isII)?' · II-Mannschaften dürfen nicht in die 2. Liga aufsteigen':'')+'</div>'}
 const ACH_PROG={hits50:()=>[CAR.st.hits,50],hits200:()=>[CAR.st.hits,200],streak5:()=>[CAR.st.best,5],streak10:()=>[CAR.st.best,10],season3:()=>[CAR.hist.length,3],daily5:()=>[CAR.st.dailies,5],rich:()=>[CAR.money,20000],collector:()=>[(CAR.cards||[]).length,20]};
 function carTroHTML(){const tro=CAR.tro;let h='<div class="lbl">Trophäenschrank</div>';
-  const TROC={m1:1,m2:2,m3:3,m4:4,pokal:'cup',cl:'cl',el:'el'};h+=tro.length?'<div class="tros">'+tro.slice().reverse().map(t=>{const n=troName(t.k);const lg=TROC[t.k]?compLogo(TROC[t.k],'tl'):'';return '<div class="tro"><span>'+(lg||n.split(' ')[0])+'</span><b>'+n.split(' ').slice(1).join(' ')+'</b><small>'+seasonLbl(t.s)+'</small></div>'}).join('')+'</div>':'<div class="note">Noch leer – hol dir die erste Schale!</div>';
+  const TROC={m1:1,m2:2,m3:3,m4:4,pokal:'cup',cl:'cl',el:'el',ecl:'ecl'};h+=tro.length?'<div class="tros">'+tro.slice().reverse().map(t=>{const n=troName(t.k);const lg=TROC[t.k]?compLogo(TROC[t.k],'tl'):'';return '<div class="tro"><span>'+(lg||n.split(' ')[0])+'</span><b>'+n.split(' ').slice(1).join(' ')+'</b><small>'+seasonLbl(t.s)+'</small></div>'}).join('')+'</div>':'<div class="note">Noch leer – hol dir die erste Schale!</div>';
   h+=carDailyHTML();const got=Object.keys(CAR.ach).length;
   h+='<div class="lbl">Erfolge · '+got+' von '+CACH.length+'</div><div class="cachs">'+CACH.map(a=>{const on=!!CAR.ach[a[0]];const pr=!on&&ACH_PROG[a[0]]?ACH_PROG[a[0]]():null;
     return '<div class="cach'+(on?' on':'')+'"><span class="ci">'+a[1]+'</span><div class="ct"><b>'+a[2]+'</b><small>'+a[3]+'</small>'+(pr?'<i class="cp"><em style="width:'+Math.min(100,Math.round(pr[0]/pr[1]*100))+'%"></em></i>':'')+'</div>'+(on?'<span class="ck">✓</span>':'')+'</div>'}).join('')+'</div>';return h}
@@ -2443,6 +3438,9 @@ const EURO=[['Real Madrid','Real','RMA','#ffffff','#febe10',90,'cl','Real Madrid
 /* Gegner-Kennung: Zahl = deutscher Verein (CLUB), 'e12' = europäischer Verein */
 const isEu=id=>typeof id==='string';
 const teamOf=id=>isEu(id)?EURO[+id.slice(1)]:CLUB[id];
+/* Stärken nach EA SPORTS FC 27 */
+const EURO_EA={"Celtic Glasgow": 74, "Real Madrid": 86, "FC Barcelona": 86, "Manchester City": 85, "FC Liverpool": 85, "FC Arsenal": 84, "Paris Saint-Germain": 86, "Inter Mailand": 83, "Atlético Madrid": 81, "Juventus Turin": 78, "AC Mailand": 79, "SSC Neapel": 81, "FC Chelsea": 81, "Benfica Lissabon": 80, "FC Porto": 78, "Sporting Lissabon": 78, "PSV Eindhoven": 78, "Ajax Amsterdam": 76, "Feyenoord Rotterdam": 76, "Tottenham Hotspur": 81, "Aston Villa": 78, "AS Rom": 81, "Lazio Rom": 77, "Olympique Marseille": 75, "AS Monaco": 76, "FC Sevilla": 75, "FC Villarreal": 79, "Celtic Glasgow": 74, "Galatasaray Istanbul": 81, "Fenerbahçe Istanbul": 79, "FC Brügge": 72, "Olympique Lyon": 76, "Real Betis Sevilla": 79};
+EURO.forEach(e=>{const o=EURO_EA[e.name];if(o)e.rt=Math.round(40+(o-55)*1.6)});
 function teamBadge(id,cls){if(!isEu(id))return clubBadgeHTML(CLUB[id],cls);const k=teamOf(id);const file=coaFile('E'+k.i);const t=file?'<img class="coa" alt="" src="'+coaURL(file)+'" onload="this.classList.add(\'ok\')" onerror="this.parentNode.classList.remove(\'has-coa\');this.remove()">':'';
   return '<div class="badge club '+(cls||'')+(t?' has-coa':'')+'" style="--c1:'+k.c1+';--c2:'+k.c2+'">'+t+'<span>'+esc(k.short)+'</span></div>'}
 const teamSide=id=>({name:teamOf(id).mid,short:teamOf(id).short,id,badge:teamBadge(id,'mb')});
@@ -2451,32 +3449,86 @@ function teamP(id,home){if(!isEu(id))return carP(id,home);return twClampP(.2+(te
 /* ================= Schützen-Sammelkarten ================= */
 const CK_FN=['Jonas','Luca','Finn','Leon','Elias','Noah','Paul','Ben','Felix','Max','Tim','Jan','Nils','Tom','Erik','Moritz','Lukas','Niklas','Kai','Malte','Ole','Emre','Deniz','Mats','Henrik','Julian','Yusuf','Mika','Arda','Can','Levin','Bastian','Timo','Marlon','Jannik'];
 const CK_LN=['Brandt','Kessler','Vogt','Hartmann','Lindner','Albers','Becker','Krüger','Wolff','Schuster','Neumann','Roth','Petersen','Engel','Seidel','Böhm','Kaya','Yilmaz','Hoffmann','Lorenz','Graf','Sommer','Winter','Falk','Brenner','Weiß','Frank','Mertens','Pohl','Ritter','Jansen','Kuhn','Aydin','Haas','Ernst'];
-const RAR={b:{n:'Bronze',lo:45,hi:62},s:{n:'Silber',lo:58,hi:74},g:{n:'Gold',lo:70,hi:86},l:{n:'Legende',lo:84,hi:96}};
-const PACKS={std:{n:'Schützen-Paket',em:'🎴',k:3,cost:450,odds:[['l',.006],['g',.08],['s',.32],['b',1]]},gold:{n:'Gold-Paket',em:'✨',k:3,cost:1800,odds:[['l',.06],['g',.45],['s',1]]}};
-const ovr=c=>Math.round((c.pra+c.kra+c.ner)/3);
-function cardPick(r,club){if(!WX||!Object.keys(WX.sq).length)return null;const owned=new Set((CAR.cards||[]).map(c=>c.n));
-  let pool;if(club!=null)pool=WX.sq['V'+club]?[CLUB[club]]:[];else{const L=k=>carLeagueOf(k.i);const f={l:k=>L(k)===1&&CAR.rt[k.i]>=76,g:k=>L(k)===1,s:k=>L(k)<=2,b:k=>L(k)>=2}[r];
-    const all=CLUB.filter(k=>WX.sq['V'+k.i]);pool=all.filter(f);if(!pool.length)pool=all}
-  if(!pool.length)return null;for(let t=0;t<30;t++){const k=pool[Math.random()*pool.length|0];const sq=WX.sq['V'+k.i];const pl=sq[Math.random()*sq.length|0];if(!owned.has(pl[1]))return{club:k.i,no:pl[0],n:pl[1]}}return null}
-function cardNew(r,club){const R=RAR[r];const st=()=>Math.round(R.lo+Math.random()*(R.hi-R.lo));const c={id:(CAR.cardSeq=(CAR.cardSeq||0)+1),n:CK_FN[Math.random()*CK_FN.length|0][0]+'. '+CK_LN[Math.random()*CK_LN.length|0],r,pra:st(),kra:st(),ner:st(),tr:0};
-  const best=['pra','kra','ner'][Math.random()*3|0];c[best]=Math.min(99,c[best]+4);const p=cardPick(r,club);if(p){c.n=p.n;c.club=p.club;c.no=p.no}return c}
-/* Fiktive Schützen werden zu echten Spielern deines Vereins, sobald die Kader geladen sind */
-function carRealCards(){if(!CAR||!CAR.cards||!Object.keys(WX.sq).length)return;let n=0;CAR.cards.forEach(c=>{if(c.club!=null)return;const p=cardPick(c.r,CAR.club)||cardPick(c.r);if(p){c.n=p.n;c.club=p.club;c.no=p.no;n++}});
-  if(n&&!CAR.realDone){CAR.realDone=true;carToastQ.push(['👕','Echte Spieler!','Deine Schützen sind jetzt Spieler aus den aktuellen Kadern']);carFlushToasts()}}
-function cardRoll(pk){const x=Math.random();for(const [r,p] of PACKS[pk].odds)if(x<p)return r;return 'b'}
+const RAR={b:{n:'Bronze',lo:50,hi:64},s:{n:'Silber',lo:65,hi:74},g:{n:'Gold',lo:75,hi:83},l:{n:'Weltklasse',lo:84,hi:94}};
+const rarOf=o=>o>=84?'l':o>=75?'g':o>=65?'s':'b';
+/* Paket-Chancen hängen von deiner Liga ab: Ein Zweitligist lockt kaum Weltklasse-Spieler an */
+const PACK_ODDS={std:{1:[['l',.02],['g',.16],['s',.56],['b',1]],2:[['l',.004],['g',.074],['s',.40],['b',1]],3:[['g',.03],['s',.28],['b',1]],4:[['g',.01],['s',.19],['b',1]]},
+  gold:{1:[['l',.08],['g',.58],['s',1]],2:[['l',.02],['g',.37],['s',1]],3:[['l',.004],['g',.22],['s',1]],4:[['g',.14],['s',1]]}};
+const PACKS={std:{n:'Schützen-Paket',em:'🎴',k:3,cost:450},gold:{n:'Gold-Paket',em:'✨',k:3,cost:1800}};
+const packOdds=pk=>PACK_ODDS[pk][(typeof CAR!=='undefined'&&CAR)?carMyL():2];
+const packChance=(pk,r)=>{const od=packOdds(pk);let prev=0;for(const [k,p] of od){if(k===r)return p-prev;prev=p}return 0};
+/* Karten-Werte: Gesamtstärke = EA-FC-Wert, Schuss-Werte aus Schuss (SHO), Physis (PHY) und Gesamtstärke */
+const ovr=c=>c.o||Math.round((c.pra+c.kra+c.ner)/3);
+const shotVal=c=>Math.round(c.pra*.45+c.kra*.25+c.ner*.3);
+function cardStats(o,s,p){const cl=x=>Math.round(clamp(x,20,99));return{o,pra:cl(s),kra:cl(s*.6+p*.4),ner:cl(o*.6+s*.4)}}
+/* ---- EA-Spielerdatenbank ---- */
+let EA_IX=null;
+function eaNorm(s){return String(s).replace(/ø/gi,'o').replace(/æ/gi,'ae').replace(/ß/g,'ss').replace(/ł/gi,'l').replace(/đ/gi,'d').replace(/þ/gi,'th').replace(/ð/gi,'d').replace(/ı/g,'i')
+  .normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().replace(/[^a-z ]+/g,' ').replace(/\s+/g,' ').trim()}
+function eaIndex(){if(EA_IX)return EA_IX;const full={},fil={},one={};
+  EA_PL.split('\n').forEach(l=>{const [n,o,s,p,g,lg]=l.split('|');if(!n)return;const e={n,o:+o,s:+s,p:+p,gk:g==='1',lg:+lg};const k=eaNorm(n);const w=k.split(' ');(full[k]=full[k]||[]).push(e);
+    if(w.length>1){const f=w[0][0]+' '+w[w.length-1];(fil[f]=fil[f]||[]).push(e)}else(one[k]=one[k]||[]).push(e)});
+  return EA_IX={full,fil,one}}
+function eaFind(name,lg){const I=eaIndex();const k=eaNorm(name);const w=k.split(' ');const pick=a=>!a||!a.length?null:a.length===1?a[0]:(a.find(e=>e.lg===lg)||null);
+  let r=pick(I.full[k]);if(r)return r;if(w.length>2){r=pick(I.full[w[0]+' '+w[w.length-1]]);if(r)return r}
+  if(w.length>1){r=pick(I.fil[w[0][0]+' '+w[w.length-1]]);if(r)return r}
+  for(const x of w){const a=I.one[x];if(a&&a.length===1&&x.length>3)return a[0]}return null}
+function hashStr(s){let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return h>>>0}
+/* Spielerwert: echter EA-FC-Wert, sonst aus der Teamstärke geschätzt (Torhüter schießen nicht) */
+function plStats(club,pl){const [no,name,pos]=pl;const e=eaFind(name,CLUB[club].liga);if(e){if(e.gk)return null;return Object.assign(cardStats(e.o,e.s,e.p),{ea:true})}
+  if(pos==='GK')return null;const h=hashStr(name+club);const t=clubEA(club);const o=Math.round(t-11+(h%9));const j=(h>>>8)%13-6;
+  const s=pos==='FW'?o+2+j/2:pos==='MF'?o-6+j:pos==='DF'?o-24+j:o-9+j;const p=o-2+((h>>>16)%13-6);return cardStats(o,s,p)}
+let plPoolV=0,plPoolC=null;
+function plPool(){if(plPoolC&&plPoolC.v===plPoolV)return plPoolC.a;const a=[];CLUB.forEach(k=>{const sq=WX.sq['V'+k.i];if(!sq)return;sq.forEach(pl=>{const st=plStats(k.i,pl);if(st)a.push(Object.assign({club:k.i,no:pl[0],n:pl[1],r:rarOf(st.o)},st))})});
+  plPoolC={v:plPoolV,a};return a}
+/* Wer wechselt zu dir? Spieler aus höheren Ligen kommen seltener */
+function cardPick(r,club){if(!WX||!Object.keys(WX.sq).length)return null;const owned=new Set((CAR.cards||[]).map(c=>c.n));const my=carMyL();
+  let pool=plPool().filter(p=>!owned.has(p.n)&&(club==null||p.club===club));if(!pool.length)return null;
+  const order=['l','g','s','b'];let rr=r;let cand=[];for(let i=order.indexOf(r);i<order.length&&!cand.length;i++){rr=order[i];cand=pool.filter(p=>p.r===rr)}
+  if(!cand.length)cand=pool;if(club!=null)return cand[Math.random()*cand.length|0];
+  const wt=p=>{const d=my-carLeagueOf(p.club);return(p.club===CAR.club?1.5:1)*(d<=0?1:d===1?.35:d===2?.1:.03)};
+  const tot=cand.reduce((s,p)=>s+wt(p),0);let x=Math.random()*tot;for(const p of cand){x-=wt(p);if(x<=0)return p}return cand[cand.length-1]}
+function cardFromPl(p){return{id:(CAR.cardSeq=(CAR.cardSeq||0)+1),n:p.n,club:p.club,no:p.no,r:rarOf(p.o),o:p.o,pra:p.pra,kra:p.kra,ner:p.ner,tr:0}}
+function cardNew(r,club){const p=cardPick(r,club);if(p)return cardFromPl(p);
+  const R=RAR[r];const o=Math.round(R.lo+Math.random()*(R.hi-R.lo));const st=cardStats(o,o-4+Math.random()*10,o-4+Math.random()*10);
+  return Object.assign({id:(CAR.cardSeq=(CAR.cardSeq||0)+1),n:CK_FN[Math.random()*CK_FN.length|0][0]+'. '+CK_LN[Math.random()*CK_LN.length|0],r,tr:0},st)}
+/* Beste Schützen aus dem eigenen Kader */
+function ownShooters(n){const owned=new Set((CAR.cards||[]).map(c=>c.n));return plPool().filter(p=>p.club===CAR.club&&!owned.has(p.n)).sort((a,b)=>shotVal(b)-shotVal(a)).slice(0,n)}
+/* Fiktive Schützen werden zu echten Spielern deines Vereins, sobald die Kader geladen sind; echte Spieler bekommen ihre EA-FC-Werte */
+function carRealCards(){if(!CAR||!CAR.cards||!Object.keys(WX.sq).length)return;let n=0;
+  CAR.cards.forEach(c=>{if(c.club!=null)return;const p=ownShooters(1)[0]||cardPick(c.r);if(p){const tr=c.tr||0;Object.assign(c,cardFromPl(p),{id:c.id,tr});n++}});
+  if(!CAR.eaDone){CAR.eaDone=true;CAR.cards.forEach(c=>{if(c.club==null)return;const sq=WX.sq['V'+c.club]||[];const pl=sq.find(x=>x[1]===c.n);const st=pl&&plStats(c.club,pl);
+    if(st){const b=c.tr||0;c.o=Math.min(99,st.o+Math.floor(b/2));c.pra=Math.min(99,st.pra+b);c.kra=Math.min(99,st.kra+b);c.ner=Math.min(99,st.ner+b);c.r=rarOf(st.o)}else if(!c.o)c.o=ovr(c)});n++}
+  if(n&&!CAR.realDone){CAR.realDone=true;carToastQ.push(['👕','Echte Spieler!','Deine Schützen sind jetzt Spieler aus den aktuellen Kadern – mit ihren EA-FC-Werten']);carFlushToasts()}}
+function cardRoll(pk){const x=Math.random();for(const [r,p] of packOdds(pk))if(x<p)return r;return 'b'}
 const cardById=id=>CAR.cards.find(c=>c.id===id);
 function cardLine(){return CAR.line.map(id=>cardById(id)).filter(Boolean)}
 function cardStechen(){const l=cardLine();return l.slice().sort((a,b)=>b.ner-a.ner)[0]||null}
-function carTeamBonus(){const l=cardLine();if(!l.length)return 0;return (l.reduce((s,c)=>s+ovr(c),0)/l.length-60)*.25}
+/* Bonus nur, wenn deine Schützen besser sind als das Niveau deines Teams */
+const teamLevel=()=>Math.round(55+(CAR.rt[CAR.club]-40)/1.6)-2;
+const lineShot=()=>{const l=cardLine();return l.length?l.reduce((s,c)=>s+shotVal(c),0)/l.length:0};
+function carTeamBonus(){const l=cardLine();if(!l.length)return -2;return clamp((lineShot()-teamLevel())*.35,-6,8)}
 function cardMini(c){return '<div class="cmini r-'+c.r+'"><b>'+ovr(c)+'</b>'+(c.club!=null?kitHTML('V'+c.club,{w:30,no:c.no}):'')+'<span>'+esc(c.n)+'<small>PRÄ '+c.pra+' · KRA '+c.kra+' · NER '+c.ner+'</small></span></div>'}
 function cardHTML(c,extra){const bar=(k,l)=>'<div class="sbar"><span>'+l+'</span><i><em style="width:'+c[k]+'%"></em></i><b>'+c[k]+'</b></div>';
   return '<div class="scard r-'+c.r+'" data-card="'+c.id+'"><div class="sc-top"><b>'+ovr(c)+'</b><small>'+RAR[c.r].n+'</small></div><div class="sc-face">'+(c.club!=null?kitHTML('V'+c.club,{w:78,no:c.no}):'⚽')+'</div><div class="sc-n">'+esc(c.n)+'</div>'+(c.club!=null?'<div class="sc-club">'+esc(CLUB[c.club].mid)+'</div>':'')+bar('pra','PRÄ')+bar('kra','KRA')+bar('ner','NER')+(extra||'')+'</div>'}
 function carMigrate(){if(!CAR)return;let changed=false;
-  if(!CAR.cards){CAR.cards=[];CAR.line=[];CAR.packs={std:1,gold:0};CAR.cardSeq=0;for(let k=0;k<3;k++){const c=cardNew(carMyL()===1?'s':'b',CAR.club);CAR.cards.push(c);CAR.line.push(c.id)}
+  if(!CAR.cards){CAR.cards=[];CAR.line=[];CAR.packs={std:1,gold:0};CAR.cardSeq=0;CAR.eaDone=true;
+    const own=Object.keys(WX.sq).length?ownShooters(3):[];for(let k=0;k<3;k++){const c=own[k]?cardFromPl(own[k]):cardNew(carMyL()<=2?'s':'b',CAR.club);CAR.cards.push(c);CAR.line.push(c.id)}
     let refund=0;[['shot',320],['nerve',240],['squad',520]].forEach(([k,b])=>{for(let l=0;l<(CAR.up[k]||0);l++)refund+=Math.round(b*Math.pow(1.75,l)/10)*10;delete CAR.up[k]});
     if(refund){CAR.money+=refund;carToastQ.push(['🎴','Upgrades umgewandelt','Schützen-Karten ersetzen Schusstraining & Co. · +'+fmtMoney(refund)+' erstattet'])}changed=true}
+  if(!CAR.v42){CAR.v42=1;changed=true;
+    /* Stärken nach EA FC 27 */
+    CAR.rt=CLUB.map((k,i)=>{const was=CAR.lg?carLeagueOf(i):k.liga;return Math.round(clamp(eaRt(clubEA(i))+(k.liga-was)*2,38,95))});
+    Object.values(CAR.tab||{}).forEach(t=>{if(t.u==null)t.u=0});
+    /* Regionalliga auf 20 Vereine */
+    const all=new Set([1,2,3,4].flatMap(l=>CAR.lg[l]));const miss=CLUB.filter(k=>!all.has(k.i)).map(k=>k.i);
+    if(miss.length){if(CAR.R===0&&CAR.phase==='season'){const E=CAR.euro;CAR.lg[4]=CAR.lg[4].concat(miss);carFixtures();if(E)CAR.euro=E}else CAR.pendRL=true}
+    if(CAR.cup&&CAR.cup.alive&&!CAR.cup.part)CAR.cup.part=CAR.cup.alive.slice();
+    /* Europapokal schon in der ersten Saison */
+    if(CAR.season===2026&&!CAR.euro&&CAR.R<4&&EURO_START[CLUB[CAR.club].short]){CAR.euroNext=EURO_START[CLUB[CAR.club].short];carEuroInit()}
+    if(CAR.eaDone==null&&CAR.cards.some(c=>c.club!=null))CAR.eaDone=false}
   if(!CAR.cup){carCupInit();changed=true}
-  if(CAR.cards.some(c=>c.club==null)&&Object.keys(WX.sq).length){carRealCards();changed=true}
+  if((CAR.cards.some(c=>c.club==null)||CAR.eaDone===false)&&Object.keys(WX.sq).length){carRealCards();changed=true}
   if(changed)carSave()}
 let packQ=null;
 function carGivePack(pk,why){CAR.packs[pk]=(CAR.packs[pk]||0)+1;carToastQ.push([PACKS[pk].em,PACKS[pk].n+' erhalten',why||'Im Kader-Tab öffnen'])}
@@ -2488,10 +3540,10 @@ async function carOpenPack(pk){if(!CAR.packs[pk])return;CAR.packs[pk]--;const go
 const cardValue=c=>({b:40,s:120,g:400,l:1200}[c.r])+ovr(c)*2;
 const trainCost=c=>Math.round((80+c.tr*60)*({b:1,s:1.3,g:1.7,l:2.2}[c.r])/10)*10;
 let kaderSel=null,kaderSlot=null;
-function carKaderHTML(){const line=CAR.line;const L=cardLine();let h='<div class="lbl">Deine Schützen · Team-Stärke '+(L.length?Math.round(L.reduce((s,c)=>s+ovr(c),0)/L.length):'–')+'</div><div class="kline">'+
+function carKaderHTML(){const line=CAR.line;const L=cardLine();const bo=carTeamBonus();let h='<div class="lbl">Deine Schützen · Schuss Ø '+(L.length?Math.round(lineShot()):'–')+' · Team-Niveau '+teamLevel()+' · '+(bo>=0?'+':'')+bo.toFixed(1)+' Stärke</div><div class="kline">'+
   [0,1,2].map(k=>{const c=cardById(line[k]);return '<button class="kslot press'+(kaderSlot===k?' on':'')+'" data-slot="'+k+'"><small>Schuss '+(k+1)+'</small>'+(c?cardMini(c):'<i>leer</i>')+'</button>'}).join('')+'</div>'+
-  '<div class="note">Im Stechen schießt automatisch der Schütze mit den besten Nerven. Präzision = weniger Streuung, Kraft = genauere Höhe, Nerven = ruhige Hand im Stechen.</div>';
-  h+='<div class="lbl">Pakete</div><div class="packs">'+Object.entries(PACKS).map(([k,p])=>{const n=CAR.packs[k]||0;return '<div class="pack"><span>'+p.em+'</span><div><b>'+p.n+'</b><small>'+p.k+' Karten'+(k==='gold'?' · mind. Silber':'')+'</small></div>'+
+  '<div class="note">Werte nach EA SPORTS FC 27. Die große Zahl ist die Gesamtstärke, für die Torwand zählen die Schusswerte: Präzision = weniger Streuung, Kraft = genauere Höhe, Nerven = ruhige Hand im Stechen. Bonus gibt es nur, wenn deine Schützen besser schießen als dein Team-Niveau.</div>';
+  h+='<div class="lbl">Pakete</div><div class="packs">'+Object.entries(PACKS).map(([k,p])=>{const n=CAR.packs[k]||0;return '<div class="pack"><span>'+p.em+'</span><div><b>'+p.n+'</b><small>'+p.k+' Karten'+(k==='gold'?' · mind. Silber':'')+' · Gold+ '+fmtPct((packChance(k,'g')+packChance(k,'l'))*100)+(packChance(k,'l')>0?' · Weltklasse '+fmtPct(packChance(k,'l')*100):'')+'</small></div>'+
     (n?'<button class="press go" data-open="'+k+'">Öffnen ('+n+')</button>':'<button class="press'+(CAR.money<p.cost?' dis':'')+'" data-buy="'+k+'">'+fmtMoney(p.cost)+'</button>')+'</div>'}).join('')+'</div>';
   const sel=kaderSel!=null?cardById(kaderSel):null;
   if(sel){h+='<div class="lbl">Ausgewählt</div><div class="kdet">'+cardHTML(sel)+'<div class="kact">'+[0,1,2].map(k=>'<button class="press" data-put="'+k+'">In Schuss '+(k+1)+'</button>').join('')+
@@ -2505,7 +3557,7 @@ function carKaderBind(){document.querySelectorAll('[data-slot]').forEach(b=>b.on
   document.querySelectorAll('[data-open]').forEach(b=>b.onclick=()=>carOpenPack(b.dataset.open));
   document.querySelectorAll('[data-buy]').forEach(b=>b.onclick=()=>{const p=PACKS[b.dataset.buy];if(CAR.money<p.cost)return;CAR.money-=p.cost;CAR.packs[b.dataset.buy]=(CAR.packs[b.dataset.buy]||0)+1;carOpenPack(b.dataset.buy)});
   document.querySelectorAll('[data-train]').forEach(b=>b.onclick=()=>{const c=cardById(+b.dataset.train);const cost=trainCost(c);if(c.tr>=8||CAR.money<cost){sfx('tap');return}CAR.money-=cost;c.tr++;
-    const ks=['pra','kra','ner'].sort((a,b)=>c[a]-c[b]);c[ks[0]]=Math.min(99,c[ks[0]]+2);c[ks[1]]=Math.min(99,c[ks[1]]+1);sfx('conq');carSave();carRender()});
+    const ks=['pra','kra','ner'].sort((a,b)=>c[a]-c[b]);c[ks[0]]=Math.min(99,c[ks[0]]+2);c[ks[1]]=Math.min(99,c[ks[1]]+1);if(c.o&&c.tr%2===0)c.o=Math.min(99,c.o+1);sfx('conq');carSave();carRender()});
   document.querySelectorAll('[data-sell]').forEach(b=>b.onclick=()=>{const id=+b.dataset.sell;const c=cardById(id);CAR.money+=cardValue(c);CAR.cards=CAR.cards.filter(x=>x.id!==id);kaderSel=null;sfx('land');carSave();carRender()})}
 function carPut(id,k){if(id==null)return;const i=CAR.line.indexOf(id);if(i>=0)CAR.line[i]=CAR.line[k];CAR.line[k]=id;CAR.line=CAR.line.filter(x=>x!=null);while(CAR.line.length<3&&CAR.cards.find(c=>!CAR.line.includes(c.id)))CAR.line.push(CAR.cards.find(c=>!CAR.line.includes(c.id)).id);
   kaderSel=null;kaderSlot=null;sfx('tap');carSave();carRender()}
@@ -2515,7 +3567,7 @@ function carMyAim(p){return(sd,k,st)=>twAimFor(p,st?cardStechen():cardById(CAR.l
 const CUP_ST=['1. Runde','2. Runde','Achtelfinale','Viertelfinale','Halbfinale','Finale in Berlin'];
 const CUP_PRIZE=[120,220,380,650,1100,3000];
 function carCupInit(){const L=CAR.fx[carMyL()].length;const sl=[];[.08,.25,.42,.59,.75,.9].forEach(f=>{let r=Math.min(L-1,Math.round(f*L));while(sl.includes(r))r++;sl.push(Math.min(L-1,r))});
-  const all=CLUB.map(k=>k.i);CAR.cup={st:0,sl,alive:all,pairs:null,res:[],won:null,myOut:false}}
+  const all=carCupTeams();CAR.cup={st:0,sl,alive:all,part:all.slice(),pairs:null,res:[],won:null,myOut:false}}
 const carCupDue=()=>CAR.cup&&CAR.cup.st<6&&CAR.phase==='season'&&CAR.R>=CAR.cup.sl[CAR.cup.st];
 function carCupDraw(){const C=CAR.cup;if(C.pairs)return;const a=C.alive.slice();for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}
   C.pairs=[];for(let i=0;i<a.length;i+=2){let h=a[i],g=a[i+1];if(carLeagueOf(g)>carLeagueOf(h))[h,g]=[g,h];C.pairs.push([h,g])}}
@@ -2524,10 +3576,10 @@ async function carPlayCup(self){if(carBusy)return;carBusy=true;let my=null;try{c
     if(m){const home=m[0]===CAR.club,opp=home?m[1]:m[0];const pMe=carP(CAR.club,home),pOp=teamP(opp,!home);
       if(self){const out=await twMatch({A:teamSide(m[0]),D:teamSide(m[1]),pA:home?pMe:pOp,pD:home?pOp:pMe,mine:home?'A':'D',aim:carMyAim(pMe),title:'DFB-Pokal',logo:compLogo('cup'),sub:CUP_ST[C.st],ball:CAR.ball});
         my={h:m[0],a:m[1],gh:out.a,ga:out.d,st:out.st.length>0,self:!out.auto,hits:out.hits,top:out.top,perf:out.sh[home?'A':'D'].every(Boolean)}}
-      else my=carSim(m[0],m[1])}
+      else my=carSim(m[0],m[1],true)}
     carCupResolve(my);carSave();carRender()}finally{carBusy=false}carFlushToasts()}
 function carCupResolve(my){const C=CAR.cup;carCupDraw();const res=[];const next=[];
-  C.pairs.forEach(([h,a])=>{const r=(my&&my.h===h&&my.a===a)?my:carSim(h,a);res.push(r);next.push(r.gh>r.ga?h:a)});
+  C.pairs.forEach(([h,a])=>{const r=(my&&my.h===h&&my.a===a)?my:carSim(h,a,true);res.push(r);next.push(r.gh>r.ga?h:a)});
   let earn=0,xp=0;const stage=C.st;
   if(my){const home=my.h===CAR.club;const won=(home?my.gh>my.ga:my.ga>my.gh);carStatsMatch(my,home,won);
     if(won){earn+=CUP_PRIZE[stage];xp+=40+stage*15;if(stage<5)carGivePack('std','Pokal-Prämie: '+CUP_ST[stage]+' überstanden')}else{C.myOut=true;if(stage===5)earn+=1200}
@@ -2536,34 +3588,35 @@ function carCupResolve(my){const C=CAR.cup;carCupDraw();const res=[];const next=
   if(stage===5&&!my)C.won=next[0];
   C.res.push(res);C.alive=next;C.pairs=null;C.st++;
   CAR.last={cup:true,stage,res:{cup:res},my,earn,xp,R:CAR.R};carCheckAch()}
-function carCupCatchUp(){while(carCupDue()&&(CAR.cup.myOut||!CAR.cup.alive.includes(CAR.club))){carCupDraw();const C=CAR.cup;const res=[],next=[];C.pairs.forEach(([h,a])=>{const r=carSim(h,a);res.push(r);next.push(r.gh>r.ga?h:a)});
+function carCupCatchUp(){while(carCupDue()&&(CAR.cup.myOut||!CAR.cup.alive.includes(CAR.club))){carCupDraw();const C=CAR.cup;const res=[],next=[];C.pairs.forEach(([h,a])=>{const r=carSim(h,a,true);res.push(r);next.push(r.gh>r.ga?h:a)});
   if(C.st===5)C.won=next[0];C.res.push(res);C.alive=next;C.pairs=null;C.st++}}
 
 /* ================= Europapokal ================= */
 const EU_KO=['Achtelfinale','Viertelfinale','Halbfinale','Finale'];
-const EU_PRIZE={cl:{g:450,ko:[900,1400,2200,6000]},el:{g:220,ko:[450,700,1100,3000]}};
+const EU_PRIZE={cl:{g:450,ko:[900,1400,2200,6000]},el:{g:220,ko:[450,700,1100,3000]},ecl:{g:150,ko:[300,450,700,1800]}};
+function carCupTeams(){const L=l=>(CAR.lg[l]||[]).filter(id=>!isII(id));const rl=L(4).sort((x,y)=>CAR.rt[y]-CAR.rt[x]);return L(1).concat(L(2),L(3),rl).slice(0,64)}
 function carEuroInit(){CAR.euro=null;const q=CAR.euroNext;CAR.euroNext=null;if(!q||carMyL()!==1)return;const L=CAR.fx[1].length;
-  const pool=EURO.filter(e=>e.comp===q).map(e=>'e'+e.i);for(let i=pool.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[pool[i],pool[j]]=[pool[j],pool[i]]}
+  const pool=(q==='ecl'?EURO.filter(e=>e.comp==='el').sort((a,b)=>a.rt-b.rt).slice(0,8):EURO.filter(e=>e.comp===q)).map(e=>'e'+e.i);for(let i=pool.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[pool[i],pool[j]]=[pool[j],pool[i]]}
   const grp=[CAR.club].concat(pool.slice(0,3));const R=()=>Math.random();const fx=makeFix(grp,R);
   const avoid=new Set(CAR.cup?CAR.cup.sl:[]);const slot=f=>{let r=Math.min(L-1,Math.round(f*L));while(avoid.has(r)&&r<L-1)r++;avoid.add(r);return r};
-  CAR.euro={comp:q,grp,fx,md:0,tab:Object.fromEntries(grp.map(id=>[id,{sp:0,s:0,n:0,tf:0,tg:0,pk:0}])),sl:[.13,.19,.31,.37,.49,.55].map(slot),ko:0,kosl:[.65,.71,.82,.95].map(slot),out:false,res:[],won:false,opp:null}}
-const euName=c=>c==='cl'?'Champions League':'Europa League';
+  CAR.euro={comp:q,grp,fx,md:0,tab:Object.fromEntries(grp.map(id=>[id,{sp:0,s:0,u:0,n:0,tf:0,tg:0,pk:0}])),sl:[.13,.19,.31,.37,.49,.55].map(slot),ko:0,kosl:[.65,.71,.82,.95].map(slot),out:false,res:[],won:false,opp:null}}
+const euName=c=>c==='cl'?'Champions League':c==='ecl'?'Conference League':'Europa League';
 function carEuroDue(){const E=CAR.euro;if(!E||E.out||E.won||CAR.phase!=='season')return false;if(E.md<6)return CAR.R>=E.sl[E.md];return E.ko<4&&CAR.R>=E.kosl[E.ko]}
 function carEuroTable(){const E=CAR.euro;return E.grp.slice().sort((a,b)=>{const A=E.tab[a],B=E.tab[b];return B.pk-A.pk||(B.tf-B.tg)-(A.tf-A.tg)||B.tf-A.tf})}
 function carEuroMatch(){const E=CAR.euro;if(E.md<6)return E.fx[E.md].find(m=>m.includes(CAR.club));
-  if(!E.opp){const used=new Set(E.grp);const pool=EURO.filter(e=>!used.has('e'+e.i)&&(E.comp==='cl'?true:e.comp==='el'||e.rt<84)).map(e=>'e'+e.i);E.opp=pool[Math.random()*pool.length|0]}
+  if(!E.opp){const used=new Set(E.grp);const pool=EURO.filter(e=>!used.has('e'+e.i)&&(E.comp==='cl'?true:E.comp==='ecl'?e.comp==='el'&&e.rt<80:e.comp==='el'||e.rt<84)).map(e=>'e'+e.i);E.opp=pool[Math.random()*pool.length|0]}
   return E.ko===3?[CAR.club,E.opp]:(Math.random()<.5?[CAR.club,E.opp]:[E.opp,CAR.club])}
 async function carPlayEuro(self){if(carBusy)return;carBusy=true;try{const E=CAR.euro;const m=E.cur||(E.cur=carEuroMatch());const home=m[0]===CAR.club,opp=home?m[1]:m[0];
     const pMe=carP(CAR.club,home),pOp=teamP(opp,!home);let my;
     const label=E.md<6?'Gruppe · '+(E.md+1)+'. Spieltag':EU_KO[E.ko];
-    if(self){const out=await twMatch({A:teamSide(m[0]),D:teamSide(m[1]),pA:home?pMe:pOp,pD:home?pOp:pMe,mine:home?'A':'D',aim:carMyAim(pMe),title:euName(E.comp),logo:compLogo(E.comp),sub:label,ball:CAR.ball});
+    if(self){const out=await twMatch({A:teamSide(m[0]),D:teamSide(m[1]),pA:home?pMe:pOp,pD:home?pOp:pMe,mine:home?'A':'D',aim:carMyAim(pMe),draw:E.md<6,title:euName(E.comp),logo:compLogo(E.comp),sub:label,ball:CAR.ball});
       my={h:m[0],a:m[1],gh:out.a,ga:out.d,st:out.st.length>0,self:!out.auto,hits:out.hits,top:out.top,perf:out.sh[home?'A':'D'].every(Boolean)}}
-    else{const o=twSimShots(home?pMe:pOp,home?pOp:pMe,Math.random);my={h:m[0],a:m[1],gh:o.a,ga:o.d,st:o.st.length>0}}
+    else{const o=twSimShots(home?pMe:pOp,home?pOp:pMe,Math.random,E.md<6);my={h:m[0],a:m[1],gh:o.a,ga:o.d,st:o.st.length>0}}
     E.cur=null;carEuroResolve(my,label);carUnlock('euro');carSave();carRender()}finally{carBusy=false}carFlushToasts()}
 function carEuroResolve(my,label){const E=CAR.euro;const P=EU_PRIZE[E.comp];const home=my.h===CAR.club;const won=home?my.gh>my.ga:my.ga>my.gh;let earn=0,xp=0;const res=[my];carStatsMatch(my,home,won);
-  if(E.md<6){E.fx[E.md].forEach(([h,a])=>{const r=(h===my.h&&a===my.a)?my:(()=>{const o=twSimShots(teamP(h,true),teamP(a,false),Math.random);return{h,a,gh:o.a,ga:o.d,st:o.st.length>0}})();
-      if(r!==my)res.push(r);const H=E.tab[r.h],A=E.tab[r.a];H.sp++;A.sp++;H.tf+=r.gh;H.tg+=r.ga;A.tf+=r.ga;A.tg+=r.gh;if(r.gh>r.ga){H.s++;A.n++;H.pk+=3}else{A.s++;H.n++;A.pk+=3}});
-    if(won){earn+=P.g;xp+=45}E.md++;
+  if(E.md<6){E.fx[E.md].forEach(([h,a])=>{const r=(h===my.h&&a===my.a)?my:(()=>{const o=twSimShots(teamP(h,true),teamP(a,false),Math.random,true);return{h,a,gh:o.a,ga:o.d,st:o.st.length>0}})();
+      if(r!==my)res.push(r);const H=E.tab[r.h],A=E.tab[r.a];H.sp++;A.sp++;H.tf+=r.gh;H.tg+=r.ga;A.tf+=r.ga;A.tg+=r.gh;if(r.gh===r.ga){H.u=(H.u||0)+1;A.u=(A.u||0)+1;H.pk++;A.pk++}else if(r.gh>r.ga){H.s++;A.n++;H.pk+=3}else{A.s++;H.n++;A.pk+=3}});
+    if(won){earn+=P.g;xp+=45}else if(my.gh===my.ga){earn+=Math.round(P.g/3);xp+=15}E.md++;
     if(E.md===6){const pos=carEuroTable().indexOf(CAR.club)+1;if(pos>2){E.out=true;carToastQ.push(['🇪🇺','Gruppenphase beendet','Platz '+pos+' – leider ausgeschieden'])}else{xp+=80;carToastQ.push(['🇪🇺','Weiter im Europapokal!','Platz '+pos+' in der Gruppe – K.-o.-Runde erreicht'])}}}
   else{if(won){earn+=P.ko[E.ko];xp+=70+E.ko*30;if(E.ko===3){E.won=true;CAR.tro.push({k:E.comp,s:CAR.season,l:1});carUnlock(E.comp);carGivePack('gold',euName(E.comp)+' gewonnen!')}else carGivePack('std',EU_KO[E.ko]+' überstanden');E.ko++}else E.out=true;E.opp=null}
   CAR.money+=earn;carXP(xp);E.res.push({label,my});CAR.last={euro:true,label,res:{eu:res},my,earn,xp,R:CAR.R};carCheckAch()}
@@ -2590,10 +3643,10 @@ async function runDuel(){const [P1,P2]=DUEL.p;const side=p=>({name:p.n||'Spieler
 
 /* ================= Kader, Trikots & Wettbewerbslogos (Wikipedia, zur Laufzeit) ================= */
 const WX_KEY='kk_wx_v1';
-let WX=(()=>{const w=store.get(WX_KEY);return w&&w._v===1?w:{_v:1,_t:0,en:{},kit:{},sq:{},comp:{}}})();
+let WX=(()=>{const w=store.get(WX_KEY);return w&&w._v===2?w:{_v:2,_t:0,en:{},kit:{},sq:{},comp:{}}})();
 let wxLoading=false;
 const COMP_WIKI={L1:[['de','Fußball-Bundesliga'],['en','Bundesliga']],L2:[['de','2. Fußball-Bundesliga'],['en','2. Bundesliga']],L3:[['de','3. Fußball-Liga'],['en','3. Liga']],
-  L4:[['de','Fußball-Regionalliga'],['en','Regionalliga']],CUP:[['de','DFB-Pokal'],['en','DFB-Pokal']],CL:[['en','UEFA Champions League'],['de','UEFA Champions League']],EL:[['en','UEFA Europa League'],['de','UEFA Europa League']]};
+  L4:[['de','Fußball-Regionalliga'],['en','Regionalliga']],CUP:[['de','DFB-Pokal'],['en','DFB-Pokal']],CL:[['en','UEFA Champions League'],['de','UEFA Champions League']],EL:[['en','UEFA Europa League'],['de','UEFA Europa League']],ECL:[['en','UEFA Conference League'],['de','UEFA Conference League']]};
 const wxApi=(h,q)=>jget('https://'+h+'.wikipedia.org/w/api.php?format=json&formatversion=2&origin=*&redirects=1&'+q);
 const wxTeamKeys=()=>CLUB.map(k=>'V'+k.i).concat(EURO.map(e=>'E'+e.i));
 const wxWiki=key=>key[0]==='V'?CLUB_WIKI[+key.slice(1)]:EURO[+key.slice(1)].wiki;
@@ -2602,18 +3655,19 @@ function wxParseKit(t){const g=k=>{const m=t.match(new RegExp('\\|\\s*'+k+'\\s*=
   [1,2].forEach(n=>{const o={la:g('pattern_la'+n),b:g('pattern_b'+n),ra:g('pattern_ra'+n),sh:g('pattern_sh'+n),so:g('pattern_so'+n),cla:wxCol(g('leftarm'+n)),cb:wxCol(g('body'+n)),cra:wxCol(g('rightarm'+n)),csh:wxCol(g('shorts'+n)),cso:wxCol(g('socks'+n))};if(o.cb)kit[n===1?'h':'a']=o});
   return kit.h?kit:null}
 function wxParseSquad(t){const out=[];const seen=new Set();
-  t.replace(/football squad2? player\s*\|([^\n]*)/gi,(m,line)=>{const no=(line.match(/\bno\s*=\s*(\d+)/)||[])[1];let nm=null;const nl=line.match(/name\s*=\s*(.*)$/);const v=nl?nl[1]:'';
+  t.replace(/football squad2? player\s*\|([^\n]*)/gi,(m,line)=>{const no=(line.match(/\bno\s*=\s*(\d+)/)||[])[1];const pos=((line.match(/\bpos\s*=\s*([A-Za-z]+)/)||[])[1]||'').toUpperCase();let nm=null;const nl=line.match(/name\s*=\s*(.*)$/);const v=nl?nl[1]:'';
     let x=v.match(/\[\[([^\]|]+)(?:\|[^\]]*)?\]\]/);if(x)nm=x[1];else{x=v.match(/\{\{\s*Abbr\s*\|[^|}]*\|([^}]+)\}\}/i);if(x)nm=x[1];else{x=v.match(/^([^{}\[\]|]+)/);if(x)nm=x[1]}}
-    if(nm){nm=nm.replace(/\s*\([^)]*\)\s*$/,'').trim();if(nm&&!seen.has(nm)){seen.add(nm);out.push([no?+no:null,nm])}}return m});
+    if(nm){nm=nm.replace(/\s*\([^)]*\)\s*$/,'').trim();if(nm&&!seen.has(nm)){seen.add(nm);out.push([no?+no:null,nm,pos])}}return m});
   return out}
 async function wxPool(items,n,fn){let i=0;const run=async()=>{while(i<items.length){const k=i++;try{await fn(items[k])}catch(e){}await twWait(60)}};await Promise.all(Array.from({length:n},run))}
-async function loadWikiExtras(force){if(wxLoading)return;if(!force&&Date.now()-WX._t<14*864e5&&Object.keys(WX.sq).length>=40)return;wxLoading=true;
+async function loadWikiExtras(force){if(wxLoading)return;if(!force&&Date.now()-WX._t<14*864e5&&Object.keys(WX.sq).length>=50)return;wxLoading=true;
   try{const keys=wxTeamKeys();
     // 1) englische Artikeltitel über die deutschen Artikel
     const titles=keys.map(wxWiki);
     for(let k=0;k<titles.length;k+=40){const ch=titles.slice(k,k+40);const j=await wxApi('de','action=query&prop=langlinks&lllang=en&lllimit=500&titles='+encodeURIComponent(ch.join('|')));
       const q=j.query||{};const nm={},rd={},pg={};(q.normalized||[]).forEach(x=>nm[x.from]=x.to);(q.redirects||[]).forEach(x=>rd[x.from]=x.to);(q.pages||[]).forEach(p=>pg[p.title]=p);
       ch.forEach(t=>{let x=nm[t]||t;x=rd[x]||x;const p=pg[x];const ll=p&&p.langlinks&&p.langlinks.find(l=>l.lang==='en');if(ll)keys.filter(kk=>wxWiki(kk)===t).forEach(kk=>WX.en[kk]=ll.title)})}
+    CLUB.forEach(k=>{if(CLUB_EN[k.short])WX.en['V'+k.i]=CLUB_EN[k.short]});
     // 2) aktuelle Kader (Navigationsleisten „… squad“)
     const vk=CLUB.map(k=>'V'+k.i).filter(k=>WX.en[k]);
     for(let k=0;k<vk.length;k+=40){const ch=vk.slice(k,k+40);const tt=ch.map(kk=>'Template:'+WX.en[kk]+' squad');
@@ -2627,24 +3681,40 @@ async function loadWikiExtras(force){if(wxLoading)return;if(!force&&Date.now()-W
       const j=await wxApi(host,'action=query&prop=pageimages&piprop=name&titles='+encodeURIComponent(list.map(x=>x[1][1]).join('|')));const q=j.query||{};const nm={},rd={},pg={};
       (q.normalized||[]).forEach(x=>nm[x.from]=x.to);(q.redirects||[]).forEach(x=>rd[x.from]=x.to);(q.pages||[]).forEach(p=>pg[p.title]=p);
       list.forEach(([k,[h,t]])=>{let x=nm[t]||t;x=rd[x]||x;const p=pg[x];if(p&&p.pageimage&&/logo|\.svg$/i.test(p.pageimage))WX.comp[k]=(host==='de'?'dw:':'ew:')+p.pageimage.replace(/_/g,' ')})}
-    WX._t=Date.now();store.set(WX_KEY,WX);
+    WX._t=Date.now();store.set(WX_KEY,WX);plPoolV++;
     if(typeof CAR!=='undefined'&&CAR){carRealCards();carSave();if(!$('#car').classList.contains('off'))carRender()}
   }catch(e){console.warn('Kader/Trikots',e)}wxLoading=false}
 /* ---- Wettbewerbslogos ---- */
-const COMP_KEY={1:'L1',2:'L2',3:'L3',4:'L4',cup:'CUP',cl:'CL',el:'EL'};
+const COMP_KEY={1:'L1',2:'L2',3:'L3',4:'L4',cup:'CUP',cl:'CL',el:'EL',ecl:'ECL'};
 function compLogo(k,cls){const f=WX.comp[COMP_KEY[k]];return f?'<img class="clogo '+(cls||'')+'" alt="" src="'+coaURL(f)+'" onerror="this.remove()">':''}
-/* ---- Trikots ---- */
-const kitImg=(part,pat)=>pat?'<img alt="" src="https://en.wikipedia.org/wiki/Special:FilePath/'+encodeURIComponent('Kit_'+part+pat+'.png')+'" onerror="this.remove()">':'';
-let wxColCtx=null;
+/* ---- Trikots (Geometrie wie Wikipedia-Vorlage „Football kit“: Arme 31×59, Body 38×59, Hose 100×36, Stutzen 100×40) ---- */
+let wxColCtx=null,KITN=0;
 function wxHex(c){if(!wxColCtx)wxColCtx=document.createElement('canvas').getContext('2d');wxColCtx.fillStyle='#000';wxColCtx.fillStyle=c||'#000';return wxColCtx.fillStyle}
-function teamKit(key,away){const k=WX.kit[key];if(k&&(away?k.a||k.h:k.h))return away&&k.a?k.a:k.h;const t=key[0]==='V'?CLUB[+key.slice(1)]:EURO[+key.slice(1)];
-  return{cla:t.c1,cb:t.c1,cra:t.c1,csh:t.c2,cso:t.c1,la:'',b:'',ra:'',sh:'',so:''}}
-function kitHTML(key,o){o=o||{};const k=teamKit(key,o.away);const w=o.w||60;const body=wxHex(k.cb);const lt=lum(body)>.55;
-  const shirt='<div class="kit-sh"><div class="kp la" style="background:'+(k.cla||k.cb)+'">'+kitImg('left_arm',k.la)+'</div><div class="kp b" style="background:'+k.cb+'">'+kitImg('body',k.b)+'</div><div class="kp ra" style="background:'+(k.cra||k.cb)+'">'+kitImg('right_arm',k.ra)+'</div><i class="kit-shade"></i>'+
-    (o.no!=null?'<b class="kit-no" style="color:'+(lt?'#111':'#fff')+'">'+o.no+'</b>':'')+'</div>';
-  if(!o.full)return '<div class="kit" style="--w:'+w+'px">'+shirt+'</div>';
-  return '<div class="kit full" style="--w:'+w+'px">'+shirt+'<div class="kit-shorts"><div class="kp" style="background:'+(k.csh||'#fff')+'">'+kitImg('shorts',k.sh)+'</div><i class="kit-shade"></i></div>'+
-    '<div class="kit-socks"><div class="kp" style="background:'+(k.cso||'#fff')+'">'+kitImg('socks',k.so)+'</div><div class="kp" style="background:'+(k.cso||'#fff')+'">'+kitImg('socks',k.so)+'</div></div></div>'}
+function kitCol(c,fb){if(!c)return fb;if(!wxColCtx)wxColCtx=document.createElement('canvas').getContext('2d');wxColCtx.fillStyle='#010203';wxColCtx.fillStyle=c;const v=wxColCtx.fillStyle;return v==='#010203'?fb:v}
+const KIT_URL=(part,pat)=>'https://en.wikipedia.org/wiki/Special:FilePath/'+encodeURIComponent('Kit_'+part+pat+'.png');
+const KIT_P={
+  la:'M31.6,5.5 L30.5,5.5 L12,24 L25,37 L31.6,30.4 Z',
+  ra:'M68.4,5.5 L69.5,5.5 L88,24 L75,37 L68.4,30.4 Z',
+  b:'M31,5.5 H41 C50,9.5 50,9.5 59,5.5 H69 V58.5 H31 Z',
+  sh:'M31,59 H69 L74,94.5 H54 L50,81.5 L46,94.5 H26 Z',
+  so:'M29.5,104.5 H44.5 V135 H31.5 Z M55.5,104.5 H70.5 L68.5,135 H55.5 Z'};
+const KIT_OUT='M41,5.5 C50,9.5 50,9.5 59,5.5 H69.5 L88,24 L75,37 L69,31 V58.5 H31 V31 L25,37 L12,24 L30.5,5.5 Z';
+function teamKit(key,away){const k=WX.kit[key];const t=key[0]==='V'?CLUB[+key.slice(1)]:EURO[+key.slice(1)];
+  const fb={cla:t.c1,cb:t.c1,cra:t.c1,csh:t.c2,cso:t.c1,la:'',b:'',ra:'',sh:'',so:''};
+  const r=k&&(away?k.a||k.h:k.h)?(away&&k.a?k.a:k.h):fb;
+  const cb=kitCol(r.cb,kitCol(r.cla,t.c1));
+  return{la:r.la||'',b:r.b||'',ra:r.ra||'',sh:r.sh||'',so:r.so||'',cb,cla:kitCol(r.cla,cb),cra:kitCol(r.cra,kitCol(r.cla,cb)),csh:kitCol(r.csh,r===fb?t.c2:'#ffffff'),cso:kitCol(r.cso,cb)}}
+function kitHTML(key,o){o=o||{};const k=teamKit(key,o.away);const w=o.w||60;const id='kt'+(++KITN);const full=!!o.full;
+  const part=(nm,d,img,x,y,wd,ht,col)=>'<clipPath id="'+id+nm+'"><path d="'+d+'"/></clipPath><g clip-path="url(#'+id+nm+')"><rect x="'+x+'" y="'+y+'" width="'+wd+'" height="'+ht+'" fill="'+col+'"/>'+
+    (img?'<image href="'+img+'" x="'+x+'" y="'+y+'" width="'+wd+'" height="'+ht+'" preserveAspectRatio="none"/>':'')+'<rect x="'+x+'" y="'+y+'" width="'+wd+'" height="'+ht+'" fill="url(#'+id+'s)"/></g>';
+  let g='<defs><linearGradient id="'+id+'s" gradientUnits="userSpaceOnUse" x1="12" y1="0" x2="88" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".28"/><stop offset=".3" stop-color="#fff" stop-opacity=".1"/><stop offset=".55" stop-color="#fff" stop-opacity=".16"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient></defs>';
+  g+=part('a',KIT_P.la,k.la&&KIT_URL('left_arm',k.la),0,0,31,59,k.cla)+part('c',KIT_P.ra,k.ra&&KIT_URL('right_arm',k.ra),69,0,31,59,k.cra)+part('b',KIT_P.b,k.b&&KIT_URL('body',k.b),31,0,38,59,k.cb);
+  g+='<path d="'+KIT_OUT+'" fill="none" stroke="rgba(0,0,0,.45)" stroke-width=".9" stroke-linejoin="round"/><path d="M41,5.5 C50,9.5 50,9.5 59,5.5" fill="none" stroke="rgba(0,0,0,.35)" stroke-width="1.4"/>';
+  if(o.no!=null){const lt=lum(k.cb)>.55;g+='<text x="50" y="40" text-anchor="middle" font-size="22" font-weight="900" font-family="-apple-system,system-ui,sans-serif" fill="'+(lt?'#111':'#fff')+'" stroke="'+(lt?'rgba(255,255,255,.75)':'rgba(0,0,0,.6)')+'" stroke-width="1.6" paint-order="stroke">'+o.no+'</text>'}
+  if(full){g+=part('h',KIT_P.sh,k.sh&&KIT_URL('shorts',k.sh),0,59,100,36,k.csh)+'<path d="'+KIT_P.sh+'" fill="none" stroke="rgba(0,0,0,.4)" stroke-width=".8" stroke-linejoin="round"/>';
+    g+=part('k',KIT_P.so,k.so&&KIT_URL('socks',k.so),0,95,100,40,k.cso)+'<path d="'+KIT_P.so+'" fill="none" stroke="rgba(0,0,0,.4)" stroke-width=".8"/>'}
+  const vb=full?'11 4 78 132':'11 4 78 55.5';
+  return '<div class="kit'+(full?' full':'')+'" style="--w:'+w+'px"><svg viewBox="'+vb+'" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">'+g+'</svg></div>'}
 
 $('#iCar').addEventListener('click',()=>{sfx('tap');carOpen()});
 $('#iDuel').addEventListener('click',()=>{sfx('tap');openSheet('shDuel')});
