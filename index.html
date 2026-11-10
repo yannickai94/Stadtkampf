@@ -679,6 +679,111 @@ body.rec #fight{bottom:max(var(--sb),10px)}
 @keyframes woBurst{0%{opacity:1;transform:rotate(var(--a)) translateY(0)}100%{opacity:0;transform:rotate(var(--a)) translateY(-46vh)}}
 .wo-skip{position:absolute;bottom:calc(max(var(--sb),12px) + 18px);left:0;right:0;text-align:center;font-size:12px;font-weight:700;color:rgba(255,255,255,.5)}
 .kslot .cmini,.acard .cmini,.tmr .cmini{flex:1;min-width:0}.cmini>span{flex:1;min-width:0}
+/* ===== v5.1: Karriere als feste Handy-App ===== */
+html{touch-action:manipulation}
+body{position:fixed;inset:0;width:100%}
+body.career:not(.carmap) #hdr,body.career:not(.carmap) #followBtn{visibility:hidden}
+#car{position:fixed;inset:0;z-index:29;padding:0;background:radial-gradient(130% 55% at 50% -5%,#1d2a5c 0%,#0d1430 50%,#070a16 100%);transition:transform .45s var(--spring),opacity .35s}
+#car.off{transform:translateY(100%);opacity:0;pointer-events:none}
+#car.mapoff{transform:translateY(105%);opacity:0;pointer-events:none}
+#car .carCard{position:absolute;inset:0;max-width:none;height:auto!important;max-height:none!important;margin:0;border-radius:0;padding:0;display:flex;flex-direction:column;overflow:hidden;background:transparent;border:0;box-shadow:none;transform:none!important}
+#car .carGrab,#car .carStats,#carTabs{display:none!important}
+#car .carTop{flex:none;display:flex;align-items:center;gap:10px;margin:0;padding:calc(max(var(--st),10px) + 6px) 14px 10px;background:rgba(8,12,28,.72);backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4);border-bottom:1px solid rgba(255,255,255,.08)}
+#car .carTop .badge{width:40px;height:40px}
+#car .carT1{font-size:18px}#car .carT2{font-size:12.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}#car .carT2 b{color:#fff}
+.chd{flex:none;display:flex;align-items:center;gap:8px}
+.cmo{font-size:13px;font-weight:900;padding:7px 10px;border-radius:99px;background:rgba(255,224,138,.13);color:#ffe08a;white-space:nowrap}
+.clv{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(#8fd3ff calc(var(--p)*1%),rgba(255,255,255,.12) 0);position:relative}
+.clv::before{content:'';position:absolute;inset:3px;border-radius:50%;background:#0d1430}.clv b{position:relative;font-size:13px;font-weight:900}
+#car .carBody{flex:1 1 auto;min-height:0;margin:0;padding:10px max(14px,calc((100% - 620px)/2)) 22px;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+.carNav{flex:none;display:flex;justify-content:space-around;padding:4px max(6px,calc((100% - 620px)/2)) max(var(--sb),8px);background:rgba(8,12,28,.86);backdrop-filter:blur(20px) saturate(1.4);-webkit-backdrop-filter:blur(20px) saturate(1.4);border-top:1px solid rgba(255,255,255,.08)}
+.carNav button{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:52px;font-size:10.5px;font-weight:800;color:rgba(255,255,255,.5);position:relative;transition:color .2s}
+.carNav button svg{width:25px;height:25px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:transform .25s var(--spring)}
+.carNav svg .f,.mi svg .f{fill:currentColor;stroke:none}
+.carNav button.on{color:#8fd3ff}.carNav button.on svg{transform:translateY(-1px) scale(1.06)}
+.carNav .nb{position:absolute;top:4px;left:calc(50% + 7px);min-width:17px;height:17px;padding:0 4px;border-radius:9px;background:#ff5a6e;color:#fff;font-style:normal;font-size:10px;font-weight:900;display:grid;place-items:center}
+.subnav{position:sticky;top:-10px;z-index:3;margin:-10px -4px 8px;padding:10px 4px 6px;background:linear-gradient(#0e1533 70%,rgba(14,21,51,0))}
+.subnav .seg{margin:0}
+.tabhd{display:flex;justify-content:flex-end;margin:-2px 0 6px}
+.chipb{display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border-radius:99px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);color:#fff;font-weight:800;font-size:13px;min-height:36px}
+.chipb svg,.backb svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.backb{display:inline-flex;align-items:center;gap:4px;padding:8px 12px 8px 6px;margin:0 0 6px -4px;border-radius:99px;color:#8fd3ff;font-weight:800;font-size:15px;min-height:40px}
+.mlist{border-radius:20px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);overflow:hidden;margin-bottom:14px}
+.mrow{width:100%;display:flex;align-items:center;gap:12px;padding:12px 14px;min-height:60px;text-align:left;color:#fff;border-bottom:1px solid rgba(255,255,255,.06)}.mrow:last-child{border-bottom:0}
+.mi{flex:none;width:36px;height:36px;border-radius:11px;display:grid;place-items:center;background:rgba(143,211,255,.14);color:#8fd3ff}
+.mi svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.mt{flex:1;min-width:0}.mt b{display:block;font-size:15.5px}.mt small{font-size:12.5px;color:var(--sub);font-weight:700}
+.mc svg,.tmc .mc svg{width:18px;height:18px;fill:none;stroke:rgba(255,255,255,.4);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}.tmc .mc{font-style:normal;display:flex}
+#carMapBack{position:fixed;z-index:31;left:50%;bottom:calc(max(var(--sb),12px) + 14px);transform:translate(-50%,140%);opacity:0;padding:14px 22px;border-radius:99px;font-weight:900;font-size:15px;color:#fff;transition:transform .45s var(--spring),opacity .3s;pointer-events:none}
+body.carmap #carMapBack{transform:translate(-50%,0);opacity:1;pointer-events:auto}
+/* Kader */
+.kline{display:flex;flex-direction:column;gap:6px}
+.kslot{position:relative;display:flex;align-items:center;gap:8px;padding:6px 10px;border-radius:16px;background:rgba(255,255,255,.05);border:1.5px solid rgba(255,255,255,.08);min-height:54px;transition:border-color .2s,background .2s}
+.kslot>small{flex:none;width:52px;font-size:11px;font-weight:900;color:var(--sub);text-transform:uppercase}
+.kslot.on{border-color:#8fd3ff;background:rgba(143,211,255,.1)}.kslot.over{border-color:#7dffa0;background:rgba(125,255,160,.14)}
+.kslot .mis{position:absolute;right:8px;top:4px;font-style:normal;font-size:9.5px;font-weight:900;color:#ffb38a}
+.ksug{margin:-2px 0 4px 18px;padding:6px;border-left:2px solid rgba(143,211,255,.4);display:flex;flex-direction:column;gap:5px}
+.ksug button{display:flex;align-items:center;gap:6px;padding:5px 8px;border-radius:13px;background:rgba(255,255,255,.06);text-align:left;color:#fff;min-height:48px}
+.ksug .cmini{flex:1;min-width:0}.kd{flex:none;font-weight:900;font-size:15px;text-align:right;min-width:40px}.kd small{display:block;font-size:9.5px;color:var(--sub);font-weight:800}.kd.up{color:#7dffa0}.kd.dn{color:#ff9d8a}
+.bench{display:flex;gap:7px;overflow-x:auto;padding:2px 2px 8px;scrollbar-width:none;-webkit-overflow-scrolling:touch}.bench::-webkit-scrollbar{display:none}
+.btile{flex:none;width:72px;padding:8px 4px 7px;border-radius:14px;background:var(--rg);color:#1a1206;text-align:center;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;touch-action:pan-x}
+.btile b{display:block;font-size:20px;font-weight:900;line-height:1}.btile span{display:block;font-size:11px;font-weight:900;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:3px}.btile i{font-style:normal;font-size:10px;font-weight:800;opacity:.7}
+.btile.r-l{color:#fff}
+.kghost{position:fixed!important;left:0;top:0;z-index:90;pointer-events:none;opacity:.94;box-shadow:0 18px 40px rgba(0,0,0,.55);border-radius:16px}
+body.kdrag,body.kdrag *{-webkit-user-select:none;user-select:none}
+#kAuto{margin-top:6px}
+.kbulk button small{display:block;font-size:10.5px;font-weight:800;color:var(--sub)}
+.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.ptile{display:flex;flex-direction:column;align-items:flex-start;gap:1px;padding:11px 11px 10px;border-radius:18px;background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.1);color:#fff;text-align:left;min-height:128px}
+.ptile .pe{font-size:26px;line-height:1.1}.ptile b{font-size:14px;margin-top:3px}.ptile small{font-size:11px;color:var(--sub);font-weight:700;line-height:1.3}
+.ptile em{margin-top:auto;font-style:normal;font-weight:900;font-size:13px;padding:6px 10px;border-radius:99px;background:rgba(255,255,255,.1)}
+.ptile.have{border-color:rgba(125,255,160,.5)}.ptile.have em{background:linear-gradient(135deg,#7dffa0,#3fc8ff);color:#05210f}.ptile.dis{opacity:.5}
+/* Spieler-Detail */
+.cdwrap{display:flex;justify-content:center;margin:4px 0 10px}.cdwrap .scard{width:190px}
+.cdst{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}.cdst div{padding:8px 4px;border-radius:13px;background:rgba(255,255,255,.06);text-align:center}.cdst b{display:block;font-size:17px;font-weight:900}.cdst small{font-size:10.5px;color:var(--sub);font-weight:800}
+.cdpos{display:grid;grid-template-columns:repeat(6,1fr);gap:5px}.cdpos button{min-height:44px;border-radius:12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);color:#fff;font-weight:900;font-size:14px}.cdpos button.on{background:rgba(143,211,255,.25);border-color:#8fd3ff}
+.cdact{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-top:12px}.cdact button{min-height:58px;border-radius:14px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);color:#fff;font-weight:900;font-size:12.5px;padding:6px}
+.cdact button small{display:block;font-size:10px;font-weight:700;color:var(--sub);margin-top:2px}.cdact .warn{color:#ffc2ad;border-color:rgba(255,140,110,.4)}.cdact .dis{opacity:.45}
+/* Paket-Aufdeckung */
+#pack{overflow-y:auto;justify-content:flex-start;padding:calc(max(var(--st),12px) + 12px) 14px calc(max(var(--sb),12px) + 12px)}
+#pack>.pk-t{margin-top:auto}#pack>.pk-btns{margin-bottom:auto}
+.pk-w{display:flex;flex-direction:column;align-items:center;gap:6px}
+.pk-row.now .pk-c,.pk-row.now .pk-glow{animation-delay:0s!important;animation-duration:.35s!important}
+.pk-act{display:flex;gap:4px;justify-content:center;min-height:30px}.pk-act button{padding:6px 8px;border-radius:99px;font-size:11px;font-weight:900;color:#fff;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.15)}
+.pk-act .in{background:linear-gradient(135deg,#7dffa0,#3fc8ff);color:#05210f;border:0}.pk-act .qs{color:#ffe08a}
+.pk-act .sold,.pk-act .inxi{font-size:11px;font-weight:900;color:var(--sub);padding:6px 0}.pk-act .inxi{color:#7dffa0}
+.pk-btns{display:flex;gap:8px;width:100%;max-width:430px}.pk-btns .big{flex:1;margin:0}.pk-btns .warn{color:#ffc2ad}.pk-btns .dis{opacity:.45}
+/* Rückgängig & Toast mit Aktion */
+#undo{position:fixed;z-index:45;left:12px;right:12px;bottom:calc(max(var(--sb),8px) + 70px);max-width:520px;margin:0 auto;display:flex;align-items:center;gap:10px;padding:10px 10px 10px 16px;border-radius:18px;transform:translateY(160%);opacity:0;transition:transform .4s var(--spring),opacity .3s;pointer-events:none}
+#undo.on{transform:none;opacity:1;pointer-events:auto}#undo span{flex:1;font-size:13.5px;font-weight:800;min-width:0}
+#undo button{flex:none;padding:10px 14px;border-radius:12px;background:rgba(143,211,255,.22);color:#8fd3ff;font-weight:900;font-size:13.5px}
+#toast.act{pointer-events:auto}#toast .tact{flex:none;padding:9px 14px;border-radius:99px;background:linear-gradient(135deg,#7dffa0,#3fc8ff);color:#05210f;font-weight:900;font-size:13.5px;margin-left:4px}
+/* Statistik */
+.slist{display:flex;flex-direction:column;gap:4px}
+.srow{display:flex;align-items:center;gap:9px;padding:7px 10px;border-radius:14px;background:rgba(255,255,255,.045);min-height:48px}
+.srow.me{background:rgba(143,211,255,.14);border:1px solid rgba(143,211,255,.35)}
+.srow .sr{flex:none;width:22px;text-align:right;font-weight:900;font-size:13px;color:var(--sub)}.srow .badge{flex:none}
+.sn{flex:1;min-width:0}.sn b{display:block;font-size:14.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.sn small{font-size:11.5px;color:var(--sub);font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}
+.srow .sv{flex:none;font-size:20px;font-weight:900;min-width:30px;text-align:right}
+.mrow2{display:flex;align-items:center;gap:8px;padding:7px 10px;border-radius:14px;background:rgba(255,255,255,.045);text-align:left;color:#fff;min-height:50px;width:100%}
+.mrow2.inl{border:1px solid rgba(125,255,160,.25)}
+.mb2{flex:none;width:32px;height:34px;border-radius:9px;display:grid;place-items:center;font-weight:900;font-size:14px;color:#1a1206;background:var(--rg)}.mb2.r-l{color:#fff}
+.mn{flex:none;text-align:center;min-width:42px}.mn b{display:block;font-size:15px;font-weight:900}.mn b i{font-style:normal;font-size:11px;color:var(--sub)}.mn small{font-size:9.5px;color:var(--sub);font-weight:800;text-transform:uppercase}
+.pchart{border-radius:18px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);padding:8px 6px 4px}
+.pchart svg{width:100%;height:auto;display:block;touch-action:pan-y}
+.pchart .pg{stroke:rgba(255,255,255,.1);stroke-width:1}.pchart .pt{fill:rgba(255,255,255,.55);font-size:10px;font-weight:700}
+.pchart .pl{fill:none;stroke:#3987e5;stroke-width:2;stroke-linejoin:round;stroke-linecap:round}.pchart .pd{fill:#3987e5;stroke:#0d1430;stroke-width:2}
+.pchart .z1{fill:rgba(255,224,138,.1)}.pchart .z2{fill:rgba(125,255,160,.08)}.pchart .z3{fill:rgba(255,170,90,.08)}.pchart .z4{fill:rgba(255,90,110,.09)}
+.pchart .hit{fill:transparent}.pchart .hit.on{fill:rgba(255,255,255,.08)}
+.ptip{font-size:12px;font-weight:800;color:var(--sub);text-align:center;padding:4px 0 2px}
+.arc{border-radius:16px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);padding:10px 12px;margin-bottom:8px}
+.arh{display:flex;align-items:baseline;gap:8px}.arh b{font-size:16px}.arh span{font-size:12.5px;color:var(--sub);font-weight:700}
+.art{font-size:13px;font-weight:800;color:#ffe08a;margin-top:4px}
+.arl{display:flex;justify-content:space-between;gap:10px;font-size:12.5px;padding-top:5px}.arl span{color:var(--sub);font-weight:700}.arl b{text-align:right}
+@media (prefers-reduced-motion:reduce){#car,.carNav svg,#undo,#carMapBack{transition:none}}
+.kslot>small{width:58px;white-space:nowrap;text-transform:none;font-size:11.5px}
+#carMapBack{white-space:nowrap}
+.pk-row.many .pk-w{width:min(21vw,92px)}.pk-row.many .pk-act{flex-direction:column;width:100%;gap:3px}.pk-row.many .pk-act button{width:100%;padding:5px 2px;font-size:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 </style>
 </head>
 <body>
@@ -809,6 +914,11 @@ body.rec #fight{bottom:max(var(--sb),10px)}
   <div class="shd"><h2>Kader & Transfermarkt</h2><button class="xbtn press" data-close>✕</button></div>
   <div class="sbody" id="clubBody"></div>
 </section>
+<section class="sheet glass" id="shCard">
+  <div class="grab"></div>
+  <div class="shd"><h2>Spieler</h2><button class="xbtn press" data-close>✕</button></div>
+  <div class="sbody" id="cardBody"></div>
+</section>
 <section class="sheet glass" id="shPlayers">
   <div class="grab"></div>
   <div class="shd"><h2>Mehrspieler</h2><button class="xbtn press" data-close>✕</button></div>
@@ -846,13 +956,14 @@ body.rec #fight{bottom:max(var(--sb),10px)}
 </div>
 <div id="pack" class="off"></div>
 <div id="car" class="off">
-  <div class="carCard glass">
-    <div class="carTop" id="carTop"></div>
-    <div class="carStats" id="carStats"></div>
-    <div class="seg" id="carTabs"><div class="hl"></div><button data-v="day">Spieltag</button><button data-v="tab">Tabelle</button><button data-v="kader">Kader</button><button data-v="club">Verein</button><button data-v="tro">Erfolge</button></div>
-    <div class="carBody" id="carBody"></div>
+  <div class="carCard">
+    <header class="carTop" id="carTop"></header>
+    <main class="carBody" id="carBody"></main>
+    <nav class="carNav" id="carNav" aria-label="Karriere"></nav>
   </div>
 </div>
+<button id="carMapBack" class="glass press" onclick="carMap(false)">‹ Zurück zur Karriere</button>
+<div id="undo" class="glass" role="status"><span></span><button class="press">Rückgängig</button></div>
 <div id="intro">
   <div class="icard glass">
     <div id="iHome">
@@ -1173,8 +1284,8 @@ function wmEnc(n){return encodeURIComponent(n).replace(/%3B/g,';').replace(/%40/
 function wmPath(repo,n,w){const h=md5(n),e=wmEnc(n),d=h[0]+'/'+h.slice(0,2)+'/';if(!w)return WM_UP+repo+'/'+d+e;const x=/\.svg$/i.test(n)?'.png':/\.tiff?$/i.test(n)?'.jpg':'';return WM_UP+repo+'/thumb/'+d+e+'/'+w+'px-'+e+x}
 const WM_NEXT={};
 function wmChain(list){for(let i=0;i<list.length-1;i++)if(!WM_NEXT[list[i]])WM_NEXT[list[i]]=list[i+1];return list[0]}
-const COA_URLS={};
-function coaURL(f){if(COA_URLS[f])return COA_URLS[f];if(/^https?:/.test(f))return f;let repo=['commons'],n=f,host='commons.wikimedia.org';
+const COA_URLS={};var COA_BLOBF={};
+function coaURL(f){if(COA_BLOBF[f])return COA_BLOBF[f];if(COA_URLS[f])return COA_URLS[f];if(/^https?:/.test(f))return f;let repo=['commons'],n=f,host='commons.wikimedia.org';
   if(f.slice(0,3)==='ew:'){repo=['en','commons'];n=f.slice(3);host='en.wikipedia.org'}else if(f.slice(0,3)==='dw:'){repo=['commons','de'];n=f.slice(3);host='de.wikipedia.org'}
   n=wmNorm(n);return COA_URLS[f]=wmChain(repo.map(r=>wmPath(r,n,120)).concat(repo.map(r=>wmPath(r,n,0)),['https://'+host+'/wiki/Special:FilePath/'+wmEnc(n)+'?width=120']))}
 /* Lädt ein Bild nicht, nimmt es still die nächste Adresse (vor den eigenen onerror-Handlern) */
@@ -1217,7 +1328,7 @@ async function loadClubCoas(force){
     CLUB_WIKI.forEach((t,i)=>{const pi=page[t],lg=qid[t]&&wd[qid[t]];const f=(pi&&(isLogoFile(pi)||/\.(svg|png|gif)$/i.test(pi)))?pi:(lg||pi);if(f){out['V'+i]='dw:'+f;n++}});
     out._n=n;out._ne=EURO.filter(e=>out['E'+e.i]).length;VCOA=out;store.set(VCOA_KEY,out);
     Object.keys(COA).forEach(k=>{if(k[0]==='V'||k[0]==='E')delete COA[k]});Object.keys(out).forEach(k=>{if(k[0]==='V'||k[0]==='E')COA[k]=out[k]});clubCoaFix();
-    Object.keys(coaImgs).forEach(k=>{if(k[0]==='V'||k[0]==='E')delete coaImgs[k]});refreshCoaUI();if(typeof CAR!=='undefined'&&CAR&&!$('#car').classList.contains('off'))carRender();if(S)updateTop3(true);
+    Object.keys(coaImgs).forEach(k=>{if(k[0]==='V'||k[0]==='E')delete coaImgs[k]});refreshCoaUI();if(typeof CAR!=='undefined'&&CAR&&!$('#car').classList.contains('off'))carRender();if(S)updateTop3(true);setTimeout(()=>coaCacheLoad().then(coaWarm),200);
   }catch(e){console.warn('Vereinswappen',e)}
   vcoaLoading=false}
 function coaCount(){return Object.keys(COA).filter(k=>k[0]!=='_'&&COA[k]).length}
@@ -1252,7 +1363,7 @@ function appHeight(){const st=navigator.standalone===true||(window.matchMedia&&m
   if(st&&screen&&screen.height){const portrait=innerHeight>=innerWidth;const sh=portrait?Math.max(screen.height,screen.width):Math.min(screen.height,screen.width);h=Math.max(innerHeight,sh)}
   document.documentElement.style.setProperty('--appH',h+'px');return h}
 function resize(){DPR=Math.min(window.devicePixelRatio||1,2);W=innerWidth;H=appHeight();cv.width=Math.round(W*DPR);cv.height=Math.round(H*DPR);bcv.width=cv.width;bcv.height=cv.height;baseCam=null;updateVP();if(!camAnim)snapTo(camBox||PBOX||WBOX);dirty=true}
-function updateVP(){const h=$('#hdr');const fight=$('#fight');const tabs=$('#tabs');let bottom=document.body.classList.contains('rec')?H-10:tabs.offsetTop;if(document.body.classList.contains('career')){bottom=document.body.classList.contains('carpeek')?H-140:H*.4}if(!fight.classList.contains('off'))bottom=fight.offsetTop;const intro=$('#intro');if(!intro.classList.contains('gone'))bottom=Math.min(bottom,$('.icard').getBoundingClientRect().top);const top=h.offsetTop+h.offsetHeight+(running&&isTurbo()?92:8)+($('#app').classList.contains('has3')?36:0);vp={x:8,y:top,w:W-16,h:Math.max(120,bottom-top-8)};const fb=$('#followBtn');fb.style.top=Math.max(top+4,top+vp.h-44)+'px'}
+function updateVP(){const h=$('#hdr');const fight=$('#fight');const tabs=$('#tabs');let bottom=document.body.classList.contains('rec')?H-10:tabs.offsetTop;if(document.body.classList.contains('career')){bottom=document.body.classList.contains('carmap')?H-96:H*.4}if(!fight.classList.contains('off'))bottom=fight.offsetTop;const intro=$('#intro');if(!intro.classList.contains('gone'))bottom=Math.min(bottom,$('.icard').getBoundingClientRect().top);const top=h.offsetTop+h.offsetHeight+(running&&isTurbo()?92:8)+($('#app').classList.contains('has3')?36:0);vp={x:8,y:top,w:W-16,h:Math.max(120,bottom-top-8)};const fb=$('#followBtn');fb.style.top=Math.max(top+4,top+vp.h-44)+'px'}
 function fitBox(b,pad){pad=pad==null?.08:pad;const bw=(b[2]-b[0])*(1+pad*2),bh=(b[3]-b[1])*(1+pad*2);const s=clamp(Math.min(vp.w/bw,vp.h/bh),sMin(),40);return{x:(b[0]+b[2])/2,y:(b[1]+b[3])/2,s,px:vp.x+vp.w/2,py:vp.y+vp.h/2}}
 function sMin(){return Math.min(vp.w/(WBOX[2]-WBOX[0]),vp.h/(WBOX[3]-WBOX[1]))*.7}
 function snapTo(b){Object.assign(cam,fitBox(b,b===PBOX?.04:.08))}
@@ -1985,7 +2096,7 @@ function cellRow(c,me){const o=S&&S.owner[c.i]>=0?F[S.owner[c.i]]:null;const own
 $('#q').addEventListener('input',renderSearch);
 $('#qList').addEventListener('click',e=>{const r=e.target.closest('[data-c]');if(!r)return;if(pickFor!=null){SET.players[pickFor].cell=+r.dataset.c;saveSet();pickFor=null;openSheet('shPlayers');renderPlayers();return}SET.favClub=r.dataset.k!=null?+r.dataset.k:null;setFav(+r.dataset.c);closeSheet()});
 function setFav(i){SET.fav=i;saveSet();updateIntro();const c=cells[i];forceFly(boxOfCells([i]),900);if(S&&running){setUserCam(true)}if(SET.mode==='liga'){const k=myClub();miniToast('⚽','Mein Verein: '+k.name,ligaName(k.liga)+(SET.favClub!=null?' · '+k.town:' · über '+shortName(c.name)))}else miniToast('📍','Mein Kreis: '+shortName(c.name),kindName(c)+' · '+landName(c.land));dirty=true}
-function miniToast(em,t1,t2,dur){const el=$('#toast');el.className='glass';void el.offsetWidth;el.querySelector('.em').textContent=em;el.querySelector('.t1').textContent=t1;el.querySelector('.t2').textContent=t2;el.classList.add('show');$('#app').classList.add('toasting');clearTimeout(toastT);toastT=setTimeout(()=>{el.classList.remove('show');el.classList.add('hide');$('#app').classList.remove('toasting')},dur||2000)}
+function miniToast(em,t1,t2,dur){const el=$('#toast');{const ta=el.querySelector('.tact');if(ta){ta.style.display='none';el.classList.remove('act')}}el.className='glass';void el.offsetWidth;el.querySelector('.em').textContent=em;el.querySelector('.t1').textContent=t1;el.querySelector('.t2').textContent=t2;el.classList.add('show');$('#app').classList.add('toasting');clearTimeout(toastT);toastT=setTimeout(()=>{el.classList.remove('show');el.classList.add('hide');$('#app').classList.remove('toasting')},dur||2000)}
 
 if(window.visualViewport){const vv=window.visualViewport;const adj=()=>{const kb=Math.max(0,innerHeight-vv.height-vv.offsetTop);document.querySelectorAll('.sheet').forEach(sh=>sh.style.bottom=kb>60?(kb+8)+'px':'');};vv.addEventListener('resize',adj);vv.addEventListener('scroll',adj)}
 /* ---------- Settings ---------- */
@@ -3625,7 +3736,7 @@ async function twMatch(o){const el=$('#tw');const n=o.n||TW_N;const ag=o.agg||{a
     await penAnimate(g,t,dive||{z:'C'},inPost?'goal':res,catchIt);twPowUI(null);const hit=res==='goal';
     if(me&&hit){out.hits++;if(t.v>.62&&Math.abs(t.u-.5)>.3)out.top++;if(t.type==='panenka')out.pan++}
     if(me)out.my++;if(isMe(kd)&&!hit&&res==='save')out.saves++;
-    out.log.push({sd,k,st,cid:sh.cid!=null?sh.cid:null,kid:kp.cid!=null?kp.cid:null,goal:hit,res});
+    out.log.push({sd,k,st,cid:sh.cid!=null?sh.cid:null,kid:kp.cid!=null?kp.cid:null,n:TM[sd]?sh.n:null,kn:TM[kd]?kp.n:null,goal:hit,res});
     const name=sh.n?sh.n.split(' ').slice(-1)[0]:'';
     const against=o.mine&&o.mine!=='both'&&!me;twMsg(hit?(inPost?'Innenpfosten – Tor!':t.type==='panenka'?'Panenka! Tor!':'TOR!'):res==='save'?(isMe(kd)?'Gehalten! 🧤':'Gehalten!'):res==='post'?'Pfosten!':res==='bar'?'Latte!':res==='over'?'Drüber!':'Vorbei!',against?(hit?'miss':'hit'):(hit?'hit':'miss'));
     if(SET.voice){if(hit&&me)say(['Drin!','Tor!','Versenkt!'][Math.random()*3|0],{cut:true});else if(!hit&&isMe(kd)&&res==='save')say('Gehalten!',{cut:true})}
@@ -3861,7 +3972,7 @@ function carUnlock(id){if(CAR.ach[id])return;CAR.ach[id]=CAR.season;const a=CACH
 function carCheckAch(){const s=CAR.st;if(s.w>=1)carUnlock('win1');if(s.perfect>=1)carUnlock('perfect');if(s.stw>=1)carUnlock('stechen');if(s.best>=5)carUnlock('streak5');if(s.best>=10)carUnlock('streak10');
   if(s.hits>=50)carUnlock('hits50');if(s.hits>=200)carUnlock('hits200');if(CAR.hist.length>=3)carUnlock('season3');if(Object.values(CAR.up).some(v=>v>=5))carUnlock('maxup');if(s.dailies>=5)carUnlock('daily5');if(CAR.money>=20000)carUnlock('rich');if(CAR.cards&&CAR.cards.length>=20)carUnlock('collector');if(CAR.cards&&CAR.cards.some(c=>c.r==='l'))carUnlock('legend')}
 let carFlushing=false;
-async function carFlushToasts(){if(carFlushing)return;carFlushing=true;while(carToastQ.length){const t=carToastQ.shift();miniToast(t[0],t[1],t[2],2300);sfx('fan');await twWait(2400)}carFlushing=false}
+async function carFlushToasts(){if(carFlushing)return;carFlushing=true;while(carToastQ.length){const t=carToastQ.shift();miniToastAct(t[0],t[1],t[2],t[3]?3600:2300,t[3]);sfx('fan');await twWait(2400)}carFlushing=false}
 /* ---- Karte ---- */
 let CAR_ADJ=null;
 function carAdj(){if(!CAR_ADJ){CAR_ADJ=cells.map(()=>[]);for(const sg of segs){CAR_ADJ[sg.a].push(sg.b);CAR_ADJ[sg.b].push(sg.a)}}return CAR_ADJ}
@@ -3943,10 +4054,10 @@ function carNewSeason(){CAR.lg=CAR.nl;CAR.nl=null;CAR.season++;carAgeCards();car
 /* ---- Öffnen / Schließen ---- */
 let carView='day',carTabL=null,carPick=null,carPickMap='live',carPickL=1;
 function carOpen(){abortAll(()=>{if(S&&!S.career&&S.fights>0&&!S.over)saveGame();$('#intro').classList.add('gone');$('#win').classList.add('off');showFight(false);
-  document.body.classList.add('career');$('#car').classList.remove('off','peek');document.body.classList.remove('carpeek');carSheetInit();carView='day';
+  document.body.classList.add('career');$('#car').classList.remove('off','peek','mapoff');document.body.classList.remove('carpeek','carmap');carView='day';
   if(CAR){carMigrate();carMapInit();loadClubCoas();loadWikiExtras()}else{carPick=null}
   updateHeader();updateVP();setUserCam(false);camBox=PBOX;flyTo(PBOX,700);carRender()})}
-function carExit(){document.body.classList.remove('career','carpeek');$('#car').classList.remove('peek');$('#car').classList.add('off');focus&&(focus.on=false);
+function carExit(){document.body.classList.remove('career','carpeek','carmap');$('#car').classList.remove('mapoff');$('#car').classList.remove('peek');$('#car').classList.add('off');focus&&(focus.on=false);
   if(S&&S.career){if(!loadGame())newGame(SET.mode,SET.rule,(Math.random()*1e9)|0)}
   updateHeader();updateVP();top3Key='';updateTop3(true);flyTo(PBOX,700)}
 function carHome(){carExit();$('#intro').classList.remove('gone');const has=!!(S&&S.fights>0&&!S.over);$('#iCont').classList.toggle('hidden',!has);previewed=false;wizGo(0);carHomeBtn();updateVP()}
@@ -3957,15 +4068,117 @@ function carHeader(){const tl=$('#hdr .title');if(tl.dataset.w!=='car'){tl.datas
   $('#subt').textContent=seasonLbl(CAR.season)+' · '+(CAR.phase==='season'?(CAR.R+1)+'. Spieltag':CAR.phase==='rel'?'Relegation':'Saisonende')+' · Platz '+pos;
   $('#aliveN').textContent=pos;const n=CAR.lg[l].length;$('#ringP').style.strokeDashoffset=(119.4*((pos-1)/Math.max(1,n-1))).toFixed(1)}
 /* ---- Darstellung ---- */
-function carRender(){const b=$('#carBody');if(!b)return;carSheetVars();
-  if(!CAR){$('#carTop').innerHTML='<div class="carT1">🏆 Neue Karriere</div><button class="xbtn press" id="carHomeB" aria-label="Startbildschirm">⌂</button>';$('#carStats').innerHTML='';$('#carTabs').classList.add('hidden');b.innerHTML=carSetupHTML();carBind();carFit();return}
-  const k=CLUB[CAR.club],l=carMyL();
-  $('#carTop').innerHTML=clubBadgeHTML(k,'mb')+'<div class="carT"><div class="carT1">'+esc(k.name)+'</div><div class="carT2">'+compLogo(l,'sm')+CL_NAME[l]+' · Saison '+seasonLbl(CAR.season)+'</div></div><button class="carMenuB press" id="carSetB" aria-label="Karriere-Menü"><span>☰</span>Menü</button>';
-  const need=xpNeed(CAR.lvl);$('#carStats').innerHTML='<span>💰 '+fmtMoney(CAR.money)+'</span><span>⭐ Lv '+CAR.lvl+' · '+carTitle()+'</span><div class="xpbar"><i style="width:'+Math.round(CAR.xp/need*100)+'%"></i></div>';
-  $('#carTabs').classList.remove('hidden');segSet($('#carTabs'),carView);
-  let html;try{html=carView==='tab'?carTabHTML():carView==='club'?carClubHTML():carView==='tro'?carTroHTML():carView==='kader'?carKaderHTML():carDayHTML()}catch(e){console.error(e);html='<div class="note">Diese Ansicht konnte nicht geladen werden ('+esc(String(e.message||e))+'). Bitte einmal einen anderen Tab antippen.</div>'}
-  b.innerHTML=html;try{carBind()}catch(e){console.error(e)}if(S&&S.career)updateHeader();if(document.body.classList.contains('career'))carFit()}
-let carFitT=null;function carFit(){clearTimeout(carFitT);carFitT=setTimeout(()=>{const pv=vp&&vp.h;updateVP();if(!userCam&&(!pv||Math.abs(vp.h-pv)>20))flyTo(camBox||PBOX,500)},60)}
+/* ================= v5.1: Mobile-Oberfläche (feste Leiste unten, Unterseiten, Statistik) ================= */
+const ICO={
+  day:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7.2l3.4 2.5-1.3 4h-4.2l-1.3-4z"/><path d="M12 3.2v4M20.4 9.6l-5 .1M3.6 9.6l5 .1M6.8 19.6l3-5.9M17.2 19.6l-3-5.9"/></svg>',
+  tab:'<svg viewBox="0 0 24 24"><rect x="3.5" y="4" width="17" height="16" rx="3"/><path d="M3.5 9h17M3.5 14.5h17M9 4v16"/></svg>',
+  kader:'<svg viewBox="0 0 24 24"><path d="M8.5 3.5L3.5 6.5l2 4 2-1v11h9v-11l2 1 2-4-5-3c-.6 1.6-2 2.6-3.5 2.6S9.1 5.1 8.5 3.5z"/></svg>',
+  stat:'<svg viewBox="0 0 24 24"><path d="M5 20v-8M10.3 20V5M15.6 20v-6M20.9 20V9.5"/></svg>',
+  more:'<svg viewBox="0 0 24 24"><circle cx="5.5" cy="12" r="1.7" class="f"/><circle cx="12" cy="12" r="1.7" class="f"/><circle cx="18.5" cy="12" r="1.7" class="f"/></svg>',
+  map:'<svg viewBox="0 0 24 24"><path d="M9 4.5L3.5 6.5v13l5.5-2 6 2 5.5-2v-13l-5.5 2z"/><path d="M9 4.5v13M15 6.5v13"/></svg>',
+  club:'<svg viewBox="0 0 24 24"><path d="M12 3l7.5 3v5.5c0 4.3-3.1 8-7.5 9.5-4.4-1.5-7.5-5.2-7.5-9.5V6z"/></svg>',
+  tro:'<svg viewBox="0 0 24 24"><path d="M7.5 4h9v5a4.5 4.5 0 01-9 0z"/><path d="M7.5 6H4v1.5A3.5 3.5 0 007.6 11M16.5 6H20v1.5a3.5 3.5 0 01-3.6 3.5M12 13.5v3.5M8.5 20.5h7M9.5 17h5"/></svg>',
+  gear:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2.8v2.6M12 18.6v2.6M21.2 12h-2.6M5.4 12H2.8M18.5 5.5l-1.8 1.8M7.3 16.7l-1.8 1.8M18.5 18.5l-1.8-1.8M7.3 7.3L5.5 5.5"/></svg>',
+  home:'<svg viewBox="0 0 24 24"><path d="M3.5 11L12 4l8.5 7"/><path d="M6 9.5V20h12V9.5"/></svg>',
+  chev:'<svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>',
+  back:'<svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>'};
+const CNAV=[['day','Spiel'],['tab','Tabelle'],['kader','Kader'],['stat','Statistik'],['more','Mehr']];
+const navOf=v=>v==='club'||v==='tro'?'more':v;
+function carNavHTML(){const pk=CAR?Object.values(CAR.packs||{}).reduce((a,b)=>a+(b||0),0):0;
+  return CNAV.map(([k,n])=>'<button class="press" data-nav="'+k+'" aria-label="'+n+'">'+ICO[k]+'<span>'+n+'</span>'+(k==='kader'&&pk?'<i class="nb">'+pk+'</i>':'')+'</button>').join('')}
+function carNavSet(){const n=$('#carNav');if(!n)return;n.innerHTML=carNavHTML();const cur=navOf(carView);n.querySelectorAll('[data-nav]').forEach(b=>{b.classList.toggle('on',b.dataset.nav===cur);
+  b.onclick=()=>{const v=b.dataset.nav;if(v===navOf(carView)&&v!=='more'){const bd=$('#carBody');if(bd)bd.scrollTo({top:0,behavior:'smooth'});return}carView=v;sfx('tap');carRender()}})}
+function carHeadHTML(){const k=CLUB[CAR.club],l=carMyL();const pos=carTable(l).indexOf(CAR.club)+1;const need=xpNeed(CAR.lvl);
+  const ph=CAR.phase==='season'?(CAR.R+1)+'. Spieltag':CAR.phase==='rel'?'Relegation':'Saisonende';
+  return clubBadgeHTML(k,'mb')+'<div class="carT"><div class="carT1">'+esc(k.mid)+'</div><div class="carT2"><b>Platz '+pos+'</b> · '+CL_SHORT[l]+' · '+ph+'</div></div>'+
+    '<div class="chd"><span class="cmo">'+fmtMoney(CAR.money)+'</span><span class="clv" style="--p:'+Math.round(CAR.xp/need*100)+'" title="Level '+CAR.lvl+'"><b>'+CAR.lvl+'</b></span></div>'}
+/* Unterseiten-Umschalter (klebt oben) */
+function subSeg(id,items,cur){return '<div class="subnav"><div class="seg sm" id="'+id+'"><div class="hl"></div>'+items.map(([v,n])=>'<button data-v="'+v+'">'+n+'</button>').join('')+'</div></div>'}
+function subBind(id,cur,set){const s=$('#'+id);if(!s)return;segSet(s,cur);s.onclick=e=>{const b=e.target.closest('button');if(!b||b.dataset.v===cur)return;set(b.dataset.v);sfx('tap');carRender()}}
+let carLastKey='';
+function carViewHTML(){if(carView==='tab')return carTabView();if(carView==='kader')return carKaderHTML();if(carView==='stat')return statHTML();if(carView==='more')return moreHTML();
+  if(carView==='club')return clubView();if(carView==='tro')return troView();return carDayHTML()}
+function carRender(){const b=$('#carBody');if(!b)return;
+  if(!CAR){$('#carTop').innerHTML='<div class="carT"><div class="carT1">Neue Karriere</div><div class="carT2">Wähle deinen Verein</div></div><button class="xbtn press" id="carHomeB" aria-label="Startbildschirm">⌂</button>';$('#carNav').classList.add('hidden');b.innerHTML=carSetupHTML();carLastKey='';carBind();return}
+  $('#carNav').classList.remove('hidden');$('#carTop').innerHTML=carHeadHTML();carNavSet();
+  let html;try{html=carViewHTML()}catch(e){console.error(e);html='<div class="note">Diese Ansicht konnte nicht geladen werden ('+esc(String(e.message||e))+').</div>'}
+  const key=carView+'|'+(CAR.ksub||'')+'|'+(CAR.ssub||'')+'|'+(CAR.msub||'');const keep=key===carLastKey?b.scrollTop:0;b.innerHTML=html;b.scrollTop=keep;carLastKey=key;
+  try{carBind()}catch(e){console.error(e)}try{carBind5()}catch(e){console.error(e)}if(S&&S.career)updateHeader()}
+function carFit(){}
+function carSheetInit(){}
+function carSheetVars(){}
+/* ---- Karte als eigener Bereich ---- */
+function carMap(on){document.body.classList.toggle('carmap',!!on);$('#car').classList.toggle('mapoff',!!on);updateVP();if(on){setUserCam(false);camBox=PBOX;flyTo(PBOX,600);miniToast('🗺️',CAR&&CAR.map==='venue'?'Spielorte':'Lebende Tabelle',CAR&&CAR.map==='venue'?'Die Gebiete bleiben fest':'Wer punktet, dehnt sein Gebiet aus')}sfx('tap')}
+function carTabView(){return '<div class="tabhd"><button class="chipb press" id="carMapGo">'+ICO.map+'Karte</button></div>'+carTabHTML()}
+/* ---- Mehr ---- */
+function moreHTML(){const got=Object.keys(CAR.ach).length;const row=(k,ic,t,s,extra)=>'<button class="mrow press" data-more="'+k+'"><span class="mi">'+ICO[ic]+'</span><span class="mt"><b>'+t+'</b><small>'+s+'</small></span>'+(extra||'')+'<span class="mc">'+ICO.chev+'</span></button>';
+  return '<div class="mlist">'+row('club','club','Verein & Aussehen','Upgrades, Ball, Kulisse, Trikots')+row('tro','tro','Trophäen & Erfolge',got+' von '+CACH.length+' Erfolgen · '+CAR.tro.length+' Titel')+
+    row('map','map','Karte ansehen',CAR.map==='venue'?'Spielorte':'Lebende Tabelle')+row('set','gear','Einstellungen','Sound, Haptik, Wappen, Kartenart')+'</div>'+
+    '<div class="mlist">'+row('home','home','Zum Startbildschirm','Kreis-Krieg, Liga-Krieg, Duell')+'</div>'+
+    '<div class="note" style="text-align:center">Dein Spielstand wird automatisch gespeichert.</div>'}
+function backRow(t){return '<button class="backb press" data-more="back">'+ICO.back+'<span>'+t+'</span></button>'}
+function clubView(){const sub=CAR.msub||'upg';const ck='V'+CAR.club;let h=backRow('Mehr')+subSeg('mSub',[['upg','Upgrades'],['ball','Ball'],['wall','Kulisse'],['kit','Trikots']],sub);
+  if(sub==='upg')h+='<div class="note" style="padding-top:2px">Kasse: '+fmtMoney(CAR.money)+'</div>'+CUPG.map(u=>{const lv=CAR.up[u.k];const c=upCost(u,lv);const max=lv>=5;
+    return '<div class="upg"><span class="ue">'+u.em+'</span><div><b>'+u.n+' <i>'+'●'.repeat(lv)+'○'.repeat(5-lv)+'</i></b><small>'+u.d+'</small></div><button class="press'+(max||CAR.money<c?' dis':'')+'" data-up="'+u.k+'">'+(max?'Max':fmtMoney(c))+'</button></div>'}).join('');
+  else if(sub==='ball')h+='<div class="balls">'+Object.entries(TW_BALLS).sort((a,b)=>a[1].lv-b[1].lv).map(([k,b])=>{const ok=twBallOk(k);return '<button class="press'+(CAR.ball===k?' on':'')+(ok?'':' dis')+'" data-ball="'+k+'"><img alt="" src="'+twBallThumb(k)+'">'+b.n+(ok?'':'<small>'+(b.cl?'CL oder Lv '+b.lv:'Lv '+b.lv)+'</small>')+'</button>'}).join('')+'</div>';
+  else if(sub==='wall')h+='<div class="walls">'+Object.entries(TW_WALLS).map(([k,w])=>{const ok=twWallOk(k);return '<button class="press'+((CAR.wall||'std')===k?' on':'')+(ok?'':' dis')+'" data-wall="'+k+'"><canvas data-wthumb="'+k+'"></canvas><b>'+w.n+'</b><small>'+(ok?w.tag:(w.title?'🔒 Gewinne einen Titel':'🔒 Level '+w.lv))+'</small>'+'</button>'}).join('')+'</div>';
+  else h+='<div class="kits"><div>'+kitHTML(ck,{w:92,full:1})+'<small>Heim</small></div>'+(WX.kit[ck]&&WX.kit[ck].a?'<div>'+kitHTML(ck,{w:92,full:1,away:1})+'<small>Auswärts</small></div>':'')+'</div>'+(WX.kit[ck]?'':'<div class="note">Original-Trikot wird geladen – bis dahin in Vereinsfarben.</div>');
+  return h}
+function troView(){const sub=CAR.msub||'tro';let h=backRow('Mehr')+subSeg('mSub',[['tro','Trophäen'],['ach','Erfolge']],sub==='ach'?'ach':'tro');
+  if(sub!=='ach'){const tro=CAR.tro;const TROC={m1:1,m2:2,m3:3,m4:4,pokal:'cup',cl:'cl',el:'el',ecl:'ecl'};
+    h+=tro.length?'<div class="tros">'+tro.slice().reverse().map(t=>{const n=troName(t.k);const lg=TROC[t.k]?compLogo(TROC[t.k],'tl'):'';return '<div class="tro"><span>'+(lg||n.split(' ')[0])+'</span><b>'+n.split(' ').slice(1).join(' ')+'</b><small>'+seasonLbl(t.s)+'</small></div>'}).join('')+'</div>':'<div class="note">Noch leer – hol dir die erste Schale!</div>';
+    return h+carDailyHTML()}
+  const got=Object.keys(CAR.ach).length;
+  return h+'<div class="note" style="padding-top:2px">'+got+' von '+CACH.length+' Erfolgen</div><div class="cachs">'+CACH.map(a=>{const on=!!CAR.ach[a[0]];const pr=!on&&ACH_PROG[a[0]]?ACH_PROG[a[0]]():null;
+    return '<div class="cach'+(on?' on':'')+'"><span class="ci">'+a[1]+'</span><div class="ct"><b>'+a[2]+'</b><small>'+a[3]+'</small>'+(pr?'<i class="cp"><em style="width:'+Math.min(100,Math.round(pr[0]/pr[1]*100))+'%"></em></i>':'')+'</div>'+(on?'<span class="ck">✓</span>':'')+'</div>'}).join('')+'</div>'}
+/* zusätzliche Verknüpfungen nach jedem Rendern */
+function carBind5(){const on=(id,f)=>{const e=$(id);if(e)e.onclick=f};
+  on('#carMapGo',()=>carMap(true));
+  document.querySelectorAll('[data-more]').forEach(b=>b.onclick=()=>{const k=b.dataset.more;sfx('tap');
+    if(k==='back'){carView='more';CAR.msub=null;carRender()}else if(k==='club'||k==='tro'){carView=k;CAR.msub=null;carRender()}else if(k==='map')carMap(true);else if(k==='set')carMenuOpen();else if(k==='home')carHome()});
+  if(carView==='club')subBind('mSub',CAR.msub||'upg',v=>CAR.msub=v);if(carView==='tro')subBind('mSub',CAR.msub==='ach'?'ach':'tro',v=>CAR.msub=v);
+  if(carView==='club'&&(CAR.msub==='wall'))twThumbRedraw();
+  if(carView==='kader')kaderBind5();if(carView==='stat')statBind()}
+
+/* ---- Kein Verschieben/Zoomen der Seite auf dem iPhone ---- */
+['gesturestart','gesturechange','gestureend'].forEach(t=>document.addEventListener(t,e=>{if(e.cancelable)e.preventDefault()},{passive:false}));
+document.addEventListener('touchmove',e=>{if(e.touches&&e.touches.length>1&&!(e.target.closest&&e.target.closest('#map')))e.preventDefault()},{passive:false});
+document.addEventListener('dblclick',e=>{if(e.cancelable)e.preventDefault()},{passive:false});
+
+/* ---- Rückgängig-Leiste ---- */
+let undoT=null;
+function undoToast(txt,fn){const el=$('#undo');if(!el)return;el.querySelector('span').textContent=txt;el.classList.add('on');const b=el.querySelector('button');
+  b.onclick=()=>{clearTimeout(undoT);el.classList.remove('on');try{fn()}catch(e){console.error(e)}sfx('tap');carFixLine();carSave();carRender()};clearTimeout(undoT);undoT=setTimeout(()=>el.classList.remove('on'),5000)}
+function carSnap(){return{line:CAR.line.slice(),gk:CAR.gk,money:CAR.money}}
+function carRestore(s){CAR.line=s.line;CAR.gk=s.gk;CAR.money=s.money}
+/* Verkaufen sofort – 5 Sekunden lang rückgängig machbar */
+function carSellUndo(ids,label){const sn=carSnap();const rm=[];ids.forEach(id=>{const i=CAR.cards.findIndex(c=>c.id===id);if(i<0)return;const c=CAR.cards[i];if(CAR.line.includes(id)||CAR.gk===id)return;rm.push([i,c])});
+  if(!rm.length)return 0;let t=0;rm.forEach(([i,c])=>{t+=cardValue(c)});CAR.money+=t;const set=new Set(rm.map(x=>x[1].id));CAR.cards=CAR.cards.filter(c=>!set.has(c.id));carSave();
+  undoToast((label||(rm.length===1?rm[0][1].n+' verkauft':rm.length+' Karten verkauft'))+' · +'+fmtMoney(t),()=>{rm.sort((a,b)=>a[0]-b[0]).forEach(([i,c])=>CAR.cards.splice(Math.min(i,CAR.cards.length),0,c));carRestore(sn)});sfx('land');return t}
+
+/* ---- Toasts mit Aktion (z. B. Paket direkt öffnen) ---- */
+function miniToastAct(em,t1,t2,dur,act){miniToast(em,t1,t2,dur);const el=$('#toast');let b=el.querySelector('.tact');if(!b){b=document.createElement('button');b.className='tact press';el.appendChild(b)}
+  if(act){b.textContent=act[0];b.style.display='';el.classList.add('act');b.onclick=e=>{e.stopPropagation();el.classList.remove('show');el.classList.add('hide');try{act[1]()}catch(er){console.error(er)}}}else{b.style.display='none';el.classList.remove('act')}}
+
+/* ---- Wappen: beim Start sofort laden und auf dem Gerät speichern ---- */
+const COA_CACHE="kk-coa-v1";let coaWarmRun=false;
+const coaCacheOk=()=>typeof caches!=='undefined'&&/^https?:/.test(location.protocol);
+const coaKeyURL=f=>location.origin+'/__wappen/'+encodeURIComponent(f);
+async function coaCacheLoad(){if(!coaCacheOk())return 0;let n=0;try{const c=await caches.open(COA_CACHE);
+    const files=[...new Set(Object.keys(COA).filter(k=>(k[0]==='V'||k[0]==='E')&&COA[k]).map(k=>COA[k]))];
+    await Promise.all(files.map(async f=>{if(COA_BLOBF[f])return;const r=await c.match(coaKeyURL(f));if(r){COA_BLOBF[f]=URL.createObjectURL(await r.blob());n++}}))}catch(e){}
+  if(n){Object.keys(coaImgs).forEach(k=>{if(k[0]==='V'||k[0]==='E')delete coaImgs[k]});try{refreshCoaUI()}catch(e){}if(typeof CAR!=='undefined'&&CAR&&!$('#car').classList.contains('off'))carRender()}return n}
+/* fehlende Wappen holen: über den Cache (dauerhaft) oder wenigstens in den Browser vorladen */
+async function coaWarm(){if(coaWarmRun||!SET.coa)return;coaWarmRun=true;try{
+  const keys=Object.keys(COA).filter(k=>(k[0]==='V'||k[0]==='E')&&COA[k]);const own=(typeof CAR!=='undefined'&&CAR)?'V'+CAR.club:null;keys.sort((a,b)=>(b===own)-(a===own)||(a[0]==='V'?0:1)-(b[0]==='V'?0:1));
+  const files=[...new Set(keys.map(k=>COA[k]))].filter(f=>!COA_BLOBF[f]);const cache=coaCacheOk()?await caches.open(COA_CACHE).catch(()=>null):null;let got=0;
+  const one=async f=>{if(cache&&await oneC(f))return;const ok=await new Promise(r=>{const im=new Image();im.onload=()=>r(true);im.onerror=()=>r(false);im.src=coaURL(f)});return ok};
+  const oneC=async f=>{let u=coaURL(f);for(let t=0;t<4&&u;t++){if(cache&&!/Special:FilePath/.test(u)){try{const r=await fetch(u,{mode:'cors'});if(r.ok){const bl=await r.clone().blob();if(/^image\//.test(bl.type)){await cache.put(coaKeyURL(f),new Response(bl,{headers:{'Content-Type':bl.type}}));COA_BLOBF[f]=URL.createObjectURL(bl);got++;return true}}}catch(e){}}u=WM_NEXT[u]}return false};
+  for(let i=0;i<files.length;i+=6){await Promise.all(files.slice(i,i+6).map(one));if(got&&i%24===18){try{refreshCoaUI()}catch(e){}}}
+  if(got){Object.keys(coaImgs).forEach(k=>{if(k[0]==='V'||k[0]==='E')delete coaImgs[k]});try{refreshCoaUI()}catch(e){}if(typeof CAR!=='undefined'&&CAR&&!$('#car').classList.contains('off')&&!(twCtx&&twCtx.open))carRender()}}
+  finally{coaWarmRun=false}}
+async function coaBoot(){await coaCacheLoad();setTimeout(coaWarm,300)}
+
 function carSetupHTML(){const ls=[1,2,3,4];const list=CLUB.filter(k=>k.liga===carPickL).sort((a,b)=>a.name.localeCompare(b.name,'de'));
   return '<div class="carH">Wähle deinen Verein</div><div class="note" style="padding-top:0">Du startest in der echten Liga deines Vereins (Saison 2026/27). 34 Spieltage (3. Liga & Regionalliga: 38), Auf- und Abstieg wie in echt – inklusive Relegation. Top-Klubs starten direkt im Europapokal.</div>'+
   '<div class="seg" id="carPL"><div class="hl"></div>'+ls.map(l=>'<button data-v="'+l+'">'+(l===4?'RL':CL_SHORT[l])+'</button>').join('')+'</div>'+
@@ -4099,7 +4312,7 @@ function carBind(){const on=(id,f)=>{const e=$(id);if(e)e.onclick=f};
   on('#carSelf',()=>{sfx('tap');voiceUnlock();carPlay(true)});on('#carSim',()=>{sfx('tap');carPlay(false)});
   on('#cupSelf',()=>{sfx('tap');voiceUnlock();carPlayCup(true)});on('#cupSim',()=>{sfx('tap');carPlayCup(false)});
   on('#euSelf',()=>{sfx('tap');voiceUnlock();carPlayEuro(true)});on('#euSim',()=>{sfx('tap');carPlayEuro(false)});
-  on('#pkGo',()=>{carView='kader';sfx('tap');carRender()});
+  on('#pkGo',()=>{carView='kader';CAR.ksub='pk';sfx('tap');carRender()});
   on('#carCont',()=>{CAR.last.shown=true;carSave();carRender()});on('#carRel',()=>{sfx('tap');carRelegation()});on('#carNext',()=>{sfx('tap');carNewSeason()});
   on('#carStart',()=>{if(carPick==null)return;sfx('fan');carNew(carPick,carPickMap);loadWikiExtras();carMapInit();loadClubCoas();carView='day';carRender();setUserCam(false);flyTo(PBOX,700);miniToast('🏆','Willkommen, Trainer!',CLUB[carPick].name+' · '+CL_NAME[carMyL()]+' '+seasonLbl(CAR.season));setTimeout(carFlushToasts,2500)});
   const pl=$('#carPL');if(pl){segSet(pl,String(carPickL));pl.onclick=e=>{const b=e.target.closest('button');if(!b)return;carPickL=+b.dataset.v;carRender()}}
@@ -4113,24 +4326,7 @@ function carBind(){const on=(id,f)=>{const e=$(id);if(e)e.onclick=f};
   const mp=$('#carMap');if(mp){segSet(mp,CAR.map);mp.onclick=e=>{const b=e.target.closest('button');if(!b||b.dataset.v===CAR.map)return;CAR.map=b.dataset.v;if(CAR.map==='live')CAR.own=null;carSave();carMapInit();carRender();miniToast('🗺️',CAR.map==='live'?'Lebende Tabelle':'Spielorte',CAR.map==='live'?'Gebiete wachsen mit den Punkten':'Gebiete bleiben fest')}}
   on('#carReset',()=>{if(!carResetArmed){carResetArmed=true;$('#carReset').textContent='Sicher? Alles geht verloren – nochmal tippen';return}carResetArmed=false;CAR=null;store.set(CAR_KEY,null);carPick=null;carRender()});
   document.querySelectorAll('[data-cid]').forEach(r=>r.onclick=()=>{const v=r.dataset.cid;sfx('tap');tmOpen(isNaN(+v)?v:+v)});
-  if(carView==='kader')carKaderBind()}
-/* ---- Vollbild-Panel: nach unten ziehen gibt die Karte frei ---- */
-const CAR_PEEK=132;
-function carSheetVars(){const h=$('#hdr');const r=h?h.getBoundingClientRect():null;document.documentElement.style.setProperty('--carTop',Math.round(r&&r.bottom>0?r.bottom+8:110)+'px')}
-function carSheet(peek){const car=$('#car');if(!car)return;const was=car.classList.contains('peek');car.classList.toggle('peek',!!peek);document.body.classList.toggle('carpeek',!!peek);if(was!==!!peek)sfx('tap');setTimeout(()=>carFit(),480)}
-function carSheetInit(){const car=$('#car'),card=car&&car.querySelector('.carCard');if(!card||card.querySelector('.carGrab'))return;
-  const g=document.createElement('div');g.className='carGrab';g.innerHTML='<i></i><span>Karte ansehen</span>';card.prepend(g);
-  let y0=null,dy=0,t0=0,peek0=false;const maxOff=()=>Math.max(0,card.offsetHeight-CAR_PEEK);
-  const start=y=>{y0=y;dy=0;t0=Date.now();peek0=car.classList.contains('peek');card.style.transition='none'};
-  const move=y=>{if(y0==null)return false;dy=y-y0;const off=clamp((peek0?maxOff():0)+dy,0,maxOff());card.style.transform='translateY('+off+'px)';return Math.abs(dy)>4};
-  const end=()=>{if(y0==null)return;y0=null;card.style.transition='';card.style.transform='';const v=dy/Math.max(1,Date.now()-t0);
-    if(Math.abs(dy)<6){if(peek0)carSheet(false);return}
-    if(!peek0)carSheet(dy>90||v>.6);else carSheet(!(dy<-60||v<-.6))};
-  [g,$('#carTop'),$('#carStats')].forEach(z=>{if(!z)return;z.addEventListener('touchstart',e=>start(e.touches[0].clientY),{passive:true});
-    z.addEventListener('touchmove',e=>{if(move(e.touches[0].clientY)&&e.cancelable)e.preventDefault()},{passive:false});z.addEventListener('touchend',end);z.addEventListener('touchcancel',end)});
-  g.addEventListener('mousedown',e=>{start(e.clientY);const mm=ev=>move(ev.clientY),mu=()=>{window.removeEventListener('mousemove',mm);window.removeEventListener('mouseup',mu);end()};window.addEventListener('mousemove',mm);window.addEventListener('mouseup',mu)});
-  window.addEventListener('resize',carSheetVars)}
-
+}
 /* ---- Vereinsstärke in Sternen (statt Prozentwerten) ---- */
 const teamRt=id=>isEu(id)?teamOf(id).rt:(typeof CAR!=='undefined'&&CAR)?rtOf(id):eaRt(clubEA(id));
 function clubStars(id){const o=55+(teamRt(id)-40)/1.6;return clamp(Math.floor((o-55)/3)*.5+.5,.5,5)}
@@ -4141,7 +4337,7 @@ function carMenuHTML(){const k=CLUB[CAR.club];const tg=(key,t,sub)=>'<div class=
   return '<div class="cmHead">'+clubBadgeHTML(k,'mb')+'<div><b>'+esc(k.name)+'</b><small>'+CL_NAME[carMyL()]+' · Saison '+seasonLbl(CAR.season)+' · '+starsHTML(clubStars(CAR.club))+'</small></div></div>'+
     '<button class="big glass tint press" data-cm="close">▶︎ Weiterspielen</button>'+
     '<div class="lbl">Karte während der Saison</div><div class="seg" id="cmMap"><div class="hl"></div><button data-v="live">Lebende Tabelle</button><button data-v="venue">Spielorte</button></div>'+
-    '<div class="note" style="padding-top:2px">Die Karte liegt hinter dem Karriere-Bildschirm: einfach das Panel nach unten ziehen.</div>'+
+    '<div class="note" style="padding-top:2px">Die Karte öffnest du unter Tabelle › Karte oder Mehr › Karte ansehen.</div>'+
     '<div class="lbl">Ton & Anzeige</div>'+tg('sound','Sound','Schüsse, Jubel, Fanfare')+tg('haptic','Haptik','Kurzes Vibrieren bei Toren')+tg('coa','Wappen','Offizielle Wappen von Wikipedia')+
     '<div class="lbl">Aussehen</div><button class="wzrow press" data-cm="look"><span>⚽ Ball & Kulisse wählen</span><b>›</b></button>'+
     '<div class="lbl">Karriere</div><button class="wzrow press" data-cm="home"><span>⌂ Zum Startbildschirm</span><b>›</b></button>'+
@@ -4154,11 +4350,11 @@ function carMenuRender(){const b=$('#carMenuBody');if(!b||!CAR)return;b.innerHTM
     if(k==='sound'&&SET.sound)sfx('tap');if(k==='coa'){Object.keys(coaImgs).forEach(x=>delete coaImgs[x]);refreshCoaUI();if(SET.coa)loadClubCoas();carRender()}});
   b.querySelectorAll('[data-cm]').forEach(o=>o.onclick=()=>{const a=o.dataset.cm;sfx('tap');
     if(a==='close')closeSheet();
-    else if(a==='look'){closeSheet();carView='club';carRender();setTimeout(()=>{const bd=$('.carBody'),bl=$('.balls');if(bd&&bl)bd.scrollTo({top:bl.offsetTop-90,behavior:'smooth'})},120)}
+    else if(a==='look'){closeSheet();carView='club';CAR.msub='ball';carRender()}
     else if(a==='home'){closeSheet();carHome()}
     else if(a==='reset'){if(!carMenuArmed){carMenuArmed=true;carMenuRender();return}carMenuArmed=false;closeSheet();CAR=null;store.set(CAR_KEY,null);carPick=null;carView='day';carRender();carHomeBtn()}})}
 
-$('#carTabs').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;carView=b.dataset.v;carTabL=null;sfx('tap');carRender()});
+
 
 
 /* ================= Europäische Gegner: echte Teilnehmer 2026/27 ================= */
@@ -5507,7 +5703,7 @@ function chemOf(){const x=myXI();const all=x.f.concat(x.gk?[x.gk]:[]);const per=
     if(c.club!=null&&ot.some(o=>o.club===c.club))p++;if(c.club===CAR.club)p++;p=Math.min(3,p);per[c.id]=p;tot+=p});
   return{per,tot,max:18,bonus:Math.round(tot/18*30)/10}}
 function teamOVR(id){if(typeof CAR==='undefined'||!CAR||isEu(id))return null;
-  if(id===CAR.club){const x=myXI();if(!x.f.length)return null;return xiOVR(x.f.map(c=>({o:cardEff(c)})),x.gk?{o:cardEff(x.gk)}:null)+chemOf().bonus}
+  if(id===CAR.club){const x=myXI();if(!x.f.length)return null;return xiOVR(x.f.map(c=>({o:roleVal(c,'f')})),x.gk?{o:roleVal(x.gk,'gk')}:null)+chemOf().bonus}
   const xi=clubXIc(id);return xi.ok?xiOVR(xi.f,xi.gk):null}
 /* interne Stärke (wie früher CAR.rt): aus den Spielern, sonst gespeicherter Wert */
 function rtOf(id){if(isEu(id))return teamOf(id).rt;const t=teamOVR(id);if(t==null)return CAR.rt[id];return clamp(eaRt(t+rtAdj()),30,99)}
@@ -5535,12 +5731,14 @@ function cardPick(r,o){o=o||{};let pool=plAvail();if(!pool.length)pool=eaPool();
 function cardRoll(pk){const x=Math.random();for(const [r,p] of packOdds(pk))if(x<p)return r;return 'b'}
 function cardLine(){return(CAR.line||[]).map(id=>cardById(id)).filter(Boolean)}
 /* Aufstellung reparieren: 5 Feldspieler + Torwart, beste verfügbare Karten nachrücken lassen */
-function carFixLine(){const ok=id=>{const c=cardById(id);return c&&!c.gk};CAR.line=(CAR.line||[]).filter((id,i,a)=>ok(id)&&a.indexOf(id)===i).slice(0,5);
-  const rest=CAR.cards.filter(c=>!c.gk&&!CAR.line.includes(c.id)).sort((a,b)=>cardEff(b)-cardEff(a));while(CAR.line.length<5&&rest.length)CAR.line.push(rest.shift().id);
-  const g=CAR.gk!=null?cardById(CAR.gk):null;if(!g||!g.gk){const b=CAR.cards.filter(c=>c.gk).sort((a,b)=>cardEff(b)-cardEff(a))[0];CAR.gk=b?b.id:null}}
+function carFixLine(){const ids=new Set(CAR.cards.map(c=>c.id));if(CAR.gk!=null&&!ids.has(CAR.gk))CAR.gk=null;
+  CAR.line=(CAR.line||[]).filter((id,i,a)=>ids.has(id)&&a.indexOf(id)===i&&id!==CAR.gk).slice(0,5);
+  if(CAR.gk==null){const b=CAR.cards.filter(c=>c.gk&&!CAR.line.includes(c.id)).sort((a,b)=>cardEff(b)-cardEff(a))[0];if(b)CAR.gk=b.id}
+  const rest=CAR.cards.filter(c=>!CAR.line.includes(c.id)&&c.id!==CAR.gk).sort((a,b)=>roleVal(b,'f')-roleVal(a,'f'));while(CAR.line.length<5&&rest.length)CAR.line.push(rest.shift().id);
+  if(CAR.gk==null){const b=CAR.cards.filter(c=>!CAR.line.includes(c.id)).sort((a,b)=>roleVal(b,'gk')-roleVal(a,'gk'))[0];CAR.gk=b?b.id:null}}
 /* Beste Aufstellung: Torwart nach Gesamtstärke, Schützen nach Elfmeter-Wert */
-function carBestXI(){const f=CAR.cards.filter(c=>!c.gk).sort((a,b)=>cardEff(b)-cardEff(a)).slice(0,5).sort((a,b)=>penS(b)-penS(a));CAR.line=f.map(c=>c.id);
-  const g=CAR.cards.filter(c=>c.gk).sort((a,b)=>cardEff(b)-cardEff(a))[0];CAR.gk=g?g.id:null}
+function carBestXI(){const g=CAR.cards.slice().sort((a,b)=>roleVal(b,'gk')-roleVal(a,'gk'))[0];CAR.gk=g?g.id:null;
+  CAR.line=CAR.cards.filter(c=>c!==g).sort((a,b)=>roleVal(b,'f')-roleVal(a,'f')).slice(0,5).sort((a,b)=>roleShot(b)-roleShot(a)).map(c=>c.id)}
 /* Karten, die nicht zu echten Spielern passen, werden ersetzt; Vereine werden nachgetragen */
 function carRealCards(){if(!CAR||!CAR.cards||!Object.keys(WX.sq).length)return;const base=plBase();const ix={};base.forEach(p=>ix[p.n]=p);const swapped=[];
   CAR.cards.forEach(c=>{const p=ix[c.n];
@@ -5553,11 +5751,11 @@ function carAgeCards(){if(!CAR||!CAR.cards)return;const gone=[],up=[],down=[];
   CAR.cards.forEach(c=>{if(c.by==null)c.by=byOf(c.n);if(!c.by)return;if(isRetired(c.by)){gone.push(c);return}const a=ageAt(c.by);
     let d=devStep(a-1);if(Math.random()<.35)d+=Math.random()<.55?1:-1;if(!d)return;['o','pra','kra','ner'].forEach(k=>c[k]=clamp(c[k]+d,30,99));c.r=rarOf(c.o);(d>0?up:down).push(c.n.split(' ').slice(-1)[0]+(d>0?' +':' ')+d)});
   if(gone.length){const ids=new Set(gone.map(c=>c.id));CAR.cards=CAR.cards.filter(c=>!ids.has(c.id));carFixLine();carToastQ.push(['👋','Karriereende',gone.map(c=>c.n).join(', ')+' '+(gone.length>1?'hören':'hört')+' auf'])}
-  if(up.length)carToastQ.push(['📈','Entwicklung',up.slice(0,4).join(' · ')]);if(down.length)carToastQ.push(['📉','Leistungsabfall',down.slice(0,4).join(' · ')]);CARV++}
+  if(!CAR.cards.some(c=>c.gk)){const q=clubRoster(CAR.club).find(x=>x.gk)||cardPick('s',{gk:true});if(q){const c=cardFromPl(q);CAR.cards.push(c);CAR.gk=c.id;carFixLine();carToastQ.push(['🧤','Neuer Torwart',c.n+' ('+c.o+') rückt ins Tor'])}}if(up.length)carToastQ.push(['📈','Entwicklung',up.slice(0,4).join(' · ')]);if(down.length)carToastQ.push(['📉','Leistungsabfall',down.slice(0,4).join(' · ')]);CARV++}
 /* ---- Teams fürs Elfmeterschießen ---- */
 function penTeam(id){if(typeof CAR==='undefined'||!CAR)return null;
   if(id===CAR.club){const x=myXI();if(x.f.length<1)return null;const ch=chemOf();const P=c=>{const b=formOf(c)*1.5+(ch.per[c.id]||0)*.7;const r=v=>Math.round(clamp(v,20,99));return{cid:c.id,n:c.n,no:c.no,o:r(ovr(c)+b),pra:r(c.pra+b),kra:r(c.kra+b),ner:r(c.ner+b),gk:!!c.gk,killer:isKiller(c),fm:formOf(c)}};
-    return{sh:x.f.map(P),gk:x.gk?P(x.gk):{n:'Feldspieler im Tor',o:45,gk:true,pra:45,kra:45,ner:50}}}
+    const K=x.gk?Object.assign(P(x.gk),x.gk.gk?{}:{o:Math.round(roleVal(x.gk,'gk')),gk:true,killer:false}):{n:'Niemand im Tor',o:40,gk:true,pra:40,kra:40,ner:45};return{sh:x.f.map(P),gk:K}}
   const xi=isEu(id)?euXI(id):clubXIc(id);if(!xi.ok)return null;const P=p=>({n:p.n,no:p.no,o:p.o,pra:p.pra,kra:p.kra,ner:p.ner,gk:!!p.gk,killer:isKiller(p)});
   return{sh:xi.f.slice().sort((a,b)=>penS(b)-penS(a)).map(P),gk:P(xi.gk)}}
 const isKiller=p=>!!(p&&p.gk&&(p.o>=86||hashStr(p.n||'')%9===0));
@@ -5621,21 +5819,6 @@ function carStartSquad(){const r=Object.keys(WX.sq).length?plAvail().filter(p=>p
   if(gk.length&&f.length>=5){f.concat(gk).forEach(p=>CAR.cards.push(cardFromPl(p)))}
   else{for(let k=0;k<5;k++){const p=cardPick(carMyL()<=2?'s':'b',{});if(p)CAR.cards.push(cardFromPl(p))}const g=cardPick('s',{gk:true});if(g)CAR.cards.push(cardFromPl(g));CAR.needGK=false}
   carBestXI()}
-let packQ=null;
-function carGivePack(pk,why){CAR.packs[pk]=(CAR.packs[pk]||0)+1;carToastQ.push([PACKS[pk].em,PACKS[pk].n+' erhalten',why||'Im Kader-Tab öffnen'])}
-function packCount(pk){const k=PACKS[pk].k;return Array.isArray(k)?k[0]+Math.floor(Math.random()*(k[1]-k[0]+1)):k}
-async function carOpenPack(pk){if(!CAR.packs[pk])return;const P=PACKS[pk];CAR.packs[pk]--;const got=[];const ex=ownedSet();const n=packCount(pk);
-  for(let k=0;k<n;k++){const p=cardPick(cardRoll(pk),{gk:P.gk,lg:P.lg,ex});if(!p)break;ex.add(p.n);got.push(cardFromPl(p))}
-  if(!got.length){CAR.packs[pk]++;miniToast('🤷','Keine Spieler verfügbar','Kader-Daten werden noch geladen');return}
-  got.forEach(c=>CAR.cards.push(c));const sold=carCapAlbum();carFixLine();carSave();got.sort((a,b)=>ovr(a)-ovr(b));
-  const best=got[got.length-1];const el=$('#pack');el.classList.remove('off');
-  if(best.r==='l')await packWalkout(el,best);
-  packReveal(el,pk,got,n,sold)}
-function packReveal(el,pk,got,n,sold){const P=PACKS[pk];const many=got.length>3;
-  el.innerHTML='<div class="pk-t">'+P.em+' '+P.n+(Array.isArray(P.k)?' · <span class="pk-n">🎲 '+n+(n===1?' Karte':' Karten')+'</span>':'')+'</div><div class="pk-row'+(many?' many':'')+'">'+got.map((c,i)=>'<div class="pk-c'+(c.r==='g'||c.r==='l'?' top r'+c.r:'')+'" style="--d:'+(i*(many?.22:.45)+.3)+'s">'+(c.r==='g'||c.r==='l'?'<div class="pk-glow"></div>':'')+'<div class="pk-back">⚽</div>'+(many?cardTile(c):cardHTML(c))+'</div>').join('')+'</div>'+
-    (sold?'<div class="note" style="text-align:center">Album voll: schwächste Reservisten für '+fmtMoney(sold)+' verkauft</div>':'')+'<button class="big glass tint press" id="pkOk">Ins Album</button>';
-  sfx('start');got.forEach((c,i)=>setTimeout(()=>{sfx(c.r==='l'?'sens':c.r==='g'?'fan':'land');if(c.r==='l'||c.r==='g')haptic(c.r==='l'?2:1)},(i*(many?.22:.45)+.6)*1000));
-  $('#pkOk').onclick=()=>{el.classList.add('off');carRender()}}
 /* Walkout für Weltklasse-Karten: Lichtstrahlen → Nation → Position → Verein → Karte */
 function packWalkout(el,c){return new Promise(res=>{const k=c.club!=null?CLUB[c.club]:null;
   el.innerHTML='<div class="wo"><div class="wo-rays"></div><div class="wo-st s1"><b>WELTKLASSE</b></div><div class="wo-st s2"><span class="wo-flag">'+(c.nat?natFlag(c.nat):'🌍')+'</span></div><div class="wo-st s3"><span class="wo-pos">'+(c.pos||'')+'</span></div>'+
@@ -5645,103 +5828,254 @@ function packWalkout(el,c){return new Promise(res=>{const k=c.club!=null?CLUB[c.
   const fin=()=>{if(done)return;done=true;tms.forEach(clearTimeout);setTimeout(res,0)};
   steps.forEach(([t,s],k)=>tms.push(setTimeout(()=>{if(done)return;go(k+1);if(s)sfx(s);if(k===steps.length-1)tms.push(setTimeout(fin,1500))},t)));
   wo.onclick=()=>{if(wo.classList.contains('st6')||wo.classList.contains('st5'))fin();else{tms.forEach(clearTimeout);go(5);go(6);sfx('fan');tms.push(setTimeout(fin,900))}}})}
-/* ---- Kader-Tab ---- */
-let kaderSel=null,kaderSlot=null,kMulti=false,kChk=new Set(),kArm=null;
-const K_SORT={ovr:['Stärke',(a,b)=>ovr(b)-ovr(a)],pos:['Position',(a,b)=>(b.gk-a.gk)||String(a.pos).localeCompare(String(b.pos))||ovr(b)-ovr(a)],age:['Alter',(a,b)=>(ageAt(a.by)||99)-(ageAt(b.by)||99)],form:['Form',(a,b)=>formOf(b)-formOf(a)||ovr(b)-ovr(a)],val:['Wert',(a,b)=>cardValue(b)-cardValue(a)]};
-const K_FILT={all:['Alle',()=>true],res:['Reserve',c=>!inXI(c)],f:['Feld',c=>!c.gk],gk:['Torhüter',c=>c.gk],b:['Bronze',c=>c.r==='b'],s:['Silber',c=>c.r==='s'],g:['Gold',c=>c.r==='g'],l:['Weltklasse',c=>c.r==='l']};
+/* ---- Kader-Tab (v5.1): Aufstellung · Album · Pakete · Markt ---- */
+let kaderSel=null,kSlot=null,kMulti=false,kChk=new Set(),kD=null;
+/* jeder darf überall spielen: Torhüter schießen schwach, Feldspieler halten schwach */
+const roleVal=(c,r)=>r==='gk'?(c.gk?cardEff(c):ovr(c)*.62):(c.gk?ovr(c)*.7:cardEff(c));
+const roleShot=c=>c.gk?penS(c)-10:penS(c)+formOf(c)*1.5;
+const K_SORT={ovr:['Stärke',(a,b)=>ovr(b)-ovr(a)],age:['Alter',(a,b)=>(ageAt(a.by)||99)-(ageAt(b.by)||99)],form:['Form',(a,b)=>formOf(b)-formOf(a)||ovr(b)-ovr(a)],val:['Wert',(a,b)=>cardValue(b)-cardValue(a)]};
+const K_FILT={all:['Alle',()=>true],res:['Reserve',c=>!inXI(c)],b:['Bronze',c=>c.r==='b'],s:['Silber',c=>c.r==='s'],g:['Gold',c=>c.r==='g'],l:['Weltklasse',c=>c.r==='l']};
 const inXI=c=>CAR.line.includes(c.id)||CAR.gk===c.id;
 const bulkList=f=>CAR.cards.filter(c=>!inXI(c)&&!c.lk&&f(c));
-function carKaderHTML(){const x=myXI();const ch=chemOf();const T=teamOVRShown(CAR.club);const sh=x.f.length?Math.round(x.f.reduce((s,c)=>s+penS(c)+formOf(c)*1.5,0)/x.f.length):0;
+const pkCount=()=>Object.values(CAR.packs||{}).reduce((a,b)=>a+(b||0),0);
+function carKaderHTML(){const sub=CAR.ksub||'xi';const pk=pkCount();
+  let h=subSeg('kSub',[['xi','Aufstellung'],['alb','Album'],['pk','Pakete'+(pk?' · '+pk:'')],['tm','Markt']],sub);
+  return h+(sub==='alb'?kAlbumHTML():sub==='pk'?kPacksHTML():sub==='tm'?'<div id="tmInline"></div>':kXIHTML())}
+function kTeamHTML(){const x=myXI();const ch=chemOf();const T=teamOVRShown(CAR.club);const sh=x.f.length?Math.round(x.f.reduce((s,c)=>s+roleShot(c),0)/x.f.length):0;
   const lg=CAR.lg[carMyL()].map(id=>[id,rtOf(id)]).sort((a,b)=>b[1]-a[1]);const rank=lg.findIndex(z=>z[0]===CAR.club)+1;
-  let h='<div class="tstr"><div class="ts-big"><b>'+T+'</b><small>Teamstärke</small>'+starsHTML(clubStars(CAR.club))+'</div><div class="ts-g">'+
-    '<div><b>'+sh+'</b><small>🎯 Schützen</small></div><div><b>'+(x.gk?Math.round(cardEff(x.gk)):'–')+'</b><small>🧤 Torwart</small></div><div><b>'+ch.tot+'/18</b><small>🔗 Chemie +'+String(ch.bonus).replace('.',',')+'</small></div><div><b>'+rank+'.</b><small>📊 in der Liga</small></div></div></div>';
-  h+='<div class="lbl">Elfmeter-Aufstellung</div><div class="kline">'+[0,1,2,3,4].map(k=>{const c=cardById(CAR.line[k]);return '<button class="kslot press'+(kaderSlot===k?' on':'')+'" data-slot="'+k+'"><small>Schuss '+(k+1)+'</small>'+(c?cardMini(c,{chem:ch.per[c.id]||0}):'<i>leer</i>')+'</button>'}).join('')+
-    '<button class="kslot gk press'+(kaderSlot==='gk'?' on':'')+'" data-slot="gk"><small>🧤 Tor</small>'+(x.gk?cardMini(x.gk,{chem:ch.per[x.gk.id]||0}):'<i>kein Torwart – Paket öffnen oder kaufen</i>')+'</button></div>'+
-    '<div class="krow"><button class="press" id="kBest">⚡ Beste Aufstellung</button><button class="press" id="kTM">🔎 Transfermarkt</button></div>'+
-    '<div class="note">Teamstärke = Gesamtwerte deiner 5 Schützen und des Torwarts (zählt 1,5-fach) plus Chemie und Form. Chemie (●●●): gleiche Nation, gleiche Liga, gleicher Verein oder Spieler aus deinem Verein. Form ⬆️↗️➡️↘️⬇️ ändert sich nach jedem Spiel.</div>';
-  h+='<div class="lbl">Pakete</div><div class="packs">'+Object.entries(PACKS).map(([k,p])=>{const n=CAR.packs[k]||0;const gl=packChance(k,'g')+packChance(k,'l'),wk=packChance(k,'l');
-    return '<div class="pack"><span>'+p.em+'</span><div><b>'+p.n+'</b><small>'+p.d+(gl<1?' · Gold+ '+fmtPct(gl*100):'')+(wk>0&&wk<1?' · Weltklasse '+fmtPct(wk*100):'')+'</small></div>'+
-    (n?'<button class="press go" data-open="'+k+'">Öffnen ('+n+')</button>':'<button class="press'+(CAR.money<p.cost?' dis':'')+'" data-buy="'+k+'">'+fmtMoney(p.cost)+'</button>')+'</div>'}).join('')+'</div>';
-  const sel=kaderSel!=null?cardById(kaderSel):null;
-  if(sel&&!kMulti){const inL=inXI(sel);h+='<div class="lbl">Ausgewählt</div><div class="kdet">'+cardHTML(sel)+'<div class="kact">'+
-    (sel.gk?'<button class="press" data-put="gk">🧤 Ins Tor</button>':[0,1,2,3,4].map(k=>'<button class="press sm" data-put="'+k+'">Schuss '+(k+1)+'</button>').join(''))+
-    '<button class="press" data-train="'+sel.id+'"'+(sel.tr>=8?' disabled':'')+'>🏋️ Training +2<br><small>'+(sel.tr>=8?'ausgereizt':fmtMoney(trainCost(sel)))+'</small></button>'+
-    '<button class="press" data-lock="'+sel.id+'">'+(sel.lk?'🔓 Entsperren':'🔒 Sperren')+'<br><small>'+(sel.lk?'Massenverkauf erlaubt':'Schutz vor Massenverkauf')+'</small></button>'+
-    (inL?'<small class="kinfo">Steht in der Aufstellung</small>':'<button class="press warn" data-sell="'+sel.id+'">Verkaufen<br><small>+'+fmtMoney(cardValue(sel))+'</small></button>')+'</div></div>'}
-  /* Album mit Filter, Sortierung, Mehrfachauswahl und Massenverkauf */
-  const f=K_FILT[CAR.kf||'all']||K_FILT.all,s=K_SORT[CAR.ks||'ovr']||K_SORT.ovr;const list=CAR.cards.filter(f[1]).sort(s[1]);
-  h+='<div class="lbl">Album · '+CAR.cards.length+'/'+CARD_MAX+' Karten</div><div class="chips" id="kF">'+Object.entries(K_FILT).map(([k,v])=>'<button class="'+((CAR.kf||'all')===k?'on':'')+'" data-kf="'+k+'">'+v[0]+'</button>').join('')+'</div>'+
-    '<div class="chips sm" id="kS"><span>Sortieren:</span>'+Object.entries(K_SORT).map(([k,v])=>'<button class="'+((CAR.ks||'ovr')===k?'on':'')+'" data-ks="'+k+'">'+v[0]+'</button>').join('')+'</div>';
-  const bz=bulkList(c=>c.r==='b'),rs=bulkList(()=>true),dup=bulkList(c=>c.r==='b'||c.r==='s');const sum=a=>a.reduce((t,c)=>t+cardValue(c),0);
-  h+='<div class="kbulk"><button class="press'+(kMulti?' on':'')+'" id="kMulti">'+(kMulti?'✓ Auswahl beenden':'☑︎ Mehrere auswählen')+'</button>'+
+  return '<div class="tstr"><div class="ts-big"><b>'+T+'</b><small>Teamstärke</small></div><div class="ts-g">'+
+    '<div><b>'+sh+'</b><small>Schützen</small></div><div><b>'+(x.gk?Math.round(roleVal(x.gk,'gk')):'–')+'</b><small>Torwart</small></div><div><b>+'+String(ch.bonus).replace('.',',')+'</b><small>Chemie '+ch.tot+'/18</small></div><div><b>'+rank+'.</b><small>stärkstes Team</small></div></div></div>'}
+function kSlotRow(k){const ch=chemOf();const id=k==='gk'?CAR.gk:CAR.line[k];const c=id!=null?cardById(id):null;const mis=c&&(k==='gk'?!c.gk:c.gk);
+  return '<div class="kslot press'+(kSlot===k?' on':'')+(k==='gk'?' gk':'')+'" data-slot="'+k+'" data-drop="'+k+'"'+(c?' data-drag="'+c.id+'"':'')+'><small>'+(k==='gk'?'Tor':'Schuss '+(k+1))+'</small>'+
+    (c?cardMini(c,{chem:ch.per[c.id]||0}):'<i>leer – tippen</i>')+(mis?'<em class="mis">'+(k==='gk'?'kein Torwart':'Torwart')+'</em>':'')+'</div>'+(kSlot===k?kSugHTML(k):'')}
+/* Vorschläge für eine Position: die 5 besten Alternativen */
+function kSugHTML(k){const role=k==='gk'?'gk':'f';const curId=k==='gk'?CAR.gk:CAR.line[k];const cur=curId!=null?cardById(curId):null;const v=c=>role==='gk'?roleVal(c,'gk'):roleShot(c);
+  const L=CAR.cards.filter(c=>c.id!==curId).sort((a,b)=>v(b)-v(a)).slice(0,5);if(!L.length)return '<div class="ksug"><div class="note">Keine weiteren Karten – öffne ein Paket oder kauf im Markt.</div></div>';
+  return '<div class="ksug">'+L.map(c=>{const d=Math.round(v(c)-(cur?v(cur):0));const where=CAR.gk===c.id?'Tor':CAR.line.includes(c.id)?'Schuss '+(CAR.line.indexOf(c.id)+1):'Bank';
+    return '<button class="press" data-swap="'+c.id+'" data-to="'+k+'">'+cardMini(c,{form:true})+'<span class="kd '+(d>0?'up':d<0?'dn':'')+'">'+(d>0?'+':'')+d+'<small>'+where+'</small></span></button>'}).join('')+'</div>'}
+function kXIHTML(){const bench=CAR.cards.filter(c=>!inXI(c)).sort((a,b)=>ovr(b)-ovr(a)).slice(0,14);
+  return kTeamHTML()+'<div class="kline">'+[0,1,2,3,4].map(kSlotRow).join('')+kSlotRow('gk')+'</div>'+
+    '<div class="lbl">Bank · gedrückt halten und auf eine Position ziehen</div><div class="bench">'+(bench.length?bench.map(c=>'<div class="btile r-'+c.r+'" data-drag="'+c.id+'" data-card="'+c.id+'"><b>'+ovr(c)+'</b><span>'+esc(c.n.split(' ').slice(-1)[0])+'</span><i>'+(c.pos||'')+' '+fmIcon(c)+'</i></div>').join(''):'<div class="note">Keine Reservisten.</div>')+'</div>'+
+    '<div class="krow"><button class="press" id="kBest">⚡ Beste Aufstellung</button></div>'+
+    '<div class="opt" id="kAuto"><div>Automatisch beste Elf<small>Nach jedem Paket und Kauf neu aufstellen</small></div><div class="tg'+(CAR.autoXI!==false?' on':'')+'"></div></div>'+
+    '<div class="note">Position antippen zeigt die besten Alternativen. Jeder darf überall spielen, ein Feldspieler im Tor hält aber nur mit 62 % seiner Stärke.</div>'}
+function kAlbumHTML(){const f=K_FILT[CAR.kf||'all']||K_FILT.all,s=K_SORT[CAR.ks||'ovr']||K_SORT.ovr;const list=CAR.cards.filter(f[1]).sort(s[1]);const sum=a=>a.reduce((t,c)=>t+cardValue(c),0);
+  const bz=bulkList(c=>c.r==='b'),bs=bulkList(c=>c.r==='b'||c.r==='s'),rs=bulkList(()=>true);
+  let h='<div class="chips" id="kF">'+Object.entries(K_FILT).map(([k,v])=>'<button class="'+((CAR.kf||'all')===k?'on':'')+'" data-kf="'+k+'">'+v[0]+'</button>').join('')+'</div>'+
+    '<div class="chips sm" id="kS"><span>Sortieren</span>'+Object.entries(K_SORT).map(([k,v])=>'<button class="'+((CAR.ks||'ovr')===k?'on':'')+'" data-ks="'+k+'">'+v[0]+'</button>').join('')+'</div>';
+  h+='<div class="kbulk"><button class="press'+(kMulti?' on':'')+'" id="kMulti">'+(kMulti?'✓ Fertig':'☑︎ Auswählen')+'</button>'+
     (kMulti?'<button class="press warn'+(kChk.size?'':' dis')+'" id="kSellChk">'+kChk.size+' verkaufen · +'+fmtMoney(sum([...kChk].map(cardById).filter(Boolean)))+'</button>':
-    '<button class="press warn'+(bz.length?'':' dis')+'" data-bulk="b">'+(kArm==='b'?'Sicher? Tippen':'Bronze ('+bz.length+') · +'+fmtMoney(sum(bz)))+'</button>'+
-    '<button class="press warn'+(dup.length?'':' dis')+'" data-bulk="bs">'+(kArm==='bs'?'Sicher? Tippen':'Bronze + Silber ('+dup.length+') · +'+fmtMoney(sum(dup)))+'</button>'+
-    '<button class="press warn'+(rs.length?'':' dis')+'" data-bulk="all">'+(kArm==='all'?'Sicher? Tippen':'Alle Reservisten ('+rs.length+') · +'+fmtMoney(sum(rs)))+'</button>')+'</div>'+
-    '<div class="note" style="padding-top:2px">Massenverkauf lässt deine Aufstellung und gesperrte 🔒 Karten immer aus.</div>';
-  h+='<div class="album">'+(list.length?list.map(c=>'<button class="press acard'+(kaderSel===c.id&&!kMulti?' on':'')+(inXI(c)?' inl':'')+(kMulti&&kChk.has(c.id)?' chk':'')+'" data-sel="'+c.id+'">'+(kMulti?'<span class="ck">'+(kChk.has(c.id)?'☑︎':'☐')+'</span>':'')+cardMini(c)+'</button>').join(''):'<div class="note">Keine Karten in dieser Auswahl.</div>')+'</div>';
+    '<button class="press warn'+(bz.length?'':' dis')+'" data-bulk="b">Bronze ('+bz.length+')<small>+'+fmtMoney(sum(bz))+'</small></button><button class="press warn'+(bs.length?'':' dis')+'" data-bulk="bs">Bronze + Silber ('+bs.length+')<small>+'+fmtMoney(sum(bs))+'</small></button><button class="press warn'+(rs.length?'':' dis')+'" data-bulk="all">Alle Reserve ('+rs.length+')<small>+'+fmtMoney(sum(rs))+'</small></button>')+'</div>';
+  h+='<div class="lbl">'+list.length+' von '+CAR.cards.length+' Karten · max. '+CARD_MAX+'</div><div class="album">'+(list.length?list.map(c=>'<button class="press acard'+(inXI(c)?' inl':'')+(kMulti&&kChk.has(c.id)?' chk':'')+'" data-sel="'+c.id+'">'+(kMulti?'<span class="ck">'+(kChk.has(c.id)?'☑︎':'☐')+'</span>':'')+cardMini(c)+'</button>').join(''):'<div class="note">Keine Karten in dieser Auswahl.</div>')+'</div>'+
+    '<div class="note">Verkäufe passieren sofort und lassen sich 5 Sekunden rückgängig machen. Aufstellung und gesperrte 🔒 Karten bleiben beim Massenverkauf immer.</div>';
   return h}
-function carSellCards(ids){let t=0;ids.forEach(id=>{const c=cardById(id);if(!c||inXI(c))return;t+=cardValue(c);CAR.money+=cardValue(c);CAR.cards=CAR.cards.filter(x=>x.id!==id)});return t}
-function carKaderBind(){const R=()=>{carSave();carRender()};
-  document.querySelectorAll('[data-slot]').forEach(b=>b.onclick=()=>{const k=b.dataset.slot==='gk'?'gk':+b.dataset.slot;if(kaderSel!=null){carPut(kaderSel,k)}else{kaderSlot=kaderSlot===k?null:k;carRender()}});
-  document.querySelectorAll('[data-sel]').forEach(b=>b.onclick=()=>{const id=+b.dataset.sel;if(kMulti){const c=cardById(id);if(inXI(c)){miniToast('⚠️','Steht in der Aufstellung','Erst austauschen, dann verkaufen');return}kChk.has(id)?kChk.delete(id):kChk.add(id);sfx('tap');carRender();return}
-    if(kaderSlot!=null){carPut(id,kaderSlot);return}kaderSel=kaderSel===id?null:id;sfx('tap');carRender()});
-  document.querySelectorAll('[data-put]').forEach(b=>b.onclick=()=>carPut(kaderSel,b.dataset.put==='gk'?'gk':+b.dataset.put));
-  document.querySelectorAll('[data-open]').forEach(b=>b.onclick=()=>carOpenPack(b.dataset.open));
-  document.querySelectorAll('[data-buy]').forEach(b=>b.onclick=()=>{const p=PACKS[b.dataset.buy];if(CAR.money<p.cost){sfx('tap');return}CAR.money-=p.cost;CAR.packs[b.dataset.buy]=(CAR.packs[b.dataset.buy]||0)+1;carOpenPack(b.dataset.buy)});
-  document.querySelectorAll('[data-train]').forEach(b=>b.onclick=()=>{const c=cardById(+b.dataset.train);const cost=trainCost(c);if(c.tr>=8||CAR.money<cost){sfx('tap');return}CAR.money-=cost;c.tr++;
-    const ks=['pra','kra','ner'].sort((a,b)=>c[a]-c[b]);c[ks[0]]=Math.min(99,c[ks[0]]+2);c[ks[1]]=Math.min(99,c[ks[1]]+1);if(c.o&&c.tr%2===0){c.o=Math.min(99,c.o+1);c.r=rarOf(c.o)}sfx('conq');R()});
-  document.querySelectorAll('[data-lock]').forEach(b=>b.onclick=()=>{const c=cardById(+b.dataset.lock);c.lk=!c.lk;sfx('tap');R()});
-  document.querySelectorAll('[data-sell]').forEach(b=>b.onclick=()=>{carSellCards([+b.dataset.sell]);kaderSel=null;sfx('land');R()});
-  const on=(id,f)=>{const e=$(id);if(e)e.onclick=f};
-  on('#kBest',()=>{carBestXI();sfx('conq');miniToast('⚡','Beste Aufstellung','Teamstärke '+teamOVRShown(CAR.club));R()});
-  on('#kTM',()=>{sfx('tap');tmOpen(null)});
-  on('#kMulti',()=>{kMulti=!kMulti;kChk.clear();kaderSel=null;sfx('tap');carRender()});
-  on('#kSellChk',()=>{if(!kChk.size)return;const t=carSellCards([...kChk]);const n=kChk.size;kChk.clear();kMulti=false;sfx('land');miniToast('💰',n+' Karten verkauft','+'+fmtMoney(t));R()});
-  document.querySelectorAll('[data-kf]').forEach(b=>b.onclick=()=>{CAR.kf=b.dataset.kf;sfx('tap');R()});
-  document.querySelectorAll('[data-ks]').forEach(b=>b.onclick=()=>{CAR.ks=b.dataset.ks;sfx('tap');R()});
-  document.querySelectorAll('[data-bulk]').forEach(b=>b.onclick=()=>{const k=b.dataset.bulk;const f=k==='b'?c=>c.r==='b':k==='bs'?c=>c.r==='b'||c.r==='s':()=>true;const L=bulkList(f);if(!L.length)return;
-    if(kArm!==k){kArm=k;sfx('tap');carRender();return}kArm=null;const t=carSellCards(L.map(c=>c.id));kaderSel=null;sfx('land');miniToast('💰',L.length+' Karten verkauft','+'+fmtMoney(t));R()})}
-function carPut(id,k){if(id==null)return;const c=cardById(id);if(!c)return;
-  if(k==='gk'){if(!c.gk){miniToast('🧤','Nur Torhüter','Ins Tor dürfen nur Torhüter');return}CAR.gk=id}
-  else{if(c.gk){miniToast('🎯','Torhüter schießen nicht','Wähle einen Feldspieler');return}const i=CAR.line.indexOf(id);if(i>=0)CAR.line[i]=CAR.line[k];CAR.line[k]=id;CAR.line=CAR.line.filter(x=>x!=null)}
-  carFixLine();kaderSel=null;kaderSlot=null;sfx('tap');carSave();carRender()}
+function kPacksHTML(){const n=pkCount();let h=n>1?'<button class="big glass tint press" id="kOpenAll">🎴 Alle '+n+' Pakete öffnen</button>':'';
+  h+='<div class="pgrid">'+Object.entries(PACKS).map(([k,p])=>{const c=CAR.packs[k]||0;const gl=packChance(k,'g')+packChance(k,'l'),wk=packChance(k,'l');
+    return '<button class="ptile press'+(c?' have':'')+(!c&&CAR.money<p.cost?' dis':'')+'" '+(c?'data-open':'data-buy')+'="'+k+'"><span class="pe">'+p.em+'</span><b>'+p.n+'</b><small>'+p.d+'</small><small>'+(gl<1?'Gold+ '+fmtPct(gl*100):'')+(wk>0&&wk<1?' · WK '+fmtPct(wk*100):'')+'</small><em>'+(c?'Öffnen'+(c>1?' ('+c+')':''):fmtMoney(p.cost))+'</em></button>'}).join('')+'</div>';
+  return h+'<div class="note">Antippen kauft und öffnet sofort. Beim Aufdecken deckt ein Tipp alle Karten auf.</div>'}
+/* Position belegen: liegt der Spieler schon woanders, wird getauscht */
+function carPut(id,k){const c=cardById(id);if(!c)return;const S=CAR.line.slice(0,5);while(S.length<5)S.push(null);S.push(CAR.gk);const ki=k==='gk'?5:+k;const j=S.indexOf(id);const prev=S[ki];
+  if(j===ki)return;if(j>=0)S[j]=prev;S[ki]=id;CAR.line=S.slice(0,5).filter(v=>v!=null);CAR.gk=S[5];
+  if(k==='gk'&&!c.gk)miniToast('🧤','Feldspieler im Tor',c.n+' hält nur mit 62 % seiner Stärke');else if(k!=='gk'&&c.gk)miniToast('🎯','Torwart als Schütze',c.n+' schießt deutlich schwächer');
+  carFixLine();kSlot=null;sfx('tap');haptic(1);carSave();carRender()}
+function carAutoXI(){if(CAR.autoXI===false)return false;const before=CAR.line.join(',')+'|'+CAR.gk;carBestXI();return before!==CAR.line.join(',')+'|'+CAR.gk}
 function carMyAim(){return null}
+/* ---- Ziehen & Ablegen (gedrückt halten) ---- */
+function kDragStart(x,y){if(!kD)return;kD.on=true;haptic(1);const g=kD.el.cloneNode(true);g.className+=' kghost';g.removeAttribute('data-drop');const r=kD.el.getBoundingClientRect();g.style.width=Math.min(r.width,320)+'px';kD.dx=x-r.left;kD.dy=y-r.top;document.body.appendChild(g);kD.g=g;document.body.classList.add('kdrag');kDragMove(x,y)}
+function kDragMove(x,y){if(!kD||!kD.on)return;kD.g.style.transform='translate('+(x-kD.dx)+'px,'+(y-kD.dy)+'px) scale(1.04)';const t=document.elementFromPoint(x,y);const d=t&&t.closest&&t.closest('[data-drop]');
+  document.querySelectorAll('[data-drop].over').forEach(e=>{if(e!==d)e.classList.remove('over')});if(d)d.classList.add('over');kD.over=d?d.dataset.drop:null}
+function kDragEnd(){if(!kD)return;clearTimeout(kD.t);const was=kD.on,id=kD.id,to=kD.over;if(kD.g)kD.g.remove();document.body.classList.remove('kdrag');document.querySelectorAll('[data-drop].over').forEach(e=>e.classList.remove('over'));kD=null;
+  if(was&&to!=null)carPut(id,to==='gk'?'gk':+to);return was}
+function kDragInit(){document.querySelectorAll('#carBody [data-drag]').forEach(el=>{const begin=(x,y)=>{kD={el,id:+el.dataset.drag,x0:x,y0:y,on:false,t:setTimeout(()=>kDragStart(x,y),260)}};
+  el.addEventListener('touchstart',e=>{const t=e.touches[0];begin(t.clientX,t.clientY)},{passive:true});el.addEventListener('mousedown',e=>{if(e.button===0)begin(e.clientX,e.clientY)})})}
+document.addEventListener('touchmove',e=>{if(!kD)return;const t=e.touches[0];if(kD.on){if(e.cancelable)e.preventDefault();kDragMove(t.clientX,t.clientY)}else if(Math.hypot(t.clientX-kD.x0,t.clientY-kD.y0)>9){clearTimeout(kD.t);kD=null}},{passive:false});
+document.addEventListener('touchend',e=>{if(!kD)return;if(kDragEnd()&&e.cancelable)e.preventDefault()},{passive:false});
+document.addEventListener('touchcancel',()=>{if(kD)kDragEnd()});
+document.addEventListener('mousemove',e=>{if(!kD)return;if(kD.on)kDragMove(e.clientX,e.clientY);else if(Math.hypot(e.clientX-kD.x0,e.clientY-kD.y0)>9){clearTimeout(kD.t);kD=null}});
+document.addEventListener('mouseup',()=>{if(kD){const was=kDragEnd();if(was){const stop=ev=>{ev.stopPropagation();ev.preventDefault();window.removeEventListener('click',stop,true)};window.addEventListener('click',stop,true);setTimeout(()=>window.removeEventListener('click',stop,true),50)}}});
+function kaderBind5(){const R=()=>{carSave();carRender()};const sub=CAR.ksub||'xi';subBind('kSub',sub,v=>{CAR.ksub=v;kSlot=null;kMulti=false;kChk.clear()});
+  if(sub==='xi'){document.querySelectorAll('[data-slot]').forEach(b=>b.onclick=()=>{const k=b.dataset.slot==='gk'?'gk':+b.dataset.slot;kSlot=kSlot===k?null:k;sfx('tap');carRender()});
+    document.querySelectorAll('[data-swap]').forEach(b=>b.onclick=e=>{e.stopPropagation();const k=b.dataset.to==='gk'?'gk':+b.dataset.to;carPut(+b.dataset.swap,k)});
+    document.querySelectorAll('.btile[data-card]').forEach(b=>b.onclick=()=>{sfx('tap');cardSheet(+b.dataset.card)});
+    const a=$('#kAuto');if(a)a.onclick=()=>{CAR.autoXI=CAR.autoXI===false;if(CAR.autoXI)carBestXI();sfx('tap');R()};
+    const be=$('#kBest');if(be)be.onclick=()=>{carBestXI();sfx('conq');miniToast('⚡','Beste Aufstellung','Teamstärke '+teamOVRShown(CAR.club));R()};kDragInit()}
+  if(sub==='alb'){document.querySelectorAll('[data-sel]').forEach(b=>b.onclick=()=>{const id=+b.dataset.sel;if(kMulti){const c=cardById(id);if(inXI(c)){miniToast('⚠️','Steht in der Aufstellung','Erst austauschen, dann verkaufen');return}kChk.has(id)?kChk.delete(id):kChk.add(id);sfx('tap');carRender();return}sfx('tap');cardSheet(id)});
+    document.querySelectorAll('[data-kf]').forEach(b=>b.onclick=()=>{CAR.kf=b.dataset.kf;sfx('tap');R()});document.querySelectorAll('[data-ks]').forEach(b=>b.onclick=()=>{CAR.ks=b.dataset.ks;sfx('tap');R()});
+    const m=$('#kMulti');if(m)m.onclick=()=>{kMulti=!kMulti;kChk.clear();sfx('tap');carRender()};
+    const sc=$('#kSellChk');if(sc)sc.onclick=()=>{if(!kChk.size)return;carSellUndo([...kChk]);kChk.clear();kMulti=false;carRender()};
+    document.querySelectorAll('[data-bulk]').forEach(b=>b.onclick=()=>{const k=b.dataset.bulk;const f=k==='b'?c=>c.r==='b':k==='bs'?c=>c.r==='b'||c.r==='s':()=>true;const L=bulkList(f);if(!L.length)return;carSellUndo(L.map(c=>c.id));carRender()})}
+  if(sub==='pk'){document.querySelectorAll('[data-open]').forEach(b=>b.onclick=()=>carOpenPack(b.dataset.open));
+    document.querySelectorAll('[data-buy]').forEach(b=>b.onclick=()=>{const p=PACKS[b.dataset.buy];if(CAR.money<p.cost){sfx('tap');miniToast('💸','Zu wenig Geld',p.n+' kostet '+fmtMoney(p.cost));return}CAR.money-=p.cost;CAR.packs[b.dataset.buy]=(CAR.packs[b.dataset.buy]||0)+1;carOpenPack(b.dataset.buy)});
+    const oa=$('#kOpenAll');if(oa)oa.onclick=()=>carOpenAll()}
+  if(sub==='tm'){tmTarget='#tmInline';tmRender()}}
+/* ---- Spieler-Detail als Fenster von unten ---- */
+let cardSel=null;
+function cardSheet(id){cardSel=id;cardSheetRender();openSheet('shCard')}
+function cardSheetRender(){const b=$('#cardBody');const c=cardById(cardSel);if(!b)return;if(!c){closeSheet();return}const inL=inXI(c);const S=statSeason();const sp=S.p[c.n],sk=S.k[c.n];const ls=c.ls||{};
+  const q=(g,s)=>s?Math.round(g/s*100)+' %':'–';const sg=sp?sp.g[0]+sp.g[1]+sp.g[2]:0;
+  const st='<div class="cdst"><div><b>'+(sp?sp.m:0)+'</b><small>Spiele</small></div>'+(c.gk?'<div><b>'+(sk?sk.sv:0)+'</b><small>Paraden</small></div><div><b>'+q(sk?sk.sv:0,sk?sk.f:0)+'</b><small>gehalten</small></div>':'<div><b>'+sg+'</b><small>Tore</small></div><div><b>'+q(sg,sp?sp.s:0)+'</b><small>Quote</small></div>')+'<div><b>'+fmIcon(c)+'</b><small>Form</small></div></div>'+
+    '<div class="note" style="padding-top:0;text-align:center">Saison '+seasonLbl(CAR.season)+' · Karriere bei dir: '+(ls.m||0)+' Spiele, '+(c.gk?(ls.sv||0)+' Paraden':(ls.g||0)+((ls.g||0)===1?' Tor':' Tore')+' aus '+(ls.s||0)+' Elfmetern')+'</div>';
+  const pos=k=>{const on=k==='gk'?CAR.gk===c.id:CAR.line[k]===c.id;return '<button class="press'+(on?' on':'')+'" data-cput="'+k+'">'+(k==='gk'?'🧤 Tor':(k+1))+'</button>'};
+  b.innerHTML='<div class="cdwrap">'+cardHTML(c)+'</div>'+st+'<div class="lbl">Position</div><div class="cdpos">'+[0,1,2,3,4].map(pos).join('')+pos('gk')+'</div>'+
+    '<div class="cdact"><button class="press" data-ctr'+(c.tr>=8?' disabled':'')+'>🏋️ Training +2<small>'+(c.tr>=8?'ausgereizt':fmtMoney(trainCost(c)))+'</small></button>'+
+    '<button class="press" data-clk>'+(c.lk?'🔓 Entsperren':'🔒 Sperren')+'<small>'+(c.lk?'Massenverkauf erlaubt':'Schutz vor Massenverkauf')+'</small></button>'+
+    (inL?'<button class="press dis" disabled>Verkaufen<small>steht in der Aufstellung</small></button>':'<button class="press warn" data-csell>💰 Verkaufen<small>+'+fmtMoney(cardValue(c))+'</small></button>')+'</div>';
+  b.querySelectorAll('[data-cput]').forEach(x=>x.onclick=()=>{const k=x.dataset.cput==='gk'?'gk':+x.dataset.cput;carPut(c.id,k);cardSheetRender()});
+  const tr=b.querySelector('[data-ctr]');if(tr)tr.onclick=()=>{const cost=trainCost(c);if(c.tr>=8||CAR.money<cost){sfx('tap');return}CAR.money-=cost;c.tr++;const ks=['pra','kra','ner'].sort((a,b2)=>c[a]-c[b2]);c[ks[0]]=Math.min(99,c[ks[0]]+2);c[ks[1]]=Math.min(99,c[ks[1]]+1);if(c.o&&c.tr%2===0){c.o=Math.min(99,c.o+1);c.r=rarOf(c.o)}sfx('conq');carSave();carRender();cardSheetRender()};
+  b.querySelector('[data-clk]').onclick=()=>{c.lk=!c.lk;sfx('tap');carSave();carRender();cardSheetRender()};
+  const se=b.querySelector('[data-csell]');if(se)se.onclick=()=>{closeSheet();carSellUndo([c.id]);carRender()}}
 
-/* ---- Vereinskader & Transfermarkt (Sofortkauf) ---- */
-let tmClub=null,tmL=null,tmQ='';
-function tmOpen(id){tmClub=id;tmL=tmL||carMyL();openSheet('shClub');tmRender()}
+/* ---- Pakete öffnen: Tipp deckt alles auf, direkt verkaufen oder einwechseln ---- */
+let packQ=null;
+function carGivePack(pk,why){CAR.packs[pk]=(CAR.packs[pk]||0)+1;carToastQ.push([PACKS[pk].em,PACKS[pk].n+' erhalten',why||'Jetzt öffnen?',['Öffnen',()=>{if(!$('#pack').classList.contains('off')||(twCtx&&twCtx.open))return;carOpenPack(pk)}]])}
+function packCount(pk){const k=PACKS[pk].k;return Array.isArray(k)?k[0]+Math.floor(Math.random()*(k[1]-k[0]+1)):k}
+function packDraw(pk,ex){const P=PACKS[pk];const got=[];const n=packCount(pk);for(let k=0;k<n;k++){const p=cardPick(cardRoll(pk),{gk:P.gk,lg:P.lg,ex});if(!p)break;ex.add(p.n);got.push(cardFromPl(p))}return{got,n}}
+async function carOpenPack(pk){if(!CAR.packs[pk])return;CAR.packs[pk]--;const ex=ownedSet();const {got,n}=packDraw(pk,ex);
+  if(!got.length){CAR.packs[pk]++;miniToast('🤷','Keine Spieler verfügbar','Kader-Daten werden noch geladen');return}
+  await packShow(PACKS[pk].em+' '+PACKS[pk].n,got,Array.isArray(PACKS[pk].k)?n:null)}
+async function carOpenAll(){const ex=ownedSet();let got=[],np=0;Object.keys(PACKS).forEach(pk=>{while(CAR.packs[pk]>0){CAR.packs[pk]--;np++;got=got.concat(packDraw(pk,ex).got)}});
+  if(!got.length){miniToast('🤷','Keine Spieler verfügbar','Kader-Daten werden noch geladen');return}await packShow('🎴 '+np+' Pakete · '+got.length+' Karten',got,null)}
+async function packShow(title,got,lucky){got.forEach(c=>CAR.cards.push(c));const sold=carCapAlbum();carFixLine();const auto=carAutoXI();carSave();got.sort((a,b)=>ovr(a)-ovr(b));
+  const best=got[got.length-1];const el=$('#pack');el.classList.remove('off');if(best.r==='l')await packWalkout(el,best);packReveal(el,title,got,lucky,sold,auto)}
+/* lohnt sich der Neue? → schwächster passender Stammspieler */
+function packBetter(c){if(inXI(c))return null;if(c.gk){const g=CAR.gk!=null?cardById(CAR.gk):null;return !g||roleVal(c,'gk')>roleVal(g,'gk')+.5?{k:'gk',who:g}:null}
+  const L=CAR.line.map(cardById).filter(Boolean);if(L.length<5)return{k:L.length,who:null};const w=L.reduce((a,b)=>roleShot(a)<=roleShot(b)?a:b);return roleShot(c)>roleShot(w)+.5?{k:CAR.line.indexOf(w.id),who:w}:null}
+function packReveal(el,title,got,lucky,sold,auto){const many=got.length>3;const live=()=>got.filter(c=>cardById(c.id));const sum=a=>a.reduce((t,c)=>t+cardValue(c),0);
+  const actHTML=c=>{if(!cardById(c.id))return '<div class="pk-act"><span class="sold">verkauft</span></div>';if(inXI(c))return '<div class="pk-act"><span class="inxi">⭐ in der Elf</span></div>';const bt=packBetter(c);
+    return '<div class="pk-act">'+(bt?'<button class="press in" data-pin="'+c.id+'">⬆ '+(bt.who?esc(bt.who.n.split(' ').slice(-1)[0]):'rein')+'</button>':'')+'<button class="press qs" data-pq="'+c.id+'">+'+fmtMoney(cardValue(c))+'</button></div>'};
+  const render=(now)=>{const L=live().filter(c=>!inXI(c));
+    el.innerHTML='<div class="pk-t">'+title+(lucky?' · <span class="pk-n">🎲 '+lucky+(lucky===1?' Karte':' Karten')+'</span>':'')+'</div><div class="pk-row'+(many?' many':'')+(now?' now':'')+'" id="pkRow">'+got.map((c,i)=>'<div class="pk-w"><div class="pk-c'+(c.r==='g'||c.r==='l'?' top r'+c.r:'')+'" style="--d:'+(i*(many?.2:.42)+.3)+'s">'+(c.r==='g'||c.r==='l'?'<div class="pk-glow"></div>':'')+'<div class="pk-back">⚽</div>'+(many?cardTile(c):cardHTML(c))+'</div>'+actHTML(c)+'</div>').join('')+'</div>'+
+      (auto?'<div class="note" style="text-align:center">⚡ Aufstellung automatisch verbessert</div>':'')+(sold?'<div class="note" style="text-align:center">Album voll: schwächste Reservisten für '+fmtMoney(sold)+' verkauft</div>':'')+
+      '<div class="pk-btns"><button class="big glass press warn'+(L.length?'':' dis')+'" id="pkSellAll">Alle verkaufen · +'+fmtMoney(sum(L))+'</button><button class="big glass tint press" id="pkOk">Ins Album</button></div>';
+    $('#pkRow').onclick=e=>{if(e.target.closest('button'))return;$('#pkRow').classList.add('now')};
+    el.querySelectorAll('[data-pq]').forEach(b=>b.onclick=()=>{const id=+b.dataset.pq;const c=cardById(id);if(!c)return;CAR.money+=cardValue(c);CAR.cards=CAR.cards.filter(x=>x.id!==id);sfx('land');carSave();render(true)});
+    el.querySelectorAll('[data-pin]').forEach(b=>b.onclick=()=>{const c=cardById(+b.dataset.pin);const bt=c&&packBetter(c);if(!bt)return;const k=bt.k;
+      const S=CAR.line.slice(0,5);if(k==='gk')CAR.gk=c.id;else{if(k>=S.length)CAR.line.push(c.id);else CAR.line[k]=c.id}carFixLine();sfx('conq');haptic(1);carSave();render(true)});
+    $('#pkSellAll').onclick=()=>{const L2=live().filter(c=>!inXI(c));if(!L2.length)return;let t=0;L2.forEach(c=>{t+=cardValue(c);CAR.money+=cardValue(c)});const ids=new Set(L2.map(c=>c.id));CAR.cards=CAR.cards.filter(c=>!ids.has(c.id));sfx('land');carSave();miniToast('💰',L2.length+' Karten verkauft','+'+fmtMoney(t));el.classList.add('off');carRender()};
+    $('#pkOk').onclick=()=>{el.classList.add('off');carRender()}};
+  render(false);sfx('start');got.forEach((c,i)=>setTimeout(()=>{if($('#pkRow')&&$('#pkRow').classList.contains('now'))return;sfx(c.r==='l'?'sens':c.r==='g'?'fan':'land');if(c.r==='l'||c.r==='g')haptic(c.r==='l'?2:1)},(i*(many?.2:.42)+.6)*1000))}
+
+/* ---- Vereinskader & Transfermarkt (Sofortkauf, rückgängig machbar) ---- */
+let tmClub=null,tmL=null,tmQ='',tmTarget='#clubBody';
+function tmOpen(id){tmTarget='#clubBody';tmClub=id;tmL=tmL||carMyL();openSheet('shClub');tmRender()}
 function tmRow(p,buy,tag){const c=Object.assign({r:rarOf(p.o)},p);const fee=buy?feeOf(p):0;
   return '<div class="tmr">'+cardMini(c,{form:false})+(tag?'<em class="tag">'+tag+'</em>':'')+(buy?'<button class="press'+(CAR.money<fee?' dis':'')+'" data-tmbuy="'+esc(p.n)+'">'+fmtMoney(fee)+'</button>':'')+'</div>'}
-function tmRender(){const b=$('#clubBody');if(!b||!CAR)return;let h='';
-  if(tmClub==null){h+='<div class="tmsearch"><input id="tmQ" type="search" placeholder="Spieler suchen …" value="'+esc(tmQ)+'" autocomplete="off"></div>';
+function tmRender(){const b=$(tmTarget);if(!b||!CAR)return;tmL=tmL||carMyL();let h='';
+  if(tmClub==null){h+='<div class="tmsearch"><input id="tmQ" type="search" placeholder="Spieler suchen …" value="'+esc(tmQ)+'" autocomplete="off" enterkeyhint="search"></div>';
     if(tmQ.trim().length>=2){const q=eaNorm(tmQ);const L=plAvail().filter(p=>eaNorm(p.n).includes(q)).sort((a,b)=>b.o-a.o).slice(0,30);
-      h+='<div class="lbl">Treffer</div>'+(L.length?L.map(p=>tmRow(p,true,esc(CLUB[p.club].mid))).join(''):'<div class="note">Kein verfügbarer Spieler gefunden.</div>')}
+      h+=L.length?L.map(p=>tmRow(p,true,esc(CLUB[p.club].mid))).join(''):'<div class="note">Kein verfügbarer Spieler gefunden.</div>'}
     else{h+='<div class="seg sm" id="tmL"><div class="hl"></div>'+[1,2,3,4].map(x=>'<button data-v="'+x+'">'+(x===4?'RL':x+'. Liga')+'</button>').join('')+(CAR.euro?'<button data-v="eu">Europa</button>':'')+'</div>';
-      const ids=tmL==='eu'?(CAR.euro.teams||[]).filter(isEu):CAR.lg[tmL].slice();ids.sort((a,b)=>rtOf(b)-rtOf(a));
-      h+='<div class="tml">'+ids.map(id=>'<button class="tmc press'+(id===CAR.club?' me':'')+'" data-tmc="'+id+'">'+teamBadge(id,'mb')+'<span><b>'+esc(teamOf(id).mid)+'</b><small>'+starsHTML(clubStars(id))+'</small></span><em>'+teamOVRShown(id)+'</em></button>').join('')+'</div>'+
-        '<div class="note">Tippe einen Verein an, um seinen Kader zu sehen. Kaufst du einen Spieler, fehlt er seinem Verein – der Nächstbeste rückt nach. Jeder Spieler existiert nur einmal.</div>'}}
+      const ids=tmL==='eu'&&CAR.euro?(CAR.euro.teams||[]).filter(isEu):CAR.lg[tmL==='eu'?carMyL():tmL].slice();ids.sort((a,b)=>rtOf(b)-rtOf(a));
+      h+='<div class="tml">'+ids.map(id=>'<button class="tmc press'+(id===CAR.club?' me':'')+'" data-tmc="'+id+'">'+teamBadge(id,'mb')+'<span><b>'+esc(teamOf(id).mid)+'</b><small>'+starsHTML(clubStars(id))+'</small></span><em>'+teamOVRShown(id)+'</em><i class="mc">'+ICO.chev+'</i></button>').join('')+'</div>'}}
   else{const id=tmClub;const k=teamOf(id);const eu=isEu(id);
-    h+='<button class="tmback press" id="tmBack">‹ Alle Vereine</button><div class="tmhd">'+teamBadge(id,'mb')+'<div><b>'+esc(k.name)+'</b><small>'+(eu?esc(k.name)+' · Europa':CL_NAME[carLeagueOf(id)])+' · Teamstärke '+teamOVRShown(id)+' '+starsHTML(clubStars(id))+'</small></div></div>';
+    h+='<button class="backb press" id="tmBack">'+ICO.back+'<span>Alle Vereine</span></button><div class="tmhd">'+teamBadge(id,'mb')+'<div><b>'+esc(k.name)+'</b><small>'+(eu?'Europa':CL_NAME[carLeagueOf(id)])+' · Teamstärke '+teamOVRShown(id)+'</small></div></div>';
     if(id===CAR.club){const x=myXI();h+='<div class="lbl">Deine Aufstellung</div>'+x.f.concat(x.gk?[x.gk]:[]).map(c=>'<div class="tmr">'+cardMini(c)+'</div>').join('');
       const rest=clubRoster(id);if(rest.length)h+='<div class="lbl">Weitere Spieler deines Vereins · 60 % günstiger</div>'+rest.map(p=>tmRow(p,true)).join('')}
-    else if(eu){const r=euRoster(id);if(!r.length)h+='<div class="note">Kader wird von Wikipedia geladen …</div>';else{const xi=euXI(id);h+='<div class="lbl">Aufstellung</div>'+xi.f.concat(xi.gk?[xi.gk]:[]).map(p=>tmRow(p,false,p.gk?'🧤':'')).join('')+
-      '<div class="lbl">Weitere Spieler</div>'+r.filter(p=>p!==xi.gk&&!xi.f.includes(p)).map(p=>tmRow(p,false)).join('')+'<div class="note">Echte Kader, Werte geschätzt (nicht in EA FC 27 der Bundesliga). Europäische Spieler sind nicht käuflich.</div>'}}
+    else if(eu){const r=euRoster(id);if(!r.length)h+='<div class="note">Kader wird von Wikipedia geladen …</div>';else{const xi=euXI(id);h+='<div class="lbl">Aufstellung</div>'+xi.f.concat(xi.gk?[xi.gk]:[]).map(p=>tmRow(p,false,p.gk?'Tor':'')).join('')+
+      '<div class="lbl">Weitere Spieler</div>'+r.filter(p=>p!==xi.gk&&!xi.f.includes(p)).map(p=>tmRow(p,false)).join('')+'<div class="note">Echte Kader, Werte geschätzt. Europäische Spieler sind nicht käuflich.</div>'}}
     else{const r=clubRoster(id);if(!r.length)h+='<div class="note">'+(Object.keys(WX.sq).length?'Für diesen Verein liegen keine Kader-Daten vor.':'Kader werden von Wikipedia geladen …')+'</div>';
-      else{const xi=clubXIc(id);const inx=p=>xi.gk===p||xi.f.includes(p);h+='<div class="lbl">Aufstellung · 5 Schützen + Torwart</div>'+xi.f.concat(xi.gk?[xi.gk]:[]).map(p=>tmRow(p,true,p.gk?'🧤':'')).join('')+
+      else{const xi=clubXIc(id);const inx=p=>xi.gk===p||xi.f.includes(p);h+='<div class="lbl">Aufstellung · 5 Schützen + Torwart</div>'+xi.f.concat(xi.gk?[xi.gk]:[]).map(p=>tmRow(p,true,p.gk?'Tor':'')).join('')+
         (r.length>6?'<div class="lbl">Weitere Spieler</div>'+r.filter(p=>!inx(p)).map(p=>tmRow(p,true)).join(''):'')}}
-    h+='<div class="note">Kasse: '+fmtMoney(CAR.money)+' · Stammspieler kosten 25 % mehr, junge Talente mehr, ältere Spieler weniger.</div>'}
-  b.innerHTML=h;tmBind()}
-function tmBind(){const q=$('#tmQ');if(q){q.oninput=()=>{tmQ=q.value;const pos=q.selectionStart;tmRender();const n=$('#tmQ');if(n){n.focus();try{n.setSelectionRange(pos,pos)}catch(e){}}}}
-  const s=$('#tmL');if(s){segSet(s,String(tmL));s.onclick=e=>{const t=e.target.closest('button');if(!t)return;tmL=t.dataset.v==='eu'?'eu':+t.dataset.v;sfx('tap');tmRender()}}
-  document.querySelectorAll('[data-tmc]').forEach(b=>b.onclick=()=>{const v=b.dataset.tmc;tmClub=isNaN(+v)?v:+v;sfx('tap');tmRender();const bd=$('#clubBody');if(bd)bd.scrollTop=0});
-  const bk=$('#tmBack');if(bk)bk.onclick=()=>{tmClub=null;sfx('tap');tmRender()};
-  document.querySelectorAll('[data-tmbuy]').forEach(b=>b.onclick=()=>{const n=b.dataset.tmbuy;const p=plAvail().find(x=>x.n===n);if(!p)return;const fee=feeOf(p);
+    h+='<div class="note">Kasse '+fmtMoney(CAR.money)+' · Stammspieler kosten 25 % mehr, junge Talente mehr, ältere weniger. Kauf sofort, 5 Sekunden rückgängig machbar.</div>'}
+  b.innerHTML=h;tmBind(b)}
+function tmBind(b){const q=b.querySelector('#tmQ');if(q){q.oninput=()=>{tmQ=q.value;const pos=q.selectionStart;tmRender();const n=$(tmTarget).querySelector('#tmQ');if(n){n.focus();try{n.setSelectionRange(pos,pos)}catch(e){}}}}
+  const s=b.querySelector('#tmL');if(s){segSet(s,String(tmL));s.onclick=e=>{const t=e.target.closest('button');if(!t)return;tmL=t.dataset.v==='eu'?'eu':+t.dataset.v;sfx('tap');tmRender()}}
+  b.querySelectorAll('[data-tmc]').forEach(x=>x.onclick=()=>{const v=x.dataset.tmc;tmClub=isNaN(+v)?v:+v;sfx('tap');tmRender();const sc=tmTarget==='#clubBody'?$('#clubBody'):$('#carBody');if(sc)sc.scrollTop=0});
+  const bk=b.querySelector('#tmBack');if(bk)bk.onclick=()=>{tmClub=null;sfx('tap');tmRender()};
+  b.querySelectorAll('[data-tmbuy]').forEach(x=>x.onclick=()=>{const n=x.dataset.tmbuy;const p=plAvail().find(y=>y.n===n);if(!p)return;const fee=feeOf(p);
     if(CAR.money<fee){miniToast('💸','Zu wenig Geld','Ablöse '+fmtMoney(fee)+' · Kasse '+fmtMoney(CAR.money));return}
-    if(b.dataset.arm!=='1'){b.dataset.arm='1';b.textContent='Kaufen? '+fmtMoney(fee);b.classList.add('arm');return}
-    CAR.money-=fee;const c=cardFromPl(p);CAR.cards.push(c);const sold=carCapAlbum();carFixLine();carSave();sfx('conq');haptic(1);
-    miniToast('✍️','Transfer perfekt',p.n+' kommt für '+fmtMoney(fee)+(p.club!=null&&p.club!==CAR.club?' von '+CLUB[p.club].mid:'')+(sold?' · Album voll, Reservisten verkauft':''));tmRender();carRender()})}
+    const sn=carSnap();CAR.money-=fee;const c=cardFromPl(p);CAR.cards.push(c);const sold=carCapAlbum();carFixLine();const auto=carAutoXI();carSave();sfx('conq');haptic(1);
+    undoToast(p.n+' verpflichtet · −'+fmtMoney(fee)+(auto?' · Elf angepasst':'')+(sold?' · Album voll':''),()=>{CAR.cards=CAR.cards.filter(y=>y.id!==c.id);carRestore(sn);setTimeout(tmRender,0)});
+    if(tmTarget==='#tmInline')carRender();else{tmRender();carRender()}})}
 
+/* ================= Statistik: Torjäger, Torhüter, eigene Spieler, Verlauf & Archiv ================= */
+function statSeason(){if(!CAR.ps||CAR.ps.s!==CAR.season)CAR.ps={s:CAR.season,p:{},k:{}};return CAR.ps}
+/* Schützen & Torwart eines Teams (für simulierte Spiele) */
+function statXI(id){if(id===CAR.club){const x=myXI();if(!x.f.length)return null;return{f:x.f.map(c=>({n:c.n,v:roleShot(c)})),gk:x.gk?{n:x.gk.n}:null}}
+  const xi=isEu(id)?euXI(id):clubXIc(id);if(!xi.ok)return null;return{f:xi.f.map(p=>({n:p.n,v:penS(p)})),gk:{n:xi.gk.n}}}
+/* Jedes Spiel = 5 Elfmeter pro Team (bei mehr Toren entsprechend mehr). Tore gehen an die Schützen, verschossene Elfmeter hält der Torwart zu ~72 % */
+function statRec(r,comp){if(typeof CAR==='undefined'||!CAR||!r||r._st)return;r._st=1;try{const S=statSeason();const ci=comp==='l'?0:comp==='cup'?1:2;
+  const P=(n,c)=>{const o=S.p[n]||(S.p[n]={c,g:[0,0,0],s:0,m:0});o.c=c;return o};const K=(n,c)=>{const o=S.k[n]||(S.k[n]={c,f:0,sv:0,ga:0,m:0});o.c=c;return o};
+  const mine=r.h===CAR.club||r.a===CAR.club;const LS=n=>{if(!mine)return null;const c=CAR.cards.find(x=>x.n===n);if(!c)return null;return c.ls||(c.ls={m:0,s:0,g:0,f:0,sv:0})};
+  if(r.log&&r.log.length){const side={A:r.h,D:r.a};const seen=new Set();
+    r.log.forEach(e=>{const club=side[e.sd],opp=side[e.sd==='A'?'D':'A'];
+      if(e.n){const p=P(e.n,club);p.s++;if(e.goal)p.g[ci]++;const l=LS(e.n);if(l){l.s++;if(e.goal)l.g++}if(!seen.has(e.n)){seen.add(e.n);p.m++;if(l)l.m++}}
+      if(e.kn){const k=K(e.kn,opp);k.f++;if(e.goal)k.ga++;else if(e.res==='save')k.sv++;const l=LS(e.kn);if(l){l.f++;if(!e.goal&&e.res==='save')l.sv++}if(!seen.has('#'+e.kn)){seen.add('#'+e.kn);k.m++;if(l)l.m++}}});return}
+  [[r.h,r.gh,r.a],[r.a,r.ga,r.h]].forEach(([id,g,opp])=>{const shots=Math.max(5,g);const xi=statXI(id),ox=statXI(opp);
+    if(xi){const f=xi.f;const att=f.map(()=>1);for(let i=f.length;i<shots;i++)att[i%f.length]++;const rem=att.slice();const gl=f.map(()=>0);
+      for(let i=0;i<g;i++){const w=f.map((p,j)=>rem[j]>0?Math.max(2,p.v-45):0);const tot=w.reduce((a,b)=>a+b,0);if(!tot)break;let x=Math.random()*tot,j=0;for(;j<w.length-1;j++){x-=w[j];if(x<=0)break}gl[j]++;rem[j]--}
+      f.forEach((p,j)=>{const o=P(p.n,id);o.s+=att[j];o.g[ci]+=gl[j];o.m++;const l=LS(p.n);if(l){l.m++;l.s+=att[j];l.g+=gl[j]}})}
+    if(ox&&ox.gk){let sv=0;for(let i=0;i<shots-g;i++)if(Math.random()<.72)sv++;const k=K(ox.gk.n,opp);k.f+=shots;k.sv+=sv;k.ga+=g;k.m++;const l=LS(ox.gk.n);if(l){l.m++;l.f+=shots;l.sv+=sv}}})}catch(e){console.warn('Statistik',e)}}
+/* Saisonende: Archiv mit Platz, Titel, Torschützenkönig */
+function statTop(filter,n){const S=statSeason();return Object.entries(S.p).map(([nm,o])=>({n:nm,c:o.c,g:filter(o),s:o.s})).filter(x=>x.g>0).sort((a,b)=>b.g-a.g||a.s-b.s).slice(0,n||1)}
+function statArchive(){try{const s=CAR.sum;if(!s)return;const l=s.oldL||carMyL();CAR.arch=CAR.arch||[];if(CAR.arch.some(a=>a.s===CAR.season))return;
+  const lgOf=c=>typeof c==='number'?carLeagueOf(c):null;const ts=statTop(o=>lgOf(o.c)===l?o.g[0]:0,1)[0]||null;const my=statTop(o=>o.c===CAR.club?o.g[0]+o.g[1]+o.g[2]:0,1)[0]||null;
+  const t=CAR.tab[CAR.club]||{};CAR.arch.push({s:CAR.season,l,pos:s.pos,pk:t.pk||0,nl:s.newL,tro:(s.tro||[]).slice(),ch:CAR.fin&&CAR.fin[1]?CAR.fin[1][0]:null,cup:CAR.cup&&CAR.cup.won!=null?CAR.cup.won:null,
+    ts:ts?{n:ts.n,c:ts.c,g:ts.g}:null,my:my?{n:my.n,g:my.g}:null,ph:(CAR.ph||[]).slice()});if(CAR.arch.length>30)CAR.arch.shift()}catch(e){console.warn(e)}}
+/* ---- Ansichten ---- */
+const SSUB=[['sc','Torjäger'],['gk','Torhüter'],['me','Meine Spieler'],['hist','Verlauf']];
+function statHTML(){const sub=CAR.ssub||'sc';let h=subSeg('sSub',SSUB,sub);
+  if(sub==='gk')return h+statGkHTML();if(sub==='me')return h+statMeHTML();if(sub==='hist')return h+statHistHTML();return h+statScHTML()}
+function statFilt(id,cur,withCups){const o=[[1,'1. L'],[2,'2. L'],[3,'3. L'],[4,'RL']].concat(withCups?[['cup','Pokal']].concat(CAR.euro?[['eu','Europa']]:[]).concat([['all','Gesamt']]):[]);
+  return '<div class="chips" id="'+id+'">'+o.map(([v,n])=>'<button class="'+(String(cur)===String(v)?'on':'')+'" data-sf="'+v+'">'+n+'</button>').join('')+'</div>'}
+const badgeOf=c=>c==null?'':typeof c==='number'?clubBadgeHTML(CLUB[c],'mb'):teamBadge(c,'mb');
+const clubMid=c=>c==null?'':esc(teamOf(c).mid);
+function rankRows(L,val,sub,isMine){let last=null,rk=0;return L.map((x,i)=>{const v=val(x);if(v!==last){rk=i+1;last=v}const me=isMine(x);
+  return '<div class="srow'+(me?' me':'')+'"><span class="sr">'+rk+'</span>'+badgeOf(x.c)+'<span class="sn"><b>'+esc(x.n)+'</b><small>'+sub(x)+'</small></span><b class="sv">'+v+'</b></div>'}).join('')}
+function statScHTML(){const S=statSeason();const f=CAR.sf==null?carMyL():CAR.sf;const lgOf=c=>typeof c==='number'?carLeagueOf(c):null;
+  const val=o=>f==='cup'?o.g[1]:f==='eu'?o.g[2]:f==='all'?o.g[0]+o.g[1]+o.g[2]:(lgOf(o.c)===+f?o.g[0]:0);
+  const L=Object.entries(S.p).map(([n,o])=>({n,c:o.c,g:val(o),s:o.s,m:o.m,all:o.g[0]+o.g[1]+o.g[2]})).filter(x=>x.g>0).sort((a,b)=>b.g-a.g||a.s-b.s).slice(0,25);
+  const own=new Set(CAR.cards.map(c=>c.n));
+  return statFilt('sF',f,true)+'<div class="lbl">'+(f==='cup'?'DFB-Pokal':f==='eu'?(CAR.euro?euName(CAR.euro.comp):'Europa'):f==='all'?'Alle Wettbewerbe':CL_NAME[f])+' · Saison '+seasonLbl(CAR.season)+'</div>'+
+    (L.length?'<div class="slist">'+rankRows(L,x=>x.g,x=>clubMid(x.c)+' · '+x.s+' Elfm. · '+Math.round(x.all/Math.max(1,x.s)*100)+' %',x=>own.has(x.n))+'</div>':'<div class="note">Noch keine Tore in dieser Saison.</div>')+
+    '<div class="note">Jedes Spiel besteht aus 5 Elfmetern pro Team. Simulierte Tore werden nach Schussstärke auf die 5 Schützen verteilt, deine selbst geschossenen Elfmeter zählen genau.</div>'}
+function statGkHTML(){const S=statSeason();const f=CAR.sgf==null?carMyL():CAR.sgf;const lgOf=c=>typeof c==='number'?carLeagueOf(c):'eu';
+  const L=Object.entries(S.k).map(([n,o])=>({n,c:o.c,sv:o.sv,f:o.f,ga:o.ga,m:o.m})).filter(x=>x.f>=5&&(f==='eu'?lgOf(x.c)==='eu':lgOf(x.c)===+f)).sort((a,b)=>b.sv-a.sv||b.sv/b.f-a.sv/a.f).slice(0,25);
+  const own=new Set(CAR.cards.map(c=>c.n));
+  return '<div class="chips" id="sG">'+[[1,'1. L'],[2,'2. L'],[3,'3. L'],[4,'RL']].concat(CAR.euro?[['eu','Europa']]:[]).map(([v,n])=>'<button class="'+(String(f)===String(v)?'on':'')+'" data-sg="'+v+'">'+n+'</button>').join('')+'</div>'+
+    '<div class="lbl">Paraden · Saison '+seasonLbl(CAR.season)+'</div>'+(L.length?'<div class="slist">'+rankRows(L,x=>x.sv,x=>clubMid(x.c)+' · '+x.m+' Sp. · '+Math.round(x.sv/x.f*100)+' % gehalten',x=>own.has(x.n))+'</div>':'<div class="note">Noch keine Paraden in dieser Saison.</div>')}
+function statMeHTML(){const S=statSeason();const car=CAR.sme==='car';const s=CAR.st;
+  let h='<div class="cstats"><div><b>'+s.pl+'</b><small>Spiele</small></div><div><b>'+s.w+'</b><small>Siege</small></div><div><b>'+s.hits+'</b><small>eigene Treffer</small></div><div><b>'+(s.shots?Math.round(s.hits/s.shots*100):0)+' %</b><small>Quote</small></div><div><b>'+(s.saves||0)+'</b><small>selbst gehalten</small></div><div><b>'+s.best+'</b><small>beste Serie</small></div></div>';
+  h+='<div class="seg sm" id="sMe" style="margin-top:10px"><div class="hl"></div><button data-v="sea">Diese Saison</button><button data-v="car">Karriere</button></div>';
+  const row=c=>{const o=car?(c.ls||{}):null;const p=S.p[c.n],k=S.k[c.n];let m,a,b,q;
+    if(c.gk){m=car?(o.m||0):(k?k.m:0);a=car?(o.f||0):(k?k.f:0);b=car?(o.sv||0):(k?k.sv:0)}else{m=car?(o.m||0):(p?p.m:0);a=car?(o.s||0):(p?p.s:0);b=car?(o.g||0):(p?p.g[0]+p.g[1]+p.g[2]:0)}q=a?Math.round(b/a*100)+'%':'–';
+    return '<button class="press mrow2'+(inXI(c)?' inl':'')+'" data-card="'+c.id+'"><span class="r-'+c.r+' mb2">'+ovr(c)+'</span><span class="sn"><b>'+esc(c.n)+'</b><small>'+(c.gk?'TW':c.pos||'')+' · '+fmIcon(c)+(c.by?' · '+ageTxt(c):'')+'</small></span><span class="mn"><b>'+m+'</b><small>Sp</small></span><span class="mn"><b>'+b+'<i>/'+a+'</i></b><small>'+(c.gk?'Parad.':'Tore')+'</small></span><span class="mn"><b>'+q+'</b><small>'+(c.gk?'geh.':'Quote')+'</small></span></button>'};
+  const xi=myXI();const ord=xi.f.concat(xi.gk?[xi.gk]:[]);const rest=CAR.cards.filter(c=>!inXI(c)).sort((a,b)=>{const g=x=>{const o=car?x.ls||{}:S.p[x.n]||S.k[x.n]||{};return o.m||0};return g(b)-g(a)||ovr(b)-ovr(a)});
+  h+='<div class="lbl">Aufstellung</div><div class="slist">'+ord.map(row).join('')+'</div>';
+  if(rest.length)h+='<div class="lbl">Bank</div><div class="slist">'+rest.map(row).join('')+'</div>';
+  return h}
+/* Platzierung pro Spieltag als Linie (1 oben) */
+function posChart(ph,n,zones){if(!ph||ph.filter(Boolean).length<2)return '<div class="note">Der Verlauf erscheint nach dem zweiten Spieltag.</div>';
+  const W=340,H=170,L=26,R=10,T=10,B=22;const N=Math.max(ph.length,2);const x=i=>L+i*(W-L-R)/(N-1),y=p=>T+(p-1)*(H-T-B)/Math.max(1,n-1);
+  let g='';[1,Math.ceil(n/2),n].forEach(p=>{g+='<line x1="'+L+'" x2="'+(W-R)+'" y1="'+y(p)+'" y2="'+y(p)+'" class="pg"/><text x="'+(L-6)+'" y="'+(y(p)+3.5)+'" class="pt" text-anchor="end">'+p+'</text>'});
+  (zones||[]).forEach(([a,b,cl])=>{g+='<rect x="'+L+'" width="'+(W-L-R)+'" y="'+(y(a)-((H-T-B)/Math.max(1,n-1))/2)+'" height="'+((b-a+1)*(H-T-B)/Math.max(1,n-1))+'" class="'+cl+'"/>'});
+  const pts=ph.map((p,i)=>p?[x(i),y(p),i,p]:null).filter(Boolean);
+  g+='<path d="'+pts.map((q,i)=>(i?'L':'M')+q[0].toFixed(1)+' '+q[1].toFixed(1)).join(' ')+'" class="pl"/>';const lp=pts[pts.length-1];
+  g+='<circle cx="'+lp[0]+'" cy="'+lp[1]+'" r="5" class="pd"/>';
+  [0,Math.floor((N-1)/2),N-1].forEach(i=>{g+='<text x="'+x(i)+'" y="'+(H-6)+'" class="pt" text-anchor="middle">'+(i+1)+'.</text>'});
+  g+=pts.map(q=>'<rect x="'+(q[0]-(W-L-R)/(N-1)/2)+'" y="'+T+'" width="'+((W-L-R)/(N-1))+'" height="'+(H-T-B)+'" class="hit" data-tip="'+(q[2]+1)+'. Spieltag · Platz '+q[3]+'"/>').join('');
+  return '<div class="pchart"><svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Platzierung pro Spieltag">'+g+'</svg><div class="ptip" id="pTip">'+(lp[2]+1)+'. Spieltag · Platz '+lp[3]+' · antippen für Details</div></div>'}
+function statHistHTML(){const l=carMyL();const n=CAR.lg[l].length;const zones=l===1?[[1,1,'z1'],[16,16,'z3'],[17,18,'z4']]:l===2?[[1,2,'z2'],[3,3,'z3'],[16,16,'z3'],[17,18,'z4']]:l===3?[[1,2,'z2'],[3,3,'z3'],[n-3,n,'z4']]:[[1,4,'z2']];
+  let h='<div class="lbl">'+CL_NAME[l]+' '+seasonLbl(CAR.season)+' · Platz pro Spieltag</div>'+posChart(CAR.ph,n,zones);
+  const A=(CAR.arch||[]).slice().reverse();const old=(CAR.hist||[]).filter(x=>!(CAR.arch||[]).some(a=>a.s===x.s)).slice().reverse();
+  h+='<div class="lbl">Archiv</div>';if(!A.length&&!old.length)return h+'<div class="note">Nach der ersten Saison stehen hier Platzierung, Titel und Torschützenkönige.</div>';
+  h+=A.map(a=>'<div class="arc"><div class="arh"><b>'+seasonLbl(a.s)+'</b><span>'+CL_SHORT[a.l]+' · Platz '+a.pos+' · '+a.pk+' Pkt'+(a.nl<a.l?' · Aufstieg':a.nl>a.l?' · Abstieg':'')+'</span></div>'+
+    (a.tro&&a.tro.length?'<div class="art">'+a.tro.map(t=>troName(t,a.l)).join(' · ')+'</div>':'')+
+    '<div class="arl"><span>Meister</span><b>'+(a.ch!=null?esc(CLUB[a.ch].mid):'–')+'</b></div><div class="arl"><span>Pokalsieger</span><b>'+(a.cup!=null?esc(teamOf(a.cup).mid):'–')+'</b></div>'+
+    '<div class="arl"><span>Torschützenkönig '+CL_SHORT[a.l]+'</span><b>'+(a.ts?esc(a.ts.n)+' ('+a.ts.g+')':'–')+'</b></div><div class="arl"><span>Dein bester Schütze</span><b>'+(a.my?esc(a.my.n)+' ('+a.my.g+')':'–')+'</b></div></div>').join('')+
+    old.map(x=>'<div class="arc"><div class="arh"><b>'+seasonLbl(x.s)+'</b><span>'+CL_SHORT[x.l]+' · Platz '+x.p+(x.nl<x.l?' · Aufstieg':x.nl>x.l?' · Abstieg':'')+'</span></div></div>').join('');
+  return h}
+function statBind(){subBind('sSub',CAR.ssub||'sc',v=>CAR.ssub=v);
+  document.querySelectorAll('[data-sf]').forEach(b=>b.onclick=()=>{const v=b.dataset.sf;CAR.sf=isNaN(+v)?v:+v;sfx('tap');carRender()});
+  document.querySelectorAll('[data-sg]').forEach(b=>b.onclick=()=>{const v=b.dataset.sg;CAR.sgf=isNaN(+v)?v:+v;sfx('tap');carRender()});
+  const me=$('#sMe');if(me){segSet(me,CAR.sme==='car'?'car':'sea');me.onclick=e=>{const b=e.target.closest('button');if(!b)return;CAR.sme=b.dataset.v;sfx('tap');carRender()}}
+  document.querySelectorAll('.mrow2[data-card]').forEach(b=>b.onclick=()=>{sfx('tap');cardSheet(+b.dataset.card)});
+  const tip=$('#pTip');document.querySelectorAll('.pchart .hit').forEach(r=>{const show=()=>{if(tip)tip.textContent=r.dataset.tip;document.querySelectorAll('.pchart .hit.on').forEach(z=>z.classList.remove('on'));r.classList.add('on')};r.addEventListener('pointerenter',show);r.addEventListener('pointerdown',show)})}
+
+/* Statistik an Liga, Europapokal, Spieltage und Saisonende anhängen */
+{const _ap=carApply;carApply=function(r){_ap(r);statRec(r,'l')};const _ea=euApply;euApply=function(E,r){_ea(E,r);statRec(r,'eu')};
+ const _cr=carRound;carRound=function(my){_cr(my);CAR.ph=CAR.ph||[];CAR.ph[CAR.R-1]=carTable(carMyL()).indexOf(CAR.club)+1};
+ const _cf=carFinish;carFinish=function(){_cf();statArchive()};const _ns=carNewSeason;carNewSeason=function(){CAR.ph=[];_ns()}}
 /* ================= DFB-Pokal ================= */
 const CUP_ST=['1. Runde','2. Runde','Achtelfinale','Viertelfinale','Halbfinale','Finale in Berlin'];
 const CUP_PRIZE=[120,220,380,650,1100,3000];
@@ -5758,7 +6092,7 @@ async function carPlayCup(self){if(carBusy)return;carBusy=true;let my=null;try{c
       else my=simGame(m[0],m[1],{ko:true,neutral:C.st===5})}
     carCupResolve(my);carSave();carRender()}finally{carBusy=false}carFlushToasts()}
 function carCupResolve(my){const C=CAR.cup;carCupDraw();const res=[];const next=[];
-  C.pairs.forEach(([h,a])=>{const r=(my&&my.h===h&&my.a===a)?my:simGame(h,a,{ko:true,neutral:C.st===5});res.push(r);next.push(r.gh>r.ga?h:a)});
+  C.pairs.forEach(([h,a])=>{const r=(my&&my.h===h&&my.a===a)?my:simGame(h,a,{ko:true,neutral:C.st===5});statRec(r,'cup');res.push(r);next.push(r.gh>r.ga?h:a)});
   let earn=0,xp=0;const stage=C.st;
   if(my){const home=my.h===CAR.club;const won=(home?my.gh>my.ga:my.ga>my.gh);carStatsMatch(my,home,won);
     if(won){earn+=CUP_PRIZE[stage];xp+=40+stage*15;if(stage<5)carGivePack('std','Pokal-Prämie: '+CUP_ST[stage]+' überstanden')}else{C.myOut=true;if(stage===5)earn+=1200}
@@ -5844,7 +6178,7 @@ function euPlayStep(my){const E=CAR.euro;const st=euStep(E);const P=EU_PRIZE[E.c
     return o}
   euDraw(E,st.s);const fin=st.s===4,second=st.leg===1;
   E.ties.forEach(t=>{const [h,a]=euLeg(t,st);const agg=second?[t.l1.ga,t.l1.gh]:null;
-    const r=(my&&my.h===h&&my.a===a)?my:simGame(h,a,{ko:second||fin,neutral:fin,agg});
+    const r=(my&&my.h===h&&my.a===a)?my:simGame(h,a,{ko:second||fin,neutral:fin,agg});statRec(r,'eu');
     if(fin){t.l1=r;t.w=r.gh>r.ga?r.h:r.a}else if(!second)t.l1=r;else{t.l2=r;const A=t.l1.ga+r.gh,B=t.l1.gh+r.ga;t.w=A>B?t.a:t.b}
     o.res.push(Object.assign({},r,second?{agg:euAggTxt(t)}:{}))});
   const meT=E.ties.find(t=>t.a===CAR.club||t.b===CAR.club);if(meT)o.my=o.res[E.ties.indexOf(meT)];
@@ -5992,7 +6326,7 @@ window.addEventListener('resize',()=>setTimeout(resize,50));
 window.addEventListener('orientationchange',()=>setTimeout(resize,300));
 document.addEventListener('visibilitychange',()=>{if(document.hidden)saveGame()});
 setSpeedUI();
-const had=loadGame();setTimeout(()=>loadClubCoas(),1200);
+const had=loadGame();coaBoot();setTimeout(()=>loadClubCoas(),1200);
 if(!had)newGame(SET.mode,SET.rule,(Math.random()*1e9)|0);
 if(had&&S.fights>0){$('#iCont').classList.remove('hidden');$('#iNew').classList.remove('tint')}else{$('#iNew').classList.add('tint')}
 clubCoaFix();updateIntro();updateHeader();carHomeBtn();setTimeout(()=>loadWikiExtras(),2500);
