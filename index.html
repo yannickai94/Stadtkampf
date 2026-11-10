@@ -603,6 +603,11 @@ body.rec #fight{bottom:max(var(--sb),10px)}
 .album{grid-template-columns:1fr!important}.carT2{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 /* Torwand-Auswahl mit Live-Vorschau */
 .walls{grid-template-columns:repeat(2,1fr)}.walls canvas{display:block;width:100%;border-radius:10px}.walls button{gap:4px;padding:8px}.walls b{font-size:13px}.walls small{font-size:10.5px}
+/* v4.5 Europapokal */
+.rline.tie b{display:flex;flex-direction:column;align-items:center;line-height:1.15}.rline.tie b em{font-style:normal;font-size:10px;font-weight:700;color:var(--sub);white-space:nowrap;margin-top:2px}
+.cupst.mdsel button{min-width:34px;padding:6px 0;text-align:center}
+.ctab.eu .cn .cc{font-style:normal;font-size:11px;margin-left:2px;opacity:.9}
+.twS i{width:13px;height:13px}
 </style>
 </head>
 <body>
@@ -749,7 +754,7 @@ body.rec #fight{bottom:max(var(--sb),10px)}
     <div class="twTitle" id="twTitle">Torwandschießen</div>
     <div class="twRow">
       <div class="twTeam" id="twA"><div class="twB"></div><div class="twN"></div><div class="twS"></div></div>
-      <div class="twScore"><b id="twSc">0 : 0</b><small id="twPh">Schuss 1/3</small></div>
+      <div class="twScore"><b id="twSc">0 : 0</b><small id="twPh">Schuss 1/5</small></div>
       <div class="twTeam r" id="twD"><div class="twB"></div><div class="twN"></div><div class="twS"></div></div>
     </div>
   </div>
@@ -1063,7 +1068,7 @@ function boxOfCells(set,minS){let b=[1e9,1e9,-1e9,-1e9];for(const c of set){cons
 const COA_KEY='kk_coa_v1';
 const COA_BUILTIN={"c0": "DEU Kiel (Alt.) COA.svg", "c1": "DEU Luebeck COA.svg", "c2": "DEU Flensburg COA.svg", "c3": "DEU Neumünster COA.svg", "c4": "DEU Kreis Dithmarschen COA.svg", "c5": "DEU Kreis Herzogtum Lauenburg COA.svg", "c6": "DEU Kreis Nordfriesland COA.svg", "c7": "DEU Kreis Ostholstein COA.svg", "c8": "DEU Kreis Pinneberg COA.svg", "c9": "DEU Kreis Plön COA.svg", "c10": "DEU Kreis Rendsburg-Eckernförde COA.svg", "c11": "DEU Kreis Schleswig-Flensburg COA.svg", "c12": "DEU Kreis Segeberg COA.svg", "c13": "DEU Kreis Steinburg COA.svg", "c14": "DEU Kreis Stormarn COA.svg", "c15": "DEU Hamburg COA.svg", "c16": "Bremen Wappen(Mittel).svg", "c17": "Wappen Bremerhaven.svg", "c18": "DEU Berlin COA.svg", "c19": "DEU Braunschweig COA.svg", "c20": "DEU Delmenhorst COA.svg", "c21": "DEU Emden COA.svg", "c22": "DEU Oldenburg COA.svg", "c23": "Osnabrück Wappen.svg", "c24": "DEU Salzgitter COA.svg", "c25": "DEU Wilhelmshaven COA.svg", "c26": "DEU Wolfsburg COA.svg", "c27": "Wappen Landkreis Ammerland.svg", "c28": "DEU Landkreis Aurich COA.svg", "c29": "Wappen Landkreis Celle.svg", "c30": "DEU Landkreis Cloppenburg COA.svg", "c31": "Wappen Landkreis Cuxhaven 2018.svg", "c32": "DEU Landkreis Diepholz COA.svg", "c33": "DEU Landkreis Emsland COA.svg", "c34": "DEU Landkreis Friesland COA.svg", "c35": "Wappen Landkreis Gifhorn.svg", "c36": "DEU Landkreis Goslar COA.svg", "c37": "DEU Landkreis Goettingen COA.svg", "c38": "DEU Landkreis Grafschaft Bentheim COA.svg", "c39": "DEU Landkreis Hameln-Pyrmont COA.svg", "c40": "Wappen der Region Hannover.svg", "c41": "DEU Landkreis Harburg COA.svg", "c42": "Wappen des Heidekreises.svg", "c43": "DEU Landkreis Helmstedt COA.svg", "c44": "Wappen Landkreis Hildesheim.svg", "c45": "DEU Landkreis Holzminden COA.svg", "c46": "DEU Landkreis Leer COA.svg", "c47": "Wappen Landkreis Lüchow-Dannenberg.svg", "c48": "DEU Landkreis Lüneburg COA.svg", "c49": "DEU Landkreis Nienburg, Weser COA.svg", "c50": "Wappen Landkreis Northeim.svg", "c51": "DEU Landkreis Oldenburg COA.svg", "c52": "DEU Landkreis Osnabrück COA.svg", "c53": "DEU Landkreis Osterholz COA.svg", "c54": "DEU Landkreis Peine COA.svg", "c55": "DEU Landkreis Rotenburg Wuemme COA.svg", "c56": "DEU Landkreis Schaumburg COA.svg", "c57": "Wappen Landkreis Stade.svg", "c58": "DEU Landkreis Uelzen COA.svg", "c59": "DEU Landkreis Vechta COA.svg", "c60": "DEU Landkreis Verden COA.svg", "c61": "DEU Landkreis Wesermarsch COA.svg", "c62": "DEU Landkreis Wittmund COA.svg", "c63": "Wappen Landkreis Wolfenbüttel.svg", "c64": "DEU Bielefeld COA.svg", "c65": "DEU Bochum COA.svg", "c66": "DEU Bonn COA.svg", "c67": "DEU Bottrop COA.svg", "c68": "DEU Dortmund COA.svg", "c69": "DEU Duisburg COA.svg", "c70": "DEU Düsseldorf COA.svg", "c71": "DEU Essen COA.svg", "c72": "DEU Gelsenkirchen COA.svg", "c73": "DEU Hagen COA.svg", "c74": "DEU Hamm COA.svg", "c75": "DEU Herne COA.svg", "c76": "DEU Koeln COA.svg", "c77": "DEU Krefeld COA.svg", "c78": "DEU Leverkusen COA.svg", "c79": "DEU Moenchengladbach COA.svg", "c80": "DEU Mülheim an der Ruhr COA.svg", "c81": "DEU Münster COA.svg", "c82": "DEU Oberhausen COA.svg", "c83": "DEU Remscheid COA.svg", "c84": "DEU Solingen COA.svg", "c85": "DEU Wuppertal COA.svg", "c86": "DEU Staedteregion Aachen COA.svg", "c87": "DEU Kreis Borken COA.svg", "c88": "DEU Kreis Coesfeld COA.svg", "c89": "DEU Kreis Düren COA.svg", "c90": "DEU Ennepe-Ruhr-Kreis COA.svg", "c91": "DEU Kreis Euskirchen COA.svg", "c92": "DEU Kreis Gütersloh COA.svg", "c93": "DEU Kreis Heinsberg COA.svg", "c94": "DEU Kreis Herford COA.svg", "c95": "DEU Hochsauerlandkreis COA.svg", "c96": "DEU Kreis Höxter COA.svg", "c97": "DEU Kreis Kleve COA.svg", "c98": "DEU Kreis Lippe COA.svg", "c99": "DEU Märkischer Kreis COA.svg", "c100": "DEU Kreis Mettmann COA.svg", "c101": "DEU Kreis Minden-Luebbecke COA.svg", "c102": "DEU Oberbergischer Kreis COA.svg", "c103": "DEU Kreis Olpe COA.svg", "c104": "DEU Kreis Paderborn COA.svg", "c105": "DEU Kreis Recklinghausen COA.svg", "c106": "DEU Rhein-Erft-Kreis COA.svg", "c107": "DEU Rhein-Kreis Neuss COA.svg", "c108": "DEU Rheinisch-Bergischer Kreis COA.svg", "c109": "DEU Rhein-Sieg-Kreis COA.svg", "c110": "DEU Kreis Siegen-Wittgenstein COA.svg", "c111": "DEU Kreis Soest COA.svg", "c112": "DEU Kreis Steinfurt COA.svg", "c113": "Wappen Kreis Unna.svg", "c114": "DEU Kreis Viersen COA.svg", "c115": "DEU Kreis Warendorf COA.svg", "c116": "DEU Kreis Wesel COA.svg", "c117": "Wappen Darmstadt.svg", "c118": "DEU Frankfurt am Main COA.svg", "c119": "DEU Kassel COA.svg", "c120": "Wappen Offenbach am Main.svg", "c121": "DEU Wiesbaden COA.svg", "c122": "DEU Kreis Bergstrasse COA.svg", "c123": "DEU Landkreis Darmstadt-Dieburg COA.svg", "c124": "DEU Landkreis Fulda COA.svg", "c125": "DEU Landkreis Gießen COA.svg", "c126": "DEU Kreis Groß-Gerau COA.svg", "c127": "DEU Landkreis Hersfeld-Rotenburg COA.svg", "c128": "DEU Hochtaunuskreis COA.svg", "c129": "DEU Landkreis Kassel COA.svg", "c130": "DEU Lahn-Dill-Kreis COA.svg", "c131": "DEU Landkreis Limburg-Weilburg COA.svg", "c132": "DEU Main-Kinzig-Kreis COA.svg", "c133": "Wappen Main-Taunus-Kreis.svg", "c134": "DEU Landkreis Marburg-Biedenkopf COA.svg", "c135": "DEU Odenwaldkreis COA.svg", "c136": "Wappen Landkreis Offenbach.svg", "c137": "Wappen Rheingau-Taunus-Kreis.svg", "c138": "Wappen Schwalm-Eder-Kreis.svg", "c139": "DEU Vogelsbergkreis COA.svg", "c140": "Wappen Landkreis Waldeck-Frankenberg.svg", "c141": "DEU Werra-Meissner-Kreis COA.svg", "c142": "DEU Wetteraukreis COA.svg", "c143": "DEU Frankenthal COA.svg", "c144": "Kaiserslautern-Stadtwappen.svg", "c145": "DEU Koblenz COA.svg", "c146": "DEU Landau in der Pfalz COA.svg", "c147": "DEU Ludwigshafen COA.svg", "c148": "Coat of arms of Mainz-2008 new.svg", "c149": "DEU Neustadt an der Weinstrasse COA.svg", "c150": "Wappen Pirmasens.svg", "c151": "DEU Speyer COA.svg", "c152": "DEU Trier COA.svg", "c153": "DEU Worms COA.svg", "c154": "Wappen Zweibrücken.svg", "c155": "DEU Kreis Ahrweiler COA.svg", "c156": "DEU Landkreis Altenkirchen COA.svg", "c157": "DEU Landkreis Alzey-Worms COA.svg", "c158": "Wappen Landkreis Bad Dürkheim.svg", "c159": "DEU Landkreis Bad Kreuznach COA.svg", "c160": "DEU Landkreis Bernkastel-Wittlich COA.svg", "c161": "DEU Landkreis Birkenfeld COA.svg", "c163": "DEU Donnersbergkreis COA.svg", "c164": "DEU Eifelkreis Bitburg-Pruem COA.svg", "c165": "DEU Landkreis Germersheim COA.svg", "c166": "DEU Landkreis Kaiserslautern COA.svg", "c167": "DEU Landkreis Kusel COA.svg", "c168": "DEU Landkreis Mainz-Bingen COA.svg", "c169": "DEU Landkreis Mayen-Koblenz COA.svg", "c170": "DEU Landkreis Neuwied COA.svg", "c172": "DEU Rhein-Lahn-Kreis COA.svg", "c173": "DEU Rhein-Pfalz-Kreis COA.svg", "c174": "Wappen Landkreis Südliche Weinstraße.svg", "c175": "DEU Landkreis Suedwestpfalz COA.svg", "c176": "DEU Landkreis Trier-Saarburg COA.svg", "c177": "DEU Landkreis Vulkaneifel COA.svg", "c178": "DEU Westerwaldkreis COA.svg", "c179": "Wappen Stadtverband Saarbruecken.svg", "c180": "Wappen Landkreis Merzig-Wadern.svg", "c181": "Wappen Landkreis Neunkirchen.svg", "c182": "Wappen Landkreis Saarlouis.svg", "c183": "Wappen Saarpfalz-Kreis.svg", "c184": "Wappen Landkreis St Wendel.svg", "c185": "DEU Baden-Baden COA crowned.svg", "c186": "DEU Freiburg im Breisgau COA.svg", "c187": "Wappen Heidelberg.svg", "c188": "Wappen Heilbronn.svg", "c189": "DEU Karlsruhe COA.svg", "c190": "Wappen Mannheim.svg", "c191": "Wappen Pforzheim.svg", "c192": "DEU Stuttgart COA.svg", "c193": "DEU Ulm COA.svg", "c194": "Landkreiswappen des Landkreises Alb-Donau-Kreis.svg", "c195": "Wappen Landkreis Biberach.svg", "c196": "Bodenseekreis Wappen.svg", "c197": "DEU Landkreis Böblingen COA.svg", "c198": "DEU Landkreis Breisgau-Hochschwarzwald COA.svg", "c199": "Wappen Landkreis Calw.svg", "c200": "DEU Landkreis Emmendingen COA.svg", "c201": "Wappen Enzkreis.svg", "c202": "Wappen Landkreis Esslingen.svg", "c203": "Wappen Landkreis Freudenstadt.svg", "c204": "Wappen Landkreis Goeppingen.svg", "c205": "Wappen Landkreis Heidenheim.svg", "c206": "Wappen Landkreis Heilbronn.svg", "c207": "Wappen Hohenlohekreis.svg", "c208": "DEU Landkreis Karlsruhe COA.svg", "c209": "DEU Landkreis Konstanz COA.svg", "c210": "Wappen Landkreis Loerrach.svg", "c211": "Wappen Landkreis Ludwigsburg.svg", "c212": "Wappen Main-Tauber-Kreis.svg", "c213": "DEU Neckar-Odenwald-Kreis COA.svg", "c214": "DEU Ortenaukreis COA.svg", "c215": "DEU Ostalbkreis COA.svg", "c216": "Wappen Landkreis Rastatt.svg", "c217": "Wappen Landkreis Ravensburg2.svg", "c218": "DEU Rems-Murr-Kreis COA.svg", "c219": "Wappen Landkreis Reutlingen.svg", "c220": "COA Rhein-Neckar-Kreis.svg", "c221": "Wappen Landkreis Rottweil.svg", "c222": "DEU Landkreis Schwäbisch Hall COA.svg", "c223": "DEU Schwarzwald-Baar-Kreis COA.svg", "c224": "Wappen Landkreis Sigmaringen.svg", "c225": "DEU Landkreis Tübingen COA.svg", "c226": "Wappen Landkreis Tuttlingen.svg", "c227": "Wappen Landkreis Waldshut.svg", "c228": "Wappen Zollernalbkreis.svg", "c229": "DEU Amberg COA.svg", "c230": "DEU Ansbach COA.svg", "c231": "DEU Aschaffenburg COA.svg", "c232": "DEU Augsburg COA 1811.svg", "c233": "DEU Bamberg COA.svg", "c234": "Wappen von Bayreuth.svg", "c235": "DEU Coburg COA.svg", "c236": "DEU Erlangen COA.svg", "c237": "DEU Fürth COA.svg", "c238": "DEU Hof COA.svg", "c239": "DEU Ingolstadt COA.svg", "c240": "DEU Kaufbeuren COA.svg", "c241": "DEU Kempten (Allgäu) COA.svg", "c242": "DEU Landshut COA.svg", "c243": "Wappen Memmingen.svg", "c244": "DEU München COA.svg", "c245": "DEU Nürnberg COA (klein).svg", "c246": "Wappen Passau.svg", "c247": "Wappen Regensburg.svg", "c248": "Wappen Rosenheim Neu.svg", "c249": "DEU Schwabach COA.svg", "c250": "DEU Schweinfurt COA.svg", "c251": "DEU Straubing COA.svg", "c253": "DEU Würzburg COA.svg", "c254": "DEU Landkreis Altötting COA.svg", "c255": "Wappen Landkreis Bad Toelz-Wolfratshausen.svg", "c256": "DEU Landkreis Berchtesgadener Land COA.svg", "c257": "Wappen Landkreis Dachau.svg", "c258": "DEU Landkreis Ebersberg COA.svg", "c259": "DEU Landkreis Eichstätt COA.svg", "c260": "DEU Landkreis Erding COA.svg", "c261": "DEU Landkreis Freising COA.svg", "c262": "Wappen des Landkreises Fürstenfeldbruck.svg", "c263": "DEU Landkreis Garmisch-Partenkirchen COA.svg", "c264": "Wappen Landkreis Landsberg am Lech.svg", "c265": "DEU Landkreis Miesbach COA.svg", "c267": "DEU Landkreis München COA.svg", "c268": "Wappen Landkreis Neuburg-Schrobenhausen.svg", "c270": "DEU Landkreis Rosenheim COA.svg", "c271": "Wappen Landkreis Starnberg.svg", "c272": "DEU Landkreis Traunstein COA.svg", "c273": "DEU Landkreis Weilheim-Schongau COA.svg", "c274": "DEU Landkreis Deggendorf COA.svg", "c275": "DEU Landkreis Dingolfing-Landau COA.svg", "c276": "DEU Landkreis Freyung-Grafenau COA.svg", "c277": "DEU Landkreis Kelheim COA.svg", "c278": "Wappen Landkreis Landshut.svg", "c279": "DEU Landkreis Passau COA.svg", "c280": "DEU Landkreis Regen COA.svg", "c281": "Wappen des Landkreises Rottal-Inn.svg", "c282": "DEU Landkreis Straubing-Bogen COA.svg", "c283": "DEU Landkreis Amberg-Sulzbach COA.svg", "c284": "DEU Landkreis Cham COA.svg", "c287": "DEU Landkreis Regensburg COA.svg", "c288": "DEU Landkreis Schwandorf COA.svg", "c289": "DEU Landkreis Tirschenreuth COA.svg", "c290": "DEU Landkreis Bamberg COA.svg", "c291": "Wappen Landkreis Bayreuth.svg", "c292": "Wappen landkreis coburg.svg", "c293": "DEU Landkreis Forchheim COA.svg", "c294": "DEU Landkreis Hof COA.svg", "c295": "Wappen des Landkreises Kronach.svg", "c296": "Wappen Landkreis Kulmbach.svg", "c297": "DEU Landkreis Lichtenfels COA.svg", "c299": "DEU Landkreis Ansbach COA.svg", "c300": "DEU Landkreis Erlangen-Höchstadt COA.svg", "c301": "DEU Landkreis Fürth COA.svg", "c302": "Wappen Landkreis Nürnberger Land.svg", "c304": "DEU Landkreis Roth COA.svg", "c305": "DEU Landkreis Weissenburg-Gunzenhausen COA.svg", "c306": "DEU Landkreis Aschaffenburg COA.svg", "c307": "DEU Landkreis Bad Kissingen COA.svg", "c308": "DEU Landkreis Haßberge COA.svg", "c309": "DEU Landkreis Kitzingen COA.svg", "c310": "DEU Landkreis Main-Spessart COA.svg", "c311": "DEU Landkreis Miltenberg COA.svg", "c312": "DEU Landkreis Rhön-Grabfeld COA.svg", "c313": "DEU Landkreis Schweinfurt COA.svg", "c314": "DEU Landkreis Würzburg COA.svg", "c315": "DEU Landkreis Aichach-Friedberg COA.svg", "c316": "DEU Landkreis Augsburg COA.svg", "c318": "DEU Landkreis Donau-Ries COA.svg", "c319": "DEU Landkreis Günzburg COA.svg", "c320": "DEU Landkreis Lindau Bodensee COA.svg", "c321": "Wappen Landkreis Neu-Ulm.svg", "c322": "Wappen Landkreis Oberallgaeu.svg", "c323": "Wappen Landkreis Ostallgaeu.svg", "c324": "DEU Landkreis Unterallgäu COA.svg", "c325": "Coat of arms of Chemnitz.svg", "c326": "Dresden Stadtwappen.svg", "c327": "Coat of arms of Leipzig.svg", "c328": "Wappen Landkreis Bautzen.svg", "c329": "Wappen Erzgebirgskreis.svg", "c330": "Wappen Landkreis Goerlitz.svg", "c331": "Wappen Landkreis Leipzig.svg", "c332": "Wappen vom Landkreis Meissen 2009.svg", "c333": "Wappen Mittelsachsen.svg", "c334": "Wappen vom Landkreis Nordsachsen.svg", "c335": "Wappen Landkreis Saechsische Schweiz-Osterzgebirge.svg", "c336": "Wappen Vogtlandkreis.svg", "c337": "Wappen vom Landkreis Zwickau.svg", "c338": "Wappen Dessau-Rosslau.svg", "c339": "DEU Halle (Saale) COA.svg", "c340": "Wappen Magdeburg.svg", "c341": "DE-ST 15-0-81 Altmarkkreis Salzwedel COA.svg", "c342": "DE-ST 15-0-82 Landkreis Anhalt-Bitterfeld COA.svg", "c343": "DE-ST 15-0-83 Landkreis Boerde COA.svg", "c344": "Wappen Burgenlandkreis.svg", "c345": "Wappen Landkreis Harz.svg", "c346": "DE-ST 15-0-86 Landkreis Jerichower Land COA.svg", "c347": "Wappen Landkreis Mansfeld-Suedharz.svg", "c348": "Wappen Saalekreis.svg", "c349": "Wappen Salzlandkreis.svg", "c350": "DE-ST 15-0-90 Landkreis Stendal COA.svg", "c351": "DE-ST 15-0-91 Landkreis Wittenberg COA.svg", "c352": "DEU Erfurt COA.svg", "c353": "Wappen Gera.svg", "c354": "Wappen Jena.svg", "c355": "DEU Suhl COA.svg", "c356": "DEU Weimar COA.svg", "c357": "Wappen Landkreis Altenburger Land.svg", "c358": "DEU Landkreis Eichsfeld COA.svg", "c359": "Wappen Landkreis Gotha.svg", "c360": "Wappen Landkreis Greiz.svg", "c361": "Wappen Landkreis Hildburghausen.svg", "c362": "DEU Ilm-Kreis COA.svg", "c363": "Wappen Kyffhäuserkreis.svg", "c364": "DEU Landkreis Nordhausen COA neu.svg", "c365": "Wappen Saale-Holzland-Kreis.svg", "c366": "Wappen Saale-Orla-Kreis.svg", "c367": "Wappen Landkreis Saalfeld-Rudolstadt.svg", "c368": "Wappen Landkreis Schmalkalden-Meiningen.svg", "c369": "Wappen Landkreis Sömmerda.svg", "c370": "DEU Landkreis Sonneberg COA.svg", "c371": "Wappen Unstrut-Hainich-Kreis.svg", "c372": "Wappen Wartburgkreis.svg", "c373": "Wappen Landkreis Weimarer Land.svg", "c374": "DEU Brandenburg an der Havel COA.svg", "c375": "DEU Cottbus COA.svg", "c376": "DEU Frankfurt (Oder) COA.svg", "c377": "DEU Potsdam COA.svg", "c378": "DEU Landkreis Barnim COA.svg", "c379": "Wappen Landkreis Dahme-Spreewald.svg", "c380": "Wappen des Landkreises Elbe-Elster.svg", "c381": "DEU Havelland COA.svg", "c382": "DEU Maerkisch-Oderland COA.svg", "c383": "DEU Oberhavel COA.svg", "c384": "Wappen des Landkreises Oberspreewald-Lausitz.svg", "c385": "Wappen Landkreis Oder-Spree.svg", "c386": "Wappen des Landkreises Ostprignitz-Ruppin.svg", "c387": "Wappen des Landkreises Potsdam-Mittelmark.svg", "c388": "Wappen des Landkreises Prignitz.svg", "c389": "DEU Landkreis Spree-Neisse COA.svg", "c390": "Wappen des Landkreises Teltow-Fläming.svg", "c391": "DEU Landkreis Uckermark COA.svg", "c392": "DEU Rostock COA.svg", "c393": "DEU Schwerin COA.svg", "c394": "DEU Landkreis Ludwigslust-Parchim COA.svg", "c395": "Wappen Mecklenburgische Seenplatte.svg", "c396": "DEU Nordwestmecklenburg COA.svg", "c398": "Wappen Landkreis Vorpommern-Greifswald.svg", "c399": "Wappen des Landkreises Vorpommern-Rügen.svg", "c252": "DEU Weiden in der Oberpfalz COA.svg", "c266": "DEU Landkreis Mühldorf am Inn COA.svg", "c269": "Wappen Landkreis Pfaffenhofen an der Ilm.svg", "c285": "DEU Landkreis Neumarkt in der Oberpfalz COA.svg", "c286": "DEU Landkreis Neustadt an der Waldnaab COA.svg", "c298": "Wappen Landkreis Wunsiedel im Fichtelgebirge.svg", "c303": "DEU Landkreis Neustadt a.d.Aisch-Bad Windsheim COA.svg", "c317": "DEU Landkreis Dillingen an der Donau COA.svg", "c397": "DEU Landkreis Rostock COA.svg", "LBW": "Greater coat of arms of Baden-Württemberg.svg", "LBY": "Coat of arms of Bavaria.svg", "LBE": "DEU Berlin COA.svg", "LBB": "DEU Brandenburg COA.svg", "LHB": "Bremen greater coat of arms.svg", "LHH": "DEU Hamburg COA.svg", "LHE": "Coat of arms of Hesse.svg", "LMV": "Coat of arms of Mecklenburg-Western Pomerania (great).svg", "LNI": "Coat of arms of Lower Saxony.svg", "LNW": "Coat of arms of North Rhine-Westphalia.svg", "LRP": "Coat of arms of Rhineland-Palatinate.svg", "LSL": "Wappen des Saarlands.svg", "LSN": "Coat of arms of Saxony.svg", "LST": "Wappen Sachsen-Anhalt.svg", "LSH": "DEU Schleswig-Holstein COA.svg", "LTH": "Coat of arms of Thuringia.svg", "c171": "DEU Rhein-Hunsrueck-Kreis COA.svg", "c162": "DEU Landkreis Cochem-Zell COA.svg"};
 let COA=Object.assign({},COA_BUILTIN);
-const VCOA_KEY='kk_vcoa_v1';let VCOA=store.get(VCOA_KEY)||{};if(VCOA._v===2)Object.keys(VCOA).forEach(k=>{if((k[0]==='V'||k[0]==='E')&&VCOA[k])COA[k]=VCOA[k]});
+const VCOA_KEY='kk_vcoa_v1';let VCOA=store.get(VCOA_KEY)||{};if(VCOA._v>=2)Object.keys(VCOA).forEach(k=>{if((k[0]==='V'||(k[0]==='E'&&VCOA._v===3))&&VCOA[k])COA[k]=VCOA[k]});
 const coaImgs={};let coaLoading=false;
 const CITY_TITLE={'Oldenburg':'Oldenburg (Oldb)','Hof':'Hof (Saale)'};
 const LAND_TITLE={HB:'Freie Hansestadt Bremen',BE:'Berlin',HH:'Hamburg'};
@@ -1074,10 +1079,35 @@ function titlesFor(c){const n=c.name;
   if(c.land==='NW'||c.land==='SH')return['Kreis '+n,'Landkreis '+n];
   return['Landkreis '+n,'Kreis '+n];}
 const coaKeyFac=f=>S&&S.mode==='land'?'L'+LAND_KEYS[f.id]:S&&S.mode==='liga'?'V'+f.id:'c'+f.home;
-function coaURL(f){if(f.slice(0,3)==='ew:')return 'https://en.wikipedia.org/wiki/Special:FilePath/'+encodeURIComponent(f.slice(3))+'?width=128';if(f.slice(0,3)==='dw:')return 'https://de.wikipedia.org/wiki/Special:FilePath/'+encodeURIComponent(f.slice(3))+'?width=128';return 'https://commons.wikimedia.org/wiki/Special:FilePath/'+encodeURIComponent(f)+'?width=128'}
+/* Wikimedia lässt nur noch Standard-Vorschaugrößen zu (20/40/60/120/250/330/500/960 px) und begrenzt Anfragen an die Wikis.
+   Darum: Bild-URL selbst berechnen (MD5-Pfad wie bei MediaWiki) und direkt vom Bildserver laden – mit Ersatz-URLs, falls die Datei woanders liegt. */
+function md5(s){const K=[],R=[7,12,17,22,5,9,14,20,4,11,16,23,6,10,15,21];for(let i=0;i<64;i++)K[i]=Math.floor(Math.abs(Math.sin(i+1))*4294967296)|0;
+  const b=unescape(encodeURIComponent(s)),n=b.length,W=[];for(let i=0;i<n;i++)W[i>>2]|=b.charCodeAt(i)<<(i%4*8);W[n>>2]|=0x80<<(n%4*8);const nw=((n+8>>6)+1)*16;for(let i=0;i<nw;i++)W[i]|=0;W[nw-2]=n*8;
+  let a0=0x67452301,b0=0xefcdab89|0,c0=0x98badcfe|0,d0=0x10325476;
+  for(let i=0;i<nw;i+=16){let A=a0,B=b0,C=c0,D=d0;for(let j=0;j<64;j++){let F,g;if(j<16){F=B&C|~B&D;g=j}else if(j<32){F=D&B|~D&C;g=(5*j+1)%16}else if(j<48){F=B^C^D;g=(3*j+5)%16}else{F=C^(B|~D);g=7*j%16}
+      const t=D;D=C;C=B;const x=A+F+K[j]+W[i+g]|0,sh=R[(j>>4)*4+j%4];B=B+(x<<sh|x>>>32-sh)|0;A=t}a0=a0+A|0;b0=b0+B|0;c0=c0+C|0;d0=d0+D|0}
+  return [a0,b0,c0,d0].map(v=>{let h='';for(let i=0;i<4;i++)h+=(v>>>i*8&255).toString(16).padStart(2,'0');return h}).join('')}
+const WM_UP='https://upload.wikimedia.org/wikipedia/';
+function wmNorm(n){n=String(n).trim().replace(/ /g,'_');return n.charAt(0).toUpperCase()+n.slice(1)}
+/* Schreibweise wie MediaWiki (wfUrlencode) – abweichende Kodierung wird vom Bildserver gedrosselt */
+function wmEnc(n){return encodeURIComponent(n).replace(/%3B/g,';').replace(/%40/g,'@').replace(/%24/g,'$').replace(/%2C/g,',').replace(/%2F/g,'/').replace(/%3A/g,':').replace(/'/g,'%27')}
+function wmPath(repo,n,w){const h=md5(n),e=wmEnc(n),d=h[0]+'/'+h.slice(0,2)+'/';if(!w)return WM_UP+repo+'/'+d+e;const x=/\.svg$/i.test(n)?'.png':/\.tiff?$/i.test(n)?'.jpg':'';return WM_UP+repo+'/thumb/'+d+e+'/'+w+'px-'+e+x}
+const WM_NEXT={};
+function wmChain(list){for(let i=0;i<list.length-1;i++)if(!WM_NEXT[list[i]])WM_NEXT[list[i]]=list[i+1];return list[0]}
+const COA_URLS={};
+function coaURL(f){if(COA_URLS[f])return COA_URLS[f];if(/^https?:/.test(f))return f;let repo=['commons'],n=f,host='commons.wikimedia.org';
+  if(f.slice(0,3)==='ew:'){repo=['en','commons'];n=f.slice(3);host='en.wikipedia.org'}else if(f.slice(0,3)==='dw:'){repo=['commons','de'];n=f.slice(3);host='de.wikipedia.org'}
+  n=wmNorm(n);return COA_URLS[f]=wmChain(repo.map(r=>wmPath(r,n,120)).concat(repo.map(r=>wmPath(r,n,0)),['https://'+host+'/wiki/Special:FilePath/'+wmEnc(n)+'?width=120']))}
+/* Lädt ein Bild nicht, nimmt es still die nächste Adresse (vor den eigenen onerror-Handlern) */
+document.addEventListener('error',e=>{const t=e.target;if(!t||!t.getAttribute)return;const tag=t.tagName;if(tag!=='IMG'&&tag!=='image')return;const cur=tag==='IMG'?t.getAttribute('src'):t.getAttribute('href');const nx=cur&&WM_NEXT[cur];
+  if(nx){e.stopImmediatePropagation();if(tag==='IMG')t.setAttribute('src',nx);else t.setAttribute('href',nx)}},true);
 function coaFile(key){return SET.coa&&COA[key]?COA[key]:null}
-function coaImg(key){const f=coaFile(key);if(!f)return null;let im=coaImgs[key];if(!im){im=new Image();im.decoding='async';im.onload=()=>{im._ok=true;dirty=true};im.onerror=()=>{im._bad=true;dirty=true};im.src=coaURL(f);coaImgs[key]=im}return im._ok?im:null}
-async function jget(u){const r=await fetch(u,{mode:'cors'});if(!r.ok)throw new Error('HTTP '+r.status);return r.json()}
+function coaImg(key){const f=coaFile(key);if(!f)return null;let im=coaImgs[key];if(!im){im=new Image();im.decoding='async';im.onload=()=>{im._ok=true;dirty=true};im.onerror=()=>{const nx=WM_NEXT[im._u];if(nx){im._u=nx;im.src=nx}else{im._bad=true;dirty=true}};im._u=coaURL(f);im.src=im._u;coaImgs[key]=im}return im._ok?im:null}
+let jgQ=Promise.resolve(),jgLast=0;
+async function jgOnce(u){for(let t=0;t<3;t++){const w=jgLast+350-Date.now();if(w>0)await new Promise(r=>setTimeout(r,w));jgLast=Date.now();
+    try{const r=await fetch(u,{mode:'cors'});if(r.status===429||r.status>=500){await new Promise(r=>setTimeout(r,3000*(t+1)));continue}if(!r.ok)throw new Error('HTTP '+r.status);return await r.json()}
+    catch(e){if(t===2)throw e;await new Promise(r=>setTimeout(r,2500*(t+1)))}}throw new Error('HTTP 429')}
+function jget(u){const p=jgQ.then(()=>jgOnce(u),()=>jgOnce(u));jgQ=p.catch(()=>{});return p}
 async function resolveQids(titles){const out={};for(let k=0;k<titles.length;k+=40){const ch=titles.slice(k,k+40);
   const j=await jget('https://de.wikipedia.org/w/api.php?action=query&format=json&formatversion=2&origin=*&redirects=1&prop=pageprops&ppprop=wikibase_item&titles='+encodeURIComponent(ch.join('|')));
   const q=j.query||{};const nm={},rd={},pg={};(q.normalized||[]).forEach(x=>nm[x.from]=x.to);(q.redirects||[]).forEach(x=>rd[x.from]=x.to);(q.pages||[]).forEach(p=>{if(p.pageprops&&p.pageprops.wikibase_item)pg[p.title]=p.pageprops.wikibase_item});
@@ -1090,7 +1120,8 @@ const CLUB_COA_FIX={WEH:'dw:Logo SV Wehen Wiesbaden.svg'};
 function clubCoaFix(){CLUB.forEach(k=>{const f=CLUB_COA_FIX[k.short];if(f)COA['V'+k.i]=f})}
 const isLogoFile=f=>/logo|wappen|emblem|crest|signet/i.test(f||'');
 async function loadClubCoas(force){
-  if(vcoaLoading||!SET.coa)return;if(!force&&VCOA._v===2&&Date.now()-VCOA._t<14*864e5&&VCOA._n>=40&&Object.keys(VCOA).some(k=>k[0]==='E'))return;
+  if(vcoaLoading||!SET.coa)return;const sig=CLUB.length+'/'+EURO.length+'/'+EURO[0].short+EURO[EURO.length-1].short;const good=VCOA._n>=CLUB.length*.8&&VCOA._ne>=EURO.length*.8;
+  if(!force&&VCOA._v===3&&VCOA._s===sig&&Date.now()-VCOA._t<(good?14*864e5:36e5))return;
   vcoaLoading=true;
   try{const titles=[...new Set(CLUB_WIKI)];const page={},qid={};
     for(let k=0;k<titles.length;k+=40){const ch=titles.slice(k,k+40);
@@ -1098,12 +1129,16 @@ async function loadClubCoas(force){
       const q=j.query||{};const nm={},rd={},pg={};(q.normalized||[]).forEach(x=>nm[x.from]=x.to);(q.redirects||[]).forEach(x=>rd[x.from]=x.to);(q.pages||[]).forEach(p=>pg[p.title]=p);
       for(const t of ch){let x=nm[t]||t;x=rd[x]||x;const p=pg[x];if(!p)continue;if(p.pageimage)page[t]=p.pageimage.replace(/_/g,' ');if(p.pageprops&&p.pageprops.wikibase_item)qid[t]=p.pageprops.wikibase_item}}
     let wd={};try{const all=await fetchFiles([...new Set(Object.values(qid))]);wd=all}catch(e){}
-    const out={_v:2,_t:Date.now()};let n=0;
+    const out={_v:3,_t:Date.now(),_s:sig};let n=0;
     try{const et=EURO.map(e=>e.wiki);for(let k=0;k<et.length;k+=40){const ch=et.slice(k,k+40);const j=await jget('https://de.wikipedia.org/w/api.php?action=query&format=json&formatversion=2&origin=*&redirects=1&prop=pageimages&piprop=name&titles='+encodeURIComponent(ch.join('|')));const q=j.query||{};const nm={},rd={},pg={};(q.normalized||[]).forEach(x=>nm[x.from]=x.to);(q.redirects||[]).forEach(x=>rd[x.from]=x.to);(q.pages||[]).forEach(p=>pg[p.title]=p);ch.forEach(t=>{let x=nm[t]||t;x=rd[x]||x;const p=pg[x];if(p&&p.pageimage){const e=EURO.find(z=>z.wiki===t);out['E'+e.i]='dw:'+p.pageimage.replace(/_/g,' ')}})}}catch(e){}
+    /* fehlende Europa-Wappen: englische Artikel (dort liegen viele Vereinslogos lokal) */
+    try{const miss=EURO.filter(e=>!out['E'+e.i]);for(let k=0;k<miss.length;k+=40){const ch=miss.slice(k,k+40).map(e=>e.en);const j=await jget('https://en.wikipedia.org/w/api.php?action=query&format=json&formatversion=2&origin=*&redirects=1&prop=pageimages&piprop=name&pilicense=any&titles='+encodeURIComponent(ch.join('|')));
+      const q=j.query||{};const nm={},rd={},pg={};(q.normalized||[]).forEach(x=>nm[x.from]=x.to);(q.redirects||[]).forEach(x=>rd[x.from]=x.to);(q.pages||[]).forEach(p=>pg[p.title]=p);
+      ch.forEach(t=>{let x=nm[t]||t;x=rd[x]||x;const p=pg[x];if(p&&p.pageimage){const e=EURO.find(z=>z.en===t);out['E'+e.i]='ew:'+p.pageimage.replace(/_/g,' ')}})}}catch(e){}
     CLUB_WIKI.forEach((t,i)=>{const pi=page[t],lg=qid[t]&&wd[qid[t]];const f=(pi&&(isLogoFile(pi)||/\.(svg|png|gif)$/i.test(pi)))?pi:(lg||pi);if(f){out['V'+i]='dw:'+f;n++}});
-    out._n=n;VCOA=out;store.set(VCOA_KEY,out);
-    Object.keys(COA).forEach(k=>{if(k[0]==='V')delete COA[k]});Object.keys(out).forEach(k=>{if(k[0]==='V'||k[0]==='E')COA[k]=out[k]});clubCoaFix();
-    Object.keys(coaImgs).forEach(k=>{if(k[0]==='V')delete coaImgs[k]});refreshCoaUI();if(S)updateTop3(true);
+    out._n=n;out._ne=EURO.filter(e=>out['E'+e.i]).length;VCOA=out;store.set(VCOA_KEY,out);
+    Object.keys(COA).forEach(k=>{if(k[0]==='V'||k[0]==='E')delete COA[k]});Object.keys(out).forEach(k=>{if(k[0]==='V'||k[0]==='E')COA[k]=out[k]});clubCoaFix();
+    Object.keys(coaImgs).forEach(k=>{if(k[0]==='V'||k[0]==='E')delete coaImgs[k]});refreshCoaUI();if(typeof CAR!=='undefined'&&CAR&&!$('#car').classList.contains('off'))carRender();if(S)updateTop3(true);
   }catch(e){console.warn('Vereinswappen',e)}
   vcoaLoading=false}
 function coaCount(){return Object.keys(COA).filter(k=>k[0]!=='_'&&COA[k]).length}
@@ -3207,18 +3242,20 @@ const twClampP=x=>clamp(x,.08,.86);
 function twProbFac(f,bonus){return twClampP(.34+(mult(f)-1)*.5+bonus*.035)}
 function twPack(fi,sh,st,pA,pD,bA,bD){const cnt=a=>a.filter(Boolean).length;const a=cnt(sh.A)+st.reduce((s,x)=>s+(x[0]?1:0),0),d=cnt(sh.D)+st.reduce((s,x)=>s+(x[1]?1:0),0);
   return{tw:true,sh,st,pA,pD,bA,bD,m:{A:mult(fi.A),D:mult(fi.D)},r:{A:[1,1,1],D:[1,1,1]},sA:a,sD:d,aw:a>d}}
-function twSimShots(pA,pD,R,draw){R=R||grnd;const sh={A:[],D:[]};for(let k=0;k<3;k++){sh.A.push(R()<pA);sh.D.push(R()<pD)}
+/* Torwandschießen: 5 Schüsse pro Team */
+const TW_N=5;
+function twSimShots(pA,pD,R,draw){R=R||grnd;const sh={A:[],D:[]};for(let k=0;k<TW_N;k++){sh.A.push(R()<pA);sh.D.push(R()<pD)}
   const st=[];let a=sh.A.filter(Boolean).length,d=sh.D.filter(Boolean).length;
   while(!draw&&a===d&&st.length<10){const x=R()<pA,y=R()<pD;st.push([x,y]);a+=x?1:0;d+=y?1:0}
   return{sh,st,a,d}}
 function twResolve(fi){const bA=bonusOf(fi.A,'A',fi),bD=bonusOf(fi.D,'D',fi);const pA=twProbFac(fi.A,bA.b),pD=twProbFac(fi.D,bD.b);
   const o=twSimShots(pA,pD);return twPack(fi,o.sh,o.st,pA,pD,bA,bD)}
 /* ---- Kampfkarte (Liga-Krieg) ---- */
-function twSlots(){['A','D'].forEach(k=>{const el=sideEl[k].querySelector('.shots');el.innerHTML='<i></i><i></i><i></i>'})}
+function twSlots(){['A','D'].forEach(k=>{const el=sideEl[k].querySelector('.shots');el.innerHTML='<i></i>'.repeat(TW_N)})}
 function twSlot(sd,idx){const el=sideEl[sd].querySelector('.shots');while(el.children.length<=idx){const i=document.createElement('i');i.className='st';el.appendChild(i)}return el.children[idx]}
 async function twCardShot(sd,idx,hit,fast){const s=twSlot(sd,idx);s.className=(s.classList.contains('st')?'st ':'')+'fly';sfx('roll');await sleep(fast?160:360);s.classList.remove('fly');s.classList.add(hit?'hit':'miss');sfx(hit?'land':'tap');await sleep(fast?40:120)}
-function twFillCard(res){twSlots();for(let k=0;k<3;k++)for(const sd of ['A','D'])twSlot(sd,k).classList.add(res.sh[sd][k]?'hit':'miss');
-  res.st.forEach((x,j)=>{twSlot('A',3+j).classList.add(x[0]?'hit':'miss');twSlot('D',3+j).classList.add(x[1]?'hit':'miss')})}
+function twFillCard(res){twSlots();for(let k=0;k<TW_N;k++)for(const sd of ['A','D'])twSlot(sd,k).classList.add(res.sh[sd][k]?'hit':'miss');
+  res.st.forEach((x,j)=>{twSlot('A',TW_N+j).classList.add(x[0]?'hit':'miss');twSlot('D',TW_N+j).classList.add(x[1]?'hit':'miss')})}
 async function twDuel(fi,quick){const res=resolve(fi);const {A,D}=fi;
   ['A','D'].forEach(k=>{const tags=(k==='A'?res.bA:res.bD).tags;const e=sideEl[k].querySelector('.inf');e.textContent=Math.round((k==='A'?res.pA:res.pD)*100)+' % Treffer'+(tags.length?' · '+tags.join(' '):'')});
   twSlots();sideEl.A.querySelector('.score').textContent='0';sideEl.D.querySelector('.score').textContent='0';
@@ -3228,9 +3265,9 @@ async function twDuel(fi,quick){const res=resolve(fi);const {A,D}=fi;
     Object.assign(res,twPack(fi,out.sh,out.st,res.pA,res.pD,res.bA,res.bD));twFillCard(res);setScore('A',res.sA);setScore('D',res.sD);await sleep(350);return res}
   if(quick){twFillCard(res);sfx('land');setScore('A',res.sA);setScore('D',res.sD);await sleep(480);await waitUnpause();return res}
   let a=0,d=0;
-  for(let k=0;k<3;k++)for(const sd of ['A','D']){const hit=res.sh[sd][k];await twCardShot(sd,k,hit);if(hit){if(sd==='A')a++;else d++;setScore(sd,sd==='A'?a:d);if(isMine((sd==='A'?A:D).id))haptic(1)}await waitUnpause()}
+  for(let k=0;k<TW_N;k++)for(const sd of ['A','D']){const hit=res.sh[sd][k];await twCardShot(sd,k,hit);if(hit){if(sd==='A')a++;else d++;setScore(sd,sd==='A'?a:d);if(isMine((sd==='A'?A:D).id))haptic(1)}await waitUnpause()}
   if(res.st.length){showComm('Gleichstand – Stechen!');say('Gleichstand! Stechen!',{cut:false});await sleep(600)}
-  for(let j=0;j<res.st.length;j++)for(const sd of ['A','D']){const hit=res.st[j][sd==='A'?0:1];await twCardShot(sd,3+j,hit,true);if(hit){if(sd==='A')a++;else d++;setScore(sd,sd==='A'?a:d)}await waitUnpause()}
+  for(let j=0;j<res.st.length;j++)for(const sd of ['A','D']){const hit=res.st[j][sd==='A'?0:1];await twCardShot(sd,TW_N+j,hit,true);if(hit){if(sd==='A')a++;else d++;setScore(sd,sd==='A'?a:d)}await waitUnpause()}
   return res}
 
 /* ---- Torwand-Szene: Flutlicht-Stadion ---- */
@@ -3340,14 +3377,14 @@ function twSwipe(G,aim,wind){const T=twCtx;return new Promise(res=>{const c=$('#
     res({u:a.u+wind*.0035+twGauss()*aim.sig*nv,v:a.v+twGauss()*aim.vsig*nv+twGauss()*aim.sig*.6*nv,rawV:a.v})}
   T.autoNow=()=>finish(null);const poll=setInterval(()=>{if(!T.autoNow){clearInterval(poll);return}if(twAborted()){clearInterval(poll);finish(null)}},200);
   c.addEventListener('pointerdown',down);c.addEventListener('pointermove',move);c.addEventListener('pointerup',up);c.addEventListener('pointercancel',up)})}
-function twRender(o,sc,ph){const row=sd=>sc[sd].map(h=>'<i class="'+(h==null?'':h?'hit':'miss')+'"></i>').join('');
+function twRender(o,sc,ph){if(o.agg)ph+=' · Gesamt '+(sc.a+o.agg.a)+':'+(sc.d+o.agg.d);const row=sd=>sc[sd].map(h=>'<i class="'+(h==null?'':h?'hit':'miss')+'"></i>').join('');
   $('#twA .twS').innerHTML=row('A');$('#twD .twS').innerHTML=row('D');$('#twSc').textContent=sc.a+' : '+sc.d;$('#twPh').textContent=ph}
 function twMsg(t,cls){const m=$('#twMsg');m.textContent=t;m.className='twMsg '+(cls||'');void m.offsetWidth;m.classList.add('on')}
 function twWindUI(w){const el=$('#twWind');if(w==null){el.classList.remove('on');return}const k=Math.abs(Math.round(w));el.innerHTML='<span style="transform:rotate('+(w<0?180:0)+'deg)">➜</span> Wind '+k+' km/h';el.classList.add('on')}
 function twPowUI(v){const el=$('#twPow');if(v==null){el.classList.remove('on');return}const y=t=>clamp(1-(t+.1)/1.3,0,1)*100;
   el.innerHTML='<i class="z" style="top:'+y(.73)+'%"></i><i class="z" style="top:'+y(.27)+'%"></i><b style="top:'+y(v)+'%"></b><small style="top:'+y(.73)+'%">oben</small><small style="top:'+y(.27)+'%">unten</small>';el.classList.add('on')}
 /* o={A,D,pA,pD,mine:'A'|'D'|'both'|null,n,aim:obj|fn(side,k,st),title,sub,ball,names} */
-async function twMatch(o){const el=$('#tw');const n=o.n||3;twCtx={open:true,ball:null,drag:false,ballSkin:o.ball||'classic',wallSkin:o.wall||'std',rot:0,abortable:!!o.abortable};
+async function twMatch(o){const el=$('#tw');const n=o.n||TW_N;const ag=o.agg||{a:0,d:0};twCtx={open:true,ball:null,drag:false,ballSkin:o.ball||'classic',wallSkin:o.wall||'std',rot:0,abortable:!!o.abortable};
   $('#twA .twB').innerHTML=o.A.badge;$('#twA .twN').textContent=o.A.name;$('#twD .twB').innerHTML=o.D.badge;$('#twD .twN').textContent=o.D.name;$('#twTitle').innerHTML=(o.logo||'')+esc((o.title||'Torwandschießen')+(o.sub?' · '+o.sub:''));
   el.classList.remove('off');$('#twMsg').className='twMsg';twWindUI(null);twPowUI(null);$('#twShooter').classList.remove('on');
   const sc={A:Array(n).fill(null),D:Array(n).fill(null),a:0,d:0};twRender(o,sc,'Schuss 1/'+n);requestAnimationFrame(twDraw);await twWait(380);
@@ -3361,7 +3398,7 @@ async function twMatch(o){const el=$('#tw');const n=o.n||3;twCtx={open:true,ball
       $('#twHint').classList.add('on');$('#twAuto').classList.toggle('hidden',o.mine==='both');
       const r=await twSwipe(g,aim,wind);$('#twHint').classList.remove('on');sh.classList.remove('on');
       if(r){const j=twJudge(g,r.u,r.v,0);s={u:r.u,v:r.v,res:j.res,i:j.i};twPowUI(r.rawV)}else{autoAll=true}}
-    if(!s){if(!me)twMsg((sd==='A'?o.A.name:o.D.name)+' schießt …','sm');await twWait(me?250:700);const p=me?clamp(.25+(1-(aim?aim.sig:.04)/.06)*.35,.12,.75):(sd==='A'?o.pA:o.pD);s=twAIShot(g,p)}
+    if(!s){if(!me)twMsg((sd==='A'?o.A.name:o.D.name)+' schießt …','sm');await twWait(me?250:700);const p=me?(o.pAuto!=null?o.pAuto:clamp(.25+(1-(aim?aim.sig:.04)/.06)*.35,.12,.75)):(sd==='A'?o.pA:o.pD);s=twAIShot(g,p)}
     $('#twAuto').classList.add('hidden');
     await twFly(g,s.u,s.v,s.res,s.i,wind);twPowUI(null);const hit=s.res==='hit';
     if(me&&hit){out.hits++;if(s.i===1)out.top++}
@@ -3369,11 +3406,12 @@ async function twMatch(o){const el=$('#tw');const n=o.n||3;twCtx={open:true,ball
     if(hit&&me&&SET.voice)say(['Drin!','Tor!','Versenkt!'][Math.random()*3|0],{cut:true});
     await twWait(hit?700:520);return hit}
   for(let k=0;k<n;k++)for(const sd of ['A','D']){const h=await shot(sd,k,false);sc[sd][k]=h;out.sh[sd].push(h);if(h)sc[sd==='A'?'a':'d']++;twRender(o,sc,'Schuss '+Math.min(n,k+(sd==='D'?2:1))+'/'+n)}
-  let j=0;while(!o.draw&&sc.a===sc.d&&j<10){if(j===0){twMsg('Gleichstand – Stechen!','big');if(SET.voice)say('Gleichstand! Stechen!');await twWait(1300)}twCtx.stechen=true;
+  let j=0;while(!o.draw&&sc.a+ag.a===sc.d+ag.d&&j<10){if(j===0){twMsg(o.agg?'Gesamt-Gleichstand – Stechen!':'Gleichstand – Stechen!','big');if(SET.voice)say('Gleichstand! Stechen!');await twWait(1300)}twCtx.stechen=true;
     const x=await shot('A',n+j,true);sc.A.push(x);if(x)sc.a++;twRender(o,sc,'Stechen '+(j+1));const y=await shot('D',n+j,true);sc.D.push(y);if(y)sc.d++;out.st.push([x,y]);twRender(o,sc,'Stechen '+(j+1));j++}
   out.a=sc.a;out.d=sc.d;out.auto=autoAll;twWindUI(null);
-  if(sc.a===sc.d){twMsg('Unentschieden','sm');sfx('land')}
-  else if(o.mine&&o.mine!=='both'){const won=(o.mine==='A'?sc.a>sc.d:sc.d>sc.a);twMsg(won?'Gewonnen!':'Verloren',won?'win':'lose');sfx(won?'fan':'land');if(won)haptic(2)}
+  const ta=sc.a+ag.a,td=sc.d+ag.d;
+  if(ta===td){twMsg(o.agg?'Gesamt '+ta+' : '+td:'Unentschieden','sm');sfx('land')}
+  else if(o.mine&&o.mine!=='both'){const won=(o.mine==='A'?ta>td:td>ta);twMsg(o.agg?(won?'Weiter! Gesamt '+ta+' : '+td:'Ausgeschieden · '+ta+' : '+td):won?'Gewonnen!':'Verloren',won?'win':'lose');sfx(won?'fan':'land');if(won)haptic(2)}
   else{twMsg((sc.a>sc.d?o.A.name:o.D.name)+' gewinnt!','win');sfx('fan')}
   await twWait(1600);el.classList.add('off');twCtx.open=false;twCtx=null;return out}
 
@@ -3608,13 +3646,26 @@ function carMapInit(){newGame('liga','total',CAR.seed,{ligen:LIGA_ALL});S.career
 /* ---- Spieltag ---- */
 function carApply(r){const H=CAR.tab[r.h],A=CAR.tab[r.a];const hw=r.gh>r.ga,dr=r.gh===r.ga;H.sp++;A.sp++;H.tf+=r.gh;H.tg+=r.ga;A.tf+=r.ga;A.tg+=r.gh;
   if(dr){H.u=(H.u||0)+1;A.u=(A.u||0)+1;H.pk++;A.pk++}else if(hw){H.s++;A.n++;H.pk+=3}else{A.s++;H.n++;A.pk+=3}H.fo.push(dr?'U':hw?'S':'N');A.fo.push(dr?'U':hw?'N':'S');if(H.fo.length>5)H.fo.shift();if(A.fo.length>5)A.fo.shift()}
-function carSim(h,a,ko){const o=twSimShots(carP(h,true),carP(a,false),Math.random,!ko);return{h,a,gh:o.a,ga:o.d,st:o.st.length>0}}
+/* ---- Realistisches Ergebnismodell: Tore nach Poisson, Erwartungswert aus der Stärke (EA-Punkte) ----
+   Kalibriert auf die Bundesliga: ~3 Tore pro Spiel, ~22 % Remis, Heimvorteil ~0,3 Tore */
+const SC_K=.055,SC_H=1.57,SC_A=1.27,SC_N=1.4;
+function poi(l){const L=Math.exp(-l);let k=0,p=Math.random();while(p>L&&k<11){k++;p*=Math.random()}return k}
+function carR(id,home){if(isEu(id))return teamOf(id).rt;let r=CAR.rt[id]+(id===CAR.club?carTeamBonus():0);
+  if(CAR.map==='live'&&S&&S.career&&F[id])r+=Math.min(5,F[id].area/S.total*100*.5);if(home&&id===CAR.club)r+=CAR.up.fans*1.5;return r}
+function scoreLam(h,a,neutral){const d=(carR(h,!neutral)-carR(a,false))/1.6;return[clamp((neutral?SC_N:SC_H)*Math.exp(SC_K*d),.2,3.9),clamp((neutral?SC_N:SC_A)*Math.exp(-SC_K*d),.15,3.6)]}
+/* o: {ko, neutral, agg:[Tore h, Tore a] aus dem Hinspiel} – im K.-o. bei Gleichstand Stechen (+1 für den Sieger) */
+function simGame(h,a,o){o=o||{};const [lh,la]=scoreLam(h,a,o.neutral);const f=Math.exp((Math.random()-.5)*.16);const r={h,a,gh:poi(lh*f),ga:poi(la/f),st:false};
+  const ag=o.agg||[0,0];if(o.ko&&r.gh+ag[0]===r.ga+ag[1]){const pH=clamp(.5+(carR(h,false)-carR(a,false))*.004,.38,.62);if(Math.random()<pH)r.gh++;else r.ga++;r.st=true}return r}
+function carSim(h,a,ko){return simGame(h,a,{ko})}
+/* Eigenes Spiel an der Torwand (5 Schüsse): Gegner trifft so oft, wie er im Schnitt Tore schießt */
+const shotP=l=>clamp(l/5,.05,.88);
+function carShotPs(h,a,neutral){const [lh,la]=scoreLam(h,a,neutral);return{pA:shotP(lh),pD:shotP(la),lh,la}}
 function carNextMatch(){const l=carMyL();const rd=CAR.fx[l][CAR.R];return rd?rd.find(m=>m[0]===CAR.club||m[1]===CAR.club):null}
 async function carPlay(self){if(carBusy)return;carBusy=true;try{
   carCupCatchUp();const l=carMyL();const m=carNextMatch();let my=null;
-  if(m){const home=m[0]===CAR.club,opp=home?m[1]:m[0];const pMe=carP(CAR.club,home),pOp=twClampP(carP(opp,!home)-(home?CAR.up.fans*.02:0));
+  if(m){const home=m[0]===CAR.club,opp=home?m[1]:m[0];const pMe=carP(CAR.club,home);const ps=carShotPs(m[0],m[1]);
     if(CAR.map==='venue'&&S&&S.career){focus={a:m[0],d:m[1],on:true,ver:-1,cA:null,cD:null};setUserCam(false);flyTo(carBox([m[0],m[1]]),700)}
-    if(self){const out=await twMatch({A:carSide(m[0]),D:carSide(m[1]),pA:home?pMe:pOp,pD:home?pOp:pMe,mine:home?'A':'D',aim:carMyAim(pMe),draw:true,title:(CAR.R+1)+'. Spieltag',logo:compLogo(l),sub:CL_NAME[l],ball:CAR.ball,wall:CAR.wall});
+    if(self){const out=await twMatch({A:carSide(m[0]),D:carSide(m[1]),pA:ps.pA,pD:ps.pD,pAuto:home?ps.pA:ps.pD,mine:home?'A':'D',aim:carMyAim(pMe),draw:true,title:(CAR.R+1)+'. Spieltag',logo:compLogo(l),sub:CL_NAME[l],ball:CAR.ball,wall:CAR.wall});
       my={h:m[0],a:m[1],gh:out.a,ga:out.d,st:out.st.length>0,self:!out.auto,hits:out.hits,top:out.top,perf:out.sh[home?'A':'D'].every(Boolean)}}
     else my=carSim(m[0],m[1])}
   carRound(my);focus&&(focus.on=false);if(S&&S.career){setUserCam(false);flyTo(PBOX,700)}
@@ -3631,13 +3682,13 @@ function carRound(my){const out={};for(const l of [1,2,3,4]){if(CAR.R>=CAR.fx[l]
   carLiveMap();updateHeader()}
 /* ---- Saisonende, Relegation ---- */
 function carSeasonEnd(){while(CAR.cup&&CAR.cup.st<6){if(CAR.cup.alive.includes(CAR.club)&&!CAR.cup.myOut){const m=carCupMine();carCupResolve(carSim(m[0],m[1],true))}else{CAR.cup.myOut=true;CAR.cup.sl[CAR.cup.st]=0;carCupCatchUp()}}
-  while(CAR.euro&&!CAR.euro.out&&!CAR.euro.won&&(CAR.euro.md<6||CAR.euro.ko<4)){const E=CAR.euro;const m=E.cur||carEuroMatch();E.cur=null;const o=twSimShots(teamP(m[0],true),teamP(m[1],false),Math.random,E.md<6);carEuroResolve({h:m[0],a:m[1],gh:o.a,ga:o.d,st:o.st.length>0},E.md<6?'Gruppe':EU_KO[E.ko])}
+  euSimRest();
   CAR.last=null;while([1,2,3,4].some(l=>CAR.R<CAR.fx[l].length)){for(const l of [1,2,3,4])if(CAR.R<CAR.fx[l].length)for(const [h,a] of CAR.fx[l][CAR.R])carApply(carSim(h,a));CAR.R++}
   CAR.fin={};for(const l of [1,2,3,4])CAR.fin[l]=carTable(l);
   CAR.relq=[[CAR.fin[1][15],CAR.fin[2][2]],[CAR.fin[2][15],carUpList(3,CAR.fin[3])[2]]];CAR.relr=null;CAR.phase='rel';carLiveMap();carSave()}
 async function carRelegation(){if(carBusy)return;carBusy=true;try{CAR.relr=[];
-  for(const [hi,lo] of CAR.relq){let w;if(hi===CAR.club||lo===CAR.club){const home=hi===CAR.club;const pMe=carP(CAR.club,home),pOp=carP(home?lo:hi,!home);
-      const out=await twMatch({A:carSide(hi),D:carSide(lo),pA:home?pMe:pOp,pD:home?pOp:pMe,mine:home?'A':'D',aim:carMyAim(pMe),title:'Relegation',sub:CL_SHORT[carLeagueOf(hi)]+' gegen '+CL_SHORT[carLeagueOf(lo)],ball:CAR.ball,wall:CAR.wall});
+  for(const [hi,lo] of CAR.relq){let w;if(hi===CAR.club||lo===CAR.club){const home=hi===CAR.club;const pMe=carP(CAR.club,home);const ps=carShotPs(hi,lo);
+      const out=await twMatch({A:carSide(hi),D:carSide(lo),pA:ps.pA,pD:ps.pD,pAuto:home?ps.pA:ps.pD,mine:home?'A':'D',aim:carMyAim(pMe),title:'Relegation',sub:CL_SHORT[carLeagueOf(hi)]+' gegen '+CL_SHORT[carLeagueOf(lo)],ball:CAR.ball,wall:CAR.wall});
       w=out.a>out.d?hi:lo;CAR.relr.push({hi,lo,w,a:out.a,d:out.d})}
     else{const r=carSim(hi,lo,true);w=r.gh>r.ga?hi:lo;CAR.relr.push({hi,lo,w,a:r.gh,d:r.ga})}}
   carFinish();carSave();carRender()}finally{carBusy=false}carFlushToasts()}
@@ -3653,7 +3704,7 @@ function carFinish(){const T=CAR.fin,rr=CAR.relr;const oldL=carMyL();const pos=T
   // Stärke-Entwicklung
   [1,2,3,4].forEach(l=>nl[l].forEach(id=>{const was=carLeagueOf(id);let r=CAR.rt[id];if(l<was)r+=3;if(l>was)r-=3;r+=(eaRt(clubEA(id))+(CLUB[id].liga-l)*2-r)*.12+(Math.random()-.5)*3;CAR.rt[id]=Math.round(clamp(r,38,93))}));
   if(T[1][0]!=null)CAR.rt[T[1][0]]+=1;
-  CAR.hist.push({s:CAR.season,l:oldL,p:pos,nl:newL});if(oldL===1&&newL===1){if(pos<=4)CAR.euroNext='cl';else if(pos===5)CAR.euroNext='el';else if(pos===6)CAR.euroNext='ecl'}if(newL===1&&CAR.cup&&CAR.cup.won===CAR.club&&CAR.euroNext!=='cl')CAR.euroNext='el';sum.euro=CAR.euroNext||null;carGivePack(pos<=3?'gold':'std','Saisonabschluss: Platz '+pos);CAR.sum=sum;CAR.nl=nl;CAR.phase='end';carCheckAch()}
+  CAR.hist.push({s:CAR.season,l:oldL,p:pos,nl:newL});const de=euQualify(T[1],CAR.cup&&CAR.cup.won);CAR.euDE=de;CAR.euroNext=['cl','el','ecl'].find(k=>de[k].includes(CAR.club))||null;sum.euro=CAR.euroNext||null;carGivePack(pos<=3?'gold':'std','Saisonabschluss: Platz '+pos);CAR.sum=sum;CAR.nl=nl;CAR.phase='end';carCheckAch()}
 function carNewSeason(){CAR.lg=CAR.nl;CAR.nl=null;CAR.season++;carFixtures();carLiveMap();carSave();if(S&&S.career){F.forEach(f=>f.sub=CL_NAME[carLeagueOf(f.id)]+' · '+CLUB[f.id].town);updateHeader()}carView='day';carRender();
   miniToast('🗓️','Saison '+seasonLbl(CAR.season),CL_NAME[carMyL()]+' · '+CAR.fx[carMyL()].length+' Spieltage')}
 /* ---- Öffnen / Schließen ---- */
@@ -3689,8 +3740,8 @@ function carSetupHTML(){const ls=[1,2,3,4];const list=CLUB.filter(k=>k.liga===ca
   '<div class="lbl">Karte während der Saison</div><div class="seg" id="carPM"><div class="hl"></div><button data-v="live">Lebende Tabelle</button><button data-v="venue">Spielorte</button></div>'+
   '<div class="note">'+(carPickMap==='live'?'Die Karte zeigt die Tabelle: Wer viele Punkte holt, dehnt sein Gebiet aus. Größere Gebiete treffen etwas besser.':'Die Gebiete bleiben fest, die Karte zeigt, wo gespielt wird.')+'</div>'+
   '<button class="big glass tint press" id="carStart"'+(carPick==null?' disabled style="opacity:.5"':'')+'>'+(carPick==null?'Verein wählen':'🏆 Karriere mit '+esc(CLUB[carPick].mid)+' starten')+'</button>'}
-function resLine(r,hl){const H=teamOf(r.h),A=teamOf(r.a);const me=r.h===CAR.club||r.a===CAR.club;const hw=r.gh>r.ga,aw=r.ga>r.gh;
-  return '<div class="rline'+(me&&hl?' me':'')+'"><span class="'+(hw?'w':'')+'">'+esc(H.mid)+'</span><b>'+r.gh+':'+r.ga+(r.st?'<small> n.S.</small>':'')+'</b><span class="'+(aw?'w':'')+'">'+esc(A.mid)+'</span></div>'}
+function resLine(r,hl){const H=teamOf(r.h),A=teamOf(r.a);const me=r.h===CAR.club||r.a===CAR.club;const ag=r.agg?r.agg.split(' : ').map(Number):null;const hw=ag?ag[0]>ag[1]:r.gh>r.ga,aw=ag?ag[1]>ag[0]:r.ga>r.gh;
+  return '<div class="rline'+(ag?' tie':'')+(me&&hl?' me':'')+'"><span class="'+(hw?'w':'')+'">'+esc(H.mid)+'</span><b>'+r.gh+':'+r.ga+(r.st?'<small> n.S.</small>':'')+(ag?'<em>Gesamt '+ag[0]+':'+ag[1]+'</em>':'')+'</b><span class="'+(aw?'w':'')+'">'+esc(A.mid)+'</span></div>'}
 function carDailyHTML(){const d=carDaily();const D=CDAILY.find(x=>x.id===d.id);return '<div class="carCard2 daily'+(d.done?' done':'')+'"><span>📆</span><div><b>Tagesaufgabe</b><small>'+D.t+'</small></div><em>'+(d.done?'✓':d.p+'/'+D.g)+'</em></div>'}
 function carClubHTML(){const s=CAR.st;const ck='V'+CAR.club;
   let h='<div class="lbl">Trikots '+seasonLbl(CAR.season)+'</div><div class="kits"><div>'+kitHTML(ck,{w:92,full:1})+'<small>Heim</small></div>'+(WX.kit[ck]&&WX.kit[ck].a?'<div>'+kitHTML(ck,{w:92,full:1,away:1})+'<small>Auswärts</small></div>':'')+'</div>'+(WX.kit[ck]?'':'<div class="note">Original-Trikot wird geladen – bis dahin in Vereinsfarben.</div>');
@@ -3703,20 +3754,22 @@ function carClubHTML(){const s=CAR.st;const ck='V'+CAR.club;
   return h}
 let carResetArmed=false;
 function carEventCard(kind){const pre=kind==='cup';const C=CAR.cup,E=CAR.euro;let m,title,sub;
-  if(pre){m=carCupMine();title=(compLogo('cup','sm')||'🏆 ')+'DFB-Pokal';sub=CUP_ST[C.st]+' · '+C.alive.length+' Vereine im Topf'}else{m=E.cur||(E.cur=carEuroMatch());carSave();title=(compLogo(E.comp,'sm')||(E.comp==='cl'?'⭐ ':'🏅 '))+euName(E.comp);sub=E.md<6?'Gruppenphase · '+(E.md+1)+'. von 6 Spieltagen':EU_KO[E.ko]+(E.ko===3?' · Endspiel':'')}
-  const home=m[0]===CAR.club,opp=home?m[1]:m[0];const pMe=carP(CAR.club,home),pOp=teamP(opp,!home);
+  if(pre){m=carCupMine();title=(compLogo('cup','sm')||'🏆 ')+'DFB-Pokal';sub=CUP_ST[C.st]+' · '+C.alive.length+' Vereine im Topf'}else{m=E.cur||(E.cur=carEuroMatch());carSave();title=(compLogo(E.comp,'sm')||(E.comp==='cl'?'⭐ ':'🏅 '))+euName(E.comp);const st=euStep(E);
+    if(st.t==='md')sub='Ligaphase · '+(st.k+1)+'. von '+E.N+' Spieltagen · aktuell Platz '+(euRank(E).indexOf(CAR.club)+1)+' von 36';
+    else{const t=E.ties.find(t=>t.a===CAR.club||t.b===CAR.club);sub=EU_KO[st.s]+(st.s===4?' · Endspiel auf neutralem Platz':st.leg?' · Rückspiel · Hinspiel: '+esc(teamOf(t.l1.h).mid)+' '+t.l1.gh+':'+t.l1.ga+' '+esc(teamOf(t.l1.a).mid):' · Hinspiel')}}
+  const home=m[0]===CAR.club;const neutral=!pre&&euStep(E).t==='ko'&&euStep(E).s===4;
   return '<div class="carMatch ev '+kind+'"><div class="cmT">'+title+'</div><div class="cmS">'+sub+'</div><div class="cmR">'+
     [m[0],m[1]].map((id,ix)=>'<div class="cmC'+(id===CAR.club?' me':'')+'"><div class="cmK">'+teamBadge(id,'')+kitHTML(isEu(id)?'E'+teamOf(id).i:'V'+id,{w:40,away:ix===1})+'</div><b>'+esc(teamOf(id).mid)+'</b><small>'+(isEu(id)?esc(teamOf(id).name):CL_SHORT[carLeagueOf(id)])+'</small>'+starsHTML(clubStars(id))+'</div>').join('<div class="cmV">vs</div>')+'</div>'+
-    '<div class="cmP">Vereinsstärke · '+(home?'Heimspiel':'Auswärtsspiel')+'</div></div>'+
+    '<div class="cmP">Vereinsstärke · '+(neutral||(pre&&C.st===5)?'Neutraler Platz':home?'Heimspiel':'Auswärtsspiel')+'</div></div>'+
     '<button class="big glass tint press" id="'+(pre?'cupSelf':'euSelf')+'">⚽ Anpfiff – selbst schießen</button><button class="big glass press" id="'+(pre?'cupSim':'euSim')+'" style="margin-top:8px">⏩ Simulieren</button>'}
 function carDayHTML(){const l=carMyL();let h='';
   if(CAR.last&&CAR.phase!=='end'&&!CAR.last.shown){const L=CAR.last,my=L.my;
     const title=L.cup?'DFB-Pokal · '+CUP_ST[L.stage]:L.euro?euName(CAR.euro?CAR.euro.comp:'cl')+' · '+L.label:L.R+'. Spieltag';
     if(my){const home=my.h===CAR.club;const won=home?my.gh>my.ga:my.ga>my.gh;const dr=my.gh===my.ga;
-      h+='<div class="carRes '+(won?'win':dr?'draw':'lose')+'"><div class="crT">'+title+' · '+(won?'Sieg!':dr?'Unentschieden':'Niederlage')+'</div><div class="crS">'+teamBadge(my.h,'mb')+'<b>'+my.gh+' : '+my.ga+'</b>'+teamBadge(my.a,'mb')+'</div><div class="crN">'+esc(teamOf(my.h).mid)+' – '+esc(teamOf(my.a).mid)+(my.st?' · nach Stechen':'')+'</div>'+
-        (L.cup&&!won?'<div class="crN">Aus im Pokal</div>':'')+'<div class="crE">+'+fmtMoney(L.earn)+' · +'+L.xp+' XP</div></div>'}
-    const rs=L.cup?(L.res.cup||[]).filter(r=>r!==my).slice(0,10):L.euro?(L.res.eu||[]).filter(r=>r!==my):(L.res[l]||[]).filter(r=>r!==my);
-    if(rs.length)h+='<div class="lbl">'+(L.cup?'Weitere Pokalspiele':L.euro?'Gruppe':'Weitere Ergebnisse · '+CL_SHORT[l])+'</div><div class="rlist">'+rs.map(r=>resLine(r)).join('')+'</div>';
+      h+='<div class="carRes '+(won?'win':dr?'draw':'lose')+'"><div class="crT">'+title+' · '+(won?'Sieg!':dr?'Unentschieden':'Niederlage')+'</div><div class="crS">'+teamBadge(my.h,'mb')+'<b>'+my.gh+' : '+my.ga+'</b>'+teamBadge(my.a,'mb')+'</div><div class="crN">'+esc(teamOf(my.h).mid)+' – '+esc(teamOf(my.a).mid)+(my.st?' · nach Stechen':'')+(my.agg?' · Gesamt '+my.agg:'')+'</div>'+
+        (L.cup&&!won?'<div class="crN">Aus im Pokal</div>':'')+(L.note?'<div class="crN">'+esc(L.note)+'</div>':'')+'<div class="crE">+'+fmtMoney(L.earn)+' · +'+L.xp+' XP</div></div>'}
+    const rs=L.cup?(L.res.cup||[]).filter(r=>r!==my).slice(0,10):L.euro?(L.res.eu||[]).filter(r=>!my||!(r.h===my.h&&r.a===my.a)):(L.res[l]||[]).filter(r=>r!==my);
+    if(rs.length)h+='<div class="lbl">'+(L.cup?'Weitere Pokalspiele':L.euro?'Weitere Spiele':'Weitere Ergebnisse · '+CL_SHORT[l])+'</div><div class="rlist">'+rs.map(r=>resLine(r)).join('')+'</div>';
     const nx=CAR.phase==='rel'?'Weiter zur Relegation ›':carCupDue()&&CAR.cup.alive.includes(CAR.club)?'Weiter zum DFB-Pokal ›':carEuroDue()?'Weiter zum Europapokal ›':'Weiter zum '+(CAR.R+1)+'. Spieltag ›';
     h+='<button class="big glass tint press" id="carCont">'+nx+'</button>';return h}
   if(CAR.phase==='season'){carCupCatchUp();
@@ -3730,7 +3783,7 @@ function carDayHTML(){const l=carMyL();let h='';
           '<button class="big glass tint press" id="carSelf">⚽ Anpfiff – selbst schießen</button><button class="big glass press" id="carSim" style="margin-top:8px">⏩ Simulieren</button>'}
       else h+='<div class="note">Spielfrei an diesem Spieltag.</div><button class="big glass tint press" id="carSim">⏩ Spieltag simulieren</button>'}
     const nxt=[];if(CAR.cup&&CAR.cup.st<6&&CAR.cup.alive.includes(CAR.club)&&!carCupDue())nxt.push('🏆 Pokal-'+CUP_ST[CAR.cup.st]+' vor dem '+(CAR.cup.sl[CAR.cup.st]+1)+'. Spieltag');
-    if(CAR.euro&&!carEuroDue()&&!CAR.euro.out&&!CAR.euro.won){const E=CAR.euro;const r=E.md<6?E.sl[E.md]:E.kosl[E.ko];if(r!=null)nxt.push((E.comp==='cl'?'⭐ ':'🏅 ')+(E.md<6?'Gruppenspiel':EU_KO[E.ko])+' vor dem '+(r+1)+'. Spieltag')}
+    if(CAR.euro&&CAR.euro.v&&!carEuroDue()&&!CAR.euro.out){const E=CAR.euro;const st=euMyNext(E);if(st)nxt.push((E.comp==='cl'?'⭐ ':'🏅 ')+(st.t==='md'?'Ligaphase, '+(st.k+1)+'. Spieltag':EU_KO[st.s]+(st.s===4?'':st.leg?' (Rückspiel)':' (Hinspiel)'))+' vor dem '+(st.r+1)+'. Spieltag')}
     if(nxt.length)h+='<div class="nextev">'+nxt.map(x=>'<span>'+x+'</span>').join('')+'</div>'}
   else if(CAR.phase==='rel'){const pos=CAR.fin[l].indexOf(CAR.club)+1;
     h+='<div class="carH">Saison '+seasonLbl(CAR.season)+' beendet</div><div class="note" style="padding-top:0">Du bist '+pos+'. in der '+CL_NAME[l]+'.</div><div class="lbl">Relegation</div>'+
@@ -3770,23 +3823,38 @@ function carCupTabHTML(){const C=CAR.cup;const mine=C.alive.includes(CAR.club);c
   if(sel===C.st){if(C.pairs)return h+'<div class="note">'+when+' · ausgelost</div><div class="rlist">'+C.pairs.map(([a,b])=>'<div class="rline'+(a===CAR.club||b===CAR.club?' me':'')+'"><span>'+esc(teamOf(a).mid)+'</span><b>–:–</b><span>'+esc(teamOf(b).mid)+'</span></div>').join('')+'</div>';
     return h+'<div class="note">'+when+' · Auslosung kurz vor der Runde. Noch im Topf ('+C.alive.length+'):</div>'+chipTeams(C.alive.slice().sort((a,b)=>carLeagueOf(a)-carLeagueOf(b)||CAR.rt[b]-CAR.rt[a]))}
   return h+'<div class="note">'+when+(C.alive.length?' · '+(C.alive.length>>(sel-C.st))+' Vereine in dieser Runde':'')+'</div>'}
-/* ---- Runden antippbar: Europapokal ---- */
-function carEuTabHTML(){const E=CAR.euro;const T=carEuroTable();const ph=['Gruppe'].concat(EU_KO);
-  const gOut=E.md>=6&&E.out&&E.ko===0&&T.indexOf(CAR.club)>1;
-  const cls=i=>i===0?(gOut?'out':E.md>=6?'done':'now'):(gOut?((E.kres||[])[i-1]?'done':''):i-1<E.ko?'done':i-1===E.ko&&E.md>=6?(E.out?'out':'now'):(E.kres||[])[i-1]?'done':'');
-  const sel=carEuSel!=null?carEuSel:(E.md<6||gOut?0:Math.min(4,E.ko+1-(E.won?1:0)));
-  let h='<div class="lbl lgo">'+compLogo(E.comp,'sm')+euName(E.comp)+'</div><div class="cupst rsel">'+ph.map((n,i)=>'<button class="press '+cls(i)+(i===sel?' sel':'')+'" data-er="'+i+'">'+n+'</button>').join('')+'</div>';
-  if(sel===0){h+='<div class="ctab"><div class="ctr th"><span>#</span><span></span><span>Verein</span><span>Sp</span><span>S-U-N</span><span>Tr</span><span>Pkt</span></div>'+
-      T.map((id,i)=>{const t=E.tab[id];return '<div class="ctr '+(i<2?'z-u':'')+(id===CAR.club?' me':'')+'"><span>'+(i+1)+'</span>'+teamBadge(id,'mb')+'<span class="cn">'+esc(teamOf(id).mid)+'</span><span>'+t.sp+'</span><span>'+t.s+'-'+(t.u||0)+'-'+t.n+'</span><span>'+(t.tf-t.tg>0?'+':'')+(t.tf-t.tg)+'</span><b>'+t.pk+'</b></div>'}).join('')+'</div>';
-    h+='<div class="note">'+(E.won?'⭐ Titel gewonnen!':gOut?'In der Gruppe ausgeschieden.':'Die ersten zwei der Gruppe erreichen das Achtelfinale.')+'</div>';
-    const g=E.gres||[];if(g.length){for(let md=Math.max(...g.map(r=>r.md));md>=0;md--){const rs=g.filter(r=>r.md===md);if(rs.length)h+='<div class="lbl">'+(md+1)+'. Spieltag</div><div class="rlist">'+rs.map(r=>resLine(r,true)).join('')+'</div>'}}
-    else if(E.md<6)h+='<div class="note">Nächstes Gruppenspiel vor dem '+(E.sl[E.md]+1)+'. Spieltag.</div>';
+/* ---- Europapokal: Ligaphase (36er-Tabelle, Spieltage antippbar) + K.-o.-Runden mit Hin- und Rückspiel ---- */
+let carEuMd=null;
+function euTieLine(t,s){const me=t.a===CAR.club||t.b===CAR.club;const L=x=>esc(teamOf(x).mid);let x=t.a,y=t.b,mid='–:–',sub='';
+  if(s===4){if(t.l1){x=t.l1.h;y=t.l1.a;mid=t.l1.gh+':'+t.l1.ga+(t.l1.st?'<small> n.S.</small>':'')}}
+  else if(t.l1){const h1=t.l1.ga+':'+t.l1.gh;if(t.l2){mid=euAggTxt(t).replace(' : ',':');sub='Hin '+h1+' · Rück '+t.l2.gh+':'+t.l2.ga+(t.l2.st?' n.S.':'')}else{mid=h1;sub='Hinspiel · Rückspiel offen'}}
+  return '<div class="rline tie'+(me?' me':'')+'"><span class="'+(t.w===x?'w':'')+'">'+L(x)+'</span><b>'+mid+(sub?'<em>'+sub+'</em>':'')+'</b><span class="'+(t.w===y?'w':'')+'">'+L(y)+'</span></div>'}
+function euPrevTies(E,s){/* Vorschau nach aktuellem Tabellenstand */const R=euRank(E);if(s===0)return Array.from({length:8},(_,i)=>({a:R[8+i],b:R[23-i]}));return EU_BR.map(k=>({a:R[k-1],b:null}))}
+function carEuTabHTML(){const E=CAR.euro;const T=euRank(E);const ph=['Ligaphase'].concat(EU_KO);const lpDone=E.step>=E.N||E.gres.length>=E.N;
+  const curS=E.ties?E.tieS:E.kres.length;const myIn=s=>(E.kres[s]||[]).concat(E.tieS===s&&E.ties?E.ties:[]).some(t=>t.a===CAR.club||t.b===CAR.club);
+  const cls=i=>{if(i===0)return lpDone?(E.lpOut?'out':'done'):'now';const s=i-1;if(E.kres[s])return myIn(s)&&E.kres[s].some(t=>(t.a===CAR.club||t.b===CAR.club)&&t.w!==CAR.club)?'out':'done';return lpDone&&s===curS?'now':''};
+  const autoSel=!lpDone?0:Math.min(5,(E.ties?E.tieS:E.kres.length)+(E.ties||E.kres.length<5?1:0));
+  const sel=carEuSel!=null?carEuSel:autoSel;
+  let h='<div class="lbl lgo">'+compLogo(E.comp,'sm')+euName(E.comp)+' · '+seasonLbl(CAR.season)+'</div><div class="cupst rsel">'+ph.map((n,i)=>'<button class="press '+cls(i)+(i===sel?' sel':'')+'" data-er="'+i+'">'+n+'</button>').join('')+'</div>';
+  if(E.won)h+='<div class="note">🏆 Du hast die '+euName(E.comp)+' gewonnen!</div>';else if(E.champ!=null)h+='<div class="note">🏆 Sieger: '+esc(teamOf(E.champ).name)+'</div>';
+  if(sel===0){const pos=T.indexOf(CAR.club)+1;const zone=i=>i<8?'z-u':i<24?'z-r':'z-d';
+    h+='<div class="note">'+(lpDone?(E.lpOut?'Platz '+pos+' – in der Ligaphase ausgeschieden.':'Platz '+pos+' – '+(pos<=8?'direkt im Achtelfinale.':'weiter in den K.-o.-Playoffs.')):'Du bist aktuell '+pos+'. von 36 · '+E.gres.length+' von '+E.N+' Spieltagen gespielt.')+'</div>';
+    h+='<div class="ctab eu"><div class="ctr th"><span>#</span><span></span><span>Verein</span><span>Sp</span><span>S-U-N</span><span>Tr</span><span>Pkt</span></div>'+
+      T.map((id,i)=>{const t=E.tab[id];return '<div class="ctr '+zone(i)+(id===CAR.club?' me':'')+'"><span>'+(i+1)+'</span>'+teamBadge(id,'mb')+'<span class="cn">'+esc(teamOf(id).mid)+' <i class="cc">'+ccFlag(teamCC(id))+'</i></span><span>'+t.sp+'</span><span>'+t.s+'-'+t.u+'-'+t.n+'</span><span>'+(t.tf-t.tg>0?'+':'')+(t.tf-t.tg)+'</span><b>'+t.pk+'</b></div>'}).join('')+'</div>';
+    h+='<div class="note">🟢 1–8 Achtelfinale · 🟠 9–24 K.-o.-Playoffs · 🔴 25–36 ausgeschieden · Sieg 3, Remis 1</div>';
+    const md=carEuMd!=null?carEuMd:Math.min(E.N-1,Math.max(0,E.gres.length-(E.gres.length>=E.N?1:0)));
+    h+='<div class="lbl">Spieltage</div><div class="cupst rsel mdsel">'+Array.from({length:E.N},(_,k)=>'<button class="press '+(E.gres[k]?'done':k===E.gres.length?'now':'')+(k===md?' sel':'')+'" data-emd="'+k+'">'+(k+1)+'</button>').join('')+'</div>';
+    const st=E.sched.find(x=>x.t==='md'&&x.k===md);
+    if(E.gres[md])h+='<div class="note">'+(md+1)+'. Spieltag · alle 18 Spiele</div><div class="rlist">'+E.gres[md].slice().sort((a,b)=>((b.h===CAR.club||b.a===CAR.club)-(a.h===CAR.club||a.a===CAR.club))).map(r=>resLine(r,true)).join('')+'</div>';
+    else h+='<div class="note">'+(md+1)+'. Spieltag · vor dem '+(st.r+1)+'. Liga-Spieltag</div><div class="rlist">'+E.fx[md].slice().sort((a,b)=>(b.includes(CAR.club)-a.includes(CAR.club))).map(([a,b])=>'<div class="rline'+(a===CAR.club||b===CAR.club?' me':'')+'"><span>'+esc(teamOf(a).mid)+'</span><b>–:–</b><span>'+esc(teamOf(b).mid)+'</span></div>').join('')+'</div>';
     return h}
-  const k=sel-1;const when=E.kosl[k]!=null?'Termin: vor dem '+(E.kosl[k]+1)+'. Spieltag':'';
-  if(E.kres&&E.kres[k])return h+(k===3&&(E.won||E.champ!=null)?'<div class="note">🏆 Sieger: '+esc(teamOf(E.won?CAR.club:E.champ).name)+'</div>':'')+'<div class="rlist">'+E.kres[k].slice().sort((a,b)=>((b.h===CAR.club||b.a===CAR.club)-(a.h===CAR.club||a.a===CAR.club))).map(r=>resLine(r,true)).join('')+'</div>';
-  if(E.md>=6&&!E.out&&k===E.ko){euBracket(E);carSave();const pr=[];for(let i=0;i<E.br.length;i+=2)pr.push([E.br[i],E.br[i+1]]);
-    return h+'<div class="note">'+when+' · Paarungen:</div><div class="rlist">'+pr.map(([a,b])=>'<div class="rline'+(a===CAR.club||b===CAR.club?' me':'')+'"><span>'+esc(teamOf(a).mid)+'</span><b>–:–</b><span>'+esc(teamOf(b).mid)+'</span></div>').join('')+'</div>'}
-  return h+'<div class="note">'+when+' · '+(16>>k)+' Teams'+(E.md<6?' · erst nach der Gruppenphase':'')+'</div>'}
+  const s=sel-1;const legs=E.sched.filter(x=>x.t==='ko'&&x.s===s);const when=legs.length?(s===4?'Finale vor dem '+(legs[0].r+1)+'. Liga-Spieltag (neutraler Ort)':'Hinspiel vor dem '+(legs[0].r+1)+'., Rückspiel vor dem '+(legs[1].r+1)+'. Liga-Spieltag'):'';
+  const n=[16,16,8,4,2][s];h+='<div class="note">'+when+' · '+n+' Teams'+(s===0?' (Platz 9–24)':s===1?' (Top 8 + Playoff-Sieger)':'')+'</div>';
+  const ties=E.kres[s]||(E.tieS===s&&E.ties?E.ties:null);
+  if(ties)return h+'<div class="rlist">'+ties.slice().sort((a,b)=>((b.a===CAR.club||b.b===CAR.club)-(a.a===CAR.club||a.b===CAR.club))).map(t=>euTieLine(t,s)).join('')+'</div>';
+  if(lpDone&&s===E.kres.length){euDraw(E,s);carSave();return h+'<div class="note">Paarungen (Rückspiel beim besser Platzierten):</div><div class="rlist">'+E.ties.map(t=>euTieLine(t,s)).join('')+'</div>'}
+  if(!lpDone&&s<=1){const pv=euPrevTies(E,s);return h+'<div class="note">Vorschau nach aktuellem Tabellenstand:</div><div class="rlist">'+pv.map(t=>'<div class="rline'+(t.a===CAR.club||t.b===CAR.club?' me':'')+'"><span>'+esc(teamOf(t.a).mid)+'</span><b>–:–</b><span>'+(t.b!=null?esc(teamOf(t.b).mid):'Playoff-Sieger')+'</span></div>').join('')+'</div>'}
+  return h+'<div class="note">Die Paarungen stehen nach der vorherigen Runde fest.</div>'}
 const ACH_PROG={hits50:()=>[CAR.st.hits,50],hits200:()=>[CAR.st.hits,200],streak5:()=>[CAR.st.best,5],streak10:()=>[CAR.st.best,10],season3:()=>[CAR.hist.length,3],daily5:()=>[CAR.st.dailies,5],rich:()=>[CAR.money,20000],collector:()=>[(CAR.cards||[]).length,20]};
 function carTroHTML(){const tro=CAR.tro;let h='<div class="lbl">Trophäenschrank</div>';
   const TROC={m1:1,m2:2,m3:3,m4:4,pokal:'cup',cl:'cl',el:'el',ecl:'ecl'};h+=tro.length?'<div class="tros">'+tro.slice().reverse().map(t=>{const n=troName(t.k);const lg=TROC[t.k]?compLogo(TROC[t.k],'tl'):'';return '<div class="tro"><span>'+(lg||n.split(' ')[0])+'</span><b>'+n.split(' ').slice(1).join(' ')+'</b><small>'+seasonLbl(t.s)+'</small></div>'}).join('')+'</div>':'<div class="note">Noch leer – hol dir die erste Schale!</div>';
@@ -3804,8 +3872,8 @@ function carBind(){const on=(id,f)=>{const e=$(id);if(e)e.onclick=f};
   const pl=$('#carPL');if(pl){segSet(pl,String(carPickL));pl.onclick=e=>{const b=e.target.closest('button');if(!b)return;carPickL=+b.dataset.v;carRender()}}
   const pm=$('#carPM');if(pm){segSet(pm,carPickMap);pm.onclick=e=>{const b=e.target.closest('button');if(!b)return;carPickMap=b.dataset.v;carRender()}}
   document.querySelectorAll('[data-pick]').forEach(b=>b.onclick=()=>{carPick=+b.dataset.pick;sfx('tap');carRender()});
-  const tl=$('#carTL');if(tl){segSet(tl,String(carTabL||carMyL()));tl.onclick=e=>{const b=e.target.closest('button');if(!b)return;const v=b.dataset.v;carTabL=isNaN(+v)?v:+v;carCupSel=null;carEuSel=null;carRender()}}
-  document.querySelectorAll('[data-cr]').forEach(b=>b.onclick=()=>{carCupSel=+b.dataset.cr;sfx('tap');carRender()});document.querySelectorAll('[data-er]').forEach(b=>b.onclick=()=>{carEuSel=+b.dataset.er;sfx('tap');carRender()});
+  const tl=$('#carTL');if(tl){segSet(tl,String(carTabL||carMyL()));tl.onclick=e=>{const b=e.target.closest('button');if(!b)return;const v=b.dataset.v;carTabL=isNaN(+v)?v:+v;carCupSel=null;carEuSel=null;carEuMd=null;carRender()}}
+  document.querySelectorAll('[data-cr]').forEach(b=>b.onclick=()=>{carCupSel=+b.dataset.cr;sfx('tap');carRender()});document.querySelectorAll('[data-er]').forEach(b=>b.onclick=()=>{carEuSel=+b.dataset.er;sfx('tap');carRender()});document.querySelectorAll('[data-emd]').forEach(b=>b.onclick=()=>{carEuMd=+b.dataset.emd;sfx('tap');carRender()});
   document.querySelectorAll('[data-up]').forEach(b=>b.onclick=()=>{const u=CUPG.find(x=>x.k===b.dataset.up);const lv=CAR.up[u.k];const c=upCost(u,lv);if(lv>=5||CAR.money<c){sfx('tap');return}
     CAR.money-=c;CAR.up[u.k]++;sfx('conq');haptic(1);carCheckAch();carSave();carRender();carFlushToasts()});
   document.querySelectorAll('[data-ball]').forEach(b=>b.onclick=()=>{const k=b.dataset.ball;if(!twBallOk(k)){sfx('tap');return}CAR.ball=k;carSave();carRender()});document.querySelectorAll('[data-wall]').forEach(b=>b.onclick=()=>{const k=b.dataset.wall;if(!twWallOk(k)){sfx('tap');return}CAR.wall=k;twBG=null;carSave();carRender()});twThumbRedraw();
@@ -3859,30 +3927,118 @@ function carMenuRender(){const b=$('#carMenuBody');if(!b||!CAR)return;b.innerHTM
 $('#carTabs').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;carView=b.dataset.v;carTabL=null;sfx('tap');carRender()});
 
 
-/* ================= Europäische Gegner ================= */
-/* [Name, Kurzname, Kürzel, Farbe 1, Farbe 2, Stärke, Wettbewerb, Wikipedia-Artikel] */
-const EURO=[['Real Madrid','Real','RMA','#ffffff','#febe10',90,'cl','Real Madrid'],['FC Barcelona','Barça','BAR','#a50044','#004d98',88,'cl','FC Barcelona'],
- ['Manchester City','Man City','MCI','#6cabdd','#1c2c5b',90,'cl','Manchester City'],['FC Liverpool','Liverpool','LIV','#c8102e','#ffffff',89,'cl','FC Liverpool'],
- ['FC Arsenal','Arsenal','ARS','#ef0107','#ffffff',88,'cl','FC Arsenal'],['Paris Saint-Germain','Paris SG','PSG','#004170','#da291c',88,'cl','Paris Saint-Germain'],
- ['Inter Mailand','Inter','INT','#0068a8','#111111',87,'cl','Inter Mailand'],['Atlético Madrid','Atlético','ATM','#cb3524','#ffffff',85,'cl','Atlético Madrid'],
- ['Juventus Turin','Juventus','JUV','#111111','#ffffff',84,'cl','Juventus Turin'],['AC Mailand','Milan','MIL','#fb090b','#111111',84,'cl','AC Mailand'],
- ['SSC Neapel','Neapel','NAP','#12a0d7','#ffffff',84,'cl','SSC Neapel'],['FC Chelsea','Chelsea','CHE','#034694','#ffffff',85,'cl','FC Chelsea'],
- ['Benfica Lissabon','Benfica','BEN','#e83030','#ffffff',82,'cl','Benfica Lissabon'],['FC Porto','Porto','POR','#003c8c','#ffffff',81,'cl','FC Porto'],
- ['Sporting Lissabon','Sporting','SPO','#008057','#ffffff',81,'cl','Sporting Lissabon'],['PSV Eindhoven','PSV','PSV','#ed1c24','#ffffff',80,'cl','PSV Eindhoven'],
- ['Ajax Amsterdam','Ajax','AJA','#d2122e','#ffffff',79,'el','Ajax Amsterdam'],['Feyenoord Rotterdam','Feyenoord','FEY','#e5021b','#ffffff',79,'el','Feyenoord Rotterdam'],
- ['Tottenham Hotspur','Tottenham','TOT','#132257','#ffffff',82,'el','Tottenham Hotspur'],['Aston Villa','Aston Villa','AVL','#670e36','#95bfe5',81,'el','Aston Villa'],
- ['AS Rom','AS Rom','ROM','#8e1f2f','#f0bc42',80,'el','AS Rom'],['Lazio Rom','Lazio','LAZ','#87d8f7','#ffffff',79,'el','Lazio Rom'],
- ['Olympique Marseille','Marseille','OM','#2faee0','#ffffff',79,'el','Olympique Marseille'],['AS Monaco','Monaco','MON','#e51b22','#ffffff',79,'el','AS Monaco'],
- ['FC Sevilla','Sevilla','SEV','#ffffff','#d81920',77,'el','FC Sevilla'],['FC Villarreal','Villarreal','VIL','#ffe667','#005187',79,'el','FC Villarreal'],
- ['Celtic Glasgow','Celtic','CEL','#018749','#ffffff',77,'el','Celtic Glasgow'],['Galatasaray Istanbul','Galatasaray','GAL','#a90432','#fdb912',79,'el','Galatasaray Istanbul'],
- ['Fenerbahçe Istanbul','Fenerbahçe','FEN','#163962','#ffed00',77,'el','Fenerbahçe Istanbul'],['FC Brügge','Brügge','BRU','#0068b3','#111111',77,'el','FC Brügge'],
- ['Olympique Lyon','Lyon','OL','#1a3d8f','#e30613',78,'el','Olympique Lyon'],['Real Betis Sevilla','Betis','BET','#00954c','#ffffff',77,'el','Real Betis Sevilla']].map((r,i)=>({i,name:r[0],mid:r[1],short:r[2],c1:r[3],c2:r[4],rt:r[5],comp:r[6],wiki:r[7]}));
+/* ================= Europäische Gegner: echte Teilnehmer 2026/27 ================= */
+/* [Name, Kurzname, Kürzel, Farbe 1, Farbe 2, EA-FC-27-Stärke (kleinere Vereine geschätzt), Wettbewerb, Land, Wikipedia de, Wikipedia en]
+   Deutsche Starter kommen aus der eigenen Liga (CL 4, EL 2, ECL 1). */
+const EURO=[
+ ['AEK Athen','AEK','AEK','#ffd700','#111111',73,'cl','GR','AEK Athen','AEK Athens F.C.'],
+ ['FC Arsenal','Arsenal','ARS','#ef0107','#ffffff',84,'cl','EN','FC Arsenal','Arsenal F.C.'],
+ ['Aston Villa','Aston Villa','AVL','#670e36','#95bfe5',78,'cl','EN','Aston Villa','Aston Villa F.C.'],
+ ['Atlético Madrid','Atlético','ATM','#cb3524','#ffffff',81,'cl','ES','Atlético Madrid','Atlético Madrid'],
+ ['FC Barcelona','Barça','BAR','#a50044','#004d98',86,'cl','ES','FC Barcelona','FC Barcelona'],
+ ['FK Bodø/Glimt','Bodø/Glimt','BOD','#ffd700','#111111',72,'cl','NO','FK Bodø/Glimt','FK Bodø/Glimt'],
+ ['FC Brügge','Brügge','BRU','#0068b3','#111111',72,'cl','BE','FC Brügge','Club Brugge KV'],
+ ['Como 1907','Como','COM','#1f4e9c','#ffffff',76,'cl','IT','Como 1907','Como 1907'],
+ ['Fenerbahçe Istanbul','Fenerbahçe','FEN','#163962','#ffed00',79,'cl','TR','Fenerbahçe Istanbul','Fenerbahçe S.K. (football)'],
+ ['Feyenoord Rotterdam','Feyenoord','FEY','#e5021b','#ffffff',76,'cl','NL','Feyenoord Rotterdam','Feyenoord'],
+ ['Galatasaray Istanbul','Galatasaray','GAL','#a90432','#fdb912',81,'cl','TR','Galatasaray Istanbul','Galatasaray S.K. (football)'],
+ ['Inter Mailand','Inter','INT','#0068a8','#111111',83,'cl','IT','Inter Mailand','Inter Milan'],
+ ['LASK','LASK','LAS','#111111','#ffffff',69,'cl','AT','LASK','LASK'],
+ ['RC Lens','Lens','LEN','#ffd400','#e2001a',75,'cl','FR','RC Lens','RC Lens'],
+ ['OSC Lille','Lille','LIL','#e01e13','#20325f',76,'cl','FR','OSC Lille','Lille OSC'],
+ ['FC Liverpool','Liverpool','LIV','#c8102e','#ffffff',85,'cl','EN','FC Liverpool','Liverpool F.C.'],
+ ['Manchester City','Man City','MCI','#6cabdd','#1c2c5b',85,'cl','EN','Manchester City','Manchester City F.C.'],
+ ['Manchester United','Man United','MUN','#da291c','#ffffff',80,'cl','EN','Manchester United','Manchester United F.C.'],
+ ['SSC Neapel','Neapel','NAP','#12a0d7','#ffffff',81,'cl','IT','SSC Neapel','SSC Napoli'],
+ ['Paris Saint-Germain','Paris SG','PSG','#004170','#da291c',86,'cl','FR','Paris Saint-Germain','Paris Saint-Germain F.C.'],
+ ['FC Porto','Porto','POR','#003c8c','#ffffff',78,'cl','PT','FC Porto','FC Porto'],
+ ['PSV Eindhoven','PSV','PSV','#ed1c24','#ffffff',78,'cl','NL','PSV Eindhoven','PSV Eindhoven'],
+ ['Real Betis Sevilla','Betis','BET','#00954c','#ffffff',79,'cl','ES','Real Betis Sevilla','Real Betis'],
+ ['Real Madrid','Real','RMA','#ffffff','#febe10',86,'cl','ES','Real Madrid','Real Madrid CF'],
+ ['AS Rom','AS Rom','ROM','#8e1f2f','#f0bc42',81,'cl','IT','AS Rom','AS Roma'],
+ ['Sabah FK','Sabah','SAB','#1d3c8f','#ffffff',65,'cl','AZ','Sabah FK','Sabah FC (Azerbaijan)'],
+ ['Schachtar Donezk','Schachtar','SHA','#f58220','#111111',73,'cl','UA','Schachtar Donezk','FC Shakhtar Donetsk'],
+ ['Slavia Prag','Slavia','SLA','#e30613','#ffffff',72,'cl','CZ','SK Slavia Prag','SK Slavia Prague'],
+ ['Slovan Bratislava','Slovan','SLO','#5aaee0','#ffffff',66,'cl','SK','ŠK Slovan Bratislava','ŠK Slovan Bratislava'],
+ ['Sporting Lissabon','Sporting','SCP','#008057','#ffffff',78,'cl','PT','Sporting Lissabon','Sporting CP'],
+ ['Viking Stavanger','Viking','VIK','#003f87','#ffffff',67,'cl','NO','Viking Stavanger','Viking FK'],
+ ['FC Villarreal','Villarreal','VIL','#ffe667','#005187',79,'cl','ES','FC Villarreal','Villarreal CF'],
+ ['Benfica Lissabon','Benfica','BEN','#e83030','#ffffff',80,'el','PT','Benfica Lissabon','S.L. Benfica'],
+ ['Juventus Turin','Juventus','JUV','#111111','#ffffff',78,'el','IT','Juventus Turin','Juventus FC'],
+ ['AC Mailand','Milan','MIL','#fb090b','#111111',79,'el','IT','AC Mailand','AC Milan'],
+ ['Olympique Lyon','Lyon','OL','#1a3d8f','#e30613',76,'el','FR','Olympique Lyon','Olympique Lyonnais'],
+ ['AZ Alkmaar','Alkmaar','AZ','#db0021','#ffffff',73,'el','NL','AZ Alkmaar','AZ Alkmaar'],
+ ['Olympiakos Piräus','Olympiakos','OLY','#e30613','#ffffff',75,'el','GR','Olympiakos Piräus','Olympiacos F.C.'],
+ ['Real Sociedad','R. Sociedad','RSO','#0067b1','#ffffff',77,'el','ES','Real Sociedad San Sebastián','Real Sociedad'],
+ ['Olympique Marseille','Marseille','OM','#2faee0','#ffffff',75,'el','FR','Olympique Marseille','Olympique de Marseille'],
+ ['Ferencváros Budapest','Ferencváros','FTC','#1d8e3d','#ffffff',70,'el','HU','Ferencváros Budapest','Ferencvárosi TC'],
+ ['Viktoria Pilsen','Pilsen','PLZ','#e2001a','#003d8f',69,'el','CZ','FC Viktoria Pilsen','FC Viktoria Plzeň'],
+ ['Union Saint-Gilloise','Union SG','USG','#ffd700','#003d8f',71,'el','BE','Royale Union Saint-Gilloise','Royale Union Saint-Gilloise'],
+ ['Dinamo Zagreb','Dinamo','DZG','#0047ab','#ffffff',71,'el','HR','GNK Dinamo Zagreb','GNK Dinamo Zagreb'],
+ ['RB Salzburg','Salzburg','SAL','#ffffff','#e30613',72,'el','AT','FC Red Bull Salzburg','FC Red Bull Salzburg'],
+ ['Celtic Glasgow','Celtic','CEL','#018749','#ffffff',74,'el','SC','Celtic Glasgow','Celtic F.C.'],
+ ['Sparta Prag','Sparta','SPA','#a50021','#ffffff',70,'el','CZ','AC Sparta Prag','AC Sparta Prague'],
+ ['Stade Rennes','Rennes','REN','#e13327','#111111',75,'el','FR','Stade Rennes','Stade Rennais F.C.'],
+ ['RSC Anderlecht','Anderlecht','AND','#4c2c84','#ffffff',71,'el','BE','RSC Anderlecht','R.S.C. Anderlecht'],
+ ['Sturm Graz','Sturm','STG','#111111','#ffffff',69,'el','AT','SK Sturm Graz','SK Sturm Graz'],
+ ['Lech Posen','Lech','LPO','#0055a5','#ffffff',68,'el','PL','Lech Posen','Lech Poznań'],
+ ['Crystal Palace','Palace','CRY','#1b458f','#c4122e',77,'el','EN','Crystal Palace','Crystal Palace F.C.'],
+ ['AFC Bournemouth','Bournemouth','BOU','#da291c','#111111',76,'el','EN','AFC Bournemouth','AFC Bournemouth'],
+ ['AFC Sunderland','Sunderland','SUN','#eb172b','#ffffff',74,'el','EN','AFC Sunderland','Sunderland A.F.C.'],
+ ['NK Celje','Celje','CEJ','#f7b500','#1d4e9e',65,'el','SI','NK Celje','NK Celje'],
+ ['Jagiellonia Białystok','Jagiellonia','JAG','#ffd700','#e30613',67,'el','PL','Jagiellonia Białystok','Jagiellonia Białystok'],
+ ['Omonia Nikosia','Omonia','OMO','#00843d','#ffffff',66,'el','CY','Omonia Nikosia','AC Omonia'],
+ ['Celta Vigo','Celta','CVI','#8ac3ee','#ffffff',76,'el','ES','Celta Vigo','RC Celta de Vigo'],
+ ['Beşiktaş Istanbul','Beşiktaş','BJK','#111111','#ffffff',77,'el','TR','Beşiktaş Istanbul','Beşiktaş J.K.'],
+ ['SCU Torreense','Torreense','TOR','#003a8c','#ffffff',63,'el','PT','SCU Torreense','S.C.U. Torreense'],
+ ['Hapoel Be’er Scheva','Be’er Scheva','HBS','#e30613','#ffffff',66,'el','IL','Hapoel Be’er Scheva','Hapoel Be\'er Sheva F.C.'],
+ ['NEC Nijmegen','Nijmegen','NEC','#e30613','#00a650',70,'el','NL','NEC Nijmegen','NEC Nijmegen'],
+ ['OFI Kreta','OFI','OFI','#111111','#ffffff',65,'el','GR','OFI Kreta','OFI Crete F.C.'],
+ ['Lillestrøm SK','Lillestrøm','LSK','#ffd700','#111111',64,'el','NO','Lillestrøm SK','Lillestrøm SK'],
+ ['Lewski Sofia','Lewski','LEV','#0047ab','#ffffff',64,'el','BG','Lewski Sofia','PFC Levski Sofia'],
+ ['FC Ararat-Armenia','Ararat','ARA','#1c2c5b','#e30613',62,'el','AM','FC Ararat-Armenia','FC Ararat-Armenia'],
+ ['Atalanta Bergamo','Atalanta','ATA','#1e71b8','#111111',79,'ecl','IT','Atalanta Bergamo','Atalanta BC'],
+ ['Sporting Braga','Braga','SCB','#e30613','#ffffff',74,'ecl','PT','Sporting Braga','S.C. Braga'],
+ ['Ajax Amsterdam','Ajax','AJA','#d2122e','#ffffff',76,'ecl','NL','Ajax Amsterdam','AFC Ajax'],
+ ['AS Monaco','Monaco','MON','#e51b22','#ffffff',76,'ecl','FR','AS Monaco','AS Monaco FC'],
+ ['FC Kopenhagen','Kopenhagen','FCK','#ffffff','#0d2c6c',71,'ecl','DK','FC Kopenhagen','F.C. Copenhagen'],
+ ['FC Midtjylland','Midtjylland','FCM','#111111','#e30613',71,'ecl','DK','FC Midtjylland','FC Midtjylland'],
+ ['Roter Stern Belgrad','Roter Stern','CZV','#e30613','#ffffff',71,'ecl','RS','Roter Stern Belgrad','Red Star Belgrade'],
+ ['KAA Gent','Gent','GNT','#0055a5','#ffffff',70,'ecl','BE','KAA Gent','K.A.A. Gent'],
+ ['Panathinaikos Athen','Panathinaikos','PAO','#007841','#ffffff',72,'ecl','GR','Panathinaikos Athen','Panathinaikos F.C.'],
+ ['Pafos FC','Pafos','PAF','#003b7c','#ffffff',68,'ecl','CY','Pafos FC','Pafos FC'],
+ ['Brighton & Hove Albion','Brighton','BHA','#0057b8','#ffffff',78,'ecl','EN','Brighton & Hove Albion','Brighton & Hove Albion F.C.'],
+ ['VV St. Truiden','St. Truiden','STV','#ffd700','#003d8f',67,'ecl','BE','VV St. Truiden','Sint-Truidense V.V.'],
+ ['SK Brann','Brann','BRN','#e30613','#ffffff',67,'ecl','NO','SK Brann','SK Brann'],
+ ['Heart of Midlothian','Hearts','HEA','#7b1e3a','#ffffff',67,'ecl','SC','Heart of Midlothian','Heart of Midlothian F.C.'],
+ ['Kairat Almaty','Kairat','KAI','#ffd700','#111111',64,'ecl','KZ','FK Kairat Almaty','FC Kairat'],
+ ['Trabzonspor','Trabzonspor','TRA','#8b1538','#6cace4',74,'ecl','TR','Trabzonspor','Trabzonspor'],
+ ['Universitatea Craiova','U Craiova','UCV','#003d8f','#ffffff',66,'ecl','RO','CS Universitatea Craiova','CS Universitatea Craiova'],
+ ['Aarhus GF','Aarhus','AGF','#ffffff','#00337f',68,'ecl','DK','Aarhus GF','Aarhus Gymnastikforening'],
+ ['KF Egnatia','Egnatia','EGN','#e30613','#111111',58,'ecl','AL','KF Egnatia','KF Egnatia'],
+ ['Inter Club d’Escaldes','Escaldes','ESC','#111111','#ffffff',52,'ecl','AD','Inter Club d’Escaldes','Inter Club d\'Escaldes'],
+ ['Borac Banja Luka','Borac','BOR','#e30613','#003d8f',60,'ecl','BA','FK Borac Banja Luka','FK Borac Banja Luka'],
+ ['ZSKA Sofia','ZSKA','CSK','#e30613','#ffffff',64,'ecl','BG','ZSKA Sofia','PFC CSKA Sofia'],
+ ['Hajduk Split','Hajduk','HAJ','#ffffff','#0055a5',67,'ecl','HR','HNK Hajduk Split','HNK Hajduk Split'],
+ ['FK Jablonec','Jablonec','JAB','#00843d','#111111',64,'ecl','CZ','FK Jablonec','FK Jablonec'],
+ ['FC Nordsjælland','Nordsjælland','FCN','#e30613','#ffd700',68,'ecl','DK','FC Nordsjælland','FC Nordsjælland'],
+ ['KuPS Kuopio','KuPS','KUP','#ffd700','#111111',60,'ecl','FI','Kuopion PS','Kuopion Palloseura'],
+ ['Iberia 1999 Tiflis','Iberia','IBE','#e30613','#ffffff',58,'ecl','GE','FC Iberia 1999 Tiflis','FC Iberia 1999'],
+ ['Lincoln Red Imps','Lincoln','LRI','#e30613','#ffffff',52,'ecl','GI','Lincoln Red Imps FC','Lincoln Red Imps F.C.'],
+ ['Riga FC','Riga','RFC','#1c2c5b','#ffffff',60,'ecl','LV','Riga FC','Riga FC'],
+ ['Kauno Žalgiris','Žalgiris','KZA','#00843d','#ffffff',58,'ecl','LT','FK Kauno Žalgiris','FK Kauno Žalgiris'],
+ ['FC Twente','Twente','TWE','#e30613','#ffffff',73,'ecl','NL','FC Twente Enschede','FC Twente'],
+ ['FC Getafe','Getafe','GET','#005999','#ffffff',75,'ecl','ES','FC Getafe','Getafe CF'],
+ ['Mjällby AIF','Mjällby','MJA','#ffd700','#111111',63,'ecl','SE','Mjällby AIF','Mjällby AIF'],
+ ['FC Lugano','Lugano','LUG','#111111','#ffffff',68,'ecl','CH','FC Lugano','FC Lugano'],
+ ['FC Thun','Thun','THU','#e30613','#ffffff',64,'ecl','CH','FC Thun','FC Thun']
+].map((r,i)=>({i,name:r[0],mid:r[1],short:r[2],c1:r[3],c2:r[4],ea:r[5],rt:Math.round(40+(r[5]-55)*1.6),comp:r[6],cc:r[7],wiki:r[8],en:r[9]}));
 /* Gegner-Kennung: Zahl = deutscher Verein (CLUB), 'e12' = europäischer Verein */
 const isEu=id=>typeof id==='string';
 const teamOf=id=>isEu(id)?EURO[+id.slice(1)]:CLUB[id];
-/* Stärken nach EA SPORTS FC 27 */
-const EURO_EA={"Celtic Glasgow": 74, "Real Madrid": 86, "FC Barcelona": 86, "Manchester City": 85, "FC Liverpool": 85, "FC Arsenal": 84, "Paris Saint-Germain": 86, "Inter Mailand": 83, "Atlético Madrid": 81, "Juventus Turin": 78, "AC Mailand": 79, "SSC Neapel": 81, "FC Chelsea": 81, "Benfica Lissabon": 80, "FC Porto": 78, "Sporting Lissabon": 78, "PSV Eindhoven": 78, "Ajax Amsterdam": 76, "Feyenoord Rotterdam": 76, "Tottenham Hotspur": 81, "Aston Villa": 78, "AS Rom": 81, "Lazio Rom": 77, "Olympique Marseille": 75, "AS Monaco": 76, "FC Sevilla": 75, "FC Villarreal": 79, "Celtic Glasgow": 74, "Galatasaray Istanbul": 81, "Fenerbahçe Istanbul": 79, "FC Brügge": 72, "Olympique Lyon": 76, "Real Betis Sevilla": 79};
-EURO.forEach(e=>{const o=EURO_EA[e.name];if(o)e.rt=Math.round(40+(o-55)*1.6)});
+const teamCC=id=>isEu(id)?teamOf(id).cc:'DE';
+const CC_FLAG={EN:'🏴\u{E0067}\u{E0062}\u{E0065}\u{E006E}\u{E0067}\u{E007F}',SC:'🏴\u{E0067}\u{E0062}\u{E0073}\u{E0063}\u{E0074}\u{E007F}'};
+const ccFlag=c=>CC_FLAG[c]||String.fromCodePoint(...[...c].map(x=>0x1F1E6+x.charCodeAt(0)-65));
 function teamBadge(id,cls){if(!isEu(id))return clubBadgeHTML(CLUB[id],cls);const k=teamOf(id);const file=coaFile('E'+k.i);const t=file?'<img class="coa" alt="" src="'+coaURL(file)+'" onload="this.classList.add(\'ok\')" onerror="this.parentNode.classList.remove(\'has-coa\');this.remove()">':'';
   return '<div class="badge club '+(cls||'')+(t?' has-coa':'')+'" style="--c1:'+k.c1+';--c2:'+k.c2+'">'+t+'<span>'+esc(k.short)+'</span></div>'}
 const teamSide=id=>({name:teamOf(id).mid,short:teamOf(id).short,id,badge:teamBadge(id,'mb')});
@@ -3985,6 +4141,7 @@ function carMigrate(){if(!CAR)return;let changed=false;
     /* Europapokal schon in der ersten Saison */
     if(CAR.season===2026&&!CAR.euro&&CAR.R<4&&EURO_START[CLUB[CAR.club].short]){CAR.euroNext=EURO_START[CLUB[CAR.club].short];carEuroInit()}
     }
+  if(CAR.euro&&!CAR.euro.v){euMigrate45();changed=true}
   if(!CAR.cup){carCupInit();changed=true}
   if((CAR.cards.some(c=>c.club==null)||(CAR.eaV||0)<2)&&Object.keys(WX.sq).length){carRealCards();changed=true}
   if(changed)carSave()}
@@ -4031,13 +4188,13 @@ function carCupDraw(){const C=CAR.cup;if(C.pairs)return;const a=C.alive.slice();
   C.pairs=[];for(let i=0;i<a.length;i+=2){let h=a[i],g=a[i+1];if(carLeagueOf(g)>carLeagueOf(h))[h,g]=[g,h];C.pairs.push([h,g])}}
 const carCupMine=()=>{carCupDraw();return CAR.cup.pairs.find(p=>p.includes(CAR.club))||null};
 async function carPlayCup(self){if(carBusy)return;carBusy=true;let my=null;try{const C=CAR.cup;carCupDraw();const m=C.pairs.find(p=>p.includes(CAR.club));
-    if(m){const home=m[0]===CAR.club,opp=home?m[1]:m[0];const pMe=carP(CAR.club,home),pOp=teamP(opp,!home);
-      if(self){const out=await twMatch({A:teamSide(m[0]),D:teamSide(m[1]),pA:home?pMe:pOp,pD:home?pOp:pMe,mine:home?'A':'D',aim:carMyAim(pMe),title:'DFB-Pokal',logo:compLogo('cup'),sub:CUP_ST[C.st],ball:CAR.ball,wall:CAR.wall});
+    if(m){const home=m[0]===CAR.club;const pMe=carP(CAR.club,home);const ps=carShotPs(m[0],m[1],C.st===5);
+      if(self){const out=await twMatch({A:teamSide(m[0]),D:teamSide(m[1]),pA:ps.pA,pD:ps.pD,pAuto:home?ps.pA:ps.pD,mine:home?'A':'D',aim:carMyAim(pMe),title:'DFB-Pokal',logo:compLogo('cup'),sub:CUP_ST[C.st],ball:CAR.ball,wall:CAR.wall});
         my={h:m[0],a:m[1],gh:out.a,ga:out.d,st:out.st.length>0,self:!out.auto,hits:out.hits,top:out.top,perf:out.sh[home?'A':'D'].every(Boolean)}}
-      else my=carSim(m[0],m[1],true)}
+      else my=simGame(m[0],m[1],{ko:true,neutral:C.st===5})}
     carCupResolve(my);carSave();carRender()}finally{carBusy=false}carFlushToasts()}
 function carCupResolve(my){const C=CAR.cup;carCupDraw();const res=[];const next=[];
-  C.pairs.forEach(([h,a])=>{const r=(my&&my.h===h&&my.a===a)?my:carSim(h,a,true);res.push(r);next.push(r.gh>r.ga?h:a)});
+  C.pairs.forEach(([h,a])=>{const r=(my&&my.h===h&&my.a===a)?my:simGame(h,a,{ko:true,neutral:C.st===5});res.push(r);next.push(r.gh>r.ga?h:a)});
   let earn=0,xp=0;const stage=C.st;
   if(my){const home=my.h===CAR.club;const won=(home?my.gh>my.ga:my.ga>my.gh);carStatsMatch(my,home,won);
     if(won){earn+=CUP_PRIZE[stage];xp+=40+stage*15;if(stage<5)carGivePack('std','Pokal-Prämie: '+CUP_ST[stage]+' überstanden')}else{C.myOut=true;if(stage===5)earn+=1200}
@@ -4049,49 +4206,113 @@ function carCupResolve(my){const C=CAR.cup;carCupDraw();const res=[];const next=
 function carCupCatchUp(){while(carCupDue()&&(CAR.cup.myOut||!CAR.cup.alive.includes(CAR.club))){carCupDraw();const C=CAR.cup;const res=[],next=[];C.pairs.forEach(([h,a])=>{const r=carSim(h,a,true);res.push(r);next.push(r.gh>r.ga?h:a)});
   if(C.st===5)C.won=next[0];C.res.push(res);C.alive=next;C.pairs=null;C.st++}}
 
-/* ================= Europapokal ================= */
-const EU_KO=['Achtelfinale','Viertelfinale','Halbfinale','Finale'];
-const EU_PRIZE={cl:{g:450,ko:[900,1400,2200,6000]},el:{g:220,ko:[450,700,1100,3000]},ecl:{g:150,ko:[300,450,700,1800]}};
-function carCupTeams(){const L=l=>(CAR.lg[l]||[]).filter(id=>!isII(id));const rl=L(4).sort((x,y)=>CAR.rt[y]-CAR.rt[x]);return L(1).concat(L(2),L(3),rl).slice(0,64)}
-function carEuroInit(){CAR.euro=null;const q=CAR.euroNext;CAR.euroNext=null;if(!q||carMyL()!==1)return;const L=CAR.fx[1].length;
-  const pool=(q==='ecl'?EURO.filter(e=>e.comp==='el').sort((a,b)=>a.rt-b.rt).slice(0,8):EURO.filter(e=>e.comp===q)).map(e=>'e'+e.i);for(let i=pool.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[pool[i],pool[j]]=[pool[j],pool[i]]}
-  const grp=[CAR.club].concat(pool.slice(0,3));const R=()=>Math.random();const fx=makeFix(grp,R);
-  const avoid=new Set(CAR.cup?CAR.cup.sl:[]);const slot=f=>{let r=Math.min(L-1,Math.round(f*L));while(avoid.has(r)&&r<L-1)r++;avoid.add(r);return r};
-  CAR.euro={comp:q,grp,fx,md:0,tab:Object.fromEntries(grp.map(id=>[id,{sp:0,s:0,u:0,n:0,tf:0,tg:0,pk:0}])),sl:[.13,.19,.31,.37,.49,.55].map(slot),ko:0,kosl:[.65,.71,.82,.95].map(slot),out:false,res:[],won:false,opp:null}}
+/* ================= Europapokal: neues UEFA-Format (seit 2024/25) =================
+   Ligaphase mit 36 Teams in einer Tabelle (CL/EL 8 Spiele, ECL 6), Platz 1–8 direkt ins Achtelfinale,
+   9–24 in die K.-o.-Playoffs, 25–36 raus. Danach Hin- und Rückspiel bis zum Finale (ein Spiel, neutraler Ort). */
+const EU_KO=['Playoffs','Achtelfinale','Viertelfinale','Halbfinale','Finale'];
+const EU_MD={cl:8,el:8,ecl:6};
+const EU_DE={cl:4,el:2,ecl:1};
+/* Prämien (Tsd. €): Sieg/Remis in der Ligaphase, Top 8, Weiterkommen pro Runde (letzter Wert = Titel) */
+const EU_PRIZE={cl:{w:400,d:130,top8:900,ko:[700,1100,1600,2400,6000]},el:{w:200,d:70,top8:450,ko:[350,550,800,1200,3000]},ecl:{w:140,d:45,top8:300,ko:[250,400,550,850,1800]}};
 const euName=c=>c==='cl'?'Champions League':c==='ecl'?'Conference League':'Europa League';
-function carEuroDue(){const E=CAR.euro;if(!E||E.out||E.won||CAR.phase!=='season')return false;if(E.md<6)return CAR.R>=E.sl[E.md];return E.ko<4&&CAR.R>=E.kosl[E.ko]}
-/* K.-o.-Baum: du + echte Gegner, damit jede Runde komplett angezeigt werden kann */
-function euPool(E){const used=new Set(E.grp);return EURO.filter(e=>!used.has('e'+e.i)&&(E.comp==='cl'?true:E.comp==='ecl'?e.comp==='el'&&e.rt<80:e.comp==='el'||e.rt<84)).map(e=>'e'+e.i)}
-function euBracket(E){if(E.br&&E.br.length===(16>>E.ko))return;const pool=euPool(E);for(let i=pool.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[pool[i],pool[j]]=[pool[j],pool[i]]}
-  const n=16>>E.ko;const T=carEuroTable();const sec=T.find(id=>id!==CAR.club&&T.indexOf(id)<2);const used=new Set(E.grp.concat(pool));const extra=EURO.map(e=>'e'+e.i).filter(x=>!used.has(x)).sort((a,b)=>teamOf(a).rt-teamOf(b).rt);const opp=E.opp||pool.shift();const rest=[sec].concat(pool,extra).filter(x=>x!=null&&x!==opp);
-  E.br=[CAR.club,opp].concat(rest.slice(0,n-2));E.kres=E.kres||[]}
-function euKoAdvance(E,my){const res=[],next=[];for(let i=0;i<E.br.length;i+=2){const h=E.br[i],a=E.br[i+1];let r;
-    if(my&&((my.h===h&&my.a===a)||(my.h===a&&my.a===h)))r=my;else{const o=twSimShots(teamP(h,true),teamP(a,false),Math.random);r={h,a,gh:o.a,ga:o.d,st:o.st.length>0}}
-    res.push(r);next.push(r.gh>r.ga?r.h:r.a)}E.kres[E.ko]=res;E.br=next;return res}
-/* nach dem Aus: restliche Runden simulieren, damit der Sieger feststeht */
-function euFinishBracket(E){if(!E.br)return;let k=E.ko;while(E.br.length>=2&&k<4){const res=[],next=[];for(let i=0;i<E.br.length;i+=2){const h=E.br[i],a=E.br[i+1];const o=twSimShots(teamP(h,true),teamP(a,false),Math.random);const r={h,a,gh:o.a,ga:o.d,st:o.st.length>0};res.push(r);next.push(r.gh>r.ga?h:a)}
-  E.kres[k]=res;E.br=next;k++}if(E.br.length===1)E.champ=E.br[0]}
-function carEuroTable(){const E=CAR.euro;return E.grp.slice().sort((a,b)=>{const A=E.tab[a],B=E.tab[b];return B.pk-A.pk||(B.tf-B.tg)-(A.tf-A.tg)||B.tf-A.tf})}
-function carEuroMatch(){const E=CAR.euro;if(E.md<6)return E.fx[E.md].find(m=>m.includes(CAR.club));
-  euBracket(E);if(!E.opp){const i=E.br.indexOf(CAR.club);E.opp=E.br[i^1]}
-  return E.ko===3?[CAR.club,E.opp]:(Math.random()<.5?[CAR.club,E.opp]:[E.opp,CAR.club])}
-async function carPlayEuro(self){if(carBusy)return;carBusy=true;try{const E=CAR.euro;const m=E.cur||(E.cur=carEuroMatch());const home=m[0]===CAR.club,opp=home?m[1]:m[0];
-    const pMe=carP(CAR.club,home),pOp=teamP(opp,!home);let my;
-    const label=E.md<6?'Gruppe · '+(E.md+1)+'. Spieltag':EU_KO[E.ko];
-    if(self){const out=await twMatch({A:teamSide(m[0]),D:teamSide(m[1]),pA:home?pMe:pOp,pD:home?pOp:pMe,mine:home?'A':'D',aim:carMyAim(pMe),draw:E.md<6,title:euName(E.comp),logo:compLogo(E.comp),sub:label,ball:CAR.ball,wall:CAR.wall});
+function carCupTeams(){const L=l=>(CAR.lg[l]||[]).filter(id=>!isII(id));const rl=L(4).sort((x,y)=>CAR.rt[y]-CAR.rt[x]);return L(1).concat(L(2),L(3),rl).slice(0,64)}
+/* Startplätze wie in echt: 1–4 CL, 5 + Pokalsieger EL (ist der schon qualifiziert, rückt der 6. nach), nächster Platz ECL */
+function euQualify(T1,cw){const de={cl:T1.slice(0,4),el:[T1[4]],ecl:[]};let nx=5;
+  if(cw!=null&&!de.cl.includes(cw)&&cw!==T1[4])de.el.push(cw);else de.el.push(T1[nx++]);
+  while(!de.ecl.length&&nx<T1.length){const c=T1[nx++];if(!de.el.includes(c))de.ecl.push(c)}return de}
+function euGermans(q){const need=EU_DE[q];let de=(CAR.euDE&&CAR.euDE[q]?CAR.euDE[q]:CLUB.filter(k=>EURO_START[k.short]===q).map(k=>k.i)).filter(id=>id!==CAR.club&&id!=null&&!isII(id));
+  de=de.slice(0,need-1);de.push(CAR.club);
+  const used=new Set([].concat(...Object.values(CAR.euDE||{})));
+  CAR.lg[1].slice().sort((a,b)=>CAR.rt[b]-CAR.rt[a]).forEach(id=>{if(de.length<need&&!de.includes(id)&&!used.has(id))de.push(id)});return de}
+const euShuffle=a=>{for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
+/* Spielplan der Ligaphase: jeder gegen N verschiedene Gegner, halb Heim/halb auswärts, möglichst keine Duelle aus demselben Land */
+function euLeagueFix(teams,N){let best=null,bs=1e9;const n=teams.length;
+  for(let t=0;t<400;t++){const T=euShuffle(teams.slice());const ks=euShuffle(Array.from({length:n-1},(_,i)=>i)).slice(0,N);const rounds=[];let sc=0;
+    for(const k of ks){const rot=T.slice(1);const L=[T[0]].concat(rot.slice(k),rot.slice(0,k));const rd=[];for(let i=0;i<n/2;i++){const x=L[i],y=L[n-1-i];rd.push([x,y]);if(teamCC(x)===teamCC(y))sc++}rounds.push(rd)}
+    if(sc<bs){bs=sc;best=rounds}if(!bs)break}
+  const met=new Set();const key=(x,y)=>String(x)<String(y)?x+'|'+y:y+'|'+x;best.forEach(rd=>rd.forEach(([x,y])=>met.add(key(x,y))));
+  for(const rd of best)for(const p of rd){if(teamCC(p[0])!==teamCC(p[1]))continue;for(const q of rd){if(q===p)continue;const [x,y]=p,[u,v]=q;
+      if(teamCC(x)!==teamCC(v)&&teamCC(u)!==teamCC(y)&&!met.has(key(x,v))&&!met.has(key(u,y))){met.delete(key(x,y));met.delete(key(u,v));p[1]=v;q[1]=y;met.add(key(x,v));met.add(key(u,y));break}}}
+  /* Heim/Auswärts ausgleichen (geschlossene Wege im Spielplan-Graphen): jeder Verein genau N/2 Heimspiele */
+  const adj={};teams.forEach(x=>adj[x]=[]);best.forEach(rd=>rd.forEach(p=>{adj[p[0]].push(p);adj[p[1]].push(p)}));const used=new Set();
+  for(const v0 of teams){while(adj[v0].some(p=>!used.has(p))){let v=v0;for(let g=0;g<999;g++){const p=adj[v].find(q=>!used.has(q));if(!p)break;used.add(p);const w=p[0]===v?p[1]:p[0];p[0]=v;p[1]=w;v=w}}}
+  return best}
+function carEuroInit(){CAR.euro=null;const q=CAR.euroNext;CAR.euroNext=null;if(!q||!EU_MD[q])return;const L=CAR.fx[carMyL()].length;const N=EU_MD[q];
+  const teams=EURO.filter(e=>e.comp===q).map(e=>'e'+e.i).concat(euGermans(q));
+  const avoid=new Set(CAR.cup?CAR.cup.sl:[]);const slot=f=>{let r=Math.min(L-1,Math.round(f*L));while(avoid.has(r)&&r<L-1)r++;while(avoid.has(r)&&r>0)r--;avoid.add(r);return r};
+  const mdF=N===8?[.05,.11,.2,.26,.36,.42,.5,.55]:[.07,.16,.26,.35,.44,.53];
+  const sched=mdF.map((f,k)=>({t:'md',k,r:slot(f)}));[[.6,.64],[.69,.73],[.79,.83],[.87,.91],[.985]].forEach((fs,s)=>fs.forEach((f,leg)=>sched.push({t:'ko',s,leg,r:slot(f)})));
+  sched.sort((a,b)=>a.r-b.r);
+  CAR.euro={v:45,comp:q,teams,N,fx:euLeagueFix(teams,N),tab:Object.fromEntries(teams.map(id=>[id,{sp:0,s:0,u:0,n:0,tf:0,tg:0,pk:0}])),gres:[],sched,step:0,ties:null,tieS:-1,kres:[],rank:null,out:false,won:false,champ:null,res:[],cur:null}}
+function euRank(E){return E.teams.slice().sort((a,b)=>{const A=E.tab[a],B=E.tab[b];return B.pk-A.pk||(B.tf-B.tg)-(A.tf-A.tg)||B.tf-A.tf||B.s-A.s||carR(b,false)-carR(a,false)})}
+function carEuroTable(){return euRank(CAR.euro)}
+function euApply(E,r){const H=E.tab[r.h],A=E.tab[r.a];H.sp++;A.sp++;H.tf+=r.gh;H.tg+=r.ga;A.tf+=r.ga;A.tg+=r.gh;if(r.gh===r.ga){H.u++;A.u++;H.pk++;A.pk++}else if(r.gh>r.ga){H.s++;A.n++;H.pk+=3}else{A.s++;H.n++;A.pk+=3}}
+/* Auslosung bzw. fester Turnierbaum (1/2 erst im Finale) */
+const EU_BR=[1,8,4,5,2,7,3,6];
+function euDraw(E,s){if(E.tieS===s&&E.ties)return;const R=E.rank||euRank(E);let ties;
+  if(s===0)ties=Array.from({length:8},(_,i)=>({a:R[8+i],b:R[23-i]}));
+  else if(s===1){const W=E.kres[0].map(t=>t.w);ties=EU_BR.map(k=>({a:R[k-1],b:W[8-k]}))}
+  else{const W=E.kres[s-1].map(t=>t.w);ties=[];for(let i=0;i<W.length;i+=2){const x=W[i],y=W[i+1];ties.push(R.indexOf(x)<R.indexOf(y)?{a:x,b:y}:{a:y,b:x})}}
+  E.ties=ties;E.tieS=s}
+/* Hinspiel beim schlechter Platzierten, Rückspiel beim besser Platzierten; Finale neutral */
+const euLeg=(t,st)=>st.s===4||st.leg===1?[t.a,t.b]:[t.b,t.a];
+function euInvolved(E,st){if(!st||E.out)return false;if(st.t==='md')return true;if(E.step<E.N||st.s!==E.kres.length)return false;euDraw(E,st.s);return E.ties.some(t=>t.a===CAR.club||t.b===CAR.club)}
+const euStep=E=>E&&E.sched[E.step];
+function carEuroDue(){const E=CAR.euro;if(!E||!E.v||CAR.phase!=='season')return false;euTick();const st=euStep(E);return !!st&&euInvolved(E,st)&&CAR.R>=st.r}
+function carEuroMatch(){const E=CAR.euro;const st=euStep(E);if(st.t==='md')return E.fx[st.k].find(m=>m.includes(CAR.club));euDraw(E,st.s);const t=E.ties.find(t=>t.a===CAR.club||t.b===CAR.club);return euLeg(t,st)}
+function euStepLabel(st,E){return st.t==='md'?'Ligaphase · '+(st.k+1)+'. Spieltag':EU_KO[st.s]+(st.s===4?'':st.leg?' · Rückspiel':' · Hinspiel')}
+function euAggTxt(t){if(!t.l2)return '';const a=t.l1.ga+t.l2.gh,b=t.l1.gh+t.l2.ga;return a+' : '+b}
+/* Spiele ohne eigene Beteiligung laufen im Hintergrund weiter */
+function euTick(){const E=CAR.euro;if(!E||!E.v)return;let st,n=0;while((st=euStep(E))&&CAR.R>=st.r&&!euInvolved(E,st)){euPlayStep(null);n++}if(n)carSave()}
+/* nächster eigener Termin (spätere Runden: falls man weiterkommt) */
+function euMyNext(E){if(E.out)return null;for(let i=E.step;i<E.sched.length;i++){const st=E.sched[i];if(st.t==='md')return st;if(st.s<E.kres.length)continue;if(st.s===E.kres.length){if(euInvolved(E,st))return st;continue}return st}return null}
+function euSimRest(){const E=CAR.euro;if(!E||!E.v)return;let st;while((st=euStep(E))){if(euInvolved(E,st)){const m=carEuroMatch();const t=st.t==='ko'?E.ties.find(t=>t.a===CAR.club||t.b===CAR.club):null;
+      const r=simGame(m[0],m[1],{ko:st.t==='ko'&&(st.leg===1||st.s===4),neutral:st.t==='ko'&&st.s===4,agg:t&&st.leg===1?[t.l1.ga,t.l1.gh]:null});carEuroResolve(r,euStepLabel(st,E),true)}else euPlayStep(null)}}
+/* einen Termin komplett austragen; my = eigenes Ergebnis (gespielt oder simuliert) */
+function euPlayStep(my){const E=CAR.euro;const st=euStep(E);const P=EU_PRIZE[E.comp];const o={res:[],my:null,earn:0,xp:0,label:euStepLabel(st,E),note:null};if(!st)return o;
+  if(st.t==='md'){const rs=E.fx[st.k].map(([h,a])=>(my&&my.h===h&&my.a===a)?my:simGame(h,a));rs.forEach(r=>euApply(E,r));E.gres[st.k]=rs.map(r=>({h:r.h,a:r.a,gh:r.gh,ga:r.ga}));o.res=rs;
+    const mine=rs.find(r=>r.h===CAR.club||r.a===CAR.club);if(mine){o.my=mine;const home=mine.h===CAR.club;const w=home?mine.gh>mine.ga:mine.ga>mine.gh;if(w){o.earn+=P.w;o.xp+=45}else if(mine.gh===mine.ga){o.earn+=P.d;o.xp+=15}}
+    E.step++;
+    if(st.k===E.N-1){E.rank=euRank(E);const pos=E.rank.indexOf(CAR.club)+1;E.lpPos=pos;
+      if(pos<=8){o.earn+=P.top8;o.xp+=120;o.note='Platz '+pos+' – direkt im Achtelfinale!';carToastQ.push(['🇪🇺','Direkt ins Achtelfinale!','Platz '+pos+' von 36 in der Ligaphase'])}
+      else if(pos<=24){o.xp+=60;o.note='Platz '+pos+' – weiter in den K.-o.-Playoffs';carToastQ.push(['🇪🇺','K.-o.-Playoffs erreicht','Platz '+pos+' von 36 in der Ligaphase'])}
+      else{E.out=true;E.lpOut=true;o.note='Platz '+pos+' – ausgeschieden';carToastQ.push(['🇪🇺','Ligaphase beendet','Platz '+pos+' von 36 – leider ausgeschieden'])}}
+    return o}
+  euDraw(E,st.s);const fin=st.s===4,second=st.leg===1;
+  E.ties.forEach(t=>{const [h,a]=euLeg(t,st);const agg=second?[t.l1.ga,t.l1.gh]:null;
+    const r=(my&&my.h===h&&my.a===a)?my:simGame(h,a,{ko:second||fin,neutral:fin,agg});
+    if(fin){t.l1=r;t.w=r.gh>r.ga?r.h:r.a}else if(!second)t.l1=r;else{t.l2=r;const A=t.l1.ga+r.gh,B=t.l1.gh+r.ga;t.w=A>B?t.a:t.b}
+    o.res.push(Object.assign({},r,second?{agg:euAggTxt(t)}:{}))});
+  const meT=E.ties.find(t=>t.a===CAR.club||t.b===CAR.club);if(meT)o.my=o.res[E.ties.indexOf(meT)];
+  E.step++;
+  if(fin||second){E.kres[st.s]=E.ties;E.ties=null;
+    if(fin)E.champ=E.kres[4][0].w;
+    if(meT&&!E.out){if(meT.w===CAR.club){o.earn+=P.ko[st.s];o.xp+=70+st.s*30;
+        if(fin){E.won=true;CAR.tro.push({k:E.comp,s:CAR.season,l:1});carUnlock(E.comp);carGivePack('gold',euName(E.comp)+' gewonnen!');o.note='Titel gewonnen!'}
+        else{carGivePack('std',EU_KO[st.s]+' überstanden');o.note='Weiter: '+EU_KO[st.s+1]}}
+      else{E.out=true;o.note='Aus '+['in den Playoffs','im Achtelfinale','im Viertelfinale','im Halbfinale','im Finale'][st.s]}}}
+  return o}
+async function carPlayEuro(self){if(carBusy)return;carBusy=true;try{const E=CAR.euro;euTick();const st=euStep(E);const m=E.cur||(E.cur=carEuroMatch());const home=m[0]===CAR.club;
+    const ko=st.t==='ko'&&(st.leg===1||st.s===4),neutral=st.t==='ko'&&st.s===4;const t=st.t==='ko'?E.ties.find(t=>t.a===CAR.club||t.b===CAR.club):null;const agg=t&&st.leg===1?[t.l1.ga,t.l1.gh]:null;
+    const label=euStepLabel(st,E);let my;
+    if(self){const pMe=carP(CAR.club,home);const ps=carShotPs(m[0],m[1],neutral);
+      const out=await twMatch({A:teamSide(m[0]),D:teamSide(m[1]),pA:ps.pA,pD:ps.pD,pAuto:home?ps.pA:ps.pD,mine:home?'A':'D',aim:carMyAim(pMe),draw:!ko,agg:agg?{a:agg[0],d:agg[1]}:null,title:euName(E.comp),logo:compLogo(E.comp),sub:label,ball:CAR.ball,wall:CAR.wall});
       my={h:m[0],a:m[1],gh:out.a,ga:out.d,st:out.st.length>0,self:!out.auto,hits:out.hits,top:out.top,perf:out.sh[home?'A':'D'].every(Boolean)}}
-    else{const o=twSimShots(home?pMe:pOp,home?pOp:pMe,Math.random,E.md<6);my={h:m[0],a:m[1],gh:o.a,ga:o.d,st:o.st.length>0}}
+    else my=simGame(m[0],m[1],{ko,neutral,agg});
     E.cur=null;carEuroResolve(my,label);carUnlock('euro');carSave();carRender()}finally{carBusy=false}carFlushToasts()}
-function carEuroResolve(my,label){const E=CAR.euro;const P=EU_PRIZE[E.comp];const home=my.h===CAR.club;const won=home?my.gh>my.ga:my.ga>my.gh;let earn=0,xp=0;const res=[my];carStatsMatch(my,home,won);
-  if(E.md<6){E.fx[E.md].forEach(([h,a])=>{const r=(h===my.h&&a===my.a)?my:(()=>{const o=twSimShots(teamP(h,true),teamP(a,false),Math.random,true);return{h,a,gh:o.a,ga:o.d,st:o.st.length>0}})();
-      if(r!==my)res.push(r);(E.gres=E.gres||[]).push(Object.assign({md:E.md},r));const H=E.tab[r.h],A=E.tab[r.a];H.sp++;A.sp++;H.tf+=r.gh;H.tg+=r.ga;A.tf+=r.ga;A.tg+=r.gh;if(r.gh===r.ga){H.u=(H.u||0)+1;A.u=(A.u||0)+1;H.pk++;A.pk++}else if(r.gh>r.ga){H.s++;A.n++;H.pk+=3}else{A.s++;H.n++;A.pk+=3}});
-    if(won){earn+=P.g;xp+=45}else if(my.gh===my.ga){earn+=Math.round(P.g/3);xp+=15}E.md++;
-    if(E.md===6){const pos=carEuroTable().indexOf(CAR.club)+1;if(pos>2){E.out=true;E.gout=true;E.br=null;euBracket(E);E.br=E.br.slice(2).concat(euPool(E).filter(x=>!E.br.includes(x)).slice(0,2));if(E.br.length%2)E.br.pop();euFinishBracket(E);carToastQ.push(['🇪🇺','Gruppenphase beendet','Platz '+pos+' – leider ausgeschieden'])}else{xp+=80;carToastQ.push(['🇪🇺','Weiter im Europapokal!','Platz '+pos+' in der Gruppe – K.-o.-Runde erreicht'])}}}
-  else{euBracket(E);const kr=euKoAdvance(E,my);res.length=0;kr.forEach(r=>res.push(r));if(won){earn+=P.ko[E.ko];xp+=70+E.ko*30;if(E.ko===3){E.won=true;CAR.tro.push({k:E.comp,s:CAR.season,l:1});carUnlock(E.comp);carGivePack('gold',euName(E.comp)+' gewonnen!')}else carGivePack('std',EU_KO[E.ko]+' überstanden');E.ko++}else{E.out=true;E.ko++;euFinishBracket(E);E.ko--}E.opp=null}
-  CAR.money+=earn;carXP(xp);E.res.push({label,my});CAR.last={euro:true,label,res:{eu:res},my,earn,xp,R:CAR.R};carCheckAch()}
+function carEuroResolve(my,label,quiet){const E=CAR.euro;const home=my.h===CAR.club;const st=euStep(E);
+  /* „gewonnen“ zählt im Rückspiel fürs Weiterkommen */
+  const o=euPlayStep(my);const me=o.my||my;const won=st.t==='ko'&&(st.leg===1||st.s===4)?(E.kres[st.s]&&E.kres[st.s].some(t=>t.w===CAR.club&&(t.a===CAR.club||t.b===CAR.club))):(home?my.gh>my.ga:my.ga>my.gh);
+  carStatsMatch(my,home,home?my.gh>my.ga:my.ga>my.gh);CAR.money+=o.earn;carXP(o.xp);E.res.push({label,my:me});
+  if(!quiet)CAR.last={euro:true,label,res:{eu:o.res},my:me,earn:o.earn,xp:o.xp,R:CAR.R,note:o.note,adv:won};carCheckAch()}
+/* Spielstände aus Version 4.4 (Gruppe mit 4 Teams) ins neue Format übernehmen */
+function euMigrate45(){const E=CAR.euro;if(!E||E.v)return false;const q=E.comp;CAR.euroNext=q;carEuroInit();if(CAR.last&&CAR.last.euro)CAR.last=null;
+  const N=CAR.euro;if(CAR.phase!=='season')euSimRest();else{let st;while((st=euStep(N))&&st.r<CAR.R){if(euInvolved(N,st)){const m=carEuroMatch();const t=st.t==='ko'?N.ties.find(t=>t.a===CAR.club||t.b===CAR.club):null;
+      carEuroResolve(simGame(m[0],m[1],{ko:st.t==='ko'&&(st.leg===1||st.s===4),neutral:st.t==='ko'&&st.s===4,agg:t&&st.leg===1?[t.l1.ga,t.l1.gh]:null}),euStepLabel(st,N),true)}else euPlayStep(null)}}
+  carToastQ.push(['🇪🇺',euName(q)+' im neuen Format','Ligaphase mit 36 Teams – bisherige Spieltage wurden simuliert']);return true}
 function carStatsMatch(my,home,won){const s=CAR.st;const myG=home?my.gh:my.ga;s.pl++;carEv('played');
   if(won){s.w++;s.streak++;s.best=Math.max(s.best,s.streak);carEv('win');if(!my.st)carEv('cleanwin');if(!home)carEv('awaywin');if(my.st)s.stw++}else s.streak=0;
-  if(my.self){s.self++;carEv('self');s.hits+=my.hits;s.shots+=3;carEv('hit',my.hits);carEv('top',my.top);if(my.perf){s.perfect++;carEv('perfect')}}}
+  if(my.self){s.self++;carEv('self');s.hits+=my.hits;s.shots+=TW_N;carEv('hit',my.hits);carEv('top',my.top);if(my.perf){s.perfect++;carEv('perfect')}}}
 
 
 /* ================= Torwand-Duell (2 Spieler, ein iPhone) ================= */
@@ -4112,7 +4333,8 @@ async function runDuel(){const [P1,P2]=DUEL.p;const side=p=>({name:p.n||'Spieler
 
 /* ================= Kader, Trikots & Wettbewerbslogos (Wikipedia, zur Laufzeit) ================= */
 const WX_KEY='kk_wx_v1';
-let WX=(()=>{const w=store.get(WX_KEY);return w&&w._v===3?w:{_v:3,_t:0,en:{},kit:{},sq:{},comp:{}}})();
+/* v4: neue Europapokal-Teilnehmer → europäische Einträge verwerfen, deutsche behalten */
+let WX=(()=>{const w=store.get(WX_KEY);if(w&&w._v===3){['en','kit','sq'].forEach(k=>Object.keys(w[k]||{}).forEach(x=>{if(x[0]==='E')delete w[k][x]}));w._v=4;w._t=0;w._kt={};return w}return w&&w._v===4?w:{_v:4,_t:0,en:{},kit:{},sq:{},comp:{},_kt:{}}})();
 let wxLoading=false;
 const COMP_WIKI={L1:[['de','Fußball-Bundesliga'],['en','Bundesliga']],L2:[['de','2. Fußball-Bundesliga'],['en','2. Bundesliga']],L3:[['de','3. Fußball-Liga'],['en','3. Liga']],
   L4:[['de','Fußball-Regionalliga'],['en','Regionalliga']],CUP:[['de','DFB-Pokal'],['en','DFB-Pokal']],CL:[['en','UEFA Champions League'],['de','UEFA Champions League']],EL:[['en','UEFA Europa League'],['de','UEFA Europa League']],ECL:[['en','UEFA Conference League'],['de','UEFA Conference League']]};
@@ -4129,27 +4351,31 @@ function wxParseSquad(t){const out=[];const seen=new Set();
     if(nm){nm=nm.replace(/\s*\([^)]*\)\s*$/,'').trim();if(nm&&!seen.has(nm)){seen.add(nm);out.push([no?+no:null,nm,pos,nat])}}return m});
   return out}
 async function wxPool(items,n,fn){let i=0;const run=async()=>{while(i<items.length){const k=i++;try{await fn(items[k])}catch(e){}await twWait(60)}};await Promise.all(Array.from({length:n},run))}
-async function loadWikiExtras(force){if(wxLoading)return;if(!force&&Date.now()-WX._t<14*864e5&&Object.keys(WX.sq).length>=50)return;wxLoading=true;
-  try{const keys=wxTeamKeys();
+async function loadWikiExtras(force){if(wxLoading)return;const fresh=Date.now()-WX._t<14*864e5;if(!force&&fresh&&Object.keys(WX.sq).length>=50)return;wxLoading=true;
+  /* Wappen zuerst laden – die Wikipedia-API erlaubt Browsern nur begrenzt viele Anfragen pro Minute */
+  await twWait(500);while(vcoaLoading)await twWait(400);
+  try{const keys=wxTeamKeys();const full=!!force||WX._t>0;WX._kt=WX._kt||{};
+    EURO.forEach(e=>{WX.en['E'+e.i]=e.en});
     // 1) englische Artikeltitel über die deutschen Artikel
-    const titles=keys.map(wxWiki);
+    const need=keys.filter(k=>k[0]==='V'&&(full||!WX.en[k]));const titles=need.map(wxWiki);
     for(let k=0;k<titles.length;k+=40){const ch=titles.slice(k,k+40);const j=await wxApi('de','action=query&prop=langlinks&lllang=en&lllimit=500&titles='+encodeURIComponent(ch.join('|')));
       const q=j.query||{};const nm={},rd={},pg={};(q.normalized||[]).forEach(x=>nm[x.from]=x.to);(q.redirects||[]).forEach(x=>rd[x.from]=x.to);(q.pages||[]).forEach(p=>pg[p.title]=p);
-      ch.forEach(t=>{let x=nm[t]||t;x=rd[x]||x;const p=pg[x];const ll=p&&p.langlinks&&p.langlinks.find(l=>l.lang==='en');if(ll)keys.filter(kk=>wxWiki(kk)===t).forEach(kk=>WX.en[kk]=ll.title)})}
+      ch.forEach(t=>{let x=nm[t]||t;x=rd[x]||x;const p=pg[x];const ll=p&&p.langlinks&&p.langlinks.find(l=>l.lang==='en');if(ll)need.filter(kk=>wxWiki(kk)===t).forEach(kk=>WX.en[kk]=ll.title)})}
     CLUB.forEach(k=>{if(CLUB_EN[k.short])WX.en['V'+k.i]=CLUB_EN[k.short]});
     // 2) aktuelle Kader (Navigationsleisten „… squad“)
-    const vk=CLUB.map(k=>'V'+k.i).filter(k=>WX.en[k]);
+    const vk=CLUB.map(k=>'V'+k.i).filter(k=>WX.en[k]&&(full||!WX.sq[k]));
     for(let k=0;k<vk.length;k+=40){const ch=vk.slice(k,k+40);const tt=ch.map(kk=>'Template:'+WX.en[kk]+' squad');
       const j=await wxApi('en','action=query&prop=revisions&rvprop=content&rvslots=main&titles='+encodeURIComponent(tt.join('|')));const q=j.query||{};const nm={},rd={},pg={};
       (q.normalized||[]).forEach(x=>nm[x.from]=x.to);(q.redirects||[]).forEach(x=>rd[x.from]=x.to);(q.pages||[]).forEach(p=>pg[p.title]=p);
       ch.forEach((kk,i)=>{let x=nm[tt[i]]||tt[i];x=rd[x]||x;const p=pg[x];const c=p&&p.revisions&&p.revisions[0]&&(p.revisions[0].slots?p.revisions[0].slots.main.content:p.revisions[0].content);if(c){const s=wxParseSquad(c);if(s.length>=8)WX.sq[kk]=s}})}
-    // 3) Trikots aus der Infobox
-    await wxPool(keys.filter(kk=>WX.en[kk]),4,async kk=>{const j=await wxApi('en','action=parse&prop=wikitext&section=0&page='+encodeURIComponent(WX.en[kk]));const t=j.parse&&j.parse.wikitext;if(t){const kit=wxParseKit(typeof t==='string'?t:t['*']);if(kit)WX.kit[kk]=kit}});
-    // 4) Wettbewerbslogos
+    // 3) Wettbewerbslogos
     for(const host of ['de','en']){const list=Object.entries(COMP_WIKI).map(([k,v])=>[k,v.find(x=>x[0]===host)]).filter(x=>x[1]&&!WX.comp[x[0]]);if(!list.length)continue;
       const j=await wxApi(host,'action=query&prop=pageimages&piprop=name&titles='+encodeURIComponent(list.map(x=>x[1][1]).join('|')));const q=j.query||{};const nm={},rd={},pg={};
       (q.normalized||[]).forEach(x=>nm[x.from]=x.to);(q.redirects||[]).forEach(x=>rd[x.from]=x.to);(q.pages||[]).forEach(p=>pg[p.title]=p);
       list.forEach(([k,[h,t]])=>{let x=nm[t]||t;x=rd[x]||x;const p=pg[x];if(p&&p.pageimage&&/logo|\.svg$/i.test(p.pageimage))WX.comp[k]=(host==='de'?'dw:':'ew:')+p.pageimage.replace(/_/g,' ')})}
+    store.set(WX_KEY,WX);plPoolV++;if(typeof CAR!=='undefined'&&CAR){carRealCards();carSave();if(!$('#car').classList.contains('off'))carRender()}
+    // 4) Trikots aus der Infobox (eine Anfrage pro Verein – läuft gemächlich im Hintergrund)
+    let kn=0;    await wxPool(keys.filter(kk=>WX.en[kk]&&(full||(!WX.kit[kk]&&!WX._kt[kk]))),1,async kk=>{WX._kt[kk]=1;const j=await wxApi('en','action=parse&prop=wikitext&section=0&page='+encodeURIComponent(WX.en[kk]));const t=j.parse&&j.parse.wikitext;if(t){const kit=wxParseKit(typeof t==='string'?t:t['*']);if(kit)WX.kit[kk]=kit}if(++kn%15===0)store.set(WX_KEY,WX)});
     WX._t=Date.now();store.set(WX_KEY,WX);plPoolV++;
     if(typeof CAR!=='undefined'&&CAR){carRealCards();carSave();if(!$('#car').classList.contains('off'))carRender()}
   }catch(e){console.warn('Kader/Trikots',e)}wxLoading=false}
@@ -4160,7 +4386,8 @@ function compLogo(k,cls){const f=WX.comp[COMP_KEY[k]];return f?'<img class="clog
 let wxColCtx=null,KITN=0;
 function wxHex(c){if(!wxColCtx)wxColCtx=document.createElement('canvas').getContext('2d');wxColCtx.fillStyle='#000';wxColCtx.fillStyle=c||'#000';return wxColCtx.fillStyle}
 function kitCol(c,fb){if(!c)return fb;if(!wxColCtx)wxColCtx=document.createElement('canvas').getContext('2d');wxColCtx.fillStyle='#010203';wxColCtx.fillStyle=c;const v=wxColCtx.fillStyle;return v==='#010203'?fb:v}
-const KIT_URL=(part,pat)=>'https://en.wikipedia.org/wiki/Special:FilePath/'+encodeURIComponent('Kit_'+part+pat+'.png');
+/* Trikotmuster direkt vom Wikimedia-Bildserver (Commons, sonst en-Wikipedia) */
+const KIT_URL=(part,pat)=>{const n=wmNorm('Kit_'+part+pat+'.png');return wmChain([wmPath('commons',n,0),wmPath('en',n,0),'https://en.wikipedia.org/wiki/Special:FilePath/'+wmEnc(n)])};
 const KIT_P={
   la:'M31.6,5.5 L30.5,5.5 L12,24 L25,37 L31.6,30.4 Z',
   ra:'M68.4,5.5 L69.5,5.5 L88,24 L75,37 L68.4,30.4 Z',
