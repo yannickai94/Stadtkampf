@@ -608,6 +608,77 @@ body.rec #fight{bottom:max(var(--sb),10px)}
 .cupst.mdsel button{min-width:34px;padding:6px 0;text-align:center}
 .ctab.eu .cn .cc{font-style:normal;font-size:11px;margin-left:2px;opacity:.9}
 .twS i{width:13px;height:13px}
+/* ===== v5: Elfmeterschießen ===== */
+.twShooter{left:10px;right:10px;bottom:auto;transform:none;display:flex;align-items:center;gap:6px;max-width:540px;margin:0 auto;padding:6px 8px;border-radius:18px}
+.twShooter .pdc{flex:1;display:flex;align-items:center;gap:7px;min-width:0}.twShooter .pdc:last-child{flex-direction:row-reverse;text-align:right}
+.twShooter .pdc b{flex:none;width:30px;height:34px;border-radius:8px;display:grid;place-items:center;font-size:14px;font-weight:900;color:#1a1206;background:var(--rg)}
+.twShooter .pdc span{min-width:0;font-size:12.5px;font-weight:900;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.twShooter .pdc small,.twShooter .pdc em{display:block;font-size:10px;font-weight:800;color:var(--sub);font-style:normal;overflow:hidden;text-overflow:ellipsis}
+.pdmid{flex:none;display:flex;flex-direction:column;align-items:center;gap:2px}.pdmid>i{font-style:normal;font-size:11px;font-weight:900;color:var(--sub)}
+.twPress{font-size:10px;font-weight:900;padding:2px 7px;border-radius:99px;white-space:nowrap;opacity:0;transition:opacity .3s;background:rgba(255,255,255,.08)}
+.twPress.on{opacity:1}.twPress.mid{background:rgba(255,214,90,.2);color:#ffe08a}.twPress.hi{background:rgba(255,140,60,.25);color:#ffb38a}.twPress.max{background:rgba(255,60,60,.32);color:#ff9d9d;animation:twBob .9s ease-in-out infinite}
+.twType{position:absolute;left:10px;bottom:calc(max(var(--sb),12px) + 118px);display:flex;flex-direction:column;gap:6px;opacity:0;pointer-events:none;transition:opacity .3s}
+.twType.on{opacity:1;pointer-events:auto}
+.twType button{padding:8px 10px;border-radius:14px;font-weight:900;font-size:12px;color:#fff;background:rgba(10,16,30,.62);border:1.5px solid rgba(255,255,255,.16);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);text-align:left;min-width:104px}
+.twType button small{display:block;font-size:9.5px;font-weight:700;color:var(--sub)}.twType button.on{border-color:#7dffa0;background:rgba(40,120,70,.55)}
+.twKeep{position:absolute;left:0;right:0;bottom:calc(max(var(--sb),12px) + 40px);text-align:center;color:#fff;font-weight:900;font-size:16px;opacity:0;transition:opacity .3s;pointer-events:none;text-shadow:0 2px 10px rgba(0,0,0,.6)}
+.twKeep.on{opacity:1}.twKeep small{display:block;font-weight:700;font-size:12.5px;color:rgba(255,255,255,.8)}
+.twKeep .bar{width:180px;height:6px;margin:8px auto 0;border-radius:9px;background:rgba(255,255,255,.18);overflow:hidden}.twKeep .bar i{display:block;height:100%;background:linear-gradient(90deg,#8fd3ff,#7dffa0);transform-origin:left}
+.twPsy{position:absolute;left:10px;bottom:calc(max(var(--sb),12px) + 118px);padding:9px 12px;border-radius:14px;font-weight:900;font-size:12.5px;color:#fff;background:rgba(10,16,30,.62);border:1.5px solid rgba(255,214,90,.5);opacity:0;pointer-events:none;transition:opacity .3s}
+.twPsy.on{opacity:1;pointer-events:auto}.twPsy b{display:inline-grid;place-items:center;width:18px;height:18px;border-radius:9px;background:#ffd76a;color:#1a1206;font-size:11px;margin-left:4px}
+.twPow{left:auto;right:14px}.twPow small{left:auto;right:18px}
+/* Karten & Kader */
+.cmini .fm{font-style:normal;font-size:13px;flex:none;margin-left:auto}.cmini .chem{font-style:normal;font-size:8px;letter-spacing:-1px;color:rgba(255,255,255,.3);flex:none}.cmini .chem.c2,.cmini .chem.c3{color:#7dffa0}.cmini .chem.c1{color:#ffe08a}
+.cmini .kil{font-style:normal;color:#ffe08a}.cmini .cm-ball{font-size:20px;width:30px;text-align:center}.cmini.gk b{box-shadow:inset 0 -3px 0 rgba(0,0,0,.25)}
+.sc-kil{text-align:center;font-size:9.5px;font-weight:900;margin-top:5px;padding:2px 0;border-radius:6px;background:rgba(0,0,0,.14)}
+.tstr{display:flex;gap:10px;align-items:stretch;padding:10px;border-radius:18px;background:linear-gradient(135deg,rgba(143,211,255,.12),rgba(180,140,255,.12));border:1px solid rgba(255,255,255,.1);margin-bottom:4px}
+.ts-big{flex:none;display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:86px;padding:4px 6px;border-radius:14px;background:rgba(0,0,0,.18)}
+.ts-big b{font-size:34px;font-weight:900;letter-spacing:-1px;line-height:1}.ts-big small{font-size:10px;font-weight:900;color:var(--sub);text-transform:uppercase;letter-spacing:.5px;margin:3px 0 2px}
+.ts-g{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:6px}.ts-g div{padding:5px 7px;border-radius:11px;background:rgba(255,255,255,.05)}.ts-g b{display:block;font-size:16px;font-weight:900}.ts-g small{font-size:10.5px;font-weight:800;color:var(--sub)}
+.kslot.gk{border-color:rgba(255,214,90,.3)}
+.krow{display:flex;gap:6px;margin-top:8px}.krow button{flex:1;padding:10px;border-radius:14px;background:rgba(255,255,255,.08);color:#fff;font-weight:900;font-size:13px;border:1px solid rgba(255,255,255,.12)}
+.kact button.sm{padding:6px 8px}.kact .kinfo{font-size:11px;color:var(--sub);font-weight:700;text-align:center;padding:4px}
+.chips{display:flex;gap:5px;overflow-x:auto;padding:2px 0 6px;scrollbar-width:none}.chips::-webkit-scrollbar{display:none}.chips span{font-size:11px;font-weight:800;color:var(--sub);align-self:center;flex:none}
+.chips button{flex:none;padding:6px 10px;border-radius:99px;font-size:12px;font-weight:800;color:#fff;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1)}.chips button.on{background:rgba(143,211,255,.25);border-color:#8fd3ff}
+.chips.sm button{padding:4px 9px;font-size:11px}
+.kbulk{display:flex;flex-wrap:wrap;gap:6px}.kbulk button{flex:1 1 46%;padding:8px;border-radius:12px;background:rgba(255,255,255,.07);color:#fff;font-weight:800;font-size:11.5px;border:1px solid rgba(255,255,255,.1)}
+.kbulk button.warn{color:#ffc2ad;border-color:rgba(255,140,110,.35)}.kbulk button.on{background:rgba(143,211,255,.22);border-color:#8fd3ff}.kbulk button.dis{opacity:.4}
+.acard{display:flex;align-items:center;gap:6px}.acard .ck{font-size:17px;flex:none}.acard.chk{border-color:#ffad8f;background:rgba(255,140,110,.12)}.acard .cmini{flex:1}
+/* Transfermarkt */
+.tmsearch input{width:100%;padding:11px 14px;border-radius:14px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.07);color:#fff;font:inherit;font-size:15px;font-weight:700;margin-bottom:8px}
+.tml{display:flex;flex-direction:column;gap:5px;margin-top:8px}.tmc{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:14px;background:rgba(255,255,255,.05);color:#fff;text-align:left;border:1px solid rgba(255,255,255,.06)}
+.tmc span{flex:1;min-width:0}.tmc b{display:block;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.tmc em{font-style:normal;font-weight:900;font-size:17px}.tmc.me{border-color:rgba(125,255,160,.45)}
+.tmr{display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:13px;background:rgba(255,255,255,.04);margin-bottom:5px}.tmr .cmini{flex:1}
+.tmr .tag{font-style:normal;font-size:10.5px;font-weight:800;color:var(--sub);flex:none;max-width:70px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tmr button{flex:none;padding:8px 10px;border-radius:12px;font-weight:900;font-size:12px;background:rgba(125,255,160,.16);border:1px solid rgba(125,255,160,.45);color:#fff}.tmr button.dis{opacity:.45}.tmr button.arm{background:linear-gradient(135deg,#7dffa0,#3fc8ff);color:#05210f}
+.tmback{padding:6px 12px;border-radius:99px;background:rgba(255,255,255,.08);color:#fff;font-weight:800;font-size:13px;margin-bottom:8px}
+.tmhd{display:flex;align-items:center;gap:10px;margin-bottom:4px}.tmhd b{display:block;font-size:16px}.tmhd small{font-size:12px;color:var(--sub);font-weight:700}
+.ctr[data-cid],.cmC[data-cid]{cursor:pointer}
+/* Pakete: viele Karten, Top-Karten, Walkout */
+.pk-row.many{flex-wrap:wrap;max-width:430px;gap:7px}.pk-row.many .pk-c{width:min(21vw,92px);height:128px}
+.ctile{position:absolute;inset:0;border-radius:14px;background:var(--rg);color:#1a1206;display:flex;flex-direction:column;align-items:center;padding:6px 4px;backface-visibility:hidden;box-shadow:0 8px 20px rgba(0,0,0,.4);overflow:hidden}
+.ctile b{font-size:22px;font-weight:900;line-height:1}.ctile i{font-style:normal;font-size:10px;font-weight:900}.ctile .kit{margin:2px 0}.ctile>span{font-size:26px}
+.ctile em{font-style:normal;font-size:11.5px;font-weight:900;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.ctile small{font-size:8.5px;font-weight:900;text-transform:uppercase;opacity:.65}
+.ctile.r-l{color:#fff}
+.pk-c.top{z-index:1}.pk-glow{position:absolute;inset:-22px;border-radius:50%;background:radial-gradient(circle,rgba(255,224,120,.75),rgba(255,180,40,0) 70%);opacity:0;animation:pkglow 1.6s ease var(--d) both;pointer-events:none}
+.pk-c.rl .pk-glow{background:radial-gradient(circle,rgba(220,160,255,.9),rgba(138,76,255,0) 70%)}
+@keyframes pkglow{0%{opacity:0;transform:scale(.3)}45%{opacity:1;transform:scale(1.25)}100%{opacity:.55;transform:scale(1)}}
+.pk-n{color:#ffe08a}
+.wo{position:fixed;inset:0;z-index:5;background:#02030a;display:grid;place-items:center;overflow:hidden}
+.wo-rays{position:absolute;inset:-50%;background:repeating-conic-gradient(from 0deg,rgba(180,120,255,.0) 0 8deg,rgba(200,150,255,.22) 8deg 12deg);opacity:0;transition:opacity .8s;animation:woSpin 12s linear infinite}
+.wo.st2 .wo-rays,.wo.st3 .wo-rays,.wo.st4 .wo-rays,.wo.st5 .wo-rays,.wo.st6 .wo-rays{opacity:1}
+@keyframes woSpin{to{transform:rotate(360deg)}}
+.wo-st{position:absolute;opacity:0;transform:scale(.4);transition:opacity .35s,transform .55s var(--spring)}
+.wo.st2 .s1,.wo.st3 .s2,.wo.st4 .s3,.wo.st5 .s4,.wo.st6 .s5{opacity:1;transform:scale(1)}
+.wo.st6 .s5{animation:woCard 1.4s ease both}
+@keyframes woCard{0%{transform:scale(.3) rotateY(180deg)}60%{transform:scale(1.25) rotateY(0)}100%{transform:scale(1.15)}}
+.wo .s1 b{font-size:40px;font-weight:900;letter-spacing:2px;background:linear-gradient(90deg,#f3d1ff,#fff,#b48cff);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 0 30px rgba(180,120,255,.6)}
+.wo-flag{font-size:120px;filter:drop-shadow(0 0 30px rgba(255,255,255,.4))}.wo-pos{font-size:96px;font-weight:900;color:#fff;text-shadow:0 0 40px rgba(180,120,255,.8)}
+.wo .s4 .badge{transform:scale(2.6)}.wo .s5 .scard{width:170px}
+.wo-fx{position:absolute;left:50%;top:50%}.wo-fx i{position:absolute;width:6px;height:6px;border-radius:50%;background:var(--c);transform:rotate(var(--a)) translateY(0);animation:woBurst 1.3s ease-out var(--d) both}
+@keyframes woBurst{0%{opacity:1;transform:rotate(var(--a)) translateY(0)}100%{opacity:0;transform:rotate(var(--a)) translateY(-46vh)}}
+.wo-skip{position:absolute;bottom:calc(max(var(--sb),12px) + 18px);left:0;right:0;text-align:center;font-size:12px;font-weight:700;color:rgba(255,255,255,.5)}
+.kslot .cmini,.acard .cmini,.tmr .cmini{flex:1;min-width:0}.cmini>span{flex:1;min-width:0}
 </style>
 </head>
 <body>
@@ -677,7 +748,7 @@ body.rec #fight{bottom:max(var(--sb),10px)}
   <div class="sbody">
     <div class="lbl">Startaufstellung</div>
     <div class="seg" id="segMode"><div class="hl"></div><button data-v="kreis">400 Kreise</button><button data-v="land">16 Länder</button><button data-v="liga">⚽ Vereine</button></div>
-    <div class="hidden" id="ligaNote"><div class="lbl">Ligen im Spiel</div><div class="ligchips"></div><div class="lbl">Liga-Unterschied</div><div class="seg bonseg"><div class="hl"></div><button data-v="aus">Aus</button><button data-v="normal">Normal</button><button data-v="stark">Stark</button><button data-v="extrem">Extrem</button></div><div class="note bonnote"></div><div class="note" style="padding-top:0">Saison 2026/27. Statt Würfeln gibt es Torwandschießen: je 3 Schüsse, bei Gleichstand Stechen. Stärke = höhere Trefferchance. Selbst schießen: „Selbst würfeln“ einschalten. Jeder Kreis gehört anfangs zum nächstgelegenen Verein. Teilen sich Vereine eine Stadt, startet der höherklassige dort, die anderen im Nachbarkreis.</div></div>
+    <div class="hidden" id="ligaNote"><div class="lbl">Ligen im Spiel</div><div class="ligchips"></div><div class="lbl">Liga-Unterschied</div><div class="seg bonseg"><div class="hl"></div><button data-v="aus">Aus</button><button data-v="normal">Normal</button><button data-v="stark">Stark</button><button data-v="extrem">Extrem</button></div><div class="note bonnote"></div><div class="note" style="padding-top:0">Saison 2026/27. Statt Würfeln gibt es Elfmeterschießen: je 5 Elfmeter, bei Gleichstand Stechen. Stärke = höhere Trefferchance. Selbst schießen: „Selbst würfeln“ einschalten. Jeder Kreis gehört anfangs zum nächstgelegenen Verein. Teilen sich Vereine eine Stadt, startet der höherklassige dort, die anderen im Nachbarkreis.</div></div>
     <div class="lbl">Eroberungsregel</div>
     <div class="seg" id="segRule"><div class="hl"></div><button data-v="total">Totaler Krieg</button><button data-v="grenz">Grenzkampf</button></div>
     <div class="lbl landsel">Bundesländer im Spiel <span id="landCnt" style="color:#fff"></span></div>
@@ -730,8 +801,13 @@ body.rec #fight{bottom:max(var(--sb),10px)}
 </section>
 <section class="sheet glass" id="shDuel">
   <div class="grab"></div>
-  <div class="shd"><h2>Torwand-Duell</h2><button class="xbtn press" data-close>✕</button></div>
+  <div class="shd"><h2>Elfmeter-Duell</h2><button class="xbtn press" data-close>✕</button></div>
   <div class="sbody" id="duelBody"></div>
+</section>
+<section class="sheet glass" id="shClub">
+  <div class="grab"></div>
+  <div class="shd"><h2>Kader & Transfermarkt</h2><button class="xbtn press" data-close>✕</button></div>
+  <div class="sbody" id="clubBody"></div>
 </section>
 <section class="sheet glass" id="shPlayers">
   <div class="grab"></div>
@@ -751,7 +827,7 @@ body.rec #fight{bottom:max(var(--sb),10px)}
 <div id="tw" class="off">
   <canvas id="twC"></canvas>
   <div class="twTop glass dark">
-    <div class="twTitle" id="twTitle">Torwandschießen</div>
+    <div class="twTitle" id="twTitle">Elfmeterschießen</div>
     <div class="twRow">
       <div class="twTeam" id="twA"><div class="twB"></div><div class="twN"></div><div class="twS"></div></div>
       <div class="twScore"><b id="twSc">0 : 0</b><small id="twPh">Schuss 1/5</small></div>
@@ -762,7 +838,10 @@ body.rec #fight{bottom:max(var(--sb),10px)}
   <div class="twWind" id="twWind"></div>
   <div class="twPow" id="twPow"></div>
   <div class="twShooter" id="twShooter"></div>
-  <div class="twHint" id="twHint">👆 Vom Ball aus nach oben schnippen<br><small>Richtung = Seite · Tempo = Höhe · Wind beachten</small></div>
+  <div class="twHint" id="twHint">👆 Vom Ball aus Richtung Tor wischen<br><small>Richtung = Ecke · Tempo = Höhe · Schussart links wählen</small></div>
+  <div class="twType" id="twType"><button data-t="place" class="on">🎯 Platziert<small>sicher, Ecke wählen</small></button><button data-t="power">💥 Vollspann<small>schwer zu halten, streut</small></button><button data-t="panenka">🥄 Panenka<small>Lupfer in die Mitte</small></button></div>
+  <div class="twKeep" id="twKeep">🧤 Wische in die Ecke, in die du springst<small>Kurz tippen = stehen bleiben · nach oben = hoch</small><div class="bar"><i></i></div></div>
+  <button class="twPsy" id="twPsy">😜 Mätzchen<b>2</b></button>
   <button class="twAuto glass hidden" id="twAuto">⏩ Automatisch</button>
 </div>
 <div id="pack" class="off"></div>
@@ -784,7 +863,7 @@ body.rec #fight{bottom:max(var(--sb),10px)}
         <button class="big glass tint press hidden" id="iCont">▶︎ Fortsetzen</button>
         <button class="big glass press hidden" id="iCar">🏆 Karriere fortsetzen</button>
         <button class="big glass press" id="iNew">⚔️ Neues Spiel einrichten</button>
-        <button class="big glass press" id="iDuel">👥 Torwand-Duell <span class="isml">2 Spieler</span></button>
+        <button class="big glass press" id="iDuel">👥 Elfmeter-Duell <span class="isml">2 Spieler</span></button>
       </div>
     </div>
     <div id="iWiz" class="hidden">
@@ -1395,7 +1474,14 @@ function sfx(n){if(!SET.sound||isTurbo()&&n!=='fan')return;const sp=Math.min(spe
   else if(n==='conq'){tone(90,.5,'sine',.22,45);noise(.5,.15,400,0,.6);[392,523,659].forEach((f,k)=>tone(f,.4,'triangle',.05,0,.05+k*.05))}
   else if(n==='sens'){[523,659,784,1047].forEach((f,k)=>tone(f,.3,'square',.035,0,k*.08))}
   else if(n==='fan'){[392,523,659,784,659,1047].forEach((f,k)=>tone(f,.5,'triangle',.09,0,k*.13))}
-  else if(n==='tap'){tone(880,.05,'sine',.05)}}
+  else if(n==='tap'){tone(880,.05,'sine',.05)}
+  else if(n==='kick'){noise(.06,.4,500,0,1.4);tone(110,.12,'sine',.18,60)}
+  else if(n==='net'){noise(.3,.22,1200,0,.6);tone(70,.25,'sine',.12,40);noise(1.3,.13,900,.08,.4)}
+  else if(n==='save'){noise(.08,.35,700,0,1.5);tone(160,.12,'triangle',.08,90)}
+  else if(n==='post'){tone(1320,.5,'triangle',.08,1250);tone(1975,.35,'sine',.04,1900);noise(.04,.3,3000,0,2)}
+  else if(n==='boo'){for(let k=0;k<6;k++)tone(2600+rnd()*900,.35,'sine',.022,2400+rnd()*600,k*.06)}
+  else if(n==='crowd'){noise(1,.12,800,0,.5)}
+  else if(n==='whistle'){tone(2800,.35,'square',.04,2750);tone(2900,.35,'square',.03,2850,.02)}}
 
 /* ================= Dice UI ================= */
 const PIPS={1:[4],2:[0,8],3:[0,4,8],4:[0,2,6,8],5:[0,2,4,6,8],6:[0,2,3,5,6,8]};
@@ -1765,7 +1851,7 @@ function comment(fi,res,W,L,take,up,leadBefore,aW,aL){const rr=a=>a[Math.random(
   if(take.length>=10)return{n:1,t:rr([w+' rollt über '+l+' hinweg – '+take.length+' Kreise auf einen Streich!','Gewaltiger Vormarsch: '+w+' schluckt '+take.length+' Kreise.'])};
   if(leadBefore!==W.id&&topF()===W&&aliveF().length>2)return{n:1,t:w+' übernimmt die Tabellenführung!'};
   if(sumW===18)return{n:1,t:rr(['Dreimal die Sechs! '+w+' würfelt sich zum Sieg.','Perfekter Wurf: 18 Augen für '+w+'!'])};
-  if(res.tw){if(res.st.length)return{n:1,t:rr(['Im Stechen entschieden! '+w+' behält die Nerven.','Nervenkrimi an der Torwand – '+w+' gewinnt im Stechen!'])};const ws=W===fi.A?res.sA:res.sD,ls=W===fi.A?res.sD:res.sA;if(ws>=3&&ls===0)return{n:1,t:rr(['Drei von drei! '+w+' trifft perfekt.','Zu null! '+w+' versenkt alle drei Schüsse.'])};if(ls===0&&ws>0&&Math.random()<.5)return{n:0,t:rr([l+' trifft die Wand, aber nicht das Loch.',l+' bleibt ohne Treffer.'])};if(ws-ls===1&&Math.random()<.4)return{n:0,t:rr(['Knapp! '+ws+' zu '+ls+' an der Torwand.','Ein Treffer macht den Unterschied: '+ws+' zu '+ls+'.'])}}
+  if(res.tw){if(res.st.length)return{n:1,t:rr(['Im Stechen entschieden! '+w+' behält die Nerven.','Nervenkrimi vom Punkt – '+w+' gewinnt im Stechen!'])};const ws=W===fi.A?res.sA:res.sD,ls=W===fi.A?res.sD:res.sA;if(ws>=5&&ls===0)return{n:1,t:rr(['Fünf von fünf! '+w+' trifft perfekt.','Zu null! '+w+' verwandelt alle fünf Elfmeter.'])};if(ls===0&&ws>0&&Math.random()<.5)return{n:0,t:rr([l+' scheitert immer wieder am Torwart.',l+' bleibt ohne Treffer.'])};if(ws-ls===1&&Math.random()<.4)return{n:0,t:rr(['Knapp! '+ws+' zu '+ls+' vom Elfmeterpunkt.','Ein Treffer macht den Unterschied: '+ws+' zu '+ls+'.'])}}
   if(!res.tw&&Math.abs(res.sA-res.sD)<=1)return{n:0,t:rr(['Hauchdünn! '+fmt1(res.sA)+' zu '+fmt1(res.sD)+' – das war knapp.','Ein Krimi bis zum letzten Würfel!'])};
   if(!res.aw)return{n:0,t:rr([w+' steht wie eine Mauer!','Abgewehrt! '+w+' lässt '+l+' abblitzen.','Was für eine Verteidigung von '+w+'!'])};
   if(cells[fi.A.home].land===cells[fi.D.home].land&&fi.A.cells.size<=2&&fi.D.cells.size<=2)return{n:0,t:rr(['Landesderby! '+w+' setzt sich gegen '+l+' durch.','Nachbarschaftsduell entschieden: '+w+' gewinnt.'])};
@@ -3234,15 +3320,15 @@ Kacper Kościerski|64|37|55|RB|3
 Lukas Fröde|64|48|80|CDM|3
 Felix Higl|64|62|71|ST|3
 Dominic Baumann|64|64|72|ST|3`;
-/* ================= Torwandschießen ================= */
+/* ================= Elfmeterschießen (früher Torwand) ================= */
 /* Zwei Löcher wie an der klassischen Torwand: unten links, oben rechts. Koordinaten relativ zur Wand (u: links→rechts, v: unten→oben) */
 const TW_HOLES=[{u:.25,v:.27,n:'unten'},{u:.75,v:.73,n:'oben'}];
 const TW_R=.082;
 const twClampP=x=>clamp(x,.08,.86);
-function twProbFac(f,bonus){return twClampP(.34+(mult(f)-1)*.5+bonus*.035)}
+function twProbFac(f,bonus){return clamp(.72+(mult(f)-1)*.42+bonus*.03,.35,.94)}
 function twPack(fi,sh,st,pA,pD,bA,bD){const cnt=a=>a.filter(Boolean).length;const a=cnt(sh.A)+st.reduce((s,x)=>s+(x[0]?1:0),0),d=cnt(sh.D)+st.reduce((s,x)=>s+(x[1]?1:0),0);
   return{tw:true,sh,st,pA,pD,bA,bD,m:{A:mult(fi.A),D:mult(fi.D)},r:{A:[1,1,1],D:[1,1,1]},sA:a,sD:d,aw:a>d}}
-/* Torwandschießen: 5 Schüsse pro Team */
+/* Elfmeterschießen: 5 Elfmeter pro Team */
 const TW_N=5;
 function twSimShots(pA,pD,R,draw){R=R||grnd;const sh={A:[],D:[]};for(let k=0;k<TW_N;k++){sh.A.push(R()<pA);sh.D.push(R()<pD)}
   const st=[];let a=sh.A.filter(Boolean).length,d=sh.D.filter(Boolean).length;
@@ -3270,55 +3356,67 @@ async function twDuel(fi,quick){const res=resolve(fi);const {A,D}=fi;
   for(let j=0;j<res.st.length;j++)for(const sd of ['A','D']){const hit=res.st[j][sd==='A'?0:1];await twCardShot(sd,TW_N+j,hit,true);if(hit){if(sd==='A')a++;else d++;setScore(sd,sd==='A'?a:d)}await waitUnpause()}
   return res}
 
-/* ---- Torwand-Szene: Flutlicht-Stadion ---- */
+/* ---- Elfmeter-Szene: Flutlicht-Stadion, Tor, Torwart ---- */
 const TW_BALLS={classic:{n:'Klassik',a:'#ffffff',b:'#1b1f2a',lv:1},retro:{n:'Retro',a:'#f3e3c2',b:'#7a4a22',lv:3},gold:{n:'Gold',a:'#ffe08a',b:'#8a5a00',lv:6},neon:{n:'Neon',a:'#b6ff9e',b:'#0a6b52',lv:9},fire:{n:'Feuer',a:'#ffc08a',b:'#b3200a',lv:12}};
-/* Treffsicherheit: p = Stärke (0..1), c = Schützenkarte {pra,kra,ner} */
-function twAimFor(p,c){const base=Math.round(clamp(40+p*60,40,95));c=c||{pra:base,kra:base,ner:base};
-  return{sig:clamp(.052-(p-.3)*.03,.02,.07)*(1.35-c.pra/100*.8),vsig:.06*(1.35-c.kra/100*.8),nerve:1.4-c.ner/100*.75,card:c.name?c:null}}
+/* Schütze ohne Karte (Liga-Krieg, Duell): Werte aus der Trefferchance p */
+function twAimFor(p,c){const base=Math.round(clamp(40+p*60,40,95));c=c||{};return{n:c.n||null,o:c.o||base,pra:c.pra||base,kra:c.kra||base,ner:c.ner||base}}
 let twCtx=null,twBG=null;
 const twAborted=()=>!!(twCtx&&twCtx.abortable&&typeof abortFlag!=='undefined'&&abortFlag);
 function twWait(ms){return new Promise(r=>{if(twAborted())return r();setTimeout(r,ms)})}
 function twGauss(){let u=0,v=0;while(!u)u=Math.random();while(!v)v=Math.random();return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v)}
 function twGeom(){const c=$('#twC');const w=c.clientWidth,h=c.clientHeight;const tb=$('.twTop').getBoundingClientRect().bottom||150;
-  const ww=Math.min(w*.84,430),wh=ww*.64;const wx=(w-ww)/2;const wy=Math.max(tb+34,h*.25);const ground=wy+wh+wh*.22;
-  return{w,h,wx,wy,ww,wh,ground,horizon:wy+wh*.5,bx:w/2,by:h-Math.max(135,h*.155),br:Math.min(30,w*.075),hr:ww*.095,brw:ww*.037}}
-const twToPx=(G,u,v)=>[G.wx+u*G.ww,G.wy+(1-v)*G.wh];
-/* statischer Hintergrund (Tribüne, Flutlicht, Rasen, Wand) wird einmal vorgezeichnet */
+  const gw=Math.min(w*.9,470),gh=gw*.37;const gx=(w-gw)/2;const gy=Math.max(tb+64,h*.29);const ground=gy+gh;
+  return{w,h,gx,gy,gw,gh,ground,horizon:gy+gh*.5,bx:w/2,by:h-Math.max(150,h*.17),br:Math.min(28,w*.07),brw:gw*.03,
+    /* Kulisse hinter dem Tor (frühere Torwand-Designs) */
+    wx:gx-gw*.1,wy:gy-gh*.5,ww:gw*1.2,wh:gh*1.05,hr:gw*.06,noHoles:true}}
+const penPx=(G,u,v)=>[G.gx+u*G.gw,G.ground-v*G.gh];
+const twToPx=penPx;
+function carMulSafe(seed){let a=seed|0;return()=>{a=(a+0x6D2B79F5)|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+/* statischer Hintergrund (Tribüne, Flutlicht, Rasen, Kulisse, Tor) wird einmal vorgezeichnet */
 function twBuildBG(G,dpr){const c=document.createElement('canvas');c.width=Math.round(G.w*dpr);c.height=Math.round(G.h*dpr);const x=c.getContext('2d');x.scale(dpr,dpr);
-  const R=carMulSafe(7);
-  // Himmel
+  const R=carMulSafe(7);const skin=(twCtx&&twCtx.wallSkin)||'std';
   let g=x.createLinearGradient(0,0,0,G.horizon);g.addColorStop(0,'#050914');g.addColorStop(1,'#101a33');x.fillStyle=g;x.fillRect(0,0,G.w,G.horizon);
-  // Tribüne mit Publikum
-  const st=G.horizon*.28;x.fillStyle='#0b1222';x.fillRect(0,st,G.w,G.horizon-st);
-  for(let row=0;row<26;row++){const y=st+row*(G.horizon-st)/26;const d=.35+row/26*.65;for(let k=0;k<G.w/4.2;k++){const px=k*4.2+R()*3;
+  const st=G.horizon*.22;x.fillStyle='#0b1222';x.fillRect(0,st,G.w,G.horizon-st);
+  for(let row=0;row<30;row++){const y=st+row*(G.horizon-st)/30;const d=.35+row/30*.65;for(let k=0;k<G.w/4.2;k++){const px=k*4.2+R()*3;
     const hue=[0,210,45,120,280,20][R()*6|0];x.fillStyle='hsla('+hue+','+(30+R()*40)+'%,'+(28+R()*40)*d+'%,'+(.55+R()*.4)+')';x.fillRect(px,y+R()*2,2.2,2.2)}}
   g=x.createLinearGradient(0,st,0,G.horizon);g.addColorStop(0,'rgba(5,9,20,.85)');g.addColorStop(.6,'rgba(5,9,20,.15)');g.addColorStop(1,'rgba(5,9,20,.35)');x.fillStyle=g;x.fillRect(0,st,G.w,G.horizon-st);
   x.fillStyle='#070c18';x.beginPath();x.moveTo(0,st);x.lineTo(G.w,st);x.lineTo(G.w,st-10);x.lineTo(0,st-18);x.fill();
-  // Flutlichtmasten
   [[.07,1],[.93,-1]].forEach(([u,s])=>{const px=G.w*u;x.fillStyle='#1b2333';x.fillRect(px-2,st*.15,4,G.horizon);x.save();x.translate(px,st*.15);x.rotate(s*.12);
     x.fillStyle='#252f45';x.fillRect(-26,-12,52,24);for(let i=0;i<4;i++)for(let j=0;j<2;j++){x.fillStyle='#fff8e0';x.beginPath();x.arc(-18+i*12,-5+j*10,3.4,0,7);x.fill()}x.restore();
     x.globalCompositeOperation='lighter';const bl=x.createRadialGradient(px,st*.15,0,px,st*.15,G.w*.55);bl.addColorStop(0,'rgba(255,246,220,.55)');bl.addColorStop(.15,'rgba(255,240,200,.18)');bl.addColorStop(1,'rgba(255,240,200,0)');
     x.fillStyle=bl;x.fillRect(0,0,G.w,G.h);x.globalCompositeOperation='source-over'});
-  // LED-Bande
   const bh=Math.max(12,G.h*.016);g=x.createLinearGradient(0,G.horizon-bh,0,G.horizon);g.addColorStop(0,'#0a1630');g.addColorStop(1,'#050a18');x.fillStyle=g;x.fillRect(0,G.horizon-bh,G.w,bh);
-  x.font='900 '+Math.round(bh*.68)+'px '+FONT;x.textBaseline='middle';const txt='  TORWANDSCHIESSEN  ·  ⚽  ·  KREIS-KRIEG CUP  ·  ⚽  ·';let tx=-20;x.fillStyle='#7fd0ff';x.shadowColor='#3fa9ff';x.shadowBlur=8;
+  x.font='900 '+Math.round(bh*.68)+'px '+FONT;x.textBaseline='middle';const txt='  ELFMETERSCHIESSEN  ·  ⚽  ·  KREIS-KRIEG CUP  ·  ⚽  ·';let tx=-20;x.fillStyle='#7fd0ff';x.shadowColor='#3fa9ff';x.shadowBlur=8;
   while(tx<G.w){x.fillText(txt,tx,G.horizon-bh/2+1);tx+=x.measureText(txt).width}x.shadowBlur=0;
-  // Rasen mit Mähstreifen in Perspektive
   g=x.createLinearGradient(0,G.horizon,0,G.h);g.addColorStop(0,'#1d5a2c');g.addColorStop(1,'#2f8a40');x.fillStyle=g;x.fillRect(0,G.horizon,G.w,G.h-G.horizon);
   for(let k=0;k<12;k++){const y0=G.horizon+(G.h-G.horizon)*Math.pow(k/12,1.7),y1=G.horizon+(G.h-G.horizon)*Math.pow((k+1)/12,1.7);if(k%2){x.fillStyle='rgba(255,255,255,.045)';x.fillRect(0,y0,G.w,y1-y0)}}
-  x.strokeStyle='rgba(255,255,255,.05)';x.lineWidth=1;for(let k=-8;k<=8;k++){x.beginPath();x.moveTo(G.w/2+k*G.w*.02,G.horizon);x.lineTo(G.w/2+k*G.w*.26,G.h);x.stroke()}
-  // Schusspunkt
+  /* Kulisse direkt hinter dem Tor */
+  if(skin!=='std'){x.save();x.shadowColor='rgba(0,0,0,.5)';x.shadowBlur=20;twDrawWall(x,G,R,skin);x.restore();
+    const sh=x.createLinearGradient(0,G.wy,0,G.wy+G.wh);sh.addColorStop(0,'rgba(0,0,0,.05)');sh.addColorStop(1,'rgba(0,0,0,.35)');x.fillStyle=sh;x.fillRect(G.wx,G.wy,G.ww,G.wh)}
+  /* Linien: Torlinie, Fünfmeterraum, Elfmeterpunkt */
+  x.strokeStyle='rgba(255,255,255,.7)';x.lineWidth=2;x.beginPath();x.moveTo(0,G.ground+1);x.lineTo(G.w,G.ground+1);x.stroke();
+  const fy=G.ground+(G.by-G.ground)*.26;x.beginPath();x.moveTo(G.gx-G.gw*.24,G.ground+1);x.lineTo(G.gx-G.gw*.31,fy);x.lineTo(G.gx+G.gw*1.31,fy);x.lineTo(G.gx+G.gw*1.24,G.ground+1);x.stroke();
   x.fillStyle='rgba(255,255,255,.85)';x.beginPath();x.ellipse(G.bx,G.by+G.br*.95,G.br*.55,G.br*.16,0,0,7);x.fill();
   x.strokeStyle='rgba(255,255,255,.35)';x.lineWidth=2;x.beginPath();x.ellipse(G.bx,G.by+G.br*1.1,G.w*.42,G.w*.07,0,Math.PI*1.05,Math.PI*1.95);x.stroke();
-  // Wand: Schatten, Beine
-  x.fillStyle='rgba(0,0,0,.45)';x.filter='blur(8px)';x.beginPath();x.ellipse(G.wx+G.ww/2,G.ground,G.ww*.55,G.wh*.07,0,0,7);x.fill();x.filter='none';
-  [.1,.9].forEach(u=>{const px=G.wx+G.ww*u;const lg=x.createLinearGradient(px-5,0,px+5,0);lg.addColorStop(0,'#5b6475');lg.addColorStop(.5,'#c9d1de');lg.addColorStop(1,'#4a5263');x.fillStyle=lg;x.fillRect(px-5,G.wy+G.wh-6,10,G.ground-(G.wy+G.wh)+4);
-    x.fillStyle='#2a303c';x.fillRect(px-12,G.ground-3,24,5)});
-  twDrawWall(x,G,R,(twCtx&&twCtx.wallSkin)||'std');
-  // Vignette
+  penGoal(x,G,skin);
   g=x.createRadialGradient(G.w/2,G.h*.55,G.h*.25,G.w/2,G.h*.55,G.h*.8);g.addColorStop(0,'rgba(0,0,0,0)');g.addColorStop(1,'rgba(0,0,0,.55)');x.fillStyle=g;x.fillRect(0,0,G.w,G.h);
   return c}
-function carMulSafe(seed){let a=seed|0;return()=>{a=(a+0x6D2B79F5)|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+function penGoal(x,G,skin){const pw=Math.max(G.thumb?2:4,G.gw*.017);const gold=skin==='gold',neon=skin==='neon';
+  const bx0=G.gx+G.gw*.05,bx1=G.gx+G.gw*.95,by0=G.gy+G.gh*.16,by1=G.ground-G.gh*.05;
+  x.fillStyle='rgba(0,0,0,.28)';x.beginPath();x.moveTo(G.gx,G.ground);x.lineTo(bx0,by1);x.lineTo(bx1,by1);x.lineTo(G.gx+G.gw,G.ground);x.closePath();x.fill();
+  x.fillStyle='rgba(255,255,255,.035)';x.fillRect(bx0,by0,bx1-bx0,by1-by0);
+  x.strokeStyle=neon?'rgba(120,240,255,.4)':gold?'rgba(255,225,150,.42)':'rgba(255,255,255,.3)';x.lineWidth=1;
+  const nx=Math.max(8,Math.round(G.gw/12)),ny=Math.max(4,Math.round(G.gh/12));
+  for(let i=0;i<=nx;i++){const t=i/nx,xx=bx0+(bx1-bx0)*t;x.beginPath();x.moveTo(xx,by0);x.lineTo(xx,by1);x.stroke();x.beginPath();x.moveTo(G.gx+G.gw*t,G.gy);x.lineTo(xx,by0);x.stroke()}
+  for(let j=0;j<=ny;j++){const t=j/ny,yy=by0+(by1-by0)*t;x.beginPath();x.moveTo(bx0,yy);x.lineTo(bx1,yy);x.stroke();
+    x.beginPath();x.moveTo(G.gx,G.gy+G.gh*t);x.lineTo(bx0,yy);x.stroke();x.beginPath();x.moveTo(G.gx+G.gw,G.gy+G.gh*t);x.lineTo(bx1,yy);x.stroke()}
+  /* Pfosten und Latte */
+  const frame=()=>{x.beginPath();x.moveTo(G.gx,G.ground+2);x.lineTo(G.gx,G.gy);x.lineTo(G.gx+G.gw,G.gy);x.lineTo(G.gx+G.gw,G.ground+2)};
+  x.save();x.lineCap='round';x.lineJoin='round';x.strokeStyle='rgba(0,0,0,.35)';x.lineWidth=pw*1.25;x.translate(2,3);frame();x.stroke();x.restore();
+  x.save();x.lineCap='round';x.lineJoin='round';if(neon){x.shadowColor='#00e5ff';x.shadowBlur=18}else if(gold){x.shadowColor='rgba(255,200,80,.7)';x.shadowBlur=14}
+  let col='#f6f8fb';if(gold){col=x.createLinearGradient(0,G.gy,0,G.ground);col.addColorStop(0,'#fff3c4');col.addColorStop(.5,'#d4a02a');col.addColorStop(1,'#f5d77a')}else if(neon)col='#8ff8ff';
+  x.strokeStyle=col;x.lineWidth=pw;frame();x.stroke();x.shadowBlur=0;x.strokeStyle='rgba(0,0,0,.16)';x.lineWidth=pw*.32;x.translate(pw*.22,pw*.22);frame();x.stroke();x.restore();
+  x.fillStyle='rgba(0,0,0,.4)';x.filter='blur(4px)';x.beginPath();x.ellipse(G.gx+G.gw/2,G.ground+3,G.gw*.52,G.gh*.05,0,0,7);x.fill();x.filter='none'}
 function twBall(x,bx,by,br,rot,skin,alpha){const sk=TW_BALLS[skin]||TW_BALLS.classic;x.save();x.globalAlpha=alpha;x.beginPath();x.arc(bx,by,br,0,7);x.clip();
   if(sk.draw){twBallCustom(x,bx,by,br,rot,sk);const s2=x.createRadialGradient(bx-br*.3,by-br*.35,0,bx,by,br);s2.addColorStop(0,'rgba(255,255,255,.5)');s2.addColorStop(.3,'rgba(255,255,255,0)');s2.addColorStop(1,'rgba(0,0,0,.38)');x.fillStyle=s2;x.fillRect(bx-br,by-br,br*2,br*2);x.restore();return}
   const g=x.createRadialGradient(bx-br*.35,by-br*.4,br*.1,bx,by,br*1.05);g.addColorStop(0,'#ffffff');g.addColorStop(.45,sk.a);g.addColorStop(1,'#6d7380');x.fillStyle=g;x.fillRect(bx-br,by-br,br*2,br*2);
@@ -3326,89 +3424,219 @@ function twBall(x,bx,by,br,rot,skin,alpha){const sk=TW_BALLS[skin]||TW_BALLS.cla
   pent(bx+Math.cos(rot)*br*.08,by+Math.sin(rot)*br*.08,br*.34,rot);for(let i=0;i<5;i++){const an=rot+i*1.2566+.63;pent(bx+Math.cos(an)*br*.88,by+Math.sin(an)*br*.88,br*.3,an+Math.PI)}
   x.strokeStyle='rgba(0,0,0,.18)';x.lineWidth=Math.max(.6,br*.04);for(let i=0;i<5;i++){const an=rot+i*1.2566;x.beginPath();x.moveTo(bx+Math.cos(an)*br*.34,by+Math.sin(an)*br*.34);x.lineTo(bx+Math.cos(an)*br*.62,by+Math.sin(an)*br*.62);x.stroke()}
   const sh=x.createRadialGradient(bx-br*.3,by-br*.35,0,bx,by,br);sh.addColorStop(0,'rgba(255,255,255,.55)');sh.addColorStop(.3,'rgba(255,255,255,0)');sh.addColorStop(1,'rgba(0,0,0,.35)');x.fillStyle=sh;x.fillRect(bx-br,by-br,br*2,br*2);x.restore()}
+
+/* ---- Torwart (gezeichnet, animiert) ---- */
+const PEN_KCOL=['#c6ff3d','#ff8a1f','#2fd6ff','#ff5fd2','#ffe14d','#9d7bff'];
+const PEN_SKIN=['#f1c7a0','#e0ac80','#c08458','#8a5a38','#5e3b24'];
+const penKU=s=>s/100; /* Einheiten: Torwart ist ~74 Einheiten groß, 100 Einheiten = Torhöhe */
+function penRR(x,X,Y,W,H,r){x.beginPath();x.roundRect(X,Y,W,H,r);x.fill()}
+/* Pose aus dem Animationszustand: Hüfte (u,v), Drehung, Arm- und Beinwinkel */
+function penKPose(K,now){const q=K.anim;let u=.5,v=.28,ang=0,la=.95,ra=.95,ll=.22,rl=.22,bob=0;
+  if(K.wig&&!q){const t=now/120;la=2.2+Math.sin(t)*.8;ra=2.2-Math.sin(t)*.8;ll=.32;rl=.32;bob=Math.abs(Math.sin(t*.5))*.03;u=.5+Math.sin(now/260)*.05}
+  else if(!q){const t=now/380;u=.5+Math.sin(t)*.012;bob=Math.abs(Math.sin(t*1.7))*.008}
+  if(q){const p=clamp((now-q.t0)/q.d,0,1),e=1-Math.pow(1-p,2.2);
+    if(q.kind==='stay'){const j=Math.sin(p*Math.PI);v=.28+j*.07;la=lerp(.95,2.65,Math.min(1,p*2));ra=la;ll=rl=.12}
+    else{u=lerp(.5,q.u,e);v=lerp(.28,q.v,e)+Math.sin(p*Math.PI)*.06;ang=lerp(0,q.ang,e);la=ra=lerp(.95,3.05,Math.min(1,p*1.6));ll=lerp(.22,.05,e);rl=lerp(.22,.3,e)}
+    if(q.fall){const f=clamp((now-q.t0-q.d-q.hold)/320,0,1);if(f>0&&q.kind!=='stay'){v=lerp(q.v,.07,f*f);ang=lerp(q.ang,Math.sign(q.ang||1)*1.57,f)}}}
+  return{u,v:v+bob,ang,la,ra,ll,rl}}
+function penHands(G,P){const s=G.gh/100;const [hx,hy]=penPx(G,P.u,P.v);const L=50*s;return[hx+Math.sin(P.ang)*L,hy-Math.cos(P.ang)*L]}
+function penKeeperDraw(x,G,K,now){const P=penKPose(K,now);K.P=P;const s=G.gh/100;const [cx,cy]=penPx(G,P.u,P.v);const col=K.col||'#c6ff3d',dk=shadeHex(col,-.5);
+  x.save();x.fillStyle='rgba(0,0,0,.35)';x.beginPath();x.ellipse(cx,G.ground+2,18*s+Math.abs(Math.sin(P.ang))*26*s,4*s,0,0,7);x.fill();x.restore();
+  x.save();x.translate(cx,cy);x.rotate(P.ang);
+  const leg=(ox,a)=>{x.save();x.translate(ox,0);x.rotate(a);x.fillStyle='#161a24';penRR(x,-4.6*s,-1*s,9.2*s,14*s,4*s);x.fillStyle=dk;penRR(x,-4*s,12*s,8*s,13*s,3*s);x.fillStyle='#0d0f14';penRR(x,-4.5*s,24*s,10*s,4.5*s,2*s);x.restore()};
+  leg(-4.6*s,P.ll);leg(4.6*s,-P.rl);
+  const arm=(ox,a)=>{x.save();x.translate(ox,-25*s);x.rotate(a);x.fillStyle=col;penRR(x,-3.4*s,0,6.8*s,15*s,3.2*s);x.fillStyle=dk;penRR(x,-3*s,12*s,6*s,10*s,3*s);
+    x.fillStyle='#ffffff';x.beginPath();x.arc(0,24*s,4.6*s,0,7);x.fill();x.fillStyle=col;x.fillRect(-4.4*s,20.5*s,8.8*s,2.2*s);x.restore()};
+  arm(-9*s,P.la);arm(9*s,-P.ra);
+  x.fillStyle=col;penRR(x,-10*s,-30*s,20*s,32*s,6*s);x.fillStyle='rgba(0,0,0,.18)';penRR(x,-10*s,-6*s,20*s,8*s,3*s);
+  x.fillStyle=dk;x.font='900 '+Math.round(11*s)+'px '+FONT;x.textAlign='center';x.textBaseline='middle';x.fillText(K.no||'1',0,-14*s);
+  x.fillStyle=K.skin||PEN_SKIN[1];x.beginPath();x.arc(0,-38*s,7.4*s,0,7);x.fill();x.fillStyle='#1d1410';x.beginPath();x.arc(0,-40*s,7.6*s,Math.PI*1.05,Math.PI*1.95);x.fill();
+  x.restore()}
+
 function twDraw(){const T=twCtx;if(!T||!T.open)return;const c=$('#twC');const dpr=Math.min(2,window.devicePixelRatio||1);const G=twGeom();
   if(c.width!==Math.round(G.w*dpr)||c.height!==Math.round(G.h*dpr)){c.width=Math.round(G.w*dpr);c.height=Math.round(G.h*dpr);twBG=null}
   if(!twBG||twBG._k!==G.w+'x'+G.h+T.wallSkin){twBG=twBuildBG(G,dpr);twBG._k=G.w+'x'+G.h+T.wallSkin}
   const x=c.getContext('2d');x.setTransform(1,0,0,1,0,0);const now=performance.now();let sx=0,sy=0;if(T.shake&&now<T.shake.t){const a=(T.shake.t-now)/300*T.shake.a;sx=(Math.random()-.5)*a;sy=(Math.random()-.5)*a}
   x.drawImage(twBG,sx*dpr,sy*dpr);x.setTransform(dpr,0,0,dpr,sx*dpr,sy*dpr);
-  // Netz-Welle bei Treffer
-  if(T.ripple){const q=(now-T.ripple.t)/900;if(q<1){const [hx,hy]=twToPx(G,TW_HOLES[T.ripple.i].u,TW_HOLES[T.ripple.i].v);x.save();x.beginPath();x.arc(hx,hy,G.hr,0,7);x.clip();
-    for(let k=0;k<3;k++){const r=(q*1.4-k*.2)*G.hr;if(r>0){x.strokeStyle='rgba(255,255,255,'+(.5*(1-q))+')';x.lineWidth=2;x.beginPath();x.arc(hx,hy,r,0,7);x.stroke()}}x.restore();
-    x.strokeStyle='rgba(255,224,138,'+(1-q)+')';x.lineWidth=5;x.beginPath();x.arc(hx,hy,G.hr+6+q*26,0,7);x.stroke()}}
-  // Aufprall-Staub
+  /* Netz wölbt sich bei Tor */
+  if(T.ripple){const q=(now-T.ripple.t)/900;if(q<1){x.save();x.beginPath();x.rect(G.gx,G.gy,G.gw,G.gh);x.clip();
+    for(let k=0;k<4;k++){const r=(q*1.3-k*.18)*G.gh*.9;if(r>0){x.strokeStyle='rgba(255,255,255,'+(.55*(1-q))+')';x.lineWidth=2;x.beginPath();x.ellipse(T.ripple.x,T.ripple.y,r*1.3,r,0,0,7);x.stroke()}}x.restore()}}
+  const B=T.ball;let bp=null;
+  if(B)bp=penBallPos(B,G,T,now);
+  /* Ball hinter dem Torwart (im Netz) zuerst zeichnen */
+  const drawBall=()=>{if(!bp){x.fillStyle='rgba(0,0,0,.38)';x.beginPath();x.ellipse(G.bx,G.by+G.br*.95,G.br*.85,G.br*.22,0,0,7);x.fill();twBall(x,G.bx,G.by,G.br,T.rot||0,T.ballSkin,1);return}
+    B.trail.push([bp.x,bp.y,bp.r]);if(B.trail.length>9)B.trail.shift();B.trail.forEach((t,i)=>{x.globalAlpha=i/B.trail.length*.18*bp.a;x.fillStyle='#fff';x.beginPath();x.arc(t[0],t[1],t[2]*.9,0,7);x.fill()});x.globalAlpha=1;
+    x.fillStyle='rgba(0,0,0,'+(.3*bp.a)+')';x.beginPath();x.ellipse(bp.gx,bp.gy,bp.r*.85,bp.r*.22,0,0,7);x.fill();if(bp.a>0)twBall(x,bp.x,bp.y,bp.r,bp.rot,T.ballSkin,bp.a)};
+  const behind=bp&&bp.behind;if(behind)drawBall();
+  if(T.keeper)penKeeperDraw(x,G,T.keeper,now);
+  if(!behind)drawBall();
   if(T.dust){const q=(now-T.dust.t)/600;if(q<1){x.strokeStyle='rgba(255,255,255,'+(.6*(1-q))+')';x.lineWidth=2;x.beginPath();x.arc(T.dust.x,T.dust.y,6+q*30,0,7);x.stroke()}}
-  // Partikel
   if(T.parts){T.parts=T.parts.filter(p=>now-p.t0<p.life);T.parts.forEach(p=>{const q=(now-p.t0)/1000;const px=p.x+p.vx*q,py=p.y+p.vy*q+260*q*q;x.globalAlpha=1-(now-p.t0)/p.life;x.fillStyle=p.c;x.fillRect(px,py,p.s,p.s)});x.globalAlpha=1}
-  // Richtungspfeil beim Wischen (nur Richtung, kein Ziel)
-  if(T.drag&&T.dir){const [dx,dy]=T.dir;const L=Math.hypot(dx,dy)||1;const ux=dx/L,uy=dy/L;x.strokeStyle='rgba(255,255,255,.7)';x.lineWidth=3;x.setLineDash([7,7]);x.beginPath();x.moveTo(G.bx,G.by-G.br);x.lineTo(G.bx+ux*95,G.by-G.br+uy*95);x.stroke();x.setLineDash([])}
-  // Ball + Schatten + Spur
-  const B=T.ball;let bx=G.bx,by=G.by,br=G.br,ba=1,rot=T.rot||0,gx=G.bx,gy=G.by+G.br*.95,gs=1;
-  if(B){const p=clamp((now-B.t0)/B.d,0,1);const e=1-Math.pow(1-p,1.6);rot=B.rot0+p*B.spin;
-    if(p<1){bx=lerp(G.bx,B.tx,e)+Math.sin(p*Math.PI)*B.curve;by=lerp(G.by,B.ty,e)-Math.sin(p*Math.PI)*B.arc;br=lerp(G.br,G.brw,e);gx=lerp(G.bx,B.tx,e);gy=lerp(G.by+G.br*.95,G.ground,e);gs=lerp(1,.45,e)}
-    else{const q=clamp((now-B.t0-B.d)/600,0,1);bx=B.tx;by=B.ty;br=G.brw;gx=B.tx;gy=G.ground;gs=.45;
-      if(B.res==='hit'){br*=1-q*.9;ba=1-q}
-      else if(B.res==='wall'||B.res==='rim'){const fall=Math.min(1,q*1.4);by=B.ty+(G.ground-B.ty-G.brw)*fall*fall;bx=B.tx+(B.tx-G.w/2)*.1*q+(B.res==='rim'?q*20:0);br=G.brw*(1+q*.25)}
-      else{by=B.ty-q*60;ba=1-q;br=G.brw*(1-q*.3)}}
-    B.trail.push([bx,by,br]);if(B.trail.length>9)B.trail.shift();B.trail.forEach((t,i)=>{x.globalAlpha=i/B.trail.length*.18*ba;x.fillStyle='#fff';x.beginPath();x.arc(t[0],t[1],t[2]*.9,0,7);x.fill()});x.globalAlpha=1}
-  x.fillStyle='rgba(0,0,0,'+(.38*ba)+')';x.beginPath();x.ellipse(gx,gy,G.br*.85*gs,G.br*.22*gs,0,0,7);x.fill();
-  if(ba>0)twBall(x,bx,by,br,rot,T.ballSkin,ba);
+  /* Zielpfeil beim Wischen: wackelt unter Druck */
+  if(T.drag&&T.dir){const [dx,dy]=T.dir;const L=Math.hypot(dx,dy)||1;const wob=(T.wob||0)*Math.sin(now/55)*.35;const ux=dx/L+wob,uy=dy/L;x.strokeStyle='rgba(255,255,255,.75)';x.lineWidth=3;x.setLineDash([7,7]);x.beginPath();x.moveTo(G.bx,G.by-G.br);x.lineTo(G.bx+ux*110,G.by-G.br+uy*110);x.stroke();x.setLineDash([])}
+  if(T.keepDir){const k=T.keepDir;const [hx,hy]=penPx(G,k.z==='L'?.18:k.z==='R'?.82:.5,k.hi?.72:.25);x.strokeStyle='rgba(143,211,255,.85)';x.lineWidth=3;x.beginPath();x.arc(hx,hy,G.gh*.13,0,7);x.stroke()}
   requestAnimationFrame(twDraw)}
-function twAimFromSwipe(dx,dy,speed){const u=.5+(dx/Math.max(30,-dy))*1.05;const v=(speed-.4)/2;return{u,v}}
-function twJudge(G,u,v,assist){const [px,py]=twToPx(G,u,v);if(v>1+G.brw/G.wh*.6)return{res:'out'};if(u<-.02||u>1.02)return{res:'wide'};if(v<-.05)return{res:'short'};
-  for(let i=0;i<2;i++){const h=TW_HOLES[i];const [hx,hy]=twToPx(G,h.u,h.v);const d=Math.hypot(px-hx,py-hy);if(d<G.hr-G.brw*.45+(assist||0))return{res:'hit',i};if(d<G.hr+G.brw*.9)return{res:'rim',i}}
-  return{res:'wall'}}
-async function twFly(G,u,v,res,i,wind){const T=twCtx;let tx,ty;if(res==='hit'){const h=TW_HOLES[i];const [hx,hy]=twToPx(G,h.u,h.v);const [px,py]=twToPx(G,u,v);tx=lerp(px,hx,.6);ty=lerp(py,hy,.6)}
-  else if(res==='short'){tx=G.wx+u*G.ww;ty=G.ground-G.brw}else[tx,ty]=twToPx(G,u,v);
-  T.ball={t0:performance.now(),d:560,tx,ty,arc:60+Math.max(0,v)*70,curve:-(wind||0)*2.2,rot0:T.rot||0,spin:(Math.random()<.5?-1:1)*9,res,trail:[]};sfx('roll');await twWait(580);
-  if(res==='hit'){T.ripple={i,t:performance.now()};const [hx,hy]=twToPx(G,TW_HOLES[i].u,TW_HOLES[i].v);T.parts=(T.parts||[]).concat(Array.from({length:34},()=>({x:hx,y:hy,vx:(Math.random()-.5)*360,vy:-80-Math.random()*260,s:2+Math.random()*3,c:['#ffe08a','#ffffff','#7dffa0','#8fd3ff'][Math.random()*4|0],t0:performance.now(),life:900+Math.random()*500})));
-    T.shake={t:performance.now()+300,a:7};sfx('conq');haptic(2)}
-  else{T.dust={x:tx,y:ty,t:performance.now()};if(res==='wall'||res==='rim'){T.shake={t:performance.now()+220,a:4};sfx('land')}else sfx('tap')}
-  await twWait(640);T.ball=null;T.rot=0}
-function twAIShot(G,p){if(Math.random()<p){const i=Math.random()<.5?0:1;return{u:TW_HOLES[i].u+(Math.random()-.5)*.04,v:TW_HOLES[i].v+(Math.random()-.5)*.04,res:'hit',i}}
-  for(let k=0;k<40;k++){const h=TW_HOLES[Math.random()*2|0];const near=Math.random()<.7;const u=near?h.u+twGauss()*.09:Math.random()*1.1-.05,v=near?h.v+twGauss()*.1:Math.random()*1.15;const j=twJudge(G,u,v,0);if(j.res!=='hit')return{u,v,res:j.res,i:j.i}}
-  return{u:.5,v:.5,res:'wall'}}
-function twSwipe(G,aim,wind){const T=twCtx;return new Promise(res=>{const c=$('#twC');let st=null,pts=[];
+/* Ballflug über Stützpunkte; Fang-Bälle kleben nach dem Kontakt an den Handschuhen */
+function penBallPos(B,G,T,now){const t=now-B.t0;const kf=B.kf;let i=0;while(i<kf.length-2&&t>kf[i+1].t)i++;const a=kf[i],b=kf[i+1];const p=clamp((t-a.t)/Math.max(1,b.t-a.t),0,1);
+  const e=i===0?1-Math.pow(1-p,1.5):b.ease==='in'?p*p:b.ease==='out'?1-(1-p)*(1-p):p;let X=lerp(a.x,b.x,e),Y=lerp(a.y,b.y,e),Rr=lerp(a.r,b.r,e),A=lerp(a.a==null?1:a.a,b.a==null?1:b.a,e);
+  if(i===0&&B.arc)Y-=Math.sin(p*Math.PI)*B.arc;if(i===0&&B.curve)X+=Math.sin(p*Math.PI)*B.curve;
+  if(B.catchAt!=null&&t>=B.catchAt&&T.keeper&&T.keeper.P){const [hx,hy]=penHands(G,T.keeper.P);X=hx;Y=hy;Rr=G.brw}
+  const gy=i===0?lerp(G.by+G.br*.95,G.ground,e):B.inNet?G.ground-G.gh*.05:G.ground;
+  return{x:X,y:Y,r:Rr,a:A,rot:(B.rot0||0)+t/1000*B.spin,gx:X,gy,behind:i>0&&!!B.inNet}}
+
+/* ---- Spielmodell ----
+   Schütze: o (Gesamt), pra (Präzision), kra (Kraft), ner (Nerven) · Torwart: o (Gesamt), killer (Elfmeterkiller) */
+const penS=c=>c.gk?42+(c.o-60)*.3:c.o*.45+(c.pra*.45+c.kra*.25+c.ner*.3)*.55;
+const penZone=u=>u<.4?'L':u>.6?'R':'C';
+function penP(sh,kp,press){return clamp(.76+(penS(sh)-(kp.o||75))*.011-(press||0)*.04-(kp.killer?.04:0),.35,.95)}
+function penOff(t){if(t.u<-.012||t.u>1.012)return'wide';if(t.v>1.03)return'over';const pw=.024;if(Math.abs(t.u)<pw||Math.abs(t.u-1)<pw)return'post';if(t.v>.965&&t.u>0&&t.u<1)return'bar';return null}
+/* Rettungschance, wenn der Torwart in Zone d.z springt (d.hi = hoch) */
+function penSaveP(sh,kp,t,d){const z=penZone(t.u);const K=kp.o||75;const du=Math.abs(t.u-.5);
+  if(t.type==='panenka')return d.z==='C'?.93:0;
+  let p;if(d.z==='C'){p=du<.11?.88:du<.17?.55:0}
+  else{if(d.z!==z)return 0;const reach=.39+(K-75)*.004;if(du>reach+.03)return 0;p=.76+(K-penS(sh))*.012;if(du>reach-.07)p*=.55;if(t.v>.7&&du>.27)p*=.6;
+    if(d.hi!=null){if(t.v>.62&&!d.hi)p*=.55;if(t.v<.33&&d.hi)p*=.55}}
+  if(t.type==='power')p-=.16;if(kp.killer)p+=.08;return clamp(p,0,.95)}
+/* Torwart der KI liest den Schuss (oder nicht) */
+function penKeeperAI(sh,kp,t){const z=penZone(t.u);let read=clamp(.35+((kp.o||75)-sh.ner)*.007+(kp.killer?.1:0),.18,.6);
+  if(t.type==='panenka'){read=clamp(.2+((kp.o||75)-75)*.006,.1,.35);return Math.random()<read?{z:'C',hi:false}:{z:Math.random()<.5?'L':'R',hi:Math.random()<.4}}
+  if(Math.random()<read)return{z,hi:t.v>.55};const o=z==='C'?[Math.random()<.5?'L':'R']:Math.random()<.8?[z==='L'?'R':'L']:['C'];return{z:o[0],hi:Math.random()<.4}}
+/* KI-Schütze wählt Ecke und Schussart */
+function penAIShot(sh,press,psy){const r=Math.random();const type=r<.03+(sh.ner>85?.03:0)?'panenka':r<.15+Math.max(0,sh.kra-70)*.004?'power':'place';
+  const pf=1+(press||0)*(1-sh.ner/100)*1.6;const ps=psy?1.3:1;
+  if(type==='panenka'){const miss=Math.random()<.05+Math.max(0,80-sh.ner)*.005+(press||0)*.06;return{u:.5+twGauss()*.03*pf,v:miss?1.06:.5+twGauss()*.06,type}}
+  const side=Math.random();let u=side<.42?.1+Math.random()*.24:side<.84?.66+Math.random()*.24:.42+Math.random()*.16;let v=.06+Math.random()*.8;
+  let sig=.042*(1.35-sh.pra/100*.8)*pf*ps,vs=.06*(1.35-sh.kra/100*.8)*pf*ps;if(type==='power'){sig*=1.25;vs*=1.6;v+=.1}
+  return{u:u+twGauss()*sig,v:Math.max(.03,v+twGauss()*vs),type}}
+function penPressLvl(p){return p<.15?['ruhig','lo']:p<.4?['spürbar','mid']:p<.7?['hoch','hi']:['extrem','max']}
+
+/* ---- Eingabe: Schuss wischen ---- */
+function twAimFromSwipe(dx,dy,speed){const u=.5+(dx/Math.max(30,-dy))*.95;const v=(speed-.45)/1.85;return{u,v}}
+function penSwipe(G){const T=twCtx;return new Promise(res=>{const c=$('#twC');let st=null,pts=[];
   const pos=e=>{const r=c.getBoundingClientRect();return[e.clientX-r.left,e.clientY-r.top]};
-  const down=e=>{const [px,py]=pos(e);if(py<G.ground)return;st=[px,py];pts=[[px,py,performance.now()]];T.drag=true;T.dir=null;try{c.setPointerCapture(e.pointerId)}catch(_){}};
+  const down=e=>{const [px,py]=pos(e);if(py<G.ground+G.gh*.2)return;st=[px,py];pts=[[px,py,performance.now()]];T.drag=true;T.dir=null;try{c.setPointerCapture(e.pointerId)}catch(_){}};
   const move=e=>{if(!st)return;const [px,py]=pos(e);pts.push([px,py,performance.now()]);if(pts.length>40)pts.shift();const dx=px-st[0],dy=py-st[1];T.dir=dy<-12?[dx,dy]:null};
   const up=e=>{if(!st)return;const [px,py]=pos(e);pts.push([px,py,performance.now()]);const dx=px-st[0],dy=py-st[1];const t1=pts[pts.length-1][2];let speed=0;for(let i=1;i<pts.length;i++){if(t1-pts[i][2]>170)continue;let j=i-1;while(j>0&&pts[i][2]-pts[j][2]<24)j--;const dt=pts[i][2]-pts[j][2];if(dt<8)continue;speed=Math.max(speed,Math.hypot(pts[i][0]-pts[j][0],pts[i][1]-pts[j][1])/dt)}st=null;T.drag=false;T.dir=null;if(dy>-40)return;finish({dx,dy,speed})};
-  function finish(sw){c.removeEventListener('pointerdown',down);c.removeEventListener('pointermove',move);c.removeEventListener('pointerup',up);c.removeEventListener('pointercancel',up);T.autoNow=null;
-    if(!sw){res(null);return}const a=twAimFromSwipe(sw.dx,sw.dy,sw.speed);const nv=T.stechen?aim.nerve:1;
-    res({u:a.u+wind*.0035+twGauss()*aim.sig*nv,v:a.v+twGauss()*aim.vsig*nv+twGauss()*aim.sig*.6*nv,rawV:a.v})}
+  function finish(sw){c.removeEventListener('pointerdown',down);c.removeEventListener('pointermove',move);c.removeEventListener('pointerup',up);c.removeEventListener('pointercancel',up);T.autoNow=null;res(sw||null)}
   T.autoNow=()=>finish(null);const poll=setInterval(()=>{if(!T.autoNow){clearInterval(poll);return}if(twAborted()){clearInterval(poll);finish(null)}},200);
   c.addEventListener('pointerdown',down);c.addEventListener('pointermove',move);c.addEventListener('pointerup',up);c.addEventListener('pointercancel',up)})}
+/* ---- Eingabe: als Torwart springen (Wischen = Ecke, Tippen = stehen bleiben) ---- */
+function penKeepInput(G,ms){const T=twCtx;return new Promise(res=>{const c=$('#twC');let st=null,done=false;const bar=$('#twKeep i');
+  if(bar){bar.style.transition='none';bar.style.transform='scaleX(1)';void bar.offsetWidth;bar.style.transition='transform '+ms+'ms linear';bar.style.transform='scaleX(0)'}
+  const pos=e=>{const r=c.getBoundingClientRect();return[e.clientX-r.left,e.clientY-r.top]};
+  const pick=(dx,dy)=>{const d=Math.hypot(dx,dy);if(d<18)return{z:'C',hi:dy<-8};return{z:dx<-14?'L':dx>14?'R':'C',hi:dy<-35}};
+  const down=e=>{st=pos(e);try{c.setPointerCapture(e.pointerId)}catch(_){}};
+  const move=e=>{if(!st)return;const [px,py]=pos(e);T.keepDir=pick(px-st[0],py-st[1])};
+  const up=e=>{if(!st)return;const [px,py]=pos(e);fin(pick(px-st[0],py-st[1]))};
+  const tm=setTimeout(()=>fin(null),ms);T.autoNow=()=>fin(null);
+  function fin(r){if(done)return;done=true;clearTimeout(tm);c.removeEventListener('pointerdown',down);c.removeEventListener('pointermove',move);c.removeEventListener('pointerup',up);c.removeEventListener('pointercancel',up);T.autoNow=null;T.keepDir=r;setTimeout(()=>{if(twCtx)twCtx.keepDir=null},600);res(r)}
+  c.addEventListener('pointerdown',down);c.addEventListener('pointermove',move);c.addEventListener('pointerup',up);c.addEventListener('pointercancel',up)})}
+
+/* ---- Ein Schuss: Animation aus Ziel, Torwartsprung und Ergebnis ---- */
+async function penAnimate(G,t,dive,res,catchIt){const T=twCtx;const K=T.keeper;const [tx,ty]=penPx(G,clamp(t.u,-.15,1.15),clamp(t.v,0,1.25));
+  const fly=t.type==='panenka'?880:t.type==='power'?330:430;const now=performance.now();
+  /* Torwart springt kurz nach dem Schuss */
+  if(K){K.wig=false;const s=G.gh/100;const reach=50*s;let tu,tv,ang;
+    if(dive.z==='C'){K.anim={kind:'stay',t0:now+40,d:420,hold:0}}
+    else{const dir=dive.z==='L'?-1:1;let bu,bv;
+      if(res==='save'){bu=t.u;bv=t.v}else{const base=dive.z===penZone(t.u)?t.u-dir*.07:(dive.z==='L'?.2:.8);bu=clamp(base,.08,.92);bv=dive.hi?.68:.22;if(dive.z===penZone(t.u))bv=clamp(t.v,.15,.85)}
+      ang=dir*lerp(1.5,.62,clamp(bv/.95,0,1));const [bx2,by2]=penPx(G,bu,bv);const hx=bx2-Math.sin(ang)*reach,hy=by2+Math.cos(ang)*reach;
+      tu=(hx-G.gx)/G.gw;tv=clamp((G.ground-hy)/G.gh,.1,.75);K.anim={kind:'dive',t0:now+50,d:fly*.95,u:tu,v:tv,ang,hold:220,fall:true}}}
+  const kf=[{t:0,x:G.bx,y:G.by,r:G.br},{t:fly,x:tx,y:ty,r:G.brw}];const B={t0:now,kf,trail:[],spin:(t.type==='panenka'?4:12)*(Math.random()<.5?-1:1),rot0:T.rot||0,arc:t.type==='panenka'?G.gh*1.4:t.type==='power'?G.gh*.15:G.gh*.45,curve:(Math.random()-.5)*G.gw*.06};
+  const L=t.u<.5?-1:1;
+  if(res==='goal'){B.inNet=true;kf.push({t:fly+260,x:tx+(G.gx+G.gw/2-tx)*.08,y:ty+G.gh*.06,r:G.brw*.82,ease:'out'},{t:fly+620,x:tx+(G.gx+G.gw/2-tx)*.1,y:G.ground-G.gh*.06,r:G.brw*.8,ease:'in'})}
+  else if(res==='save'){if(catchIt){B.catchAt=fly;kf.push({t:fly+1200,x:tx,y:ty,r:G.brw})}else kf.push({t:fly+500,x:tx+L*G.gw*.32,y:ty-G.gh*.5,r:G.brw*1.25,a:.0,ease:'out'})}
+  else if(res==='post'||res==='bar'){kf.push({t:fly+520,x:tx-L*G.gw*.18,y:res==='bar'?ty-G.gh*.7:ty+G.gh*.25,r:G.br*.7,a:.15,ease:'out'})}
+  else{kf.push({t:fly+420,x:tx+L*G.gw*(res==='wide'?.25:.05),y:ty-(res==='over'?G.gh*.6:G.gh*.1),r:G.brw*.6,a:0,ease:'out'})}
+  T.ball=B;sfx('kick');await twWait(fly);
+  if(res==='goal'){T.ripple={x:tx,y:ty,t:performance.now()};T.parts=(T.parts||[]).concat(Array.from({length:30},()=>({x:tx,y:ty,vx:(Math.random()-.5)*320,vy:-60-Math.random()*240,s:2+Math.random()*3,c:['#ffe08a','#ffffff','#7dffa0','#8fd3ff'][Math.random()*4|0],t0:performance.now(),life:800+Math.random()*500})));T.shake={t:performance.now()+300,a:6};sfx('net');haptic(2)}
+  else if(res==='save'){T.shake={t:performance.now()+220,a:4};sfx('save');haptic(1)}
+  else if(res==='post'||res==='bar'){T.shake={t:performance.now()+260,a:6};sfx('post')}
+  else{T.dust={x:tx,y:ty,t:performance.now()};sfx('tap')}
+  await twWait(res==='save'&&catchIt?900:700);T.ball=null;T.rot=0;if(K){K.anim=null}}
+
 function twRender(o,sc,ph){if(o.agg)ph+=' · Gesamt '+(sc.a+o.agg.a)+':'+(sc.d+o.agg.d);const row=sd=>sc[sd].map(h=>'<i class="'+(h==null?'':h?'hit':'miss')+'"></i>').join('');
   $('#twA .twS').innerHTML=row('A');$('#twD .twS').innerHTML=row('D');$('#twSc').textContent=sc.a+' : '+sc.d;$('#twPh').textContent=ph}
 function twMsg(t,cls){const m=$('#twMsg');m.textContent=t;m.className='twMsg '+(cls||'');void m.offsetWidth;m.classList.add('on')}
-function twWindUI(w){const el=$('#twWind');if(w==null){el.classList.remove('on');return}const k=Math.abs(Math.round(w));el.innerHTML='<span style="transform:rotate('+(w<0?180:0)+'deg)">➜</span> Wind '+k+' km/h';el.classList.add('on')}
+function twWindUI(){const el=$('#twWind');if(el)el.classList.remove('on')}
 function twPowUI(v){const el=$('#twPow');if(v==null){el.classList.remove('on');return}const y=t=>clamp(1-(t+.1)/1.3,0,1)*100;
-  el.innerHTML='<i class="z" style="top:'+y(.73)+'%"></i><i class="z" style="top:'+y(.27)+'%"></i><b style="top:'+y(v)+'%"></b><small style="top:'+y(.73)+'%">oben</small><small style="top:'+y(.27)+'%">unten</small>';el.classList.add('on')}
-/* o={A,D,pA,pD,mine:'A'|'D'|'both'|null,n,aim:obj|fn(side,k,st),title,sub,ball,names} */
-async function twMatch(o){const el=$('#tw');const n=o.n||TW_N;const ag=o.agg||{a:0,d:0};twCtx={open:true,ball:null,drag:false,ballSkin:o.ball||'classic',wallSkin:o.wall||'std',rot:0,abortable:!!o.abortable};
-  $('#twA .twB').innerHTML=o.A.badge;$('#twA .twN').textContent=o.A.name;$('#twD .twB').innerHTML=o.D.badge;$('#twD .twN').textContent=o.D.name;$('#twTitle').innerHTML=(o.logo||'')+esc((o.title||'Torwandschießen')+(o.sub?' · '+o.sub:''));
-  el.classList.remove('off');$('#twMsg').className='twMsg';twWindUI(null);twPowUI(null);$('#twShooter').classList.remove('on');
-  const sc={A:Array(n).fill(null),D:Array(n).fill(null),a:0,d:0};twRender(o,sc,'Schuss 1/'+n);requestAnimationFrame(twDraw);await twWait(380);
-  const out={sh:{A:[],D:[]},st:[],top:0,hits:0,auto:false};let autoAll=false;
+  el.innerHTML='<i class="z" style="top:'+y(1)+'%"></i><i class="z" style="top:'+y(.08)+'%"></i><b style="top:'+y(v)+'%"></b><small style="top:'+y(1)+'%">Latte</small><small style="top:'+y(.08)+'%">flach</small>';el.classList.add('on')}
+function penPressUI(p){const el=$('#twPress');if(!el)return;if(p==null){el.classList.remove('on');return}const [t,c]=penPressLvl(p);el.className='twPress on '+c;el.innerHTML='📣 '+t}
+function penDuelUI(sh,kp,shTeam,kpTeam,mine){const el=$('#twShooter');if(!sh){el.classList.remove('on');return}
+  const one=(p,ic,lbl)=>'<div class="pdc'+(p.gk?' gk':'')+'"><b class="r-'+rarOf(p.o||60)+'">'+Math.round(p.o||60)+'</b><span><small>'+ic+' '+lbl+'</small>'+esc(p.n||'—')+'<em>'+(p.gk&&lbl!=='Schütze'?'REF '+(p.pra||p.o)+(p.killer?' · ⚡ Elfmeterkiller':''):'NER '+Math.round(p.ner||p.o)+(p.fm?' · '+FM_IC[p.fm+2]:''))+'</em></span></div>';
+  el.innerHTML=one(sh,'🎯','Schütze')+'<div class="pdmid"><i>vs</i><span class="twPress" id="twPress"></span></div>'+one(kp,'🧤','Torwart');const tb=$('.twTop').getBoundingClientRect();el.style.top=Math.round(tb.bottom+8)+'px';el.classList.add('on')}
+/* Druck: Auswärts (Pfiffe), großes Spiel, Stechen, entscheidender Schuss */
+function penPressure(o,sd,k,st,sc,n){let p=0;if(o.home&&o.home!==sd)p+=.25;if(o.big)p+=.25;if(st)p+=.3;
+  const me=sd==='A'?sc.a:sc.d,op=sd==='A'?sc.d:sc.a;if(st||k>=n-2){if(Math.abs(me-op)<=1)p+=.2}return clamp(p,0,1)}
+
+/* o={A,D,pA,pD,mine:'A'|'D'|'both'|null,n,aim,title,sub,logo,ball,wall,draw,agg,abortable,teamA,teamD,home,big} */
+async function twMatch(o){const el=$('#tw');const n=o.n||TW_N;const ag=o.agg||{a:0,d:0};
+  const TM={A:o.teamA||null,D:o.teamD||null};const kcol={A:PEN_KCOL[hashStr(String(o.A.id!=null?o.A.id:o.A.name))%PEN_KCOL.length],D:null};kcol.D=PEN_KCOL[(PEN_KCOL.indexOf(kcol.A)+3)%PEN_KCOL.length];
+  twCtx={open:true,ball:null,drag:false,ballSkin:o.ball||'classic',wallSkin:o.wall||'std',rot:0,abortable:!!o.abortable,keeper:null};
+  $('#twA .twB').innerHTML=o.A.badge;$('#twA .twN').textContent=o.A.name;$('#twD .twB').innerHTML=o.D.badge;$('#twD .twN').textContent=o.D.name;$('#twTitle').innerHTML=(o.logo||'')+esc((o.title||'Elfmeterschießen')+(o.sub?' · '+o.sub:''));
+  el.classList.remove('off');$('#twMsg').className='twMsg';twWindUI();twPowUI(null);penPressUI(null);penDuelUI(null);$('#twType').classList.remove('on');$('#twKeep').classList.remove('on');$('#twPsy').classList.remove('on');
+  const sc={A:Array(n).fill(null),D:Array(n).fill(null),a:0,d:0};twRender(o,sc,'Elfmeter 1/'+n);requestAnimationFrame(twDraw);await twWait(380);
+  const out={sh:{A:[],D:[]},st:[],top:0,hits:0,saves:0,my:0,auto:false,log:[],pan:0};let autoAll=false;let psyLeft=2;let shotType='place';
   $('#twAuto').onclick=()=>{autoAll=true;if(twCtx.autoNow)twCtx.autoNow()};
+  $('#twType').onclick=e=>{const b=e.target.closest('button');if(!b)return;shotType=b.dataset.t;$('#twType').querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));sfx('tap')};
   const isMe=sd=>o.mine==='both'||sd===o.mine;
-  async function shot(sd,k,st){const g=twGeom();const me=isMe(sd);const wind=Math.round((Math.random()*2-1)*(st?8:14));twWindUI(wind);let s;
-    const aim=typeof o.aim==='function'?o.aim(sd,k,st):o.aim;
-    if(me&&!autoAll){const who=o.mine==='both'?(sd==='A'?o.A.name:o.D.name)+' ist dran':st?'Stechen – dein Schuss':'Dein Schuss '+(k+1)+'/'+n;twMsg(who,'sm');
-      const sh=$('#twShooter');if(aim&&aim.card){sh.innerHTML=cardMini(aim.card);sh.classList.add('on')}else sh.classList.remove('on');
-      $('#twHint').classList.add('on');$('#twAuto').classList.toggle('hidden',o.mine==='both');
-      const r=await twSwipe(g,aim,wind);$('#twHint').classList.remove('on');sh.classList.remove('on');
-      if(r){const j=twJudge(g,r.u,r.v,0);s={u:r.u,v:r.v,res:j.res,i:j.i};twPowUI(r.rawV)}else{autoAll=true}}
-    if(!s){if(!me)twMsg((sd==='A'?o.A.name:o.D.name)+' schießt …','sm');await twWait(me?250:700);const p=me?(o.pAuto!=null?o.pAuto:clamp(.25+(1-(aim?aim.sig:.04)/.06)*.35,.12,.75)):(sd==='A'?o.pA:o.pD);s=twAIShot(g,p)}
-    $('#twAuto').classList.add('hidden');
-    await twFly(g,s.u,s.v,s.res,s.i,wind);twPowUI(null);const hit=s.res==='hit';
-    if(me&&hit){out.hits++;if(s.i===1)out.top++}
-    twMsg(hit?'TOR!':s.res==='rim'?'Lochrand!':s.res==='out'?'Drüber!':s.res==='wide'?'Vorbei!':s.res==='short'?'Zu kurz!':'Gegen die Wand!',hit?'hit':'miss');
-    if(hit&&me&&SET.voice)say(['Drin!','Tor!','Versenkt!'][Math.random()*3|0],{cut:true});
-    await twWait(hit?700:520);return hit}
-  for(let k=0;k<n;k++)for(const sd of ['A','D']){const h=await shot(sd,k,false);sc[sd][k]=h;out.sh[sd].push(h);if(h)sc[sd==='A'?'a':'d']++;twRender(o,sc,'Schuss '+Math.min(n,k+(sd==='D'?2:1))+'/'+n)}
-  let j=0;while(!o.draw&&sc.a+ag.a===sc.d+ag.d&&j<10){if(j===0){twMsg(o.agg?'Gesamt-Gleichstand – Stechen!':'Gleichstand – Stechen!','big');if(SET.voice)say('Gleichstand! Stechen!');await twWait(1300)}twCtx.stechen=true;
+  /* Schütze/Torwart einer Seite */
+  const shooterOf=(sd,k,st)=>{const t=TM[sd];if(t&&t.sh&&t.sh.length){if(!st)return t.sh[k%t.sh.length];const ord=t.sh.slice().sort((a,b)=>b.ner-a.ner).concat(t.gk?[Object.assign({},t.gk,{gk:true})]:[]);return ord[(k-n)%ord.length]}
+    const a=typeof o.aim==='function'?o.aim(sd,k,st):o.aim;const p=sd==='A'?o.pA:o.pD;return Object.assign({},isMe(sd)&&a?a:twAimFor(p),{n:sd==='A'?o.A.name:o.D.name})};
+  const keeperOf=sd=>{const t=TM[sd];if(t&&t.gk)return t.gk;const p=sd==='A'?o.pA:o.pD;return{n:'Keeper '+(sd==='A'?o.A.name:o.D.name),o:o.mine==='both'?72:Math.round(clamp(62+(p-.5)*40,55,88)),gk:true}};
+  async function shot(sd,k,st){const g=twGeom();const kd=sd==='A'?'D':'A';const me=isMe(sd),meK=o.mine!=='both'&&isMe(kd);
+    const sh=shooterOf(sd,k,st),kp=keeperOf(kd);const press=penPressure(o,sd,k,st,sc,n);
+    twCtx.keeper={col:kcol[kd],no:kp.no||1,skin:PEN_SKIN[hashStr(String(kp.n||kd))%PEN_SKIN.length],wig:false};
+    penDuelUI(sh,kp,sd,kd);penPressUI(press>0?press:null);
+    let t=null,dive=null,res=null,saveP=0,psy=false,catchIt=Math.random()<.5;
+    if(me&&!autoAll){
+      /* Psychospiel des gegnerischen Torwarts */
+      const wigP=kp.killer?.7:clamp(((kp.o||70)-70)*.02,.05,.35);if(Math.random()<wigP){psy=true;twCtx.keeper.wig=true;twMsg('🧤 '+(kp.n?kp.n.split(' ').slice(-1)[0]:'Der Torwart')+' zappelt auf der Linie!','sm')}
+      else twMsg(o.mine==='both'?(sd==='A'?o.A.name:o.D.name)+' ist dran':st?'Stechen – dein Elfmeter':'Dein Elfmeter '+(k+1)+'/'+n,'sm');
+      if(press>=.4&&o.home&&o.home!==sd){sfx('boo')}
+      shotType='place';$('#twType').querySelectorAll('button').forEach(x=>x.classList.toggle('on',x.dataset.t==='place'));$('#twType').classList.add('on');
+      $('#twHint').classList.add('on');$('#twAuto').classList.toggle('hidden',o.mine==='both');twCtx.wob=press*(1-sh.ner/100)*1.4+(psy?.25:0);
+      const sw=await penSwipe(g);$('#twHint').classList.remove('on');$('#twType').classList.remove('on');
+      if(sw){const a=twAimFromSwipe(sw.dx,sw.dy,sw.speed);const type=shotType;const pf=1+press*(1-sh.ner/100)*1.6;const ps=psy?(1.32-sh.ner/300):1;
+        if(type==='panenka'){const miss=Math.random()<.05+Math.max(0,80-sh.ner)*.005+press*.06;t={u:.5+twGauss()*.03*pf,v:miss?1.07:.52+twGauss()*.06,type}}
+        else{let sig=.042*(1.35-sh.pra/100*.8)*pf*ps,vs=.06*(1.35-sh.kra/100*.8)*pf*ps;if(type==='power'){const k=1.15-sh.kra/400;sig*=1.25*k;vs*=1.6*k}t={u:a.u+twGauss()*sig,v:Math.max(.03,a.v+(type==='power'?.1:0)+twGauss()*vs),type}}
+        twPowUI(a.v);dive=penKeeperAI(sh,kp,t)}
+      else autoAll=true}
+    else if(meK&&!autoAll){
+      twMsg('🧤 Du hältst!','sm');$('#twKeep').classList.add('on');$('#twPsy').classList.toggle('on',psyLeft>0);$('#twPsy').querySelector('b').textContent=psyLeft;$('#twAuto').classList.remove('hidden');
+      let psyUsed=false;$('#twPsy').onclick=()=>{if(psyLeft<=0||psyUsed)return;psyLeft--;psyUsed=true;$('#twPsy').classList.remove('on');twCtx.keeper.wig=true;sfx('tap');
+        if(Math.random()<.12){twMsg('⚠️ Ermahnung vom Schiri!','sm');psyUsed=false;sfx('whistle')}else twMsg('😜 Mätzchen auf der Linie!','sm')};
+      const ms=st?1900:2300;const d=await penKeepInput(g,ms);$('#twKeep').classList.remove('on');$('#twPsy').classList.remove('on');
+      psy=psyUsed;const sh2=psy?Object.assign({},sh,{ner:Math.max(30,sh.ner-12)}):sh;t=penAIShot(sh2,press,psy);
+      if(d)dive=d;else{dive=penKeeperAI(sh2,kp,t)}
+}
+    if(!t){/* beide Seiten automatisch: Wahrscheinlichkeit entscheidet, Animation passt dazu */
+      if(!me)twMsg((sh.n?sh.n:(sd==='A'?o.A.name:o.D.name))+' läuft an …','sm');await twWait(me||meK?250:650);
+      const p=TM[sd]&&TM[kd]?penP(sh,kp,press):(me&&o.pAuto!=null?o.pAuto:(sd==='A'?o.pA:o.pD));
+      if(Math.random()<p){const side=Math.random()<.5;t={u:side?.14+Math.random()*.2:.66+Math.random()*.2,v:.1+Math.random()*.72,type:Math.random()<.12?'power':'place'};
+        dive=Math.random()<.7?{z:penZone(t.u)==='L'?'R':'L',hi:Math.random()<.4}:{z:penZone(t.u),hi:t.v>.55};res='goal';if(dive.z===penZone(t.u)&&Math.abs(t.u-.5)<.3)t.u=t.u<.5?.07:.93}
+      else if(Math.random()<.72){const side=Math.random()<.5;t={u:side?.2+Math.random()*.15:.65+Math.random()*.15,v:.12+Math.random()*.55,type:'place'};dive={z:penZone(t.u),hi:t.v>.55};res='save'}
+      else{const r=Math.random();t=r<.3?{u:Math.random()<.5?0:1,v:.2+Math.random()*.6,type:'place'}:r<.5?{u:.3+Math.random()*.4,v:.98,type:'power'}:r<.75?{u:Math.random()<.5?-.06:1.06,v:.2+Math.random()*.5,type:'place'}:{u:.2+Math.random()*.6,v:1.12,type:'power'};
+        dive={z:Math.random()<.5?'L':'R',hi:Math.random()<.5};res=penOff(t)||'wide'}}
+    if(!res){const off=penOff(t);if(off){res=off;if((off==='post'||off==='bar')&&Math.random()<.25)res='goal_in'}
+      else{saveP=penSaveP(sh,kp,t,dive);res=Math.random()<saveP?'save':'goal'}}
+    const inPost=res==='goal_in';if(inPost)res='goal';
+    $('#twAuto').classList.add('hidden');penPressUI(null);
+    await penAnimate(g,t,dive||{z:'C'},inPost?'goal':res,catchIt);twPowUI(null);const hit=res==='goal';
+    if(me&&hit){out.hits++;if(t.v>.62&&Math.abs(t.u-.5)>.3)out.top++;if(t.type==='panenka')out.pan++}
+    if(me)out.my++;if(isMe(kd)&&!hit&&res==='save')out.saves++;
+    out.log.push({sd,k,st,cid:sh.cid!=null?sh.cid:null,kid:kp.cid!=null?kp.cid:null,goal:hit,res});
+    const name=sh.n?sh.n.split(' ').slice(-1)[0]:'';
+    const against=o.mine&&o.mine!=='both'&&!me;twMsg(hit?(inPost?'Innenpfosten – Tor!':t.type==='panenka'?'Panenka! Tor!':'TOR!'):res==='save'?(isMe(kd)?'Gehalten! 🧤':'Gehalten!'):res==='post'?'Pfosten!':res==='bar'?'Latte!':res==='over'?'Drüber!':'Vorbei!',against?(hit?'miss':'hit'):(hit?'hit':'miss'));
+    if(SET.voice){if(hit&&me)say(['Drin!','Tor!','Versenkt!'][Math.random()*3|0],{cut:true});else if(!hit&&isMe(kd)&&res==='save')say('Gehalten!',{cut:true})}
+    if(hit&&!me&&o.home===sd)sfx('crowd');
+    await twWait(hit?650:560);return hit}
+  const decided=()=>{if(o.draw)return false;const ta=sc.a+ag.a,td=sc.d+ag.d;const ra=sc.A.filter(x=>x==null).length,rd=sc.D.filter(x=>x==null).length;return ta>td+rd||td>ta+ra};
+  let stop=false;
+  for(let k=0;k<n&&!stop;k++)for(const sd of ['A','D']){if(decided()){stop=true;break}const h=await shot(sd,k,false);sc[sd][k]=h;out.sh[sd].push(h);if(h)sc[sd==='A'?'a':'d']++;twRender(o,sc,'Elfmeter '+Math.min(n,k+(sd==='D'?2:1))+'/'+n)}
+  let j=0;while(!o.draw&&!stop&&sc.a+ag.a===sc.d+ag.d&&j<12){if(j===0){twMsg(o.agg?'Gesamt-Gleichstand – Stechen!':'Gleichstand – Stechen!','big');if(SET.voice)say('Gleichstand! Stechen!');await twWait(1300)}twCtx.stechen=true;
     const x=await shot('A',n+j,true);sc.A.push(x);if(x)sc.a++;twRender(o,sc,'Stechen '+(j+1));const y=await shot('D',n+j,true);sc.D.push(y);if(y)sc.d++;out.st.push([x,y]);twRender(o,sc,'Stechen '+(j+1));j++}
-  out.a=sc.a;out.d=sc.d;out.auto=autoAll;twWindUI(null);
+  out.a=sc.a;out.d=sc.d;out.auto=autoAll;penDuelUI(null);penPressUI(null);twCtx.keeper=null;
   const ta=sc.a+ag.a,td=sc.d+ag.d;
   if(ta===td){twMsg(o.agg?'Gesamt '+ta+' : '+td:'Unentschieden','sm');sfx('land')}
   else if(o.mine&&o.mine!=='both'){const won=(o.mine==='A'?ta>td:td>ta);twMsg(o.agg?(won?'Weiter! Gesamt '+ta+' : '+td:'Ausgeschieden · '+ta+' : '+td):won?'Gewonnen!':'Verloren',won?'win':'lose');sfx(won?'fan':'land');if(won)haptic(2)}
@@ -3416,13 +3644,14 @@ async function twMatch(o){const el=$('#tw');const n=o.n||TW_N;const ag=o.agg||{a
   await twWait(1600);el.classList.add('off');twCtx.open=false;twCtx=null;return out}
 
 /* ---- Torwand-Designs: echte CC0-Texturen (Poly Haven) + eigene Graffiti-Elemente ---- */
-const TW_WALLS={std:{n:'Stadion',lv:1,tag:'Klassisch'},wood:{n:'Holz-Klassiker',lv:2,tag:'Eichenholz'},graffiti:{n:'Graffiti-Beton',lv:3,tag:'Street'},
-  club:{n:'Vereinsfarben',lv:5,tag:'Dein Verein'},brick:{n:'Hinterhof',lv:7,tag:'Backstein & Sticker'},shutter:{n:'Rolltor',lv:9,tag:'Rost & Tags'},
-  neon:{n:'Flutlicht-Neon',lv:12,tag:'Leuchtet'},gold:{n:'Gold-Edition',title:true,tag:'Nur für Titel'}};
+/* Kulissen hinter dem Tor (die früheren Torwand-Designs) */
+const TW_WALLS={std:{n:'Stadion',lv:1,tag:'Flutlicht & Tribüne'},wood:{n:'Holz-Klassiker',lv:2,tag:'Bretterwand'},graffiti:{n:'Graffiti-Beton',lv:3,tag:'Street'},
+  club:{n:'Vereinsfarben',lv:5,tag:'Fankurve'},brick:{n:'Hinterhof',lv:7,tag:'Backstein & Sticker'},shutter:{n:'Rolltor',lv:9,tag:'Garagenhof'},
+  neon:{n:'Flutlicht-Neon',lv:12,tag:'Leuchtendes Tor'},gold:{n:'Gold-Edition',title:true,tag:'Goldenes Tor · nur für Titel'}};
 const TW_TITLES=['m1','m2','m3','m4','pokal','cl','el','ecl'];
 const twWallOk=k=>{const w=TW_WALLS[k];if(!w||typeof CAR==='undefined'||!CAR)return k==='std';return w.title?CAR.tro.some(t=>TW_TITLES.includes(t.k)):CAR.lvl>=w.lv};
 const twClubCols=()=>{const k=(typeof CAR!=='undefined'&&CAR)?CLUB[CAR.club]:null;return k?[kitCol(k.c1,'#c8102e'),kitCol(k.c2,'#ffffff')]:['#c8102e','#ffffff']};
-const twClubTag=()=>(typeof CAR!=='undefined'&&CAR)?CLUB[CAR.club].mid.toUpperCase():'TORWAND';
+const twClubTag=()=>(typeof CAR!=='undefined'&&CAR)?CLUB[CAR.club].mid.toUpperCase():'ELFMETER';
 /* Texturen laden (eingebettet, daher sofort und offline verfügbar) */
 const twTexImg={};
 function twTex(k){let im=twTexImg[k];if(!im){im=twTexImg[k]=new Image();im.onload=()=>{twBG=null;twThumbRedraw()};im.src=TW_TEX[k]}return im.complete&&im.naturalWidth?im:null}
@@ -3456,7 +3685,7 @@ function gArrow(x,ax,ay,bx,by,col,w){x.save();x.strokeStyle=col;x.fillStyle=col;
 function twDrawWall(x,G,R,skin){let g;const rr=Math.min(18,G.ww*.04);const path=()=>{x.beginPath();x.roundRect(G.wx,G.wy,G.ww,G.wh,rr)};const S=G.ww/430;
   const tex=(k,tint,mode,alpha)=>{const im=twTex(k);if(!im)return false;const ar=G.wh/G.ww;const sw=im.naturalWidth,sh=Math.min(im.naturalHeight,sw*ar);x.drawImage(im,0,0,sw,sh,G.wx,G.wy,G.ww,G.wh);
     if(tint){x.save();x.globalCompositeOperation=mode||'multiply';x.globalAlpha=alpha==null?1:alpha;x.fillStyle=tint;x.fillRect(G.wx,G.wy,G.ww,G.wh);x.restore()}return true};
-  const holes=(rim,inner,glow)=>TW_HOLES.forEach(h=>{const [hx,hy]=twToPx(G,h.u,h.v);x.save();x.beginPath();x.arc(hx,hy,G.hr,0,7);x.clip();
+  const holes=(rim,inner,glow)=>G.noHoles?0:TW_HOLES.forEach(h=>{const [hx,hy]=twToPx(G,h.u,h.v);x.save();x.beginPath();x.arc(hx,hy,G.hr,0,7);x.clip();
     const hg=x.createRadialGradient(hx,hy-G.hr*.3,G.hr*.1,hx,hy,G.hr);hg.addColorStop(0,'#050608');hg.addColorStop(1,inner||'#181c24');x.fillStyle=hg;x.fillRect(hx-G.hr,hy-G.hr,G.hr*2,G.hr*2);
     x.strokeStyle='rgba(255,255,255,.12)';x.lineWidth=1;for(let k=-G.hr;k<G.hr;k+=Math.max(4,7*S)){x.beginPath();x.moveTo(hx+k,hy-G.hr);x.lineTo(hx+k+G.hr*.6,hy+G.hr);x.stroke();x.beginPath();x.moveTo(hx+k,hy-G.hr);x.lineTo(hx+k-G.hr*.6,hy+G.hr);x.stroke()}
     const sh=x.createLinearGradient(0,hy-G.hr,0,hy+G.hr);sh.addColorStop(0,'rgba(0,0,0,.75)');sh.addColorStop(.35,'rgba(0,0,0,0)');x.fillStyle=sh;x.fillRect(hx-G.hr,hy-G.hr,G.hr*2,G.hr*2);x.restore();
@@ -3471,7 +3700,7 @@ function twDrawWall(x,G,R,skin){let g;const rr=Math.min(18,G.ww*.04);const path=
   const [hlx,hly]=twToPx(G,TW_HOLES[0].u,TW_HOLES[0].v),[hux,huy]=twToPx(G,TW_HOLES[1].u,TW_HOLES[1].v);
   const [c1,c2]=twClubCols();
   if(skin==='wood'){plate('#7a4a22');x.save();path();x.clip();tex('planks','#c98a4b','multiply',.35);vign(.35);gloss(.25);
-      x.font='900 '+Math.round(G.ww*.07)+'px '+FONT;x.textAlign='center';x.textBaseline='middle';x.fillStyle='rgba(255,248,230,.85)';x.fillText('TORWAND',G.wx+G.ww*.68,G.wy+G.wh*.86);
+      x.font='900 '+Math.round(G.ww*.07)+'px '+FONT;x.textAlign='center';x.textBaseline='middle';x.fillStyle='rgba(255,248,230,.85)';x.fillText('BOLZPLATZ',G.wx+G.ww*.68,G.wy+G.wh*.86);
       x.fillStyle='rgba(255,248,230,.85)';x.font='800 '+Math.round(G.ww*.03)+'px '+FONT;x.fillText('★ SEIT 1964 ★',G.wx+G.ww*.68,G.wy+G.wh*.95);x.restore();
     frame('#f3efe6',8);x.strokeStyle='rgba(60,30,10,.5)';x.lineWidth=1.5;x.beginPath();x.roundRect(G.wx+6*S,G.wy+6*S,G.ww-12*S,G.wh-12*S,rr*.8);x.stroke();
     holes(()=>'#fbf8f1','#1a120c');return}
@@ -3485,7 +3714,7 @@ function twDrawWall(x,G,R,skin){let g;const rr=Math.min(18,G.ww*.04);const path=
   if(skin==='brick'){plate('#8a3a24');x.save();path();x.clip();tex('brick');vign(.4);
       gSticker(x,R,G.wx+G.ww*.62,G.wy+G.wh*.22,G.ww*.2,G.wh*.1,c1,'#fff',twClubTag().slice(0,10),-.1);gSticker(x,R,G.wx+G.ww*.47,G.wy+G.wh*.82,G.ww*.16,G.wh*.08,'#ffe600','#111','TOR!',.12);
       gSticker(x,R,G.wx+G.ww*.88,G.wy+G.wh*.5,G.ww*.12,G.wh*.12,'#fff','#d0021b','11',.2);gSticker(x,R,G.wx+G.ww*.1,G.wy+G.wh*.5,G.ww*.11,G.wh*.07,'#1b1b1b','#7CFF6B','KURVE',-.25);
-      gStencil(x,'HIER REIN',G.wx+G.ww*.4,G.wy+G.wh*.5,G.ww*.05,'rgba(255,255,255,.9)',-.05);gArrow(x,G.wx+G.ww*.55,G.wy+G.wh*.5,hux-G.hr*1.3,huy+G.hr*.4,'rgba(255,255,255,.9)',Math.max(2,4*S));
+      gStencil(x,'HIER REIN',G.wx+G.ww*.4,G.wy+G.wh*.5,G.ww*.05,'rgba(255,255,255,.9)',-.05);if(!G.noHoles)gArrow(x,G.wx+G.ww*.55,G.wy+G.wh*.5,hux-G.hr*1.3,huy+G.hr*.4,'rgba(255,255,255,.9)',Math.max(2,4*S));
       gTag(x,R,G.wx+G.ww*.78,G.wy+G.wh*.9,G.ww*.2,'rgba(20,20,20,.85)');x.restore();
     frame('#d9d4cc',6);holes(()=>'#f5f1ea','#160d0a');return}
   if(skin==='shutter'){plate('#4a3a33');x.save();path();x.clip();tex('shutter');vign(.45);
@@ -3512,12 +3741,17 @@ function twDrawWall(x,G,R,skin){let g;const rr=Math.min(18,G.ww*.04);const path=
   /* Standard (Stadion) */
   g=x.createLinearGradient(G.wx,G.wy,G.wx+G.ww,G.wy+G.wh);g.addColorStop(0,'#123c2a');g.addColorStop(.5,'#0d2f21');g.addColorStop(1,'#0a2419');plate(g);
   x.save();path();x.clip();for(let k=0;k<G.ww/6;k++){x.fillStyle='rgba(255,255,255,'+(.012+R()*.012)+')';x.fillRect(G.wx+k*6,G.wy,3,G.wh)}gloss(.14);
-  x.font='900 '+Math.round(G.ww*.06)+'px '+FONT;x.textAlign='center';x.textBaseline='middle';x.fillStyle='rgba(255,255,255,.07)';x.fillText('TORWAND',G.wx+G.ww*.32,G.wy+G.wh*.62);x.fillText('·  2026  ·',G.wx+G.ww*.7,G.wy+G.wh*.38);x.restore();
+  x.font='900 '+Math.round(G.ww*.06)+'px '+FONT;x.textAlign='center';x.textBaseline='middle';x.fillStyle='rgba(255,255,255,.07)';x.fillText('ELFMETER',G.wx+G.ww*.32,G.wy+G.wh*.62);x.fillText('·  2026  ·',G.wx+G.ww*.7,G.wy+G.wh*.38);x.restore();
   frame(metal(),6);x.strokeStyle='rgba(120,220,255,.35)';x.lineWidth=1.5;x.beginPath();x.roundRect(G.wx+5*S,G.wy+5*S,G.ww-10*S,G.wh-10*S,rr*.8);x.stroke();
   holes(whiteRim)}
 /* Vorschau als Canvas (kein Auslesen nötig, daher auch mit Wappen sicher) */
 function twWallThumbDraw(cv){const k=cv.dataset.wthumb;const dpr=Math.min(2,window.devicePixelRatio||1);const W=cv.clientWidth||150,H=Math.round(W*.66);cv.width=W*dpr;cv.height=H*dpr;cv.style.height=H+'px';
-  const x=cv.getContext('2d');x.scale(dpr,dpr);x.clearRect(0,0,W,H);const G={wx:4,wy:4,ww:W-8,wh:H-8,hr:(W-8)*.095,thumb:true};try{twDrawWall(x,G,carMulSafe(3),k)}catch(e){}}
+  const x=cv.getContext('2d');x.scale(dpr,dpr);x.clearRect(0,0,W,H);const R=carMulSafe(3);const hz=H*.6;
+  x.fillStyle='#0b1222';x.fillRect(0,0,W,hz);for(let i=0;i<220;i++){x.fillStyle='hsla('+[0,210,45,120][i%4]+',40%,'+(30+R()*30)+'%,.7)';x.fillRect(R()*W,R()*hz*.9,1.6,1.6)}
+  let g=x.createLinearGradient(0,hz,0,H);g.addColorStop(0,'#1d5a2c');g.addColorStop(1,'#2f8a40');x.fillStyle=g;x.fillRect(0,hz,W,H-hz);
+  const gw=W*.72,gh=gw*.37,G={gx:(W-gw)/2,gy:hz+H*.08-gh,gw,gh,thumb:true,noHoles:true};G.ground=G.gy+gh;G.wx=G.gx-gw*.1;G.wy=G.gy-gh*.5;G.ww=gw*1.2;G.wh=gh*1.05;G.hr=gw*.06;
+  if(k!=='std'){try{twDrawWall(x,G,R,k)}catch(e){}}
+  x.strokeStyle='rgba(255,255,255,.7)';x.lineWidth=1;x.beginPath();x.moveTo(0,G.ground+1);x.lineTo(W,G.ground+1);x.stroke();try{penGoal(x,G,k)}catch(e){}}
 function twThumbRedraw(){document.querySelectorAll('canvas[data-wthumb]').forEach(twWallThumbDraw)}
 /* ---- neue Bälle ---- */
 Object.assign(TW_BALLS,{
@@ -3587,16 +3821,16 @@ const CUPG=[{k:'fans',em:'📣',n:'Fan-Power',d:'Gegner treffen bei deinen Heims
 const upCost=(u,lv)=>Math.round(u.base*Math.pow(1.75,lv)/10)*10;
 const CTITLES=[[1,'Jugendtrainer'],[3,'Co-Trainer'],[5,'Cheftrainer'],[8,'Erfolgstrainer'],[12,'Kulttrainer'],[16,'Trainerlegende']];
 const xpNeed=l=>80+l*70;
-const CACH=[['win1','🥇','Erster Sieg','Gewinne dein erstes Spiel'],['perfect','🎯','Perfekt','3 von 3 Treffern in einem Spiel'],['stechen','🧊','Eiskalt','Gewinne ein Stechen'],
+const CACH=[['win1','🥇','Erster Sieg','Gewinne dein erstes Spiel'],['perfect','🎯','Perfekt','Alle 5 Elfmeter in einem Spiel verwandelt'],['stechen','🧊','Eiskalt','Gewinne ein Stechen'],
   ['streak5','🔥','Serie','5 Siege in Folge'],['streak10','☄️','Unaufhaltsam','10 Siege in Folge'],['hits50','⚽','Torjäger','50 eigene Treffer'],['hits200','💥','Kanonier','200 eigene Treffer'],
   ['up','📈','Aufsteiger','Steige in eine höhere Liga auf'],['rel','🛡️','Relegation gewonnen','Gewinne eine Relegation'],['m3','🥉','Drittliga-Meister','Werde Meister der 3. Liga'],
   ['m2','🥈','Zweitliga-Meister','Werde Meister der 2. Bundesliga'],['m1','🏆','Deutscher Meister','Gewinne die Meisterschale'],['season3','📅','Treuer Trainer','Beende 3 Saisons'],
-  ['maxup','🏗️','Ausgebaut','Ein Upgrade auf Stufe 5'],['daily5','📆','Dranbleiber','Schaffe 5 Tagesaufgaben'],['rich','💰','Krösus','20 Mio. € in der Kasse'],['pokal','🏆','Pokalsieger','Gewinne den DFB-Pokal'],['euro','🌍','International','Bestreite ein Europapokal-Spiel'],['cl','⭐','Henkelpott','Gewinne die Champions League'],['el','🏅','Europapokalsieger','Gewinne die Europa League'],['ecl','🟢','Conference-Sieger','Gewinne die Conference League'],['collector','🎴','Sammler','Besitze 20 Schützen-Karten'],['legend','💜','Weltklasse','Ziehe eine Weltklasse-Karte (84+)']];
-const CDAILY=[{id:'hits4',t:'Triff heute 4-mal selbst',g:4,ev:'hit'},{id:'win2',t:'Gewinne heute 2 Spiele',g:2,ev:'win'},{id:'top2',t:'Triff 2-mal das obere Loch',g:2,ev:'top'},
-  {id:'clean',t:'Gewinne ein Spiel ohne Stechen',g:1,ev:'cleanwin'},{id:'days3',t:'Bestreite 3 Spieltage',g:3,ev:'played'},{id:'perf',t:'Schieß ein perfektes Spiel (3 von 3)',g:1,ev:'perfect'},
+  ['maxup','🏗️','Ausgebaut','Ein Upgrade auf Stufe 5'],['daily5','📆','Dranbleiber','Schaffe 5 Tagesaufgaben'],['rich','💰','Krösus','20 Mio. € in der Kasse'],['pokal','🏆','Pokalsieger','Gewinne den DFB-Pokal'],['euro','🌍','International','Bestreite ein Europapokal-Spiel'],['cl','⭐','Henkelpott','Gewinne die Champions League'],['el','🏅','Europapokalsieger','Gewinne die Europa League'],['ecl','🟢','Conference-Sieger','Gewinne die Conference League'],['collector','🎴','Sammler','Besitze 20 Spielerkarten'],['legend','💜','Weltklasse','Ziehe eine Weltklasse-Karte (84+)']];
+const CDAILY=[{id:'hits4',t:'Triff heute 4-mal selbst',g:4,ev:'hit'},{id:'win2',t:'Gewinne heute 2 Spiele',g:2,ev:'win'},{id:'top2',t:'Triff 2-mal in den Winkel',g:2,ev:'top'},
+  {id:'clean',t:'Gewinne ein Spiel ohne Stechen',g:1,ev:'cleanwin'},{id:'days3',t:'Bestreite 3 Spieltage',g:3,ev:'played'},{id:'perf',t:'Verwandle alle 5 Elfmeter in einem Spiel',g:1,ev:'perfect'},
   {id:'away',t:'Gewinne ein Auswärtsspiel',g:1,ev:'awaywin'},{id:'self3',t:'Schieß 3 Spiele selbst',g:3,ev:'self'}];
 function carMul(seed){let a=seed|0;return()=>{a=(a+0x6D2B79F5)|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
-const carSave=()=>{if(CAR)store.set(CAR_KEY,CAR)};
+const carSave=()=>{if(CAR){CARV++;store.set(CAR_KEY,CAR)}};
 const fmtMoney=t=>t>=1000?(Math.round(t/100)/10).toString().replace('.',',')+' Mio. €':Math.round(t)+' Tsd. €';
 const seasonLbl=s=>s+'/'+String((s+1)%100).padStart(2,'0');
 const carLeagueOf=id=>{for(const l of [1,2,3,4])if(CAR.lg[l].includes(id))return l;return 4};
@@ -3608,11 +3842,11 @@ function makeFix(ids,R){const t=ids.slice();for(let i=t.length-1;i>0;i--){const 
 function carFixtures(){const R=carMul(CAR.seed+CAR.season*7919);CAR.fx={};CAR.tab={};for(const l of [1,2,3,4]){CAR.fx[l]=makeFix(CAR.lg[l],R);CAR.lg[l].forEach(id=>CAR.tab[id]={sp:0,s:0,u:0,n:0,tf:0,tg:0,pk:0,fo:[]})}
   CAR.R=0;CAR.last=null;CAR.phase='season';CAR.relq=null;CAR.relr=null;CAR.sum=null;carCupInit();carEuroInit()}
 function carNew(club,map){const seed=(Math.random()*1e9)|0;const R=carMul(seed);const lg={1:[],2:[],3:[],4:[]};CLUB.forEach(k=>lg[k.liga].push(k.i));
-  CAR={v:1,club,season:2026,lg,rt:CLUB.map(k=>Math.round(clamp(eaRt(clubEA(k.i))+(R()-.5)*2,38,95))),v42:1,eaV:2,euroNext:EURO_START[CLUB[club].short]||null,money:1000,up:{fans:0,stadium:0},xp:0,lvl:1,tro:[],ach:{},daily:null,
+  CAR={v:1,ageBase:2026,club,season:2026,lg,rt:CLUB.map(k=>Math.round(clamp(eaRt(clubEA(k.i))+(R()-.5)*2,38,95))),v42:1,eaV:2,euroNext:EURO_START[CLUB[club].short]||null,money:1000,up:{fans:0,stadium:0},xp:0,lvl:1,tro:[],ach:{},daily:null,
     st:{pl:0,w:0,hits:0,shots:0,perfect:0,streak:0,best:0,stw:0,dailies:0,self:0},map:map||'live',own:null,hist:[],seed,ball:'classic'};
   carFixtures();carMigrate();carSave()}
 function carTable(l){return CAR.lg[l].slice().sort((a,b)=>{const A=CAR.tab[a],B=CAR.tab[b];return B.pk-A.pk||(B.tf-B.tg)-(A.tf-A.tg)||B.tf-A.tf||CLUB[a].name.localeCompare(CLUB[b].name,'de')})}
-function carP(id,home){let r=CAR.rt[id]+(id===CAR.club?carTeamBonus():0);let p=.2+(r-40)*.009+(home?.02:0);
+function carP(id,home){let r=rtOf(id);let p=.2+(r-40)*.009+(home?.02:0);
   if(CAR.map==='live'&&S&&S.career&&F[id])p+=Math.min(.06,F[id].area/S.total*100*.006);return twClampP(p)}
 function carSide(id){const k=CLUB[id];return{name:k.mid,short:k.short,id,badge:clubBadgeHTML(k,'mb')}}
 /* ---- Tagesaufgabe ---- */
@@ -3622,7 +3856,7 @@ function carEv(ev,n){const d=carDaily();const D=CDAILY.find(x=>x.id===d.id);if(d
 /* ---- XP, Erfolge ---- */
 let carToastQ=[];
 function carXP(n){CAR.xp+=n;while(CAR.xp>=xpNeed(CAR.lvl)){CAR.xp-=xpNeed(CAR.lvl);CAR.lvl++;const bonus=100*CAR.lvl;CAR.money+=bonus;
-  const unl=Object.entries(TW_BALLS).find(([k,b])=>b.lv===CAR.lvl);carToastQ.push(['⭐','Level '+CAR.lvl+' – '+carTitle(),'+'+fmtMoney(bonus)+(unl?' · Ball „'+unl[1].n+'“ freigeschaltet':'')+((w=>w?' · Torwand „'+w[1].n+'“ freigeschaltet':'')(Object.entries(TW_WALLS).find(([k,w])=>w.lv===CAR.lvl)))]);carGivePack(CAR.lvl%5===0?'gold':'std','Level-Belohnung')}}
+  const unl=Object.entries(TW_BALLS).find(([k,b])=>b.lv===CAR.lvl);carToastQ.push(['⭐','Level '+CAR.lvl+' – '+carTitle(),'+'+fmtMoney(bonus)+(unl?' · Ball „'+unl[1].n+'“ freigeschaltet':'')+((w=>w?' · Kulisse „'+w[1].n+'“ freigeschaltet':'')(Object.entries(TW_WALLS).find(([k,w])=>w.lv===CAR.lvl)))]);carGivePack(CAR.lvl%5===0?'gold':'std','Level-Belohnung')}}
 function carUnlock(id){if(CAR.ach[id])return;CAR.ach[id]=CAR.season;const a=CACH.find(x=>x[0]===id);if(!a)return;carXP(60);carToastQ.push([a[1],'Erfolg: '+a[2],a[3]+' · +60 XP'])}
 function carCheckAch(){const s=CAR.st;if(s.w>=1)carUnlock('win1');if(s.perfect>=1)carUnlock('perfect');if(s.stw>=1)carUnlock('stechen');if(s.best>=5)carUnlock('streak5');if(s.best>=10)carUnlock('streak10');
   if(s.hits>=50)carUnlock('hits50');if(s.hits>=200)carUnlock('hits200');if(CAR.hist.length>=3)carUnlock('season3');if(Object.values(CAR.up).some(v=>v>=5))carUnlock('maxup');if(s.dailies>=5)carUnlock('daily5');if(CAR.money>=20000)carUnlock('rich');if(CAR.cards&&CAR.cards.length>=20)carUnlock('collector');if(CAR.cards&&CAR.cards.some(c=>c.r==='l'))carUnlock('legend')}
@@ -3650,23 +3884,22 @@ function carApply(r){const H=CAR.tab[r.h],A=CAR.tab[r.a];const hw=r.gh>r.ga,dr=r
    Kalibriert auf die Bundesliga: ~3 Tore pro Spiel, ~22 % Remis, Heimvorteil ~0,3 Tore */
 const SC_K=.055,SC_H=1.57,SC_A=1.27,SC_N=1.4;
 function poi(l){const L=Math.exp(-l);let k=0,p=Math.random();while(p>L&&k<11){k++;p*=Math.random()}return k}
-function carR(id,home){if(isEu(id))return teamOf(id).rt;let r=CAR.rt[id]+(id===CAR.club?carTeamBonus():0);
+function carR(id,home){if(isEu(id))return teamOf(id).rt;let r=rtOf(id);
   if(CAR.map==='live'&&S&&S.career&&F[id])r+=Math.min(5,F[id].area/S.total*100*.5);if(home&&id===CAR.club)r+=CAR.up.fans*1.5;return r}
 function scoreLam(h,a,neutral){const d=(carR(h,!neutral)-carR(a,false))/1.6;return[clamp((neutral?SC_N:SC_H)*Math.exp(SC_K*d),.2,3.9),clamp((neutral?SC_N:SC_A)*Math.exp(-SC_K*d),.15,3.6)]}
 /* o: {ko, neutral, agg:[Tore h, Tore a] aus dem Hinspiel} – im K.-o. bei Gleichstand Stechen (+1 für den Sieger) */
 function simGame(h,a,o){o=o||{};const [lh,la]=scoreLam(h,a,o.neutral);const f=Math.exp((Math.random()-.5)*.16);const r={h,a,gh:poi(lh*f),ga:poi(la/f),st:false};
   const ag=o.agg||[0,0];if(o.ko&&r.gh+ag[0]===r.ga+ag[1]){const pH=clamp(.5+(carR(h,false)-carR(a,false))*.004,.38,.62);if(Math.random()<pH)r.gh++;else r.ga++;r.st=true}return r}
 function carSim(h,a,ko){return simGame(h,a,{ko})}
-/* Eigenes Spiel an der Torwand (5 Schüsse): Gegner trifft so oft, wie er im Schnitt Tore schießt */
-const shotP=l=>clamp(l/5,.05,.88);
-function carShotPs(h,a,neutral){const [lh,la]=scoreLam(h,a,neutral);return{pA:shotP(lh),pD:shotP(la),lh,la}}
+/* Eigenes Spiel als Elfmeterschießen: Trefferchance aus der Teamstärke (nur ohne Spielerdaten nötig) */
+function carShotPs(h,a,neutral){const rh=carR(h,!neutral),ra=carR(a,false);return{pA:clamp(.74+(rh-ra)*.0045+(neutral?0:.015),.4,.93),pD:clamp(.74+(ra-rh)*.0045,.4,.93)}}
 function carNextMatch(){const l=carMyL();const rd=CAR.fx[l][CAR.R];return rd?rd.find(m=>m[0]===CAR.club||m[1]===CAR.club):null}
 async function carPlay(self){if(carBusy)return;carBusy=true;try{
   carCupCatchUp();const l=carMyL();const m=carNextMatch();let my=null;
   if(m){const home=m[0]===CAR.club,opp=home?m[1]:m[0];const pMe=carP(CAR.club,home);const ps=carShotPs(m[0],m[1]);
     if(CAR.map==='venue'&&S&&S.career){focus={a:m[0],d:m[1],on:true,ver:-1,cA:null,cD:null};setUserCam(false);flyTo(carBox([m[0],m[1]]),700)}
-    if(self){const out=await twMatch({A:carSide(m[0]),D:carSide(m[1]),pA:ps.pA,pD:ps.pD,pAuto:home?ps.pA:ps.pD,mine:home?'A':'D',aim:carMyAim(pMe),draw:true,title:(CAR.R+1)+'. Spieltag',logo:compLogo(l),sub:CL_NAME[l],ball:CAR.ball,wall:CAR.wall});
-      my={h:m[0],a:m[1],gh:out.a,ga:out.d,st:out.st.length>0,self:!out.auto,hits:out.hits,top:out.top,perf:out.sh[home?'A':'D'].every(Boolean)}}
+    if(self){const out=await twMatch({A:carSide(m[0]),D:carSide(m[1]),pA:ps.pA,pD:ps.pD,pAuto:home?ps.pA:ps.pD,mine:home?'A':'D',aim:carMyAim(pMe),draw:true,title:(CAR.R+1)+'. Spieltag',logo:compLogo(l),sub:CL_NAME[l],ball:CAR.ball,wall:CAR.wall,teamA:penTeam(m[0]),teamD:penTeam(m[1]),home:'A'});
+      my={h:m[0],a:m[1],gh:out.a,ga:out.d,st:out.st.length>0,self:!out.auto,hits:out.hits,top:out.top,log:out.log,shots:out.my,saves:out.saves,perf:out.sh[home?'A':'D'].length>=5&&out.sh[home?'A':'D'].every(Boolean)}}
     else my=carSim(m[0],m[1])}
   carRound(my);focus&&(focus.on=false);if(S&&S.career){setUserCam(false);flyTo(PBOX,700)}
   if(CAR.R>=CAR.fx[l].length)carSeasonEnd();
@@ -3688,7 +3921,7 @@ function carSeasonEnd(){while(CAR.cup&&CAR.cup.st<6){if(CAR.cup.alive.includes(C
   CAR.relq=[[CAR.fin[1][15],CAR.fin[2][2]],[CAR.fin[2][15],carUpList(3,CAR.fin[3])[2]]];CAR.relr=null;CAR.phase='rel';carLiveMap();carSave()}
 async function carRelegation(){if(carBusy)return;carBusy=true;try{CAR.relr=[];
   for(const [hi,lo] of CAR.relq){let w;if(hi===CAR.club||lo===CAR.club){const home=hi===CAR.club;const pMe=carP(CAR.club,home);const ps=carShotPs(hi,lo);
-      const out=await twMatch({A:carSide(hi),D:carSide(lo),pA:ps.pA,pD:ps.pD,pAuto:home?ps.pA:ps.pD,mine:home?'A':'D',aim:carMyAim(pMe),title:'Relegation',sub:CL_SHORT[carLeagueOf(hi)]+' gegen '+CL_SHORT[carLeagueOf(lo)],ball:CAR.ball,wall:CAR.wall});
+      const out=await twMatch({A:carSide(hi),D:carSide(lo),pA:ps.pA,pD:ps.pD,pAuto:home?ps.pA:ps.pD,mine:home?'A':'D',aim:carMyAim(pMe),title:'Relegation',sub:CL_SHORT[carLeagueOf(hi)]+' gegen '+CL_SHORT[carLeagueOf(lo)],ball:CAR.ball,wall:CAR.wall,teamA:penTeam(hi),teamD:penTeam(lo),home:'A',big:true});
       w=out.a>out.d?hi:lo;CAR.relr.push({hi,lo,w,a:out.a,d:out.d})}
     else{const r=carSim(hi,lo,true);w=r.gh>r.ga?hi:lo;CAR.relr.push({hi,lo,w,a:r.gh,d:r.ga})}}
   carFinish();carSave();carRender()}finally{carBusy=false}carFlushToasts()}
@@ -3705,8 +3938,8 @@ function carFinish(){const T=CAR.fin,rr=CAR.relr;const oldL=carMyL();const pos=T
   [1,2,3,4].forEach(l=>nl[l].forEach(id=>{const was=carLeagueOf(id);let r=CAR.rt[id];if(l<was)r+=3;if(l>was)r-=3;r+=(eaRt(clubEA(id))+(CLUB[id].liga-l)*2-r)*.12+(Math.random()-.5)*3;CAR.rt[id]=Math.round(clamp(r,38,93))}));
   if(T[1][0]!=null)CAR.rt[T[1][0]]+=1;
   CAR.hist.push({s:CAR.season,l:oldL,p:pos,nl:newL});const de=euQualify(T[1],CAR.cup&&CAR.cup.won);CAR.euDE=de;CAR.euroNext=['cl','el','ecl'].find(k=>de[k].includes(CAR.club))||null;sum.euro=CAR.euroNext||null;carGivePack(pos<=3?'gold':'std','Saisonabschluss: Platz '+pos);CAR.sum=sum;CAR.nl=nl;CAR.phase='end';carCheckAch()}
-function carNewSeason(){CAR.lg=CAR.nl;CAR.nl=null;CAR.season++;carFixtures();carLiveMap();carSave();if(S&&S.career){F.forEach(f=>f.sub=CL_NAME[carLeagueOf(f.id)]+' · '+CLUB[f.id].town);updateHeader()}carView='day';carRender();
-  miniToast('🗓️','Saison '+seasonLbl(CAR.season),CL_NAME[carMyL()]+' · '+CAR.fx[carMyL()].length+' Spieltage')}
+function carNewSeason(){CAR.lg=CAR.nl;CAR.nl=null;CAR.season++;carAgeCards();carFixtures();carLiveMap();carSave();if(S&&S.career){F.forEach(f=>f.sub=CL_NAME[carLeagueOf(f.id)]+' · '+CLUB[f.id].town);updateHeader()}carView='day';carRender();
+  miniToast('🗓️','Saison '+seasonLbl(CAR.season),CL_NAME[carMyL()]+' · '+CAR.fx[carMyL()].length+' Spieltage');setTimeout(carFlushToasts,2600)}
 /* ---- Öffnen / Schließen ---- */
 let carView='day',carTabL=null,carPick=null,carPickMap='live',carPickL=1;
 function carOpen(){abortAll(()=>{if(S&&!S.career&&S.fights>0&&!S.over)saveGame();$('#intro').classList.add('gone');$('#win').classList.add('off');showFight(false);
@@ -3748,7 +3981,7 @@ function carClubHTML(){const s=CAR.st;const ck='V'+CAR.club;
   h+='<div class="lbl">Upgrades · Kasse '+fmtMoney(CAR.money)+'</div>'+CUPG.map(u=>{const lv=CAR.up[u.k];const c=upCost(u,lv);const max=lv>=5;
     return '<div class="upg"><span class="ue">'+u.em+'</span><div><b>'+u.n+' <i>'+'●'.repeat(lv)+'○'.repeat(5-lv)+'</i></b><small>'+u.d+'</small></div><button class="press'+(max||CAR.money<c?' dis':'')+'" data-up="'+u.k+'">'+(max?'Max':fmtMoney(c))+'</button></div>'}).join('');
   h+='<div class="lbl">Ball</div><div class="balls">'+Object.entries(TW_BALLS).sort((a,b)=>a[1].lv-b[1].lv).map(([k,b])=>{const ok=twBallOk(k);return '<button class="press'+(CAR.ball===k?' on':'')+(ok?'':' dis')+'" data-ball="'+k+'"><img alt="" src="'+twBallThumb(k)+'">'+b.n+(ok?'':'<small>'+(b.cl?'CL oder Lv '+b.lv:'Lv '+b.lv)+'</small>')+'</button>'}).join('')+'</div>';
-  h+='<div class="lbl">Torwand</div><div class="walls">'+Object.entries(TW_WALLS).map(([k,w])=>{const ok=twWallOk(k);return '<button class="press'+((CAR.wall||'std')===k?' on':'')+(ok?'':' dis')+'" data-wall="'+k+'"><canvas data-wthumb="'+k+'"></canvas><b>'+w.n+'</b><small>'+(ok?w.tag:(w.title?'🔒 Gewinne einen Titel':'🔒 Level '+w.lv))+'</small>'+'</button>'}).join('')+'</div>';
+  h+='<div class="lbl">Kulisse hinter dem Tor</div><div class="walls">'+Object.entries(TW_WALLS).map(([k,w])=>{const ok=twWallOk(k);return '<button class="press'+((CAR.wall||'std')===k?' on':'')+(ok?'':' dis')+'" data-wall="'+k+'"><canvas data-wthumb="'+k+'"></canvas><b>'+w.n+'</b><small>'+(ok?w.tag:(w.title?'🔒 Gewinne einen Titel':'🔒 Level '+w.lv))+'</small>'+'</button>'}).join('')+'</div>';
   h+='<div class="lbl">Statistik</div><div class="cstats"><div><b>'+s.pl+'</b><small>Spiele</small></div><div><b>'+s.w+'</b><small>Siege</small></div><div><b>'+s.hits+'</b><small>Treffer</small></div><div><b>'+(s.shots?Math.round(s.hits/s.shots*100):0)+' %</b><small>Quote</small></div><div><b>'+s.best+'</b><small>Beste Serie</small></div><div><b>'+s.stw+'</b><small>Stechen gew.</small></div></div>';
   if(CAR.hist.length)h+='<div class="lbl">Saisons</div>'+CAR.hist.slice().reverse().map(x=>'<div class="rline"><span>'+seasonLbl(x.s)+'</span><b>'+x.p+'.</b><span>'+CL_SHORT[x.l]+(x.nl<x.l?' 📈':x.nl>x.l?' 📉':'')+'</span></div>').join('');
   return h}
@@ -3759,8 +3992,8 @@ function carEventCard(kind){const pre=kind==='cup';const C=CAR.cup,E=CAR.euro;le
     else{const t=E.ties.find(t=>t.a===CAR.club||t.b===CAR.club);sub=EU_KO[st.s]+(st.s===4?' · Endspiel auf neutralem Platz':st.leg?' · Rückspiel · Hinspiel: '+esc(teamOf(t.l1.h).mid)+' '+t.l1.gh+':'+t.l1.ga+' '+esc(teamOf(t.l1.a).mid):' · Hinspiel')}}
   const home=m[0]===CAR.club;const neutral=!pre&&euStep(E).t==='ko'&&euStep(E).s===4;
   return '<div class="carMatch ev '+kind+'"><div class="cmT">'+title+'</div><div class="cmS">'+sub+'</div><div class="cmR">'+
-    [m[0],m[1]].map((id,ix)=>'<div class="cmC'+(id===CAR.club?' me':'')+'"><div class="cmK">'+teamBadge(id,'')+kitHTML(isEu(id)?'E'+teamOf(id).i:'V'+id,{w:40,away:ix===1})+'</div><b>'+esc(teamOf(id).mid)+'</b><small>'+(isEu(id)?esc(teamOf(id).name):CL_SHORT[carLeagueOf(id)])+'</small>'+starsHTML(clubStars(id))+'</div>').join('<div class="cmV">vs</div>')+'</div>'+
-    '<div class="cmP">Vereinsstärke · '+(neutral||(pre&&C.st===5)?'Neutraler Platz':home?'Heimspiel':'Auswärtsspiel')+'</div></div>'+
+    [m[0],m[1]].map((id,ix)=>'<div class="cmC'+(id===CAR.club?' me':'')+'" data-cid="'+id+'"><div class="cmK">'+teamBadge(id,'')+kitHTML(isEu(id)?'E'+teamOf(id).i:'V'+id,{w:40,away:ix===1})+'</div><b>'+esc(teamOf(id).mid)+'</b><small>'+(isEu(id)?esc(teamOf(id).name):CL_SHORT[carLeagueOf(id)])+'</small>'+starsHTML(clubStars(id))+'</div>').join('<div class="cmV">vs</div>')+'</div>'+
+    '<div class="cmP">Teamstärke · '+(neutral||(pre&&C.st===5)?'Neutraler Platz':home?'Heimspiel':'Auswärtsspiel')+' · Wappen antippen = Kader</div></div>'+
     '<button class="big glass tint press" id="'+(pre?'cupSelf':'euSelf')+'">⚽ Anpfiff – selbst schießen</button><button class="big glass press" id="'+(pre?'cupSim':'euSim')+'" style="margin-top:8px">⏩ Simulieren</button>'}
 function carDayHTML(){const l=carMyL();let h='';
   if(CAR.last&&CAR.phase!=='end'&&!CAR.last.shown){const L=CAR.last,my=L.my;
@@ -3778,8 +4011,8 @@ function carDayHTML(){const l=carMyL();let h='';
     else{const m=carNextMatch();const T=carTable(l);
       if(m){const home=m[0]===CAR.club,opp=home?m[1]:m[0];const pMe=carP(CAR.club,home),pOp=twClampP(carP(opp,!home)-(home?CAR.up.fans*.02:0));
         h+='<div class="carMatch"><div class="cmT">'+compLogo(l,'sm')+(CAR.R+1)+'. von '+CAR.fx[l].length+' Spieltagen · '+CL_NAME[l]+'</div><div class="cmR">'+
-          [m[0],m[1]].map((id,ix)=>'<div class="cmC'+(id===CAR.club?' me':'')+'"><div class="cmK">'+clubBadgeHTML(CLUB[id],'')+kitHTML('V'+id,{w:40,away:ix===1})+'</div><b>'+esc(CLUB[id].mid)+'</b><small>'+(T.indexOf(id)+1)+'. Platz · '+(CAR.tab[id].fo.slice(-5).join(' ')||'–')+'</small>'+starsHTML(clubStars(id))+'</div>').join('<div class="cmV">vs</div>')+'</div>'+
-          '<div class="cmP">Vereinsstärke · '+(home?'Heimspiel':'Auswärtsspiel')+'</div></div>'+
+          [m[0],m[1]].map((id,ix)=>'<div class="cmC'+(id===CAR.club?' me':'')+'" data-cid="'+id+'"><div class="cmK">'+clubBadgeHTML(CLUB[id],'')+kitHTML('V'+id,{w:40,away:ix===1})+'</div><b>'+esc(CLUB[id].mid)+'</b><small>'+(T.indexOf(id)+1)+'. Platz · '+(CAR.tab[id].fo.slice(-5).join(' ')||'–')+'</small>'+starsHTML(clubStars(id))+'</div>').join('<div class="cmV">vs</div>')+'</div>'+
+          '<div class="cmP">Teamstärke '+teamOVRShown(m[0])+' : '+teamOVRShown(m[1])+' · '+(home?'Heimspiel':'Auswärtsspiel')+' · Wappen antippen = Kader</div></div>'+
           '<button class="big glass tint press" id="carSelf">⚽ Anpfiff – selbst schießen</button><button class="big glass press" id="carSim" style="margin-top:8px">⏩ Simulieren</button>'}
       else h+='<div class="note">Spielfrei an diesem Spieltag.</div><button class="big glass tint press" id="carSim">⏩ Spieltag simulieren</button>'}
     const nxt=[];if(CAR.cup&&CAR.cup.st<6&&CAR.cup.alive.includes(CAR.club)&&!carCupDue())nxt.push('🏆 Pokal-'+CUP_ST[CAR.cup.st]+' vor dem '+(CAR.cup.sl[CAR.cup.st]+1)+'. Spieltag');
@@ -3788,7 +4021,7 @@ function carDayHTML(){const l=carMyL();let h='';
   else if(CAR.phase==='rel'){const pos=CAR.fin[l].indexOf(CAR.club)+1;
     h+='<div class="carH">Saison '+seasonLbl(CAR.season)+' beendet</div><div class="note" style="padding-top:0">Du bist '+pos+'. in der '+CL_NAME[l]+'.</div><div class="lbl">Relegation</div>'+
       CAR.relq.map(([hi,lo])=>'<div class="rline'+((hi===CAR.club||lo===CAR.club)?' me':'')+'"><span>'+esc(CLUB[hi].mid)+'</span><b>vs</b><span>'+esc(CLUB[lo].mid)+'</span></div>').join('')+
-      '<div class="note">'+CL_SHORT[1]+' 16. gegen '+CL_SHORT[2]+' 3. · '+CL_SHORT[2]+' 16. gegen '+CL_SHORT[3]+' 3. Ein Torwand-Duell entscheidet.</div>'+
+      '<div class="note">'+CL_SHORT[1]+' 16. gegen '+CL_SHORT[2]+' 3. · '+CL_SHORT[2]+' 16. gegen '+CL_SHORT[3]+' 3. Ein Elfmeterschießen entscheidet.</div>'+
       '<button class="big glass tint press" id="carRel">'+(CAR.relq.some(p=>p.includes(CAR.club))?'⚽ Relegation selbst schießen':'⏩ Relegation austragen')+'</button>'}
   else if(CAR.phase==='end'){const s=CAR.sum;const moved=s.newL<s.oldL?'📈 Aufstieg in die '+CL_NAME[s.newL]+'!':s.newL>s.oldL?'📉 Abstieg in die '+CL_NAME[s.newL]:'Klassenerhalt – weiter in der '+CL_NAME[s.newL];
     h+='<div class="carRes '+(s.newL<=s.oldL?'win':'lose')+'"><div class="crT">Saison '+seasonLbl(s.season)+'</div><div class="crS"><b>Platz '+s.pos+'</b></div><div class="crN">'+moved+'</div>'+(s.euro?'<div class="crN">'+(s.euro==='cl'?'⭐ Qualifiziert für die Champions League!':'🏅 Qualifiziert für die Europa League!')+'</div>':'')+
@@ -3797,7 +4030,7 @@ function carDayHTML(){const l=carMyL();let h='';
       '<div class="lbl">Relegation</div>'+CAR.relr.map(r=>'<div class="rline"><span class="'+(r.w===r.hi?'w':'')+'">'+esc(CLUB[r.hi].mid)+'</span><b>'+r.a+':'+r.d+'</b><span class="'+(r.w===r.lo?'w':'')+'">'+esc(CLUB[r.lo].mid)+'</span></div>').join('')+
       '<div class="lbl">Aufsteiger</div><div class="note" style="padding-top:0">'+[2,3,4].map(x=>CAR.fin[x].slice(0,x===4?4:2).map(id=>CLUB[id].mid).join(', ')+' ('+CL_SHORT[x]+')').join(' · ')+'</div>'+
       '<button class="big glass tint press" id="carNext">🗓️ Saison '+seasonLbl(CAR.season+1)+' starten</button>'}
-  const pk=(CAR.packs.std||0)+(CAR.packs.gold||0);if(pk)h+='<button class="carCard2 press pkhint" id="pkGo"><span>🎴</span><div><b>'+pk+' '+(pk===1?'Paket':'Pakete')+' bereit</b><small>Neue Schützen im Kader-Tab öffnen</small></div><em>›</em></button>';
+  const pk=Object.values(CAR.packs||{}).reduce((a,b)=>a+(b||0),0);if(pk)h+='<button class="carCard2 press pkhint" id="pkGo"><span>🎴</span><div><b>'+pk+' '+(pk===1?'Paket':'Pakete')+' bereit</b><small>Neue Spieler im Kader-Tab öffnen</small></div><em>›</em></button>';
   h+=carDailyHTML();return h}
 const troName=(k,l)=>k==='m1'?'🏆 Deutscher Meister':k==='m2'?'🥈 Meister 2. Bundesliga':k==='m3'?'🥉 Meister 3. Liga':k==='m4'?'🎖️ Meister Regionalliga':k==='auf'?'📈 Aufstieg':k==='rel'?'🛡️ Relegation gewonnen':k==='pokal'?'🏆 DFB-Pokalsieger':k==='cl'?'⭐ Champions-League-Sieger':k==='el'?'🏅 Europa-League-Sieger':k==='ecl'?'🟢 Conference-League-Sieger':k;
 function carTabHTML(){const my=carMyL();const l=carTabL||my;const hasEu=!!CAR.euro;
@@ -3807,7 +4040,7 @@ function carTabHTML(){const my=carMyL();const l=carTabL||my;const hasEu=!!CAR.eu
   const T=carTable(l);h+='<div class="lbl lgo">'+compLogo(l,'sm')+CL_NAME[l]+' '+seasonLbl(CAR.season)+'</div>';
   const up=l>=3?carUpList(l,T):T;const n=T.length;const zone=(i,id)=>{const u=up.indexOf(id);return l===1?(i<1?'z-m':i>=16?'z-d':i===15?'z-r':i<6?'z-e':''):l===2?(i<2?'z-u':i===2||i===15?'z-r':i>=16?'z-d':''):l===3?(u>=0&&u<2?'z-u':u===2?'z-r':i>=n-4?'z-d':''):(u>=0&&u<4?'z-u':'')};
   return h+'<div class="ctab"><div class="ctr th"><span>#</span><span></span><span>Verein</span><span>Sp</span><span>S-U-N</span><span>Tr</span><span>Pkt</span></div>'+
-  T.map((id,i)=>{const t=CAR.tab[id];return '<div class="ctr '+zone(i,id)+(id===CAR.club?' me':'')+'"><span>'+(i+1)+'</span>'+clubBadgeHTML(CLUB[id],'mb')+'<span class="cn">'+esc(CLUB[id].mid)+(isII(id)?'<i class="ii">II</i>':'')+'</span><span>'+t.sp+'</span><span>'+t.s+'-'+(t.u||0)+'-'+t.n+'</span><span>'+(t.tf-t.tg>0?'+':'')+(t.tf-t.tg)+'</span><b>'+t.pk+'</b></div>'}).join('')+'</div>'+
+  T.map((id,i)=>{const t=CAR.tab[id];return '<div class="ctr '+zone(i,id)+(id===CAR.club?' me':'')+'" data-cid="'+id+'"><span>'+(i+1)+'</span>'+clubBadgeHTML(CLUB[id],'mb')+'<span class="cn">'+esc(CLUB[id].mid)+(isII(id)?'<i class="ii">II</i>':'')+'</span><span>'+t.sp+'</span><span>'+t.s+'-'+(t.u||0)+'-'+t.n+'</span><span>'+(t.tf-t.tg>0?'+':'')+(t.tf-t.tg)+'</span><b>'+t.pk+'</b></div>'}).join('')+'</div>'+
   '<div class="note">'+(l===1?'🔵 Meister · 🟣 Europapokal · 🟠 Relegation · 🔴 Abstieg':l===4?'🟢 Aufstieg in die 3. Liga (Regionalliga vereinfacht als ein Pool)':'🟢 Aufstieg · 🟠 Relegation · 🔴 Abstieg')+' · Sieg 3, Remis 1 Punkt · Tr = Treffer-Differenz'+(l>=3&&T.some(isII)?' · II-Mannschaften dürfen nicht in die 2. Liga aufsteigen':'')+'</div>'}
 /* ---- Runden antippbar: Pokal ---- */
 let carCupSel=null,carEuSel=null;
@@ -3879,6 +4112,7 @@ function carBind(){const on=(id,f)=>{const e=$(id);if(e)e.onclick=f};
   document.querySelectorAll('[data-ball]').forEach(b=>b.onclick=()=>{const k=b.dataset.ball;if(!twBallOk(k)){sfx('tap');return}CAR.ball=k;carSave();carRender()});document.querySelectorAll('[data-wall]').forEach(b=>b.onclick=()=>{const k=b.dataset.wall;if(!twWallOk(k)){sfx('tap');return}CAR.wall=k;twBG=null;carSave();carRender()});twThumbRedraw();
   const mp=$('#carMap');if(mp){segSet(mp,CAR.map);mp.onclick=e=>{const b=e.target.closest('button');if(!b||b.dataset.v===CAR.map)return;CAR.map=b.dataset.v;if(CAR.map==='live')CAR.own=null;carSave();carMapInit();carRender();miniToast('🗺️',CAR.map==='live'?'Lebende Tabelle':'Spielorte',CAR.map==='live'?'Gebiete wachsen mit den Punkten':'Gebiete bleiben fest')}}
   on('#carReset',()=>{if(!carResetArmed){carResetArmed=true;$('#carReset').textContent='Sicher? Alles geht verloren – nochmal tippen';return}carResetArmed=false;CAR=null;store.set(CAR_KEY,null);carPick=null;carRender()});
+  document.querySelectorAll('[data-cid]').forEach(r=>r.onclick=()=>{const v=r.dataset.cid;sfx('tap');tmOpen(isNaN(+v)?v:+v)});
   if(carView==='kader')carKaderBind()}
 /* ---- Vollbild-Panel: nach unten ziehen gibt die Karte frei ---- */
 const CAR_PEEK=132;
@@ -3898,7 +4132,7 @@ function carSheetInit(){const car=$('#car'),card=car&&car.querySelector('.carCar
   window.addEventListener('resize',carSheetVars)}
 
 /* ---- Vereinsstärke in Sternen (statt Prozentwerten) ---- */
-const teamRt=id=>isEu(id)?teamOf(id).rt:(typeof CAR!=='undefined'&&CAR)?CAR.rt[id]+(id===CAR.club?carTeamBonus():0):eaRt(clubEA(id));
+const teamRt=id=>isEu(id)?teamOf(id).rt:(typeof CAR!=='undefined'&&CAR)?rtOf(id):eaRt(clubEA(id));
 function clubStars(id){const o=55+(teamRt(id)-40)/1.6;return clamp(Math.floor((o-55)/3)*.5+.5,.5,5)}
 function starsHTML(s){let h='<span class="stars" role="img" aria-label="'+String(s).replace('.',',')+' von 5 Sternen">';for(let i=1;i<=5;i++)h+='<i class="'+(s>=i?'f':s>=i-.5?'h':'')+'">★</i>';return h+'</span>'}
 /* ---- Karriere-Menü: nur was in der Karriere zählt ---- */
@@ -3909,7 +4143,7 @@ function carMenuHTML(){const k=CLUB[CAR.club];const tg=(key,t,sub)=>'<div class=
     '<div class="lbl">Karte während der Saison</div><div class="seg" id="cmMap"><div class="hl"></div><button data-v="live">Lebende Tabelle</button><button data-v="venue">Spielorte</button></div>'+
     '<div class="note" style="padding-top:2px">Die Karte liegt hinter dem Karriere-Bildschirm: einfach das Panel nach unten ziehen.</div>'+
     '<div class="lbl">Ton & Anzeige</div>'+tg('sound','Sound','Schüsse, Jubel, Fanfare')+tg('haptic','Haptik','Kurzes Vibrieren bei Toren')+tg('coa','Wappen','Offizielle Wappen von Wikipedia')+
-    '<div class="lbl">Aussehen</div><button class="wzrow press" data-cm="look"><span>⚽ Ball & Torwand wählen</span><b>›</b></button>'+
+    '<div class="lbl">Aussehen</div><button class="wzrow press" data-cm="look"><span>⚽ Ball & Kulisse wählen</span><b>›</b></button>'+
     '<div class="lbl">Karriere</div><button class="wzrow press" data-cm="home"><span>⌂ Zum Startbildschirm</span><b>›</b></button>'+
     '<button class="big glass danger press" data-cm="reset" style="margin-top:10px">'+(carMenuArmed?'Sicher? Alles geht verloren – nochmal tippen':'↻ Neue Karriere beginnen')+'</button>'+
     '<div class="note" style="text-align:center">Dein Spielstand wird automatisch gespeichert.</div>'}
@@ -4044,21 +4278,35 @@ function teamBadge(id,cls){if(!isEu(id))return clubBadgeHTML(CLUB[id],cls);const
 const teamSide=id=>({name:teamOf(id).mid,short:teamOf(id).short,id,badge:teamBadge(id,'mb')});
 function teamP(id,home){if(!isEu(id))return carP(id,home);return twClampP(.2+(teamOf(id).rt-40)*.009+(home?.02:0))}
 
-/* ================= Schützen-Sammelkarten ================= */
-const CK_FN=['Jonas','Luca','Finn','Leon','Elias','Noah','Paul','Ben','Felix','Max','Tim','Jan','Nils','Tom','Erik','Moritz','Lukas','Niklas','Kai','Malte','Ole','Emre','Deniz','Mats','Henrik','Julian','Yusuf','Mika','Arda','Can','Levin','Bastian','Timo','Marlon','Jannik'];
-const CK_LN=['Brandt','Kessler','Vogt','Hartmann','Lindner','Albers','Becker','Krüger','Wolff','Schuster','Neumann','Roth','Petersen','Engel','Seidel','Böhm','Kaya','Yilmaz','Hoffmann','Lorenz','Graf','Sommer','Winter','Falk','Brenner','Weiß','Frank','Mertens','Pohl','Ritter','Jansen','Kuhn','Aydin','Haas','Ernst'];
-const RAR={b:{n:'Bronze',lo:50,hi:64},s:{n:'Silber',lo:65,hi:74},g:{n:'Gold',lo:75,hi:83},l:{n:'Weltklasse',lo:84,hi:94}};
+/* ================= Spieler, Karten, Kader & Transfermarkt (v5: Elfmeterschießen) ================= */
+const RAR={b:{n:'Bronze',lo:50,hi:64},s:{n:'Silber',lo:65,hi:74},g:{n:'Gold',lo:75,hi:83},l:{n:'Weltklasse',lo:84,hi:99}};
 const rarOf=o=>o>=84?'l':o>=75?'g':o>=65?'s':'b';
+const RORD=['l','g','s','b'];
 /* Paket-Chancen hängen von deiner Liga ab: Ein Zweitligist lockt kaum Weltklasse-Spieler an */
-const PACK_ODDS={std:{1:[['l',.02],['g',.16],['s',.56],['b',1]],2:[['l',.004],['g',.074],['s',.40],['b',1]],3:[['g',.03],['s',.28],['b',1]],4:[['g',.01],['s',.19],['b',1]]},
-  gold:{1:[['l',.08],['g',.58],['s',1]],2:[['l',.02],['g',.37],['s',1]],3:[['l',.004],['g',.22],['s',1]],4:[['g',.14],['s',1]]}};
-const PACKS={std:{n:'Schützen-Paket',em:'🎴',k:3,cost:450},gold:{n:'Gold-Paket',em:'✨',k:3,cost:1800}};
-const packOdds=pk=>PACK_ODDS[pk][(typeof CAR!=='undefined'&&CAR)?carMyL():2];
+const PACK_ODDS={
+  bronze:{1:[['g',.03],['s',.3],['b',1]],2:[['g',.02],['s',.25],['b',1]],3:[['g',.01],['s',.2],['b',1]],4:[['g',.005],['s',.16],['b',1]]},
+  std:{1:[['l',.02],['g',.16],['s',.56],['b',1]],2:[['l',.004],['g',.074],['s',.40],['b',1]],3:[['g',.03],['s',.28],['b',1]],4:[['g',.01],['s',.19],['b',1]]},
+  gold:{1:[['l',.08],['g',.58],['s',1]],2:[['l',.02],['g',.37],['s',1]],3:[['l',.004],['g',.22],['s',1]],4:[['g',.14],['s',1]]},
+  liga:{1:[['l',.06],['g',.45],['s',1]],2:[['l',.04],['g',.35],['s',1]],3:[['l',.03],['g',.3],['s',1]],4:[['l',.02],['g',.26],['s',1]]},
+  premium:{1:[['l',.22],['g',1]],2:[['l',.12],['g',1]],3:[['l',.07],['g',1]],4:[['l',.05],['g',1]]},
+  icon:{1:[['l',1]],2:[['l',1]],3:[['l',1]],4:[['l',1]]}};
+const PACKS={
+  bronze:{n:'Bronze-Paket',em:'🥉',k:2,cost:150,od:'bronze',d:'2 Karten'},
+  std:{n:'Schützen-Paket',em:'🎴',k:3,cost:450,od:'std',d:'3 Karten'},
+  keeper:{n:'Torwart-Paket',em:'🧤',k:2,cost:700,od:'std',gk:1,d:'2 Torhüter'},
+  lucky:{n:'Glücks-Paket',em:'🎲',k:[1,6],cost:900,od:'std',d:'1 bis 6 Karten'},
+  liga:{n:'Bundesliga-Paket',em:'🏟️',k:4,cost:1500,od:'liga',lg:1,d:'4 Karten · nur 1. Liga · mind. Silber'},
+  gold:{n:'Gold-Paket',em:'✨',k:3,cost:1800,od:'gold',d:'3 Karten · mind. Silber'},
+  premium:{n:'Premium-Gold',em:'💎',k:1,cost:2400,od:'premium',d:'1 Karte · garantiert Gold'},
+  mega:{n:'Mega-Paket',em:'📦',k:8,cost:2600,od:'std',d:'8 Karten'},
+  icon:{n:'Weltklasse-Paket',em:'👑',k:1,cost:8000,od:'icon',d:'1 Weltklasse-Spieler (84+)'}};
+const packOdds=pk=>PACK_ODDS[(PACKS[pk]||PACKS.std).od][(typeof CAR!=='undefined'&&CAR)?carMyL():2];
 const packChance=(pk,r)=>{const od=packOdds(pk);let prev=0;for(const [k,p] of od){if(k===r)return p-prev;prev=p}return 0};
-/* Karten-Werte: Gesamtstärke = EA-FC-Wert, Schuss-Werte aus Schuss (SHO), Physis (PHY) und Gesamtstärke */
+/* Karten-Werte: Gesamtstärke = EA-FC-Wert; Feldspieler: Präzision, Kraft, Nerven · Torhüter: Reflexe, Stellungsspiel, Nerven */
 const ovr=c=>c.o||Math.round((c.pra+c.kra+c.ner)/3);
-const shotVal=c=>Math.round(c.pra*.45+c.kra*.25+c.ner*.3);
-function cardStats(o,s,p){const cl=x=>Math.round(clamp(x,20,99));return{o,pra:cl(s),kra:cl(s*.6+p*.4),ner:cl(o*.6+s*.4)}}
+const shotVal=c=>c.gk?Math.round(42+(ovr(c)-60)*.3):Math.round(c.pra*.45+c.kra*.25+c.ner*.3);
+const STL=c=>c.gk?['REF','STE','NER']:['PRÄ','KRA','NER'];
+function cardStats(o,s,p,gk){const cl=x=>Math.round(clamp(x,20,99));return gk?{o,gk:true,pra:cl(s),kra:cl(p),ner:cl(o*.6+s*.4)}:{o,pra:cl(s),kra:cl(s*.6+p*.4),ner:cl(o*.6+s*.4)}}
 /* ---- EA-Spielerdatenbank ---- */
 let EA_IX=null;
 function eaNorm(s){return String(s).replace(/ø/gi,'o').replace(/æ/gi,'ae').replace(/ß/g,'ss').replace(/ł/gi,'l').replace(/đ/gi,'d').replace(/þ/gi,'th').replace(/ð/gi,'d').replace(/ı/g,'i')
@@ -4075,41 +4323,1254 @@ function hashStr(s){let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt
 /* Spielerwert: echter EA-FC-Wert, sonst aus der Teamstärke geschätzt (Torhüter schießen nicht) */
 const EA_POS={ST:'ST',CF:'ST',CAM:'ZOM',CM:'ZM',CDM:'ZDM',LM:'LM',RM:'RM',LW:'LF',RW:'RF',CB:'IV',LB:'LV',RB:'RV',GK:'TW',ZM:'ZM',ZOM:'ZOM',ZDM:'ZDM',IV:'IV',LV:'LV',RV:'RV',LF:'LF',RF:'RF'};
 const WP_POS={FW:'ST',MF:'ZM',DF:'IV',GK:'TW'};
-/* Spieler ohne EA-Eintrag: vorsichtig geschätzt, höchstens Silber (72), nach Position */
+/* Geburtsjahre (Wikidata) für Alter & Karriereende */
+const PL_BY=`Harry Kane|1993
+Michael Olise|2001
+Joshua Kimmich|1995
+Luis Díaz|1997
+Dayot Upamecano|1998
+Nico Schlotterbeck|1999
+Gregor Kobel|1997
+Jonathan Tah|1996
+Jamal Musiala|2003
+Felix Nmecha|2000
+Konrad Laimer|1997
+Serhou Guirassy|1996
+Deniz Undav|1996
+Aleix García|1997
+Oliver Baumann|1990
+Waldemar Anton|1996
+David Raum|1998
+Ismael Saibari|2001
+Aleksandar Pavlović|2004
+Exequiel Palacios|1998
+Maximilian Mittelstädt|1997
+Angelo Stiller|2001
+Serge Gnabry|1990
+Patrik Schick|1996
+Matthias Ginter|1994
+Kim Min Jae|1996
+Willi Orbán|1992
+Alphonso Davies|2000
+Julian Ryerson|1997
+Edmond Tapsoba|1999
+Christoph Baumgartner|1999
+Palhinha|1995
+Jonathan Burkardt|2000
+Joey Veerman|1998
+Marcel Sabitzer|1994
+Emre Can|1994
+Nicolas Seiwald|2001
+Kaishū Sano|2000
+Maximilian Beier|2002
+Nathaniel Brown|2003
+Manuel Neuer|1986
+Castello Lukeba|2002
+Andrej Kramarić|1991
+Julian Chabot|1998
+Miguel Gutiérrez|2001
+Nadiem Amiri|1996
+Ibrahim Maza|2005
+Vladimír Coufal|1992
+Ermedin Demirović|1998
+Josip Stanišić|2000
+Ritsu Doan|1998
+Tim Kleindienst|1995
+Ridle Baku|1998
+Ramy Bensebaini|1995
+Jens Stage|1996
+Malik Tillman|2002
+Noah Atubolu|2002
+Daniel Heuer Fernandes|1992
+Daniel Svensson|2002
+Leon Avdullahu|2004
+Jonas Urbig|2003
+Tom Bischof|2005
+Moritz Nicolas|1997
+Facundo Medina|1999
+Vincenzo Grifo|1993
+Giannis Konstantelias|2003
+Robin Koch|1996
+Fisnik Asllani|2002
+Philipp Lienhart|1996
+Wouter Burger|2001
+Maarten Vandevoordt|2002
+Robin Gosens|1994
+Raphael Onyedika|2001
+Carney Chukwuemeka|2003
+Marvin Schwäbe|1995
+Robert Andrich|1994
+Frederik Rønnow|1992
+Afonso Moreira|2005
+Saïd El Mala|2006
+Franck Honorat|1996
+Jamie Leweling|2001
+Hiroki Ito|1999
+Nathan Tella|1999
+Chris Führich|1998
+Benjamin Henrichs|1997
+Antonio Nusa|2005
+Rômulo|1990
+Can Uzun|2005
+Fábio Silva|2002
+Arthur Theate|2000
+Bilal El Khannouss|2004
+Edin Džeko|1986
+Ozan Kabak|2000
+Jobe Bellingham|2005
+Kevin Diks|1996
+Rocco Reitz|2002
+Grischa Prömel|1995
+Hugo Larsson|2004
+Alexis Claude-Maurice|1998
+Mitchell Weiser|1994
+Mats Rots|2006
+Alessio Castro-Montes|1999
+Tom Krauß|2001
+Adam Daghim|2005
+Loris Karius|1993
+Ísak Bergmann Jóhannesson|2003
+Michel Aebischer|1997
+Felix Agu|1999
+Ørjan Nyland|1990
+András Schäfer|1999
+Alexander Meyer|1991
+Joe Scally|2002
+Enzo Leopold|2000
+Sheraldo Becker|1995
+Patrick Osterhage|2000
+Yannik Engelhardt|2001
+Marius Bülter|1993
+Aljoscha Kemlein|2004
+Gideon Mensah|1998
+Kevin Stöger|1993
+Janis Blaswich|1991
+Kenan Karaman|1994
+Jordan Torunarigha|1997
+Nnamdi Collins|2004
+Jean-Luc Dompé|1995
+Samuel Mbangula|2004
+Chema|2005
+Eliesse Ben Seghir|2005
+Badredine Bouanani|2004
+Marius Wolf|1995
+Dejan Ljubičić|1997
+Olivier Deman|2000
+Josip Juranović|1995
+Silvan Widmer|1993
+Soufiane El-Faouzi|2002
+Albert Grønbæk|2001
+Lukas Petkov|2000
+Ezechiel Banzuzi|2005
+Oliver Burke|1997
+Ron-Robert Zieler|1989
+Janik Haberer|1994
+Martin Adeline|2003
+Florian Neuhaus|1997
+Yukhym Konoplia|1999
+Florian Müller|1997
+Silas|1998
+Marco Grüll|1998
+Niklas Stark|1995
+Alexander Schwolow|1992
+Isac Lidberg|1998
+Tom Rothe|2004
+Arthur|2003
+Leo Sauer|2005
+Karl Hein|2002
+Sven Ulreich|1988
+Eren Dinkçi|2001
+Bilal Nadir|2003
+Nathanaël Mbuku|2002
+Ilyas Ansah|2004
+Derry Scherhant|2002
+Jeong Woo Yeong|1999
+Maximilian Wöber|1998
+Hennes Behrens|2005
+Luca Waldschmidt|1996
+Andreas Hanche-Olsen|1997
+Max Rosenfelder|2003
+Linton Maina|1999
+Terem Moffi|1999
+Mert Kömür|2005
+Noel Futkeu|2002
+Dan-Axel Zagadou|1999
+Stefan Bell|1991
+Junior Dina Ebimbe|2000
+Laurin Curda|2001
+Robert Skov|1996
+Raphael Obermair|1996
+Tim Skarke|1996
+Timo Becker|1997
+Jan Thielmann|2002
+Max Finkgräfe|2004
+Noël Aséko|2005
+Alexander Schlager|1996
+Niels Nkounkou|2000
+Lukas Ullrich|2004
+Shuto Machino|1999
+Adil Aouchiche|2002
+Dennis Seimen|2005
+Felix Götze|1998
+Rihito Yamamoto|2001
+Livan Burcu|2004
+Luca Sirch|1999
+Justin Njinmah|2000
+Nediljko Labrović|1999
+Hugo Bolin|2003
+Nicolas Kristof|1999
+Daniel Elfadli|1997
+Cedric Itten|1996
+Lucas Höler|1994
+Jordy Makengo|2001
+Moussa Sylla|1999
+Lennard Maloney|1999
+Tim Oermann|2003
+Ayoube Amaimouni|2004
+Rayan Philippe|2000
+Luca Jaquez|2003
+Hasan Kuruçay|1997
+Warmed Omari|2000
+Berkay Yilmaz|1997
+Bruno Ogbus|2005
+Florent Muslija|1998
+Chuki|2004
+Jahmai Simpson-Pusey|2005
+Noahkai Banks|2006
+Keisuke Gotō|2005
+Timo Hübers|1996
+Marvin Friedrich|1995
+Nikola Katić|1996
+Joël Schmied|1998
+Hong Hyun Seok|1999
+Sander Tangvik|2002
+Yussuf Poulsen|1994
+Ransford-Yeboah Königsdörffer|2001
+Laurin Ulrich|2005
+Sota Kawasaki|2001
+Stanley Nsoki|1999
+Łukasz Poręba|2000
+Marco Richter|1997
+Tomáš Čvančara|2000
+Leonidas Stergiou|2002
+Elias Baum|2005
+Calvin Brackelmann|1999
+Fabian Bredlow|1995
+William Bøving|2003
+Patrick Drewes|1993
+Lukas Pinckert|2000
+Jeanuël Belocian|2005
+Ron Schallenberg|1998
+Kauã Santos|2003
+Maximilian Rohr|1995
+Nathan De Cat|2008
+Andrija Maksimović|2007
+David Herold|2003
+Tom Zimmerschied|1998
+Dennis Geiger|1998
+Zento Uno|2003
+Tidiam Gomis|2006
+Rav van den Berg|2004
+Ameen Al Dakhil|2002
+Wael Mohya|2008
+Tjark Scheller|2002
+Kacper Potulski|2007
+Luka Lochoshvili|1998
+Ludovit Reis|2000
+Lasse Günther|2003
+Bakery Jatta|1998
+Daiki Hashioka|1999
+Kevin Müller|1991
+Emmanuel Latte Lath|1999
+Steve Mounié|1994
+Santiago Castañeda|2004
+Yannik Keitel|2000
+Francis Onyeka|2007
+Cyriaque Irié|2005
+Montrell Culbreath|2007
+Dawid Kownacki|1997
+Anthony Jung|1991
+Matheo Raab|1998
+Bambasé Conté|2003
+Oliver Batista Meier|2001
+Younes Ebnoutalib|2003
+Junior Adamu|2001
+Fabio Chiarodia|2005
+Fabio Gruber|2002
+Nahuel Noll|2003
+Finn Porath|1997
+Jannik Huth|1994
+Satoshi Tanaka|2002
+Mertcan Ayhan|2006
+Amara Condé|1997
+Abdoul Koné|2005
+Jan Gyamerah|1995
+Leopold Zingerle|1994
+Cajetan Lenz|2006
+Julián Malatini|2001
+Keita Kosugi|2006
+Mattes Hansen|2004
+Marin Ljubičić|2002
+Immanuël Pherai|2001
+Rodrigo Ribeiro|2005
+Alessandro Vogt|2005
+Oskar Wójcik|2003
+Max Moerstedt|2006
+Florian Le Joncour|1995
+Vitalie Becker|2005
+Felix Keidel|2003
+Emir Sahiti|1998
+Skelly Alvero|2002
+Sebastian Klaas|1998
+Jessic Ngankam|2000
+Maurice Krattenmacher|2005
+Kennet Eichhorn|2009
+Marius Funk|1996
+Patson Daka|1998
+Carl Klaus|1994
+Deniz Zeitler|2006
+Steffen Tigges|1998
+Luca Philipp|2000
+Jano ter Horst|2002
+Suleman Sani|2006
+Tomáš Kalas|1993
+Tim Breithaupt|2002
+Keke Topp|2004
+Gabriel Vidović|2003
+Joane Gadou|2007
+Kenny Quetant|2006
+Julian Pauli|2005
+Tom Baack|1999
+Marcel Hoffmeier|1999
+Frederik Schmahl|2002
+Nick Bätzner|2000
+Adrian Gantenbein|2001
+Timur Gayret|1998
+Ruben Müller|2005
+Markus Kolke|1990
+Sven Michel|1990
+Luka Đurić|2003
+Bryan Lasme|1998
+Axel Tape|2007
+Noah Darvich|2006
+Kauã Prates|2008
+Luca Schnellbacher|1994
+Jan Olschowsky|2001
+Jason Ceka|1999
+Stefano Marino|2004
+Cole Campbell|2006
+David Mokwa|2004
+Nyamekye Awortwie-Grant|2000
+Luca Reggiani|2008
+Justin Lerma|2008
+Dariusz Stalmach|2005
+Christian Gomis|1998
+Sima Suso|2005
+Janik Bachmann|1996
+Otto Ruoppi|2006
+Niklas Lomb|1993
+Jonah Sticker|2004
+Uchenna Ogundu|2006
+Stefan Drljača|1999
+Nicholas Mickelson|1999
+Otto Stange|2007
+Justin Diehl|2004
+Patrice Čović|2007
+Mathis Albert|2009
+Imad Rondić|1999
+Luca Pfeiffer|1996
+Love Arrhov|2008
+Luis Engelns|2007
+Markus Schubert|1998
+Kennedy Okpala|2004
+Max Grüger|2005
+Lúkas Petersson|2004
+Clemens Lippmann|2006
+Paul Okon-Engstler|2005
+Jarzinho Malanga|2006
+Tristan Zobel|2003
+Elias Bakatukanda|2004
+Anton Donkor|1997
+Bara Sapoko Ndiaye|2007
+Tobias Sippel|1988
+Tim Boss|1993
+Ayodele Thomas|2007
+Felipe Chávez|2007
+Youssoupha Niang|2006
+Malik Pimpong|2008
+Mirza Ćatović|2007
+Salim Musah|2006
+Lazar Jovanović|2006
+Jeremiaha Maluze|2004
+Martin Wasinski|2004
+Timmy Chandler|1990
+Filimon Gerezgiher|2000
+Jens Grahl|1988
+Viggo Gebel|2007
+Karl Steinmann|2005
+Silas Ostrzinski|2003
+Reigan Heskey|2008
+Andrik Markgraf|2006
+Oluwaseun Ogbemudia|2006
+Fritz Fleck|2007
+Dylan Leonard|2007
+Alexander Røssing-Lelesiit|2007
+Thomas Kastanaras|2003
+Otávio|1995
+Albert Millgramm|2004
+Fayssal Harchaoui|2006
+Mussa Kaba|2008
+Raif Adam|2005
+Jan Leszczyński|2007
+Mathieu Nguefack|2008
+Frank Lehmann|1989
+Martin James|2008
+Emil Højlund|2005
+Niklas Mohr|2004
+Joyeux Masanka Bungi|2007
+Elias Etringer|2007
+Julien Friedrich|2006
+Rouven Tarnutzer|2007
+Rael Nakuzola|2007
+Florian Pruhs|2006
+Amil Šiljević|2007
+Mekhi Gray|2007
+Mahmut Kücüksahin|2004
+Joel Agyekum|2005
+Malek El Mala|2005
+Stefan Smarkalev|2007
+Benno Kaltefleiter|2008
+Maximilian Kinzig|2003
+Samba Konaté|2009
+Johannes Siebeking|2006
+Maycon Cardozo|2008
+Lasse Eickel|2008
+Natnael Abraha|2008
+Shafiq Nandja|2007
+Mick Schmetgens|2007
+Ertugrul Yigit|2009
+Tim Blaszczak|2007
+Gil Neves|2008
+Tim Schnitzer|2008
+Faik Sakar|2008
+Zaid Tchibara|2006
+Luis Seifert|2004
+Luca Vozar|2007
+Fernando Dickes|2007
+Tom Wisbereit|2007
+Bryan Zaragoza|2001
+Lennart Karl|2008
+Mario Götze|1992
+Konstantinos Karetsas|2007
+Philipp Treu|2000
+Farès Chaïbi|2002
+Ansgar Knauff|2002
+Sacha Boey|2000
+Arijon Ibrahimović|2005
+Christian Günter|1993
+Lukas Kübler|1992
+Jean-Mattéo Bahoya|2005
+Elye Wahi|2003
+Michael Zetterer|1995
+Oscar Højlund|2005
+Brajan Gruda|2004
+Assan Ouédraogo|2006
+Arthur Vermeeren|2005
+Johan Bakayoko|2003
+Maxime Estève|2002
+Conrad Harder|2005
+Lukas Klostermann|1996
+El Chadaille Bitshiabu|2005
+Tiago Tomás|2002
+Ramon Hendriks|2001
+Atakan Karazor|1996
+Josha Vagnoman|2000
+Lorenz Assignon|2000
+Dženan Pejčinović|2005
+Finn Jeltsch|2006
+Nikolas Nartey|2000
+Kamil Grabara|1999
+Maximilian Arnold|1994
+Mohamed Amoura|2000
+Christian Eriksen|1992
+Mattias Svanberg|1999
+Joakim Mæhle|1997
+Timon Wellenreuther|1995
+Marcel Hartel|1996
+Denis Vavro|1996
+Patrick Mainka|1994
+Marvin Wanitzek|1993
+Fabian Reese|1997
+Vinicius Souza|1999
+Saël Kumbedi|2005
+Aaron Zehnter|2004
+Yannick Gerhardt|1994
+Eric Smith|1997
+Hauke Wahl|1994
+Moritz Jenz|1999
+Mathias Rasmussen|1997
+Alexander Bernhardsson|1998
+Elvis Rexhbeçaj|1997
+Joel Chima Fujita|2002
+Timo Horn|1993
+Julian Justvan|1998
+Barış Atik|1995
+Naatan Skyttä|2002
+Josip Brekalo|1998
+Mathias Pereira Lage|1996
+Maximilian Wittek|1995
+Mathias Honsak|1996
+Marcel Schuhen|1993
+Mateusz Żukowski|2001
+Marnon Busch|1994
+Jan Schöppner|1999
+Pascal Loretz|2003
+Leonardo Bittencourt|1993
+Aster Vranckx|2002
+Maurice Neubauer|1996
+Martijn Kaars|1999
+Julian Niehues|2001
+Kilian Fischer|2000
+Mohamed Alì Zoma|2003
+Finn Ole Becker|2000
+Benjamin Källman|1998
+Ron-Thorben Hoffmann|1999
+Bence Dárdai|2006
+Budu Zivzivadze|1994
+Marvin Pieringer|1999
+Muhammed Damar|2004
+Fraser Hornby|1999
+Paul Joly|2000
+Philipp Hofmann|1993
+Robert Glatzel|1994
+Marlon Ritter|1994
+Ole Pohlmann|2001
+Felix Klaus|1992
+John Tolkin|2002
+Adam Markhiev|2002
+Paul Seguin|1995
+Leart Paçarada|1994
+Kai Klefisch|1999
+Mërgim Berisha|1998
+Semih Sahin|1999
+Julian Krahl|2000
+Hiroki Akiyama|2000
+Karol Mets|1993
+Jonas Föhrenbach|1996
+Branimir Hrgota|1993
+Jonas Meffert|1994
+Boris Tomiak|1999
+David Zec|2000
+Lee Ho Jae|2000
+Tim Siersleben|2000
+Alexander Nollenberger|1997
+Fabian Nürnberger|1999
+Rafael Lubach|2005
+Mustapha Bundu|1997
+Gerrit Holtmann|1995
+Oliver Olsen|2000
+Arkadiusz Pyrka|2002
+Stefán Teitur Þórðarson|1998
+Tim Handwerker|1998
+Jón Dagur Þorsteinsson|1998
+Steven Skrzybski|1992
+Joel Grodowski|1997
+Mads Pedersen|1996
+Alexander Rossipal|1996
+Frank Feller|2004
+Mika Haas|2005
+Luca Marseiler|1997
+Marcus Mathisen|1996
+Monju Momuluh|2002
+Tolcay Ciğerci|1995
+Noah Weißhaupt|2001
+Niklas Hauptmann|1996
+Berkan Taz|1998
+Márton Dárdai|2002
+Lars Gindorf|2001
+Jan Reichert|2001
+Giorgi Kvilitaia|1993
+Virgil Ghiță|1998
+Jacob Rasmussen|1997
+Fabian Kunze|1998
+Phil Harres|2002
+Ivan Prtajin|1996
+Linus Gechter|2004
+Vincent Vermeij|1994
+Patric Pfeiffer|1999
+Philipp Strompf|1998
+Tomoya Andō|1999
+Aleksandar Vukotić|1995
+Christoph Kobald|1997
+Jonas Adjetey|2003
+Marcel Franke|1993
+Adrian Beck|1997
+Louis Oppie|2002
+Lino Tempelmann|1999
+Marcel Costly|1995
+Dimitar Mitov|1997
+Jonas Therkelsen|2003
+Mehmet Can Aydın|2002
+Oualid Mhamdi|2003
+Luca Kerber|2002
+Enis Çokaj|1999
+Stefano Russo|1989
+Henri Koudossou|1999
+Deyovaisio Zeefuik|1998
+Thomas Dähne|1994
+Sirlord Conteh|1996
+Sebastian Jung|1990
+Maxwell Gyamfi|2000
+Jean Hugonet|1999
+Robert Wagner|2003
+Erik Engelhardt|1998
+Rogério|1998
+Moritz Broschinski|2000
+Koji Miyoshi|1997
+Adrián Kaprálik|2002
+Kolja Oudenne|2001
+Jan Elvedi|1996
+Jannis Heuer|1999
+Pavao Pervan|1987
+Luca Schuler|1999
+Ibrahim Sissoko|1991
+Daniel Hanslik|1996
+Adam Dźwigała|1995
+Maximilian Entrup|1997
+Kento Shiogai|2005
+Thomas Keller|1999
+Robin Meißner|1999
+Nicolai Rapp|1996
+Daniel-Kofi Kyereh|1996
+Kevin Ehlers|2001
+David Nemeth|2001
+Maximilian Bauer|2000
+Emmanuel Iyoha|1997
+Marius Wörl|2004
+Connor Metcalfe|1999
+Lubambo Musonda|1995
+Marvin Mehlem|1997
+Herbert Bockhorn|1995
+Falko Michel|2001
+Giannis Masouras|1996
+Dominik Reimann|1997
+Timon Weiner|1999
+Paul Will|1999
+Robin Heußer|1998
+Simon Asta|2001
+Max Marie|2004
+Leon Jensen|1997
+Lasse Rosenboom|2002
+Jonas Sterner|2002
+Lars Kehl|2002
+Mats Pannewig|2004
+Lars Ritzka|1998
+Michael Heule|2001
+Benjamin Uphoff|1993
+Hans Christian Bernat|2000
+Ricky-Jade Jones|2002
+Lance Duijvestijn|1999
+Louey Ben Farhat|2006
+Jakob Lemmer|2000
+Kasper Davidsen|2005
+Benedikt Pichler|1997
+Waniss Taïbi|2002
+Jonas Kersken|2000
+Rayan Ghrieb|1999
+Farid Alfa-Ruprecht|2006
+Matthias Bader|1997
+Tim Schreiber|2002
+Christian Conteh|1999
+Ben Bobzien|2003
+Mikkel Kaufmann|2001
+Ibrahim Kanaté|2006
+Marko Ivezić|2001
+Rafael Pinto Pedrosa|2007
+Hiroki Sekine|2002
+Kenneth Schmidt|2002
+Marcel Lotka|2001
+Shinta Appelkamp|2000
+Jannik Dehm|1996
+Luca Itter|1999
+Aaron Keller|2004
+Christian Ortag|1995
+Dennis Srbeny|1994
+Florian Hellstern|2007
+Doni Arifi|2002
+Sacha Bansé|2001
+Mika Wallentowitz|2007
+Lukas Reich|2006
+Silas Prüfrock|2005
+Philipp Müller|1995
+Pelle Boevink|1998
+Omar Sillah|2003
+Benjamin Zank|2004
+Krisztián Keresztes|2000
+Leander Popp|2005
+Mehmet Avlayici|2006
+Omar Megeed|2005
+Maxim Dal|2006
+Hayate Matsuda|2003
+Husseyn Chakroun|2004
+Elias Bethke|2003
+Leon Robinson|2001
+Paul Hennrich|2005
+Abdoulie Ceesay|2004
+Marius Gersbeck|1995
+Christian Mathenia|1992
+Lukas Boeder|1997
+Sigurd Haugen|1997
+Sebastian Grønning|1997
+Patrick Kammerbauer|1997
+Lennart Grill|1999
+Torben Müsel|1999
+Dominik Pelivan|1996
+Bjarke Jacobsen|1993
+Jean-Manuel Mbom|2000
+Kevin Sessa|2000
+Moritz-Broni Kwarteng|1998
+David Kopacz|1999
+Taichi Hara|1999
+Aaron Opoku|1999
+Niklas Wiemann|1999
+Florian Flick|2000
+Jannik Rochelt|1998
+Ben Voll|2000
+Frederik Jäkel|2001
+Erencan Yardımcı|2002
+Kwon Hyeok Kyu|2001
+Merveille Papela|2001
+Lilian Egloff|2002
+Fynn Otto|2002
+Christopher Lannert|1998
+Bastian Allgeier|2002
+Jonas Krumrey|2003
+Konrad Faber|1997
+Guillermo Balzi|2001
+Alessio Besio|2004
+Julian Eitschberger|2004
+Daniel Heber|1994
+Fabio Di Michele Sanchez|2003
+Noel Eichinger|2001
+Andi Hoti|2003
+Viktor Bergh|1999
+Christian Rasmussen|2003
+Pascal Klemens|2005
+Lukas Frenkert|2000
+Mikayil Faye|2004
+Shio Fukuda|2004
+Benjamin Boakye|2005
+Luka Hyryläinen|2004
+Lukas Michelbrink|2005
+Robin Fabinski|2003
+Cleiton|1986
+Adriano Grimaldi|1991
+Sebastian Schonlau|1994
+Axel Borgmann|1994
+Joel Felix|1998
+Raoul Petretta|1997
+Leo Weinkauf|1996
+Fridolin Wagner|1997
+Carlo Sickinger|1997
+Julian Guttau|1999
+Leon Schneider|2000
+Noah Katterbach|2001
+Richmond Tachie|1999
+Henry Rorig|2000
+Williams Kokolo|2000
+Florian Kleinhansl|2000
+Leonhard Münst|2002
+Jonas Oehmichen|2004
+Faride Alidou|2001
+Tim Janisch|2005
+Moritz Hannemann|1998
+Yann Sturm|2005
+Ismail Badjie|2005
+Andu Kelati|2002
+Pierre Nadjombe|2003
+Nils Fröling|2000
+Santeri Väänänen|2002
+Luca Herrmann|1999
+Franz Roggow|2002
+Simon Straudi|1999
+Mikkel Rakneberg|2002
+Taisei Abe|2004
+Lars Bünning|1998
+Isaiah Young|1998
+Mansour Ouro-Tagba|2004
+Arne Sicker|1997
+Felix Hagmann|2004
+Alex Murphy|2004
+Friedrich Müller|2006
+Fynn Lakenmacher|2000
+Robin Himmelmann|1989
+Erik Ahlstrand|2001
+Christian Kinsombi|1999
+Gustav Christensen|2004
+Louis Breunig|2003
+Lucas Copado|2004
+Roberts Uldriķis|1998
+Maximilian Breunig|2000
+Luca Erlein|2007
+Ryan Malone|1992
+Yosuke Furukawa|2003
+Styopa Mkrtchyan|2003
+Yannik Lührs|2003
+Paul Scholl|2006
+Ahmet Muhamedbegovic|1998
+Lukas Kunze|1998
+Bryan Henning|1995
+Samuele Di Benedetto|2005
+Anderson Lucoqui|1997
+Sanoussy Ba|2004
+Tobias Raschl|2000
+Gísli Þórðarson|2004
+Brooklyn Ezeh|2001
+Jannis Boziaris|2003
+Sam Schreck|1999
+Sidi Sané|2003
+Tony Reitz|2004
+Alexander Brunst|1995
+Leon Opitz|2005
+Luca Raimund|2005
+Scott Banks|2001
+Rony Jansson|2004
+Tony Lesueur|2000
+Jeredy Hilterman|1998
+Jovan Mijatović|2005
+Piet Scobel|2005
+Frederik Roslyng|2005
+Tim Campulka|1999
+Jonas Hofmann|1992
+Sam Klein|2004
+Kevin Wiethaup|2005
+Marcel Engelhardt|1993
+Babis Drakas|2003
+Ikem Ugoh|2005
+Konstantin Heide|2006
+Justin Butler|2001
+Javier Fernández|1988
+Yoon Do Young|2006
+Tino Casali|1995
+Joël Abu Hanna|1998
+Marcus Müller|2002
+Niklas Sauter|2003
+Ibrahim El Kadiri|2002
+Yiğit Karademir|2004
+Jan Urbich|2004
+Meldin Drešković|1998
+Adam Kölle|2006
+Kelven Frees|2005
+Justin von der Hitz|2006
+Daniel Mesenhöler|1995
+Noah Kruth|2003
+Sidney Raebiger|2005
+Can Moustfa|2004
+Enis Kamga|2007
+Theo Janotta|2003
+Eymen Laghrissi|2008
+Jorrit Hendrix|1995
+Dominique Heintz|1993
+Tim Oberdorf|1996
+Fabian Schleusener|1991
+Manuel Riemann|1988
+Mika Schroers|2002
+Florian Stritzel|1994
+Jakob Golz|1998
+Philipp Förster|1995
+Andreas Müller|2000
+Joshua Bitter|1997
+Matthias Zimmermann|1992
+Joshua Mees|1996
+Florian Pick|1995
+Philipp Hercher|1996
+Marvin Schulz|1995
+Max Besuschkow|1997
+Lucas Brumme|1999
+Fredrik Carlsen|1989
+Can Coşkun|1998
+Marco Schuster|1995
+Luca Unbehaun|2001
+Tim Rossmann|2003
+Niklas May|2002
+Yassine Bouchama|1997
+Rico Preißinger|1996
+David Otto|1999
+Lex-Tyger Lobinger|1999
+Lasse Rieß|2001
+Leon Dajaku|2001
+José-Enrique Ríos Alonso|2000
+Martin Ens|2001
+Dominik Kother|2000
+Steven van der Sloot|2002
+Klaus Gjasula|1989
+Moritz Flotho|2002
+Emil Holten|1996
+Elias Egouli|2002
+Florian Carstens|1998
+Tarik Gözüsirin|2001
+Christian Viet|1999
+Kenan Fatkic|1997
+Calogero Rizzuto|1992
+Andreas Voglsammer|1992
+Lukas Klünter|1996
+Charalambos Makridis|1996
+Aljaž Casar|2000
+Max Brandt|2001
+Patrick Sontheimer|1998
+Adrian Fein|1999
+Conor Noß|2001
+Dennis Waidner|2001
+Nishan Velupillay|2001
+Tim Kloss|2004
+Zidan Sertdemir|2005
+Marcel Benger|1998
+Lukas Schleimer|1999
+Nicolás Sessa|1996
+Lars Lokotsch|1996
+Mehdi Loune|2004
+Maximilian Krauß|1996
+Maximilian Braune|2003
+Florian Bohnert|1997
+Jannik Hofmann|2002
+Vinko Šapina|1995
+Jasper Löffelsend|1997
+Niklas Tauer|2001
+Joshua Eze|2003
+Semir Telalović|1999
+Patrick Sussek|2000
+Dickson Abiama|1998
+Simon Lorenz|1997
+Eric Hottmann|2000
+Noah Joel Sarenren Bazee|1996
+Kai Brünker|1994
+Leroy-Jacques Mickels|1995
+Marek Janssen|1997
+Max Geschwill|2001
+Oscar Vilhelmsson|2003
+Ahmet Gürleyen|1999
+Terrence Boyd|1991
+Siemen Voet|2000
+Rasim Bulić|2000
+Tobias Fleckstein|1999
+Jonas Scholz|1999
+Leopold Wurm|2006
+Jordy Gillekens|2000
+Yannick Deichmann|1994
+Christian Kühlwetter|1996
+Benno Dietze|2003
+Yari Otto|1999
+Philipp Ochs|1997
+Benjamin Kanuric|2003
+Faton Ademi|2006
+Niklas Kölle|1999
+Dennis Kaygin|2004
+Lukas Scepanik|1994
+Frederik Christensen|1995
+Jomaine Consbruch|2002
+Linus Rosenlöcher|2000
+Petros Bagalianis|2001
+Jermain Nischalke|2003
+Yasin Zor|2005
+Vincent Thill|2000
+Malte Karbstein|1998
+André Leipold|2001
+Ben Hüning|2004
+Lukas Wallner|2003
+Mladen Cvjetinović|2003
+Ben Schlicke|2005
+Robin Ziegele|1997
+Mika Hanraths|1999
+Antonio Tikvić|2004
+Florian Hübner|1991
+Fabian Wessig|2003
+Jesse Tugbenyo|2001
+Miguel Gonçalves|2004
+Erik Zenga|1993
+Florian Heister|1997
+Oscar Schönfelder|2001
+Sinan Karweina|1999
+Fabian Greilinger|2000
+Marius Kunde|1995
+Abdoulaye Kamara|2004
+Timo Bornemann|2000
+Kevin Schumacher|1997
+Philip Fahrner|2003
+Matteo Bignetti|2004
+Niklas Jessen|2003
+Adrian Stanilewicz|2000
+Dominik Nothnagel|1994
+Thorben Deters|1995
+Matthis Harsman|1999
+Florian Bähr|2003
+Marco Wörner|2004
+Kwasi Okyere Wriedt|1994
+Dominik Meisel|1999
+Kushtrim Asallari|2003
+Lovis Bierschenk|2005
+Kasra Ghawilu|1999
+Johann Hipper|1998
+Abdenego Nankishi|2002
+Ekin Celebi|2000
+Franci Bouebari|2003
+Matti Wagner|2005
+Arlind Rexhepi|2003
+Richard Meier|2004
+Tom Geerkens|2000
+Maximilian Thalhammer|1997
+Cyrill Akono|2000
+Hamadi Al Ghaddioui|1990
+Fabio Torsiello|2005
+Max Lamby|2003
+Lucas Hermes|2000
+Niklas Castelle|2002
+Robin Velasco|2002
+Jaka Čuber Potočnik|2005
+Florian Dietz|1998
+Aiman Dardari|2005
+Jonas Michelbrink|2001
+Jakob Lewald|1999
+Bennit Bröger|2006
+Yannis Hör|2005
+Peter Kiedl|2004
+Patrick Schmidt|1998
+Kevin Broll|1995
+Leo Mätzler|2002
+Michael Glück|2003
+Antonis Aidonis|2001
+Lucas Zeller|1998
+Jonas Fedl|1999
+Luis Sprekelmeyer|2002
+Maximilian Fischer|2002
+Maximilian Herwerth|2006
+Almin Mešanović|2004
+Eroll Zejnullahu|1994
+Marc Richter|1999
+Luca Molinari|2002
+Jid Okeke|2004
+Mika Stuhlmacher|2002
+Dennis Borkowski|2002
+Amin Farouk|2003
+Philipp Klewin|1993
+Ruben Reisig|1996
+Taylan Duman|1997
+Tony Menzel|2005
+Michael Kostka|2003
+Janne Sietan|2002
+Sebastian Stolze|1995
+Jonas Dirkner|2002
+Ramien Safi|1999
+Mika Clausen|2002
+Lucas Wolf|2001
+Felix Strauss|2001
+Tobias Eisenhuth|2001
+Danilo Wiebe|1994
+Marvin Obuz|2002
+Morten Behrens|1997
+Niko Kijewski|1996
+Nassim Boujellab|1999
+Noah Pesch|2005
+Malik Batmaz|2000
+Ryan Johansson|2001
+Sascha Risch|2000
+Maximilian Reule|1994
+Stefan Bajic|2001
+Luca Bolay|2002
+Luca Bazzoli|2000
+Claudio Kammerknecht|1999
+Alexander Hahn|1993
+Franz Pfanne|1994
+Arne Schulz|2003
+Jan-Simon Symalla|2005
+Joel da Silva Kiala|2004
+Semi Belkahia|1998
+Nikolas Agrafiotis|2000
+Patrick Hobsch|1994
+Mason Toye|1998
+Pascal Fallmann|2003
+Thijmen Nijhuis|1998
+Justin Janitzek|2004
+Fabian Eisele|1995
+Julian Ulbricht|1999
+Simon Scherder|1993
+Torge Paetow|1995
+Marius Wegmann|1998
+Christoph Greger|1997
+Niko Koulis|1999
+Ersin Zehir|1998
+Benedikt Saller|1992
+David Kinsombi|1995
+Luke Hemmerich|1998
+Sebastian Vasiliadis|1997
+Kaan Caliskaner|1999
+Gino Fechner|1997
+Paul Stock|1997
+Erik Majetschak|2000
+Volkan Celiktas|1995
+Kilian Jakob|1998
+Daniel Hägele|1989
+Maurice Multhaup|1996
+Adama Diakhaby|1996
+Diego Michel|1997
+Franck Evina|2000
+Jannic Ehlers|2003
+Gonçalo Gregório|1995
+Jordi Paulina|2004
+Simon Stehle|2001
+Antonio Foti|2003
+Florian Krüger|1999
+Robin Afamefuna|1997
+Meiko Sponsel|2002
+Meiko Wäschenbach|2004
+Johann Berger|1999
+Tarsis Bonga|1997
+Julian Rieckmann|2000
+Gideon Jung|1994
+Benedikt Bauer|2003
+David Philipp|2000
+Oliver Issa Schmitt|2000
+Jakob Bookjans|2000
+Masca|2000
+Leon Sommer|2001
+Niko Bretschneider|1999
+Robin Kalem|2002
+Rafael García|1989
+Toni Stahl|1999
+Donny Bogićević|2001
+Tim Sechelmann|1999
+Lukas Fröde|1995
+Felix Higl|1997
+Dominic Baumann|1995`;
+let BY_IX=null;
+function byOf(n){if(!BY_IX){BY_IX={};PL_BY.split('\n').forEach(l=>{const i=l.lastIndexOf('|');if(i>0)BY_IX[eaNorm(l.slice(0,i))]=+l.slice(i+1)})}return BY_IX[eaNorm(n)]||null}
+const carAgeBase=()=>(typeof CAR!=='undefined'&&CAR&&CAR.ageBase)||2026;
+const carSeasonNow=()=>(typeof CAR!=='undefined'&&CAR)?CAR.season:2026;
+/* Alter in der laufenden Saison: Kader-Daten gelten für den Start der Karriere */
+function ageAt(by,season){if(!by)return null;return 2026-by+((season||carSeasonNow())-carAgeBase())}
+const devStep=a=>a<=20?3:a<=22?2:a<=24?1:a<=29?0:a<=31?-1:a<=33?-2:-3;
+function devSum(a0,yrs){let s=0;for(let y=0;y<yrs;y++)s+=devStep(a0+y);return s}
+const RETIRE=36;
+/* Wer bei Karrierestart schon älter war, spielt noch eine Saison */
+function isRetired(by){if(!by)return false;const a=ageAt(by),a0=2026-by;return a>=Math.max(RETIRE,a0+1)}
+/* Nur echte Namen aus den Kader-Vorlagen (keine Markierungen wie „Captain“) */
+const BAD_NAME=/\b(captain|kapit(ä|ae)n|vice|loan|association football|footballer|squad|manager|coach|trainer|on loan|out on|youth|reserve)\b/i;
+function plValid(n){n=String(n||'').trim();return n.length>=3&&n.length<=40&&/[A-Za-zÀ-ž]{2}/.test(n)&&!BAD_NAME.test(n)&&!/[\[\]{}=|<>]/.test(n)&&n.split(/\s+/).length<=5}
+/* Spielerwert: echter EA-FC-Wert, sonst aus der Teamstärke geschätzt (höchstens Silber) */
 function plStats(club,pl){const [no,name,pos,nat]=pl;const e=eaFind(name,CLUB[club].liga);const x={nat:nat||''};
-  if(e){if(e.gk)return null;return Object.assign(cardStats(e.o,e.s,e.p),{ea:true,pos:EA_POS[e.pos]||WP_POS[pos]||''},x)}
-  if(pos==='GK')return null;const h=hashStr(name+club);const t=clubEA(club);const o=Math.round(clamp(CLUB[club].liga===4?t-7+(h%8):t-12+(h%7),45,72));const j=(h>>>8)%13-6;
+  if(e)return Object.assign(cardStats(e.o,e.s,e.p,e.gk),{ea:true,pos:e.gk?'TW':(EA_POS[e.pos]||WP_POS[pos]||'')},x);
+  const gk=pos==='GK';const h=hashStr(name+club);const t=clubEA(club);const o=Math.round(clamp(CLUB[club].liga===4?t-7+(h%8):t-12+(h%7),45,72));const j=(h>>>8)%13-6;
+  if(gk)return Object.assign(cardStats(o,o-2+j/2,o+j/2,true),{pos:'TW'},x);
   const s=pos==='FW'?o+2+j/2:pos==='MF'?o-6+j:pos==='DF'?o-24+j:o-9+j;const p=o-2+((h>>>16)%13-6);return Object.assign(cardStats(o,s,p),{pos:WP_POS[pos]||''},x)}
-let plPoolV=0,plPoolC=null;
-function plPool(){if(plPoolC&&plPoolC.v===plPoolV)return plPoolC.a;const a=[];CLUB.forEach(k=>{const sq=WX.sq['V'+k.i];if(!sq)return;sq.forEach(pl=>{const st=plStats(k.i,pl);if(st)a.push(Object.assign({club:k.i,no:pl[0],n:pl[1],r:rarOf(st.o)},st))})});
+/* Europäische Gegner: echte Namen, Werte aus der Teamstärke geschätzt */
+function plStatsEu(e,pl){const [no,name,pos,nat]=pl;const t=55+(e.rt-40)/1.6;const h=hashStr(name+e.short);const o=Math.round(clamp(t-7+(h%10),50,93));const j=(h>>>8)%11-5;const gk=pos==='GK';
+  if(gk)return Object.assign(cardStats(o,o-2+j/2,o+j/2,true),{pos:'TW',nat:nat||'',est:true});
+  const s=pos==='FW'?o+2+j/2:pos==='MF'?o-5+j:pos==='DF'?o-22+j:o-9+j;return Object.assign(cardStats(o,s,o-1+j),{pos:WP_POS[pos]||'',nat:nat||'',est:true})}
+var CARV=0;
+let plPoolV=0,plPoolC=null,plCurC=null,xiC=null;
+/* Alle Spieler deutscher Vereine laut Kader-Daten (Stand Karrierestart) */
+function plBase(){if(plPoolC&&plPoolC.v===plPoolV)return plPoolC.a;const a=[];const seen=new Set();
+  CLUB.forEach(k=>{const sq=WX.sq['V'+k.i];if(!sq)return;sq.forEach(pl=>{if(!plValid(pl[1])||seen.has(pl[1]))return;seen.add(pl[1]);const st=plStats(k.i,pl);if(st)a.push(Object.assign({club:k.i,no:pl[0],n:pl[1],by:byOf(pl[1])},st))})});
   plPoolC={v:plPoolV,a};return a}
-/* Wer wechselt zu dir? Spieler aus höheren Ligen kommen seltener */
-function cardPick(r,club){if(!WX||!Object.keys(WX.sq).length)return null;const owned=new Set((CAR.cards||[]).map(c=>c.n));const my=carMyL();
-  let pool=plPool().filter(p=>!owned.has(p.n)&&(club==null||p.club===club));if(!pool.length)return null;
-  const order=['l','g','s','b'];let rr=r;let cand=[];for(let i=order.indexOf(r);i<order.length&&!cand.length;i++){rr=order[i];cand=pool.filter(p=>p.r===rr)}
-  if(!cand.length)cand=pool;if(club!=null)return cand[Math.random()*cand.length|0];
-  const wt=p=>{const d=my-carLeagueOf(p.club);return(p.club===CAR.club?1.5:1)*(d<=0?1:d===1?.35:d===2?.1:.03)};
-  const tot=cand.reduce((s,p)=>s+wt(p),0);let x=Math.random()*tot;for(const p of cand){x-=wt(p);if(x<=0)return p}return cand[cand.length-1]}
-function cardFromPl(p){return{id:(CAR.cardSeq=(CAR.cardSeq||0)+1),n:p.n,club:p.club,no:p.no,r:rarOf(p.o),o:p.o,pra:p.pra,kra:p.kra,ner:p.ner,pos:p.pos||'',nat:p.nat||'',tr:0}}
-function cardNew(r,club){const p=cardPick(r,club);if(p)return cardFromPl(p);
-  const R=RAR[r];const o=Math.round(R.lo+Math.random()*(R.hi-R.lo));const st=cardStats(o,o-4+Math.random()*10,o-4+Math.random()*10);
-  return Object.assign({id:(CAR.cardSeq=(CAR.cardSeq||0)+1),n:CK_FN[Math.random()*CK_FN.length|0][0]+'. '+CK_LN[Math.random()*CK_LN.length|0],r,tr:0},st)}
-/* Beste Schützen aus dem eigenen Kader */
-function ownShooters(n){const owned=new Set((CAR.cards||[]).map(c=>c.n));return plPool().filter(p=>p.club===CAR.club&&!owned.has(p.n)).sort((a,b)=>shotVal(b)-shotVal(a)).slice(0,n)}
-/* Fiktive Schützen werden zu echten Spielern deines Vereins, sobald die Kader geladen sind; echte Spieler bekommen ihre EA-FC-Werte */
-function carRealCards(){if(!CAR||!CAR.cards||!Object.keys(WX.sq).length)return;let n=0;
-  CAR.cards.forEach(c=>{if(c.club!=null)return;const p=ownShooters(1)[0]||cardPick(c.r);if(p){const tr=c.tr||0;Object.assign(c,cardFromPl(p),{id:c.id,tr});n++}});
-  if((CAR.eaV||0)<2){CAR.eaV=2;CAR.cards.forEach(c=>{if(c.club==null)return;const sq=WX.sq['V'+c.club]||[];const pl=sq.find(x=>x[1]===c.n);const st=pl&&plStats(c.club,pl);
-    if(st){c.pos=st.pos;c.nat=st.nat;const b=c.tr||0;c.o=Math.min(99,st.o+Math.floor(b/2));c.pra=Math.min(99,st.pra+b);c.kra=Math.min(99,st.kra+b);c.ner=Math.min(99,st.ner+b);c.r=rarOf(st.o)}else if(!c.o)c.o=ovr(c)});n++}
-  if(n&&!CAR.realDone){CAR.realDone=true;carToastQ.push(['👕','Echte Spieler!','Deine Schützen sind jetzt Spieler aus den aktuellen Kadern – mit ihren EA-FC-Werten']);carFlushToasts()}}
-function cardRoll(pk){const x=Math.random();for(const [r,p] of packOdds(pk))if(x<p)return r;return 'b'}
+/* … mit Entwicklung bis zur laufenden Saison */
+function plCur(){const key=plPoolV+'|'+carSeasonNow()+'|'+carAgeBase();if(plCurC&&plCurC.k===key)return plCurC.a;const yrs=Math.max(0,carSeasonNow()-carAgeBase());
+  const a=plBase().filter(p=>!isRetired(p.by)).map(p=>{if(!yrs||!p.by)return p;const d=devSum(2026-p.by,yrs);if(!d)return p;const b=x=>clamp(x+d,30,99);return Object.assign({},p,{o:b(p.o),pra:b(p.pra),kra:b(p.kra),ner:b(p.ner)})});
+  plCurC={k:key,a};return a}
+const ownedSet=()=>new Set(((typeof CAR!=='undefined'&&CAR&&CAR.cards)||[]).map(c=>c.n));
+/* Verfügbar = nicht bei dir unter Vertrag, nicht im Ruhestand. Jeder Spieler existiert nur einmal. */
+function plAvail(){const own=ownedSet();return plCur().filter(p=>!own.has(p.n))}
+function xiCache(){const key=plPoolV+'|'+carSeasonNow()+'|'+CARV+'|'+((typeof CAR!=='undefined'&&CAR&&CAR.cards)?CAR.cards.length:0);if(xiC&&xiC.k===key)return xiC;
+  const by={};plAvail().forEach(p=>(by[p.club]=by[p.club]||[]).push(p));Object.values(by).forEach(a=>a.sort((x,y)=>y.o-x.o));xiC={k:key,by,xi:{}};return xiC}
+function clubRoster(id){return(xiCache().by[id]||[])}
+/* Aufstellung jedes Vereins: die 5 besten Feldspieler (nach Gesamtstärke) + der beste Torwart */
+function clubXIc(id){const C=xiCache();if(C.xi[id])return C.xi[id];const r=C.by[id]||[];const gk=r.find(p=>p.gk)||null;const f=r.filter(p=>!p.gk).slice(0,5);return C.xi[id]={gk,f,ok:f.length>=5&&!!gk}}
+function euRoster(id){const e=teamOf(id);const sq=WX.sq['E'+e.i];if(!sq)return[];if(e._sq===sq)return e._r;
+  const r=sq.filter(pl=>plValid(pl[1])).map(pl=>Object.assign({eu:id,no:pl[0],n:pl[1]},plStatsEu(e,pl))).sort((a,b)=>b.o-a.o);e._sq=sq;e._r=r;return r}
+function euXI(id){const r=euRoster(id);const gk=r.find(p=>p.gk)||null;const f=r.filter(p=>!p.gk).slice(0,5);return{gk,f,ok:f.length>=5&&!!gk}}
+/* ---- Teamstärke aus den Spielern ---- */
+const XI_GK=1.5;
+function xiOVR(f,gk){const fs=f.map(p=>p.o);while(fs.length<5)fs.push(45);return(fs.reduce((s,x)=>s+x,0)+XI_GK*(gk?gk.o:45))/(5+XI_GK)}
+/* Kalibrierung: Mittel der Vereine entspricht den EA-Teamwerten */
+let RT_ADJ=null;
+function rtAdj(){if(RT_ADJ&&RT_ADJ.v===plPoolV)return RT_ADJ.x;const by={};plBase().forEach(p=>(by[p.club]=by[p.club]||[]).push(p));const d=[];
+  Object.entries(by).forEach(([id,a])=>{a=a.slice().sort((x,y)=>y.o-x.o);const gk=a.find(p=>p.gk),f=a.filter(p=>!p.gk).slice(0,5);if(gk&&f.length===5)d.push(clubEA(+id)-xiOVR(f,gk))});
+  d.sort((a,b)=>a-b);const x=d.length?d[d.length>>1]:0;RT_ADJ={v:plPoolV,x};return x}
 const cardById=id=>CAR.cards.find(c=>c.id===id);
-function cardLine(){return CAR.line.map(id=>cardById(id)).filter(Boolean)}
-function cardStechen(){const l=cardLine();return l.slice().sort((a,b)=>b.ner-a.ner)[0]||null}
-/* Bonus nur, wenn deine Schützen besser sind als das Niveau deines Teams */
-const teamLevel=()=>Math.round(55+(CAR.rt[CAR.club]-40)/1.6)-2;
-const lineShot=()=>{const l=cardLine();return l.length?l.reduce((s,c)=>s+shotVal(c),0)/l.length:0};
-function carTeamBonus(){const l=cardLine();if(!l.length)return -2;return clamp((lineShot()-teamLevel())*.35,-6,8)}
+function myXI(){return{f:(CAR.line||[]).slice(0,5).map(cardById).filter(Boolean),gk:CAR.gk!=null?cardById(CAR.gk):null}}
+const formOf=c=>c&&c.fm||0;
+const FM_IC=['⬇️','↘️','➡️','↗️','⬆️'];
+const fmIcon=c=>FM_IC[formOf(c)+2];
+const cardEff=c=>clamp(ovr(c)+formOf(c)*1.5,30,99);
+/* Chemie: gleiche Nation, gleiche Liga, gleicher Herkunftsverein, Spieler aus deinem Verein */
+function chemOf(){const x=myXI();const all=x.f.concat(x.gk?[x.gk]:[]);const per={};let tot=0;
+  all.forEach(c=>{let p=0;const ot=all.filter(o=>o!==c);p+=Math.min(2,ot.filter(o=>o.nat&&o.nat===c.nat).length);
+    if(c.club!=null&&ot.some(o=>o.club!=null&&carLeagueOf(o.club)===carLeagueOf(c.club)))p++;
+    if(c.club!=null&&ot.some(o=>o.club===c.club))p++;if(c.club===CAR.club)p++;p=Math.min(3,p);per[c.id]=p;tot+=p});
+  return{per,tot,max:18,bonus:Math.round(tot/18*30)/10}}
+function teamOVR(id){if(typeof CAR==='undefined'||!CAR||isEu(id))return null;
+  if(id===CAR.club){const x=myXI();if(!x.f.length)return null;return xiOVR(x.f.map(c=>({o:cardEff(c)})),x.gk?{o:cardEff(x.gk)}:null)+chemOf().bonus}
+  const xi=clubXIc(id);return xi.ok?xiOVR(xi.f,xi.gk):null}
+/* interne Stärke (wie früher CAR.rt): aus den Spielern, sonst gespeicherter Wert */
+function rtOf(id){if(isEu(id))return teamOf(id).rt;const t=teamOVR(id);if(t==null)return CAR.rt[id];return clamp(eaRt(t+rtAdj()),30,99)}
+const teamOVRShown=id=>isEu(id)?teamOf(id).ea:Math.round(55+(rtOf(id)-40)/1.6);
+/* ---- Form-Pfeile ---- */
+function formTick(log){if(!CAR||!CAR.cards)return;const sc={};(log||[]).forEach(e=>{if(e.cid!=null)sc[e.cid]=(sc[e.cid]||0)+(e.goal?1:-1);if(e.kid!=null)sc[e.kid]=(sc[e.kid]||0)+(e.goal?-.5:1)});
+  const inXI=c=>CAR.line.includes(c.id)||CAR.gk===c.id;
+  CAR.cards.forEach(c=>{let f=c.fm||0;const s=sc[c.id];
+    if(s>0&&Math.random()<.55)f++;else if(s<0&&Math.random()<.55)f--;else if(inXI(c)&&Math.random()<.25)f+=Math.random()<.5?-1:1;else if(!inXI(c)&&f&&Math.random()<.35)f-=Math.sign(f);
+    c.fm=clamp(f,-2,2)})}
+/* ---- Karten ---- */
+function cardFromPl(p){return{id:(CAR.cardSeq=(CAR.cardSeq||0)+1),n:p.n,club:p.club,no:p.no,r:rarOf(p.o),o:p.o,pra:p.pra,kra:p.kra,ner:p.ner,gk:!!p.gk,pos:p.pos||'',nat:p.nat||'',by:p.by||null,tr:0,fm:0}}
+/* Ohne Kader-Daten (offline): echte Spieler direkt aus der EA-Datenbank, Verein folgt später */
+function eaPool(){const own=ownedSet();const a=[];EA_PL.split('\n').forEach(l=>{const [n,o,s,p,ps,lg]=l.split('|');if(!n||own.has(n))return;const by=byOf(n);if(isRetired(by))return;
+    a.push(Object.assign({club:null,lg:+lg,n,no:null,by},cardStats(+o,+s,+p,ps==='GK'),{pos:EA_POS[ps]||''}))});return a}
+const plLeague=p=>p.club!=null?carLeagueOf(p.club):(p.lg||2);
+/* Wer wechselt zu dir? Spieler aus höheren Ligen kommen seltener */
+function cardPick(r,o){o=o||{};let pool=plAvail();if(!pool.length)pool=eaPool();
+  if(o.gk)pool=pool.filter(p=>p.gk);if(o.lg)pool=pool.filter(p=>plLeague(p)===o.lg);if(o.club!=null)pool=pool.filter(p=>p.club===o.club);if(o.ex)pool=pool.filter(p=>!o.ex.has(p.n));
+  if(!pool.length)return null;let cand=[];for(let i=RORD.indexOf(r);i<RORD.length&&!cand.length;i++)cand=pool.filter(p=>rarOf(p.o)===RORD[i]);
+  for(let i=RORD.indexOf(r)-1;i>=0&&!cand.length;i--)cand=pool.filter(p=>rarOf(p.o)===RORD[i]);if(!cand.length)cand=pool;
+  if(o.club!=null)return cand[Math.random()*cand.length|0];const my=carMyL();
+  const wt=p=>{const d=my-plLeague(p);return(p.club===CAR.club?1.5:1)*(o.lg?1:d<=0?1:d===1?.35:d===2?.1:.03)};
+  const tot=cand.reduce((s,p)=>s+wt(p),0);let x=Math.random()*tot;for(const p of cand){x-=wt(p);if(x<=0)return p}return cand[cand.length-1]}
+function cardRoll(pk){const x=Math.random();for(const [r,p] of packOdds(pk))if(x<p)return r;return 'b'}
+function cardLine(){return(CAR.line||[]).map(id=>cardById(id)).filter(Boolean)}
+/* Aufstellung reparieren: 5 Feldspieler + Torwart, beste verfügbare Karten nachrücken lassen */
+function carFixLine(){const ok=id=>{const c=cardById(id);return c&&!c.gk};CAR.line=(CAR.line||[]).filter((id,i,a)=>ok(id)&&a.indexOf(id)===i).slice(0,5);
+  const rest=CAR.cards.filter(c=>!c.gk&&!CAR.line.includes(c.id)).sort((a,b)=>cardEff(b)-cardEff(a));while(CAR.line.length<5&&rest.length)CAR.line.push(rest.shift().id);
+  const g=CAR.gk!=null?cardById(CAR.gk):null;if(!g||!g.gk){const b=CAR.cards.filter(c=>c.gk).sort((a,b)=>cardEff(b)-cardEff(a))[0];CAR.gk=b?b.id:null}}
+/* Beste Aufstellung: Torwart nach Gesamtstärke, Schützen nach Elfmeter-Wert */
+function carBestXI(){const f=CAR.cards.filter(c=>!c.gk).sort((a,b)=>cardEff(b)-cardEff(a)).slice(0,5).sort((a,b)=>penS(b)-penS(a));CAR.line=f.map(c=>c.id);
+  const g=CAR.cards.filter(c=>c.gk).sort((a,b)=>cardEff(b)-cardEff(a))[0];CAR.gk=g?g.id:null}
+/* Karten, die nicht zu echten Spielern passen, werden ersetzt; Vereine werden nachgetragen */
+function carRealCards(){if(!CAR||!CAR.cards||!Object.keys(WX.sq).length)return;const base=plBase();const ix={};base.forEach(p=>ix[p.n]=p);const swapped=[];
+  CAR.cards.forEach(c=>{const p=ix[c.n];
+    if(p){if(c.club==null||c.club!==p.club&&!c.moved){c.club=p.club;c.no=p.no;c.nat=c.nat||p.nat}if(c.by==null)c.by=p.by;if(c.gk==null)c.gk=!!p.gk;return}
+    if(plValid(c.n)&&eaFind(c.n,2))return;
+    const own=ownedSet();const q=cardPick(c.r||rarOf(ovr(c)),{gk:c.gk,ex:own});if(!q)return;const tr=c.tr||0;const old=c.n;Object.assign(c,cardFromPl(q),{id:c.id,tr});swapped.push(old+' → '+c.n)});
+  if(swapped.length){carFixLine();carToastQ.push(['👕','Nur echte Spieler',swapped.slice(0,3).join(' · ')+(swapped.length>3?' …':'')])}}
+/* ---- Saisonwechsel: Alter, Entwicklung, Karriereende ---- */
+function carAgeCards(){if(!CAR||!CAR.cards)return;const gone=[],up=[],down=[];
+  CAR.cards.forEach(c=>{if(c.by==null)c.by=byOf(c.n);if(!c.by)return;if(isRetired(c.by)){gone.push(c);return}const a=ageAt(c.by);
+    let d=devStep(a-1);if(Math.random()<.35)d+=Math.random()<.55?1:-1;if(!d)return;['o','pra','kra','ner'].forEach(k=>c[k]=clamp(c[k]+d,30,99));c.r=rarOf(c.o);(d>0?up:down).push(c.n.split(' ').slice(-1)[0]+(d>0?' +':' ')+d)});
+  if(gone.length){const ids=new Set(gone.map(c=>c.id));CAR.cards=CAR.cards.filter(c=>!ids.has(c.id));carFixLine();carToastQ.push(['👋','Karriereende',gone.map(c=>c.n).join(', ')+' '+(gone.length>1?'hören':'hört')+' auf'])}
+  if(up.length)carToastQ.push(['📈','Entwicklung',up.slice(0,4).join(' · ')]);if(down.length)carToastQ.push(['📉','Leistungsabfall',down.slice(0,4).join(' · ')]);CARV++}
+/* ---- Teams fürs Elfmeterschießen ---- */
+function penTeam(id){if(typeof CAR==='undefined'||!CAR)return null;
+  if(id===CAR.club){const x=myXI();if(x.f.length<1)return null;const ch=chemOf();const P=c=>{const b=formOf(c)*1.5+(ch.per[c.id]||0)*.7;const r=v=>Math.round(clamp(v,20,99));return{cid:c.id,n:c.n,no:c.no,o:r(ovr(c)+b),pra:r(c.pra+b),kra:r(c.kra+b),ner:r(c.ner+b),gk:!!c.gk,killer:isKiller(c),fm:formOf(c)}};
+    return{sh:x.f.map(P),gk:x.gk?P(x.gk):{n:'Feldspieler im Tor',o:45,gk:true,pra:45,kra:45,ner:50}}}
+  const xi=isEu(id)?euXI(id):clubXIc(id);if(!xi.ok)return null;const P=p=>({n:p.n,no:p.no,o:p.o,pra:p.pra,kra:p.kra,ner:p.ner,gk:!!p.gk,killer:isKiller(p)});
+  return{sh:xi.f.slice().sort((a,b)=>penS(b)-penS(a)).map(P),gk:P(xi.gk)}}
+const isKiller=p=>!!(p&&p.gk&&(p.o>=86||hashStr(p.n||'')%9===0));
+/* Ablöse für Sofortkauf */
+function feeOf(p){let f=150*Math.pow(1.13,p.o-60);const a=ageAt(p.by);if(a!=null){if(a<=21)f*=1.35;else if(a<=24)f*=1.15;else if(a>=33)f*=.6;else if(a>=30)f*=.8}
+  if(p.club!=null){const xi=clubXIc(p.club);if(xi.gk&&xi.gk.n===p.n||xi.f.some(q=>q.n===p.n))f*=1.25;const d=carLeagueOf(p.club)-carMyL();if(d<0)f*=1-d*.25;if(p.club===CAR.club)f*=.4}
+  return Math.max(50,Math.round(f/10)*10)}
+const cardValue=c=>{let v=150*Math.pow(1.13,ovr(c)-60)*.3;const a=ageAt(c.by);if(a!=null&&a>=31)v*=.7;return Math.max(30,Math.round(v/10)*10)};
+const trainCost=c=>Math.round((80+c.tr*60)*({b:1,s:1.3,g:1.7,l:2.2}[c.r])/10)*10;
+const CARD_MAX=60;
+/* Album voll: die schwächsten, nicht gesperrten Reservisten werden verkauft */
+function carCapAlbum(){if(CAR.cards.length<=CARD_MAX)return 0;const keep=new Set(CAR.line.concat([CAR.gk]));let sold=0;
+  const cand=CAR.cards.filter(c=>!keep.has(c.id)&&!c.lk).sort((a,b)=>ovr(a)-ovr(b));while(CAR.cards.length>CARD_MAX&&cand.length){const c=cand.shift();CAR.money+=cardValue(c);sold+=cardValue(c);CAR.cards=CAR.cards.filter(x=>x!==c)}return sold}
 /* Nationalflaggen aus dem Wikipedia-Kader (FIFA-Kürzel) */
 const NAT_ISO={GER:'DE',AUT:'AT',SUI:'CH',NED:'NL',BEL:'BE',FRA:'FR',ESP:'ES',POR:'PT',ITA:'IT',DEN:'DK',SWE:'SE',NOR:'NO',FIN:'FI',ISL:'IS',POL:'PL',CZE:'CZ',SVK:'SK',HUN:'HU',CRO:'HR',SRB:'RS',BIH:'BA',SVN:'SI',MNE:'ME',MKD:'MK',ALB:'AL',KVX:'XK',KOS:'XK',GRE:'GR',TUR:'TR',ROU:'RO',BUL:'BG',UKR:'UA',RUS:'RU',BLR:'BY',GEO:'GE',ARM:'AM',AZE:'AZ',KAZ:'KZ',LTU:'LT',LVA:'LV',EST:'EE',LUX:'LU',IRL:'IE',ISR:'IL',CYP:'CY',MLT:'MT',MDA:'MD',
   USA:'US',CAN:'CA',MEX:'MX',CRC:'CR',HON:'HN',JAM:'JM',PAN:'PA',HAI:'HT',BRA:'BR',ARG:'AR',URU:'UY',PAR:'PY',CHI:'CL',COL:'CO',ECU:'EC',PER:'PE',VEN:'VE',BOL:'BO',CUW:'CW',SUR:'SR',
@@ -4118,65 +5579,168 @@ const NAT_ISO={GER:'DE',AUT:'AT',SUI:'CH',NED:'NL',BEL:'BE',FRA:'FR',ESP:'ES',PO
 const NAT_SUB={ENG:'gbeng',SCO:'gbsct',WAL:'gbwls'};
 function natFlag(c){c=String(c||'').toUpperCase().trim();if(NAT_SUB[c])return String.fromCodePoint(0x1F3F4,...[...NAT_SUB[c]].map(ch=>0xE0000+ch.charCodeAt(0)),0xE007F);if(c==='NIR')return '🇬🇧';
   const iso=NAT_ISO[c]||(c.length===2?c:'');return iso?String.fromCodePoint(...[...iso].map(ch=>0x1F1E6+ch.charCodeAt(0)-65)):''}
-const cardPF=c=>(c.pos||c.nat)?'<div class="sc-pf">'+(c.pos?'<i>'+c.pos+'</i>':'')+(c.nat?'<em>'+natFlag(c.nat)+'</em>':'')+'</div>':'';
-function cardMini(c){return '<div class="cmini r-'+c.r+'"><b>'+ovr(c)+'</b>'+(c.club!=null?kitHTML('V'+c.club,{w:30,no:c.no}):'')+'<span>'+(c.nat?natFlag(c.nat)+' ':'')+esc(c.n)+'<small>'+(c.pos?c.pos+' · ':'')+'PRÄ '+c.pra+' · KRA '+c.kra+' · NER '+c.ner+'</small></span></div>'}
-function cardHTML(c,extra){const st=(k,l)=>'<div><small>'+l+'</small><b>'+c[k]+'</b><i><em style="width:'+c[k]+'%"></em></i></div>';
-  return '<div class="scard r-'+c.r+'" data-card="'+c.id+'"><div class="sc-hd"><div class="sc-l"><b>'+ovr(c)+'</b>'+(c.pos?'<i>'+c.pos+'</i>':'')+(c.nat?'<em>'+natFlag(c.nat)+'</em>':'')+'</div>'+
-    '<div class="sc-k">'+(c.club!=null?kitHTML('V'+c.club,{w:70,no:c.no}):'<span class="sc-ball">⚽</span>')+'</div></div>'+
-    '<div class="sc-n">'+esc(c.n)+'</div><div class="sc-sub">'+(c.club!=null?esc(CLUB[c.club].mid)+' · ':'')+RAR[c.r].n+'</div>'+
-    '<div class="sc-st">'+st('pra','PRÄ')+st('kra','KRA')+st('ner','NER')+'</div>'+(extra||'')+'</div>'}
+const ageTxt=c=>{const a=ageAt(c.by);return a!=null?a+' J.':''};
+function cardMini(c,o){o=o||{};const L=STL(c);const ch=o.chem!=null?'<i class="chem c'+o.chem+'">'+'●'.repeat(o.chem)+'○'.repeat(3-o.chem)+'</i>':'';
+  return '<div class="cmini r-'+(c.r||rarOf(ovr(c)))+(c.gk?' gk':'')+'"><b>'+Math.round(ovr(c))+'</b>'+(c.club!=null?kitHTML('V'+c.club,{w:30,no:c.no}):c.eu!=null?kitHTML('E'+teamOf(c.eu).i,{w:30,no:c.no}):'<span class="cm-ball">'+(c.gk?'🧤':'⚽')+'</span>')+
+    '<span>'+(c.nat?natFlag(c.nat)+' ':'')+esc(c.n)+(c.lk?' 🔒':'')+(isKiller(c)?' <i class="kil">⚡</i>':'')+'<small>'+(c.pos?c.pos+' · ':'')+L[0]+' '+c.pra+' · '+L[1]+' '+c.kra+' · '+L[2]+' '+c.ner+(c.by?' · '+ageTxt(c):'')+'</small></span>'+
+    (o.form!==false&&c.id!=null?'<em class="fm">'+fmIcon(c)+'</em>':'')+ch+'</div>'}
+function cardHTML(c,extra){const L=STL(c);const st=(k,l)=>'<div><small>'+l+'</small><b>'+c[k]+'</b><i><em style="width:'+c[k]+'%"></em></i></div>';
+  return '<div class="scard r-'+(c.r||rarOf(ovr(c)))+'" data-card="'+c.id+'"><div class="sc-hd"><div class="sc-l"><b>'+Math.round(ovr(c))+'</b>'+(c.pos?'<i>'+c.pos+'</i>':'')+(c.nat?'<em>'+natFlag(c.nat)+'</em>':'')+'</div>'+
+    '<div class="sc-k">'+(c.club!=null?kitHTML('V'+c.club,{w:70,no:c.no}):'<span class="sc-ball">'+(c.gk?'🧤':'⚽')+'</span>')+'</div></div>'+
+    '<div class="sc-n">'+esc(c.n)+'</div><div class="sc-sub">'+(c.club!=null?esc(CLUB[c.club].mid)+' · ':'')+RAR[c.r||rarOf(ovr(c))].n+(c.by?' · '+ageTxt(c):'')+'</div>'+
+    '<div class="sc-st">'+st('pra',L[0])+st('kra',L[1])+st('ner',L[2])+'</div>'+(isKiller(c)?'<div class="sc-kil">⚡ Elfmeterkiller</div>':'')+(extra||'')+'</div>'}
+/* kompakte Karte für große Pakete */
+function cardTile(c){return '<div class="ctile r-'+c.r+'"><b>'+ovr(c)+'</b><i>'+(c.pos||'')+(c.nat?' '+natFlag(c.nat):'')+'</i>'+(c.club!=null?kitHTML('V'+c.club,{w:44,no:c.no}):'<span>'+(c.gk?'🧤':'⚽')+'</span>')+'<em>'+esc(c.n.split(' ').slice(-1)[0])+'</em><small>'+RAR[c.r].n+'</small></div>'}
 function carMigrate(){if(!CAR)return;let changed=false;
-  if(!CAR.cards){CAR.cards=[];CAR.line=[];CAR.packs={std:1,gold:0};CAR.cardSeq=0;CAR.eaV=2;
-    const own=Object.keys(WX.sq).length?ownShooters(3):[];for(let k=0;k<3;k++){const c=own[k]?cardFromPl(own[k]):cardNew(carMyL()<=2?'s':'b',CAR.club);CAR.cards.push(c);CAR.line.push(c.id)}
+  if(!CAR.cards){CAR.cards=[];CAR.line=[];CAR.packs={std:1};CAR.cardSeq=0;CAR.eaV=2;CAR.v5=1;CAR.ageBase=CAR.ageBase||CAR.season;
     let refund=0;[['shot',320],['nerve',240],['squad',520]].forEach(([k,b])=>{for(let l=0;l<(CAR.up[k]||0);l++)refund+=Math.round(b*Math.pow(1.75,l)/10)*10;delete CAR.up[k]});
-    if(refund){CAR.money+=refund;carToastQ.push(['🎴','Upgrades umgewandelt','Schützen-Karten ersetzen Schusstraining & Co. · +'+fmtMoney(refund)+' erstattet'])}changed=true}
+    if(refund){CAR.money+=refund;carToastQ.push(['🎴','Upgrades umgewandelt','Spielerkarten ersetzen Schusstraining & Co. · +'+fmtMoney(refund)+' erstattet'])}carStartSquad();changed=true}
   if(!CAR.v42){CAR.v42=1;changed=true;
-    /* Stärken nach EA FC 27 */
     CAR.rt=CLUB.map((k,i)=>{const was=CAR.lg?carLeagueOf(i):k.liga;return Math.round(clamp(eaRt(clubEA(i))+(k.liga-was)*2,38,95))});
     Object.values(CAR.tab||{}).forEach(t=>{if(t.u==null)t.u=0});
-    /* Regionalliga auf 20 Vereine */
     const all=new Set([1,2,3,4].flatMap(l=>CAR.lg[l]));const miss=CLUB.filter(k=>!all.has(k.i)).map(k=>k.i);
     if(miss.length){if(CAR.R===0&&CAR.phase==='season'){const E=CAR.euro;CAR.lg[4]=CAR.lg[4].concat(miss);carFixtures();if(E)CAR.euro=E}else CAR.pendRL=true}
     if(CAR.cup&&CAR.cup.alive&&!CAR.cup.part)CAR.cup.part=CAR.cup.alive.slice();
-    /* Europapokal schon in der ersten Saison */
-    if(CAR.season===2026&&!CAR.euro&&CAR.R<4&&EURO_START[CLUB[CAR.club].short]){CAR.euroNext=EURO_START[CLUB[CAR.club].short];carEuroInit()}
-    }
+    if(CAR.season===2026&&!CAR.euro&&CAR.R<4&&EURO_START[CLUB[CAR.club].short]){CAR.euroNext=EURO_START[CLUB[CAR.club].short];carEuroInit()}}
   if(CAR.euro&&!CAR.euro.v){euMigrate45();changed=true}
   if(!CAR.cup){carCupInit();changed=true}
-  if((CAR.cards.some(c=>c.club==null)||(CAR.eaV||0)<2)&&Object.keys(WX.sq).length){carRealCards();changed=true}
+  /* v5: Elfmeterschießen, 5 Schützen + Torwart, Alter ab jetzt */
+  if(!CAR.v5){CAR.v5=1;CAR.ageBase=CAR.season;changed=true;const old={};Object.keys(CAR.packs||{}).forEach(k=>{if(PACKS[k])old[k]=CAR.packs[k]});CAR.packs=old;
+    CAR.cards.forEach(c=>{if(c.fm==null)c.fm=0;if(c.by==null)c.by=byOf(c.n);if(c.gk==null)c.gk=false});
+    carToastQ.push(['🥅','Neu: Elfmeterschießen','5 Schützen + Torwart · Teamstärke aus deinen Spielern']);CAR.needGK=true}
+  if(Object.keys(WX.sq).length){if(CAR.needGK){CAR.needGK=false;if(!CAR.cards.some(c=>c.gk)){const p=cardPick('g',{club:CAR.club,gk:true})||cardPick('s',{gk:true});if(p){const c=cardFromPl(p);CAR.cards.push(c);carToastQ.push(['🧤','Dein Torwart',c.n+' ('+c.o+') steht im Tor'])}}changed=true}
+    if(!CAR.realV5){CAR.realV5=1;carRealCards();changed=true}
+    /* jeder Verein hat 5 Schützen + Torwart: fehlende Feldspieler kommen aus deinem eigenen Kader */
+    let add=[];while(CAR.cards.filter(c=>!c.gk).length<5){const p=clubRoster(CAR.club).find(q=>!q.gk)||cardPick('s',{});if(!p)break;const c=cardFromPl(p);CAR.cards.push(c);add.push(c.n);CARV++}
+    if(add.length){carToastQ.push(['👕','Kader aufgefüllt',add.join(', ')]);changed=true}}
+  if(CAR.gk==null||(CAR.line||[]).length<5){carFixLine();changed=true}
   if(changed)carSave()}
+/* Start: die echten besten 5 + Torwart deines Vereins und drei Reservisten */
+function carStartSquad(){const r=Object.keys(WX.sq).length?plAvail().filter(p=>p.club===CAR.club).sort((a,b)=>b.o-a.o):[];
+  const gk=r.filter(p=>p.gk).slice(0,1),f=r.filter(p=>!p.gk).slice(0,8);
+  if(gk.length&&f.length>=5){f.concat(gk).forEach(p=>CAR.cards.push(cardFromPl(p)))}
+  else{for(let k=0;k<5;k++){const p=cardPick(carMyL()<=2?'s':'b',{});if(p)CAR.cards.push(cardFromPl(p))}const g=cardPick('s',{gk:true});if(g)CAR.cards.push(cardFromPl(g));CAR.needGK=false}
+  carBestXI()}
 let packQ=null;
 function carGivePack(pk,why){CAR.packs[pk]=(CAR.packs[pk]||0)+1;carToastQ.push([PACKS[pk].em,PACKS[pk].n+' erhalten',why||'Im Kader-Tab öffnen'])}
-async function carOpenPack(pk){if(!CAR.packs[pk])return;CAR.packs[pk]--;const got=[];for(let k=0;k<PACKS[pk].k;k++){const c=cardNew(cardRoll(pk));CAR.cards.push(c);got.push(c)}
-  if(CAR.cards.length>40){const keep=new Set(CAR.line);CAR.cards.sort((a,b)=>(keep.has(b.id)-keep.has(a.id))||ovr(b)-ovr(a));const sold=CAR.cards.splice(40);sold.forEach(c=>CAR.money+=cardValue(c))}
-  carSave();const el=$('#pack');el.innerHTML='<div class="pk-t">'+PACKS[pk].em+' '+PACKS[pk].n+'</div><div class="pk-row">'+got.map((c,i)=>'<div class="pk-c" style="--d:'+(i*.45+.3)+'s"><div class="pk-back">⚽</div>'+cardHTML(c)+'</div>').join('')+'</div><button class="big glass tint press" id="pkOk">Ins Album</button>';
-  el.classList.remove('off');sfx('start');got.forEach((c,i)=>setTimeout(()=>{sfx(c.r==='l'||c.r==='g'?'fan':'land');if(c.r==='l')haptic(2)},(i*.45+.6)*1000));
+function packCount(pk){const k=PACKS[pk].k;return Array.isArray(k)?k[0]+Math.floor(Math.random()*(k[1]-k[0]+1)):k}
+async function carOpenPack(pk){if(!CAR.packs[pk])return;const P=PACKS[pk];CAR.packs[pk]--;const got=[];const ex=ownedSet();const n=packCount(pk);
+  for(let k=0;k<n;k++){const p=cardPick(cardRoll(pk),{gk:P.gk,lg:P.lg,ex});if(!p)break;ex.add(p.n);got.push(cardFromPl(p))}
+  if(!got.length){CAR.packs[pk]++;miniToast('🤷','Keine Spieler verfügbar','Kader-Daten werden noch geladen');return}
+  got.forEach(c=>CAR.cards.push(c));const sold=carCapAlbum();carFixLine();carSave();got.sort((a,b)=>ovr(a)-ovr(b));
+  const best=got[got.length-1];const el=$('#pack');el.classList.remove('off');
+  if(best.r==='l')await packWalkout(el,best);
+  packReveal(el,pk,got,n,sold)}
+function packReveal(el,pk,got,n,sold){const P=PACKS[pk];const many=got.length>3;
+  el.innerHTML='<div class="pk-t">'+P.em+' '+P.n+(Array.isArray(P.k)?' · <span class="pk-n">🎲 '+n+(n===1?' Karte':' Karten')+'</span>':'')+'</div><div class="pk-row'+(many?' many':'')+'">'+got.map((c,i)=>'<div class="pk-c'+(c.r==='g'||c.r==='l'?' top r'+c.r:'')+'" style="--d:'+(i*(many?.22:.45)+.3)+'s">'+(c.r==='g'||c.r==='l'?'<div class="pk-glow"></div>':'')+'<div class="pk-back">⚽</div>'+(many?cardTile(c):cardHTML(c))+'</div>').join('')+'</div>'+
+    (sold?'<div class="note" style="text-align:center">Album voll: schwächste Reservisten für '+fmtMoney(sold)+' verkauft</div>':'')+'<button class="big glass tint press" id="pkOk">Ins Album</button>';
+  sfx('start');got.forEach((c,i)=>setTimeout(()=>{sfx(c.r==='l'?'sens':c.r==='g'?'fan':'land');if(c.r==='l'||c.r==='g')haptic(c.r==='l'?2:1)},(i*(many?.22:.45)+.6)*1000));
   $('#pkOk').onclick=()=>{el.classList.add('off');carRender()}}
-const cardValue=c=>({b:40,s:120,g:400,l:1200}[c.r])+ovr(c)*2;
-const trainCost=c=>Math.round((80+c.tr*60)*({b:1,s:1.3,g:1.7,l:2.2}[c.r])/10)*10;
-let kaderSel=null,kaderSlot=null;
-function carKaderHTML(){const line=CAR.line;const L=cardLine();const bo=carTeamBonus();let h='<div class="lbl">Deine Schützen · Schuss Ø '+(L.length?Math.round(lineShot()):'–')+' · Team-Niveau '+teamLevel()+' · '+(bo>=0?'+':'')+bo.toFixed(1)+' Stärke</div><div class="kline">'+
-  [0,1,2].map(k=>{const c=cardById(line[k]);return '<button class="kslot press'+(kaderSlot===k?' on':'')+'" data-slot="'+k+'"><small>Schuss '+(k+1)+'</small>'+(c?cardMini(c):'<i>leer</i>')+'</button>'}).join('')+'</div>'+
-  '<div class="note">Werte nach EA SPORTS FC 27. Die große Zahl ist die Gesamtstärke, für die Torwand zählen die Schusswerte: Präzision = weniger Streuung, Kraft = genauere Höhe, Nerven = ruhige Hand im Stechen. Bonus gibt es nur, wenn deine Schützen besser schießen als dein Team-Niveau.</div>';
-  h+='<div class="lbl">Pakete</div><div class="packs">'+Object.entries(PACKS).map(([k,p])=>{const n=CAR.packs[k]||0;return '<div class="pack"><span>'+p.em+'</span><div><b>'+p.n+'</b><small>'+p.k+' Karten'+(k==='gold'?' · mind. Silber':'')+' · Gold+ '+fmtPct((packChance(k,'g')+packChance(k,'l'))*100)+(packChance(k,'l')>0?' · Weltklasse '+fmtPct(packChance(k,'l')*100):'')+'</small></div>'+
+/* Walkout für Weltklasse-Karten: Lichtstrahlen → Nation → Position → Verein → Karte */
+function packWalkout(el,c){return new Promise(res=>{const k=c.club!=null?CLUB[c.club]:null;
+  el.innerHTML='<div class="wo"><div class="wo-rays"></div><div class="wo-st s1"><b>WELTKLASSE</b></div><div class="wo-st s2"><span class="wo-flag">'+(c.nat?natFlag(c.nat):'🌍')+'</span></div><div class="wo-st s3"><span class="wo-pos">'+(c.pos||'')+'</span></div>'+
+    '<div class="wo-st s4">'+(k?clubBadgeHTML(k,'wo-badge'):'')+'</div><div class="wo-st s5">'+cardHTML(c)+'</div><div class="wo-fx"></div><small class="wo-skip">Tippen zum Überspringen</small></div>';
+  const wo=el.querySelector('.wo');let i=0,done=false;const steps=[[0,'start'],[900,'sens'],[1700,'roll'],[2400,'roll'],[3200,'fan'],[4100,null]];const tms=[];
+  const go=k=>{wo.className='wo st'+k;if(k===5){const fx=wo.querySelector('.wo-fx');fx.innerHTML=Array.from({length:40},(_,j)=>'<i style="--a:'+(j*9)+'deg;--d:'+(Math.random()*.4)+'s;--c:'+['#ffe08a','#f3d1ff','#8a4cff','#fff'][j%4]+'"></i>').join('');haptic(2)}};
+  const fin=()=>{if(done)return;done=true;tms.forEach(clearTimeout);setTimeout(res,0)};
+  steps.forEach(([t,s],k)=>tms.push(setTimeout(()=>{if(done)return;go(k+1);if(s)sfx(s);if(k===steps.length-1)tms.push(setTimeout(fin,1500))},t)));
+  wo.onclick=()=>{if(wo.classList.contains('st6')||wo.classList.contains('st5'))fin();else{tms.forEach(clearTimeout);go(5);go(6);sfx('fan');tms.push(setTimeout(fin,900))}}})}
+/* ---- Kader-Tab ---- */
+let kaderSel=null,kaderSlot=null,kMulti=false,kChk=new Set(),kArm=null;
+const K_SORT={ovr:['Stärke',(a,b)=>ovr(b)-ovr(a)],pos:['Position',(a,b)=>(b.gk-a.gk)||String(a.pos).localeCompare(String(b.pos))||ovr(b)-ovr(a)],age:['Alter',(a,b)=>(ageAt(a.by)||99)-(ageAt(b.by)||99)],form:['Form',(a,b)=>formOf(b)-formOf(a)||ovr(b)-ovr(a)],val:['Wert',(a,b)=>cardValue(b)-cardValue(a)]};
+const K_FILT={all:['Alle',()=>true],res:['Reserve',c=>!inXI(c)],f:['Feld',c=>!c.gk],gk:['Torhüter',c=>c.gk],b:['Bronze',c=>c.r==='b'],s:['Silber',c=>c.r==='s'],g:['Gold',c=>c.r==='g'],l:['Weltklasse',c=>c.r==='l']};
+const inXI=c=>CAR.line.includes(c.id)||CAR.gk===c.id;
+const bulkList=f=>CAR.cards.filter(c=>!inXI(c)&&!c.lk&&f(c));
+function carKaderHTML(){const x=myXI();const ch=chemOf();const T=teamOVRShown(CAR.club);const sh=x.f.length?Math.round(x.f.reduce((s,c)=>s+penS(c)+formOf(c)*1.5,0)/x.f.length):0;
+  const lg=CAR.lg[carMyL()].map(id=>[id,rtOf(id)]).sort((a,b)=>b[1]-a[1]);const rank=lg.findIndex(z=>z[0]===CAR.club)+1;
+  let h='<div class="tstr"><div class="ts-big"><b>'+T+'</b><small>Teamstärke</small>'+starsHTML(clubStars(CAR.club))+'</div><div class="ts-g">'+
+    '<div><b>'+sh+'</b><small>🎯 Schützen</small></div><div><b>'+(x.gk?Math.round(cardEff(x.gk)):'–')+'</b><small>🧤 Torwart</small></div><div><b>'+ch.tot+'/18</b><small>🔗 Chemie +'+String(ch.bonus).replace('.',',')+'</small></div><div><b>'+rank+'.</b><small>📊 in der Liga</small></div></div></div>';
+  h+='<div class="lbl">Elfmeter-Aufstellung</div><div class="kline">'+[0,1,2,3,4].map(k=>{const c=cardById(CAR.line[k]);return '<button class="kslot press'+(kaderSlot===k?' on':'')+'" data-slot="'+k+'"><small>Schuss '+(k+1)+'</small>'+(c?cardMini(c,{chem:ch.per[c.id]||0}):'<i>leer</i>')+'</button>'}).join('')+
+    '<button class="kslot gk press'+(kaderSlot==='gk'?' on':'')+'" data-slot="gk"><small>🧤 Tor</small>'+(x.gk?cardMini(x.gk,{chem:ch.per[x.gk.id]||0}):'<i>kein Torwart – Paket öffnen oder kaufen</i>')+'</button></div>'+
+    '<div class="krow"><button class="press" id="kBest">⚡ Beste Aufstellung</button><button class="press" id="kTM">🔎 Transfermarkt</button></div>'+
+    '<div class="note">Teamstärke = Gesamtwerte deiner 5 Schützen und des Torwarts (zählt 1,5-fach) plus Chemie und Form. Chemie (●●●): gleiche Nation, gleiche Liga, gleicher Verein oder Spieler aus deinem Verein. Form ⬆️↗️➡️↘️⬇️ ändert sich nach jedem Spiel.</div>';
+  h+='<div class="lbl">Pakete</div><div class="packs">'+Object.entries(PACKS).map(([k,p])=>{const n=CAR.packs[k]||0;const gl=packChance(k,'g')+packChance(k,'l'),wk=packChance(k,'l');
+    return '<div class="pack"><span>'+p.em+'</span><div><b>'+p.n+'</b><small>'+p.d+(gl<1?' · Gold+ '+fmtPct(gl*100):'')+(wk>0&&wk<1?' · Weltklasse '+fmtPct(wk*100):'')+'</small></div>'+
     (n?'<button class="press go" data-open="'+k+'">Öffnen ('+n+')</button>':'<button class="press'+(CAR.money<p.cost?' dis':'')+'" data-buy="'+k+'">'+fmtMoney(p.cost)+'</button>')+'</div>'}).join('')+'</div>';
   const sel=kaderSel!=null?cardById(kaderSel):null;
-  if(sel){h+='<div class="lbl">Ausgewählt</div><div class="kdet">'+cardHTML(sel)+'<div class="kact">'+[0,1,2].map(k=>'<button class="press" data-put="'+k+'">In Schuss '+(k+1)+'</button>').join('')+
+  if(sel&&!kMulti){const inL=inXI(sel);h+='<div class="lbl">Ausgewählt</div><div class="kdet">'+cardHTML(sel)+'<div class="kact">'+
+    (sel.gk?'<button class="press" data-put="gk">🧤 Ins Tor</button>':[0,1,2,3,4].map(k=>'<button class="press sm" data-put="'+k+'">Schuss '+(k+1)+'</button>').join(''))+
     '<button class="press" data-train="'+sel.id+'"'+(sel.tr>=8?' disabled':'')+'>🏋️ Training +2<br><small>'+(sel.tr>=8?'ausgereizt':fmtMoney(trainCost(sel)))+'</small></button>'+
-    (line.includes(sel.id)?'':'<button class="press warn" data-sell="'+sel.id+'">Verkaufen<br><small>+'+fmtMoney(cardValue(sel))+'</small></button>')+'</div></div>'}
-  h+='<div class="lbl">Album · '+CAR.cards.length+' Karten</div><div class="album">'+CAR.cards.slice().sort((a,b)=>ovr(b)-ovr(a)).map(c=>'<button class="press acard'+(kaderSel===c.id?' on':'')+(line.includes(c.id)?' inl':'')+'" data-sel="'+c.id+'">'+cardMini(c)+'</button>').join('')+'</div>';
+    '<button class="press" data-lock="'+sel.id+'">'+(sel.lk?'🔓 Entsperren':'🔒 Sperren')+'<br><small>'+(sel.lk?'Massenverkauf erlaubt':'Schutz vor Massenverkauf')+'</small></button>'+
+    (inL?'<small class="kinfo">Steht in der Aufstellung</small>':'<button class="press warn" data-sell="'+sel.id+'">Verkaufen<br><small>+'+fmtMoney(cardValue(sel))+'</small></button>')+'</div></div>'}
+  /* Album mit Filter, Sortierung, Mehrfachauswahl und Massenverkauf */
+  const f=K_FILT[CAR.kf||'all']||K_FILT.all,s=K_SORT[CAR.ks||'ovr']||K_SORT.ovr;const list=CAR.cards.filter(f[1]).sort(s[1]);
+  h+='<div class="lbl">Album · '+CAR.cards.length+'/'+CARD_MAX+' Karten</div><div class="chips" id="kF">'+Object.entries(K_FILT).map(([k,v])=>'<button class="'+((CAR.kf||'all')===k?'on':'')+'" data-kf="'+k+'">'+v[0]+'</button>').join('')+'</div>'+
+    '<div class="chips sm" id="kS"><span>Sortieren:</span>'+Object.entries(K_SORT).map(([k,v])=>'<button class="'+((CAR.ks||'ovr')===k?'on':'')+'" data-ks="'+k+'">'+v[0]+'</button>').join('')+'</div>';
+  const bz=bulkList(c=>c.r==='b'),rs=bulkList(()=>true),dup=bulkList(c=>c.r==='b'||c.r==='s');const sum=a=>a.reduce((t,c)=>t+cardValue(c),0);
+  h+='<div class="kbulk"><button class="press'+(kMulti?' on':'')+'" id="kMulti">'+(kMulti?'✓ Auswahl beenden':'☑︎ Mehrere auswählen')+'</button>'+
+    (kMulti?'<button class="press warn'+(kChk.size?'':' dis')+'" id="kSellChk">'+kChk.size+' verkaufen · +'+fmtMoney(sum([...kChk].map(cardById).filter(Boolean)))+'</button>':
+    '<button class="press warn'+(bz.length?'':' dis')+'" data-bulk="b">'+(kArm==='b'?'Sicher? Tippen':'Bronze ('+bz.length+') · +'+fmtMoney(sum(bz)))+'</button>'+
+    '<button class="press warn'+(dup.length?'':' dis')+'" data-bulk="bs">'+(kArm==='bs'?'Sicher? Tippen':'Bronze + Silber ('+dup.length+') · +'+fmtMoney(sum(dup)))+'</button>'+
+    '<button class="press warn'+(rs.length?'':' dis')+'" data-bulk="all">'+(kArm==='all'?'Sicher? Tippen':'Alle Reservisten ('+rs.length+') · +'+fmtMoney(sum(rs)))+'</button>')+'</div>'+
+    '<div class="note" style="padding-top:2px">Massenverkauf lässt deine Aufstellung und gesperrte 🔒 Karten immer aus.</div>';
+  h+='<div class="album">'+(list.length?list.map(c=>'<button class="press acard'+(kaderSel===c.id&&!kMulti?' on':'')+(inXI(c)?' inl':'')+(kMulti&&kChk.has(c.id)?' chk':'')+'" data-sel="'+c.id+'">'+(kMulti?'<span class="ck">'+(kChk.has(c.id)?'☑︎':'☐')+'</span>':'')+cardMini(c)+'</button>').join(''):'<div class="note">Keine Karten in dieser Auswahl.</div>')+'</div>';
   return h}
-function carKaderBind(){document.querySelectorAll('[data-slot]').forEach(b=>b.onclick=()=>{const k=+b.dataset.slot;if(kaderSel!=null){carPut(kaderSel,k)}else{kaderSlot=kaderSlot===k?null:k;carRender()}});
-  document.querySelectorAll('[data-sel]').forEach(b=>b.onclick=()=>{const id=+b.dataset.sel;if(kaderSlot!=null){carPut(id,kaderSlot);return}kaderSel=kaderSel===id?null:id;sfx('tap');carRender()});
-  document.querySelectorAll('[data-put]').forEach(b=>b.onclick=()=>carPut(kaderSel,+b.dataset.put));
+function carSellCards(ids){let t=0;ids.forEach(id=>{const c=cardById(id);if(!c||inXI(c))return;t+=cardValue(c);CAR.money+=cardValue(c);CAR.cards=CAR.cards.filter(x=>x.id!==id)});return t}
+function carKaderBind(){const R=()=>{carSave();carRender()};
+  document.querySelectorAll('[data-slot]').forEach(b=>b.onclick=()=>{const k=b.dataset.slot==='gk'?'gk':+b.dataset.slot;if(kaderSel!=null){carPut(kaderSel,k)}else{kaderSlot=kaderSlot===k?null:k;carRender()}});
+  document.querySelectorAll('[data-sel]').forEach(b=>b.onclick=()=>{const id=+b.dataset.sel;if(kMulti){const c=cardById(id);if(inXI(c)){miniToast('⚠️','Steht in der Aufstellung','Erst austauschen, dann verkaufen');return}kChk.has(id)?kChk.delete(id):kChk.add(id);sfx('tap');carRender();return}
+    if(kaderSlot!=null){carPut(id,kaderSlot);return}kaderSel=kaderSel===id?null:id;sfx('tap');carRender()});
+  document.querySelectorAll('[data-put]').forEach(b=>b.onclick=()=>carPut(kaderSel,b.dataset.put==='gk'?'gk':+b.dataset.put));
   document.querySelectorAll('[data-open]').forEach(b=>b.onclick=()=>carOpenPack(b.dataset.open));
-  document.querySelectorAll('[data-buy]').forEach(b=>b.onclick=()=>{const p=PACKS[b.dataset.buy];if(CAR.money<p.cost)return;CAR.money-=p.cost;CAR.packs[b.dataset.buy]=(CAR.packs[b.dataset.buy]||0)+1;carOpenPack(b.dataset.buy)});
+  document.querySelectorAll('[data-buy]').forEach(b=>b.onclick=()=>{const p=PACKS[b.dataset.buy];if(CAR.money<p.cost){sfx('tap');return}CAR.money-=p.cost;CAR.packs[b.dataset.buy]=(CAR.packs[b.dataset.buy]||0)+1;carOpenPack(b.dataset.buy)});
   document.querySelectorAll('[data-train]').forEach(b=>b.onclick=()=>{const c=cardById(+b.dataset.train);const cost=trainCost(c);if(c.tr>=8||CAR.money<cost){sfx('tap');return}CAR.money-=cost;c.tr++;
-    const ks=['pra','kra','ner'].sort((a,b)=>c[a]-c[b]);c[ks[0]]=Math.min(99,c[ks[0]]+2);c[ks[1]]=Math.min(99,c[ks[1]]+1);if(c.o&&c.tr%2===0)c.o=Math.min(99,c.o+1);sfx('conq');carSave();carRender()});
-  document.querySelectorAll('[data-sell]').forEach(b=>b.onclick=()=>{const id=+b.dataset.sell;const c=cardById(id);CAR.money+=cardValue(c);CAR.cards=CAR.cards.filter(x=>x.id!==id);kaderSel=null;sfx('land');carSave();carRender()})}
-function carPut(id,k){if(id==null)return;const i=CAR.line.indexOf(id);if(i>=0)CAR.line[i]=CAR.line[k];CAR.line[k]=id;CAR.line=CAR.line.filter(x=>x!=null);while(CAR.line.length<3&&CAR.cards.find(c=>!CAR.line.includes(c.id)))CAR.line.push(CAR.cards.find(c=>!CAR.line.includes(c.id)).id);
-  kaderSel=null;kaderSlot=null;sfx('tap');carSave();carRender()}
-function carMyAim(p){return(sd,k,st)=>twAimFor(p,st?cardStechen():cardById(CAR.line[k%3]))}
+    const ks=['pra','kra','ner'].sort((a,b)=>c[a]-c[b]);c[ks[0]]=Math.min(99,c[ks[0]]+2);c[ks[1]]=Math.min(99,c[ks[1]]+1);if(c.o&&c.tr%2===0){c.o=Math.min(99,c.o+1);c.r=rarOf(c.o)}sfx('conq');R()});
+  document.querySelectorAll('[data-lock]').forEach(b=>b.onclick=()=>{const c=cardById(+b.dataset.lock);c.lk=!c.lk;sfx('tap');R()});
+  document.querySelectorAll('[data-sell]').forEach(b=>b.onclick=()=>{carSellCards([+b.dataset.sell]);kaderSel=null;sfx('land');R()});
+  const on=(id,f)=>{const e=$(id);if(e)e.onclick=f};
+  on('#kBest',()=>{carBestXI();sfx('conq');miniToast('⚡','Beste Aufstellung','Teamstärke '+teamOVRShown(CAR.club));R()});
+  on('#kTM',()=>{sfx('tap');tmOpen(null)});
+  on('#kMulti',()=>{kMulti=!kMulti;kChk.clear();kaderSel=null;sfx('tap');carRender()});
+  on('#kSellChk',()=>{if(!kChk.size)return;const t=carSellCards([...kChk]);const n=kChk.size;kChk.clear();kMulti=false;sfx('land');miniToast('💰',n+' Karten verkauft','+'+fmtMoney(t));R()});
+  document.querySelectorAll('[data-kf]').forEach(b=>b.onclick=()=>{CAR.kf=b.dataset.kf;sfx('tap');R()});
+  document.querySelectorAll('[data-ks]').forEach(b=>b.onclick=()=>{CAR.ks=b.dataset.ks;sfx('tap');R()});
+  document.querySelectorAll('[data-bulk]').forEach(b=>b.onclick=()=>{const k=b.dataset.bulk;const f=k==='b'?c=>c.r==='b':k==='bs'?c=>c.r==='b'||c.r==='s':()=>true;const L=bulkList(f);if(!L.length)return;
+    if(kArm!==k){kArm=k;sfx('tap');carRender();return}kArm=null;const t=carSellCards(L.map(c=>c.id));kaderSel=null;sfx('land');miniToast('💰',L.length+' Karten verkauft','+'+fmtMoney(t));R()})}
+function carPut(id,k){if(id==null)return;const c=cardById(id);if(!c)return;
+  if(k==='gk'){if(!c.gk){miniToast('🧤','Nur Torhüter','Ins Tor dürfen nur Torhüter');return}CAR.gk=id}
+  else{if(c.gk){miniToast('🎯','Torhüter schießen nicht','Wähle einen Feldspieler');return}const i=CAR.line.indexOf(id);if(i>=0)CAR.line[i]=CAR.line[k];CAR.line[k]=id;CAR.line=CAR.line.filter(x=>x!=null)}
+  carFixLine();kaderSel=null;kaderSlot=null;sfx('tap');carSave();carRender()}
+function carMyAim(){return null}
+
+/* ---- Vereinskader & Transfermarkt (Sofortkauf) ---- */
+let tmClub=null,tmL=null,tmQ='';
+function tmOpen(id){tmClub=id;tmL=tmL||carMyL();openSheet('shClub');tmRender()}
+function tmRow(p,buy,tag){const c=Object.assign({r:rarOf(p.o)},p);const fee=buy?feeOf(p):0;
+  return '<div class="tmr">'+cardMini(c,{form:false})+(tag?'<em class="tag">'+tag+'</em>':'')+(buy?'<button class="press'+(CAR.money<fee?' dis':'')+'" data-tmbuy="'+esc(p.n)+'">'+fmtMoney(fee)+'</button>':'')+'</div>'}
+function tmRender(){const b=$('#clubBody');if(!b||!CAR)return;let h='';
+  if(tmClub==null){h+='<div class="tmsearch"><input id="tmQ" type="search" placeholder="Spieler suchen …" value="'+esc(tmQ)+'" autocomplete="off"></div>';
+    if(tmQ.trim().length>=2){const q=eaNorm(tmQ);const L=plAvail().filter(p=>eaNorm(p.n).includes(q)).sort((a,b)=>b.o-a.o).slice(0,30);
+      h+='<div class="lbl">Treffer</div>'+(L.length?L.map(p=>tmRow(p,true,esc(CLUB[p.club].mid))).join(''):'<div class="note">Kein verfügbarer Spieler gefunden.</div>')}
+    else{h+='<div class="seg sm" id="tmL"><div class="hl"></div>'+[1,2,3,4].map(x=>'<button data-v="'+x+'">'+(x===4?'RL':x+'. Liga')+'</button>').join('')+(CAR.euro?'<button data-v="eu">Europa</button>':'')+'</div>';
+      const ids=tmL==='eu'?(CAR.euro.teams||[]).filter(isEu):CAR.lg[tmL].slice();ids.sort((a,b)=>rtOf(b)-rtOf(a));
+      h+='<div class="tml">'+ids.map(id=>'<button class="tmc press'+(id===CAR.club?' me':'')+'" data-tmc="'+id+'">'+teamBadge(id,'mb')+'<span><b>'+esc(teamOf(id).mid)+'</b><small>'+starsHTML(clubStars(id))+'</small></span><em>'+teamOVRShown(id)+'</em></button>').join('')+'</div>'+
+        '<div class="note">Tippe einen Verein an, um seinen Kader zu sehen. Kaufst du einen Spieler, fehlt er seinem Verein – der Nächstbeste rückt nach. Jeder Spieler existiert nur einmal.</div>'}}
+  else{const id=tmClub;const k=teamOf(id);const eu=isEu(id);
+    h+='<button class="tmback press" id="tmBack">‹ Alle Vereine</button><div class="tmhd">'+teamBadge(id,'mb')+'<div><b>'+esc(k.name)+'</b><small>'+(eu?esc(k.name)+' · Europa':CL_NAME[carLeagueOf(id)])+' · Teamstärke '+teamOVRShown(id)+' '+starsHTML(clubStars(id))+'</small></div></div>';
+    if(id===CAR.club){const x=myXI();h+='<div class="lbl">Deine Aufstellung</div>'+x.f.concat(x.gk?[x.gk]:[]).map(c=>'<div class="tmr">'+cardMini(c)+'</div>').join('');
+      const rest=clubRoster(id);if(rest.length)h+='<div class="lbl">Weitere Spieler deines Vereins · 60 % günstiger</div>'+rest.map(p=>tmRow(p,true)).join('')}
+    else if(eu){const r=euRoster(id);if(!r.length)h+='<div class="note">Kader wird von Wikipedia geladen …</div>';else{const xi=euXI(id);h+='<div class="lbl">Aufstellung</div>'+xi.f.concat(xi.gk?[xi.gk]:[]).map(p=>tmRow(p,false,p.gk?'🧤':'')).join('')+
+      '<div class="lbl">Weitere Spieler</div>'+r.filter(p=>p!==xi.gk&&!xi.f.includes(p)).map(p=>tmRow(p,false)).join('')+'<div class="note">Echte Kader, Werte geschätzt (nicht in EA FC 27 der Bundesliga). Europäische Spieler sind nicht käuflich.</div>'}}
+    else{const r=clubRoster(id);if(!r.length)h+='<div class="note">'+(Object.keys(WX.sq).length?'Für diesen Verein liegen keine Kader-Daten vor.':'Kader werden von Wikipedia geladen …')+'</div>';
+      else{const xi=clubXIc(id);const inx=p=>xi.gk===p||xi.f.includes(p);h+='<div class="lbl">Aufstellung · 5 Schützen + Torwart</div>'+xi.f.concat(xi.gk?[xi.gk]:[]).map(p=>tmRow(p,true,p.gk?'🧤':'')).join('')+
+        (r.length>6?'<div class="lbl">Weitere Spieler</div>'+r.filter(p=>!inx(p)).map(p=>tmRow(p,true)).join(''):'')}}
+    h+='<div class="note">Kasse: '+fmtMoney(CAR.money)+' · Stammspieler kosten 25 % mehr, junge Talente mehr, ältere Spieler weniger.</div>'}
+  b.innerHTML=h;tmBind()}
+function tmBind(){const q=$('#tmQ');if(q){q.oninput=()=>{tmQ=q.value;const pos=q.selectionStart;tmRender();const n=$('#tmQ');if(n){n.focus();try{n.setSelectionRange(pos,pos)}catch(e){}}}}
+  const s=$('#tmL');if(s){segSet(s,String(tmL));s.onclick=e=>{const t=e.target.closest('button');if(!t)return;tmL=t.dataset.v==='eu'?'eu':+t.dataset.v;sfx('tap');tmRender()}}
+  document.querySelectorAll('[data-tmc]').forEach(b=>b.onclick=()=>{const v=b.dataset.tmc;tmClub=isNaN(+v)?v:+v;sfx('tap');tmRender();const bd=$('#clubBody');if(bd)bd.scrollTop=0});
+  const bk=$('#tmBack');if(bk)bk.onclick=()=>{tmClub=null;sfx('tap');tmRender()};
+  document.querySelectorAll('[data-tmbuy]').forEach(b=>b.onclick=()=>{const n=b.dataset.tmbuy;const p=plAvail().find(x=>x.n===n);if(!p)return;const fee=feeOf(p);
+    if(CAR.money<fee){miniToast('💸','Zu wenig Geld','Ablöse '+fmtMoney(fee)+' · Kasse '+fmtMoney(CAR.money));return}
+    if(b.dataset.arm!=='1'){b.dataset.arm='1';b.textContent='Kaufen? '+fmtMoney(fee);b.classList.add('arm');return}
+    CAR.money-=fee;const c=cardFromPl(p);CAR.cards.push(c);const sold=carCapAlbum();carFixLine();carSave();sfx('conq');haptic(1);
+    miniToast('✍️','Transfer perfekt',p.n+' kommt für '+fmtMoney(fee)+(p.club!=null&&p.club!==CAR.club?' von '+CLUB[p.club].mid:'')+(sold?' · Album voll, Reservisten verkauft':''));tmRender();carRender()})}
 
 /* ================= DFB-Pokal ================= */
 const CUP_ST=['1. Runde','2. Runde','Achtelfinale','Viertelfinale','Halbfinale','Finale in Berlin'];
@@ -4189,8 +5753,8 @@ function carCupDraw(){const C=CAR.cup;if(C.pairs)return;const a=C.alive.slice();
 const carCupMine=()=>{carCupDraw();return CAR.cup.pairs.find(p=>p.includes(CAR.club))||null};
 async function carPlayCup(self){if(carBusy)return;carBusy=true;let my=null;try{const C=CAR.cup;carCupDraw();const m=C.pairs.find(p=>p.includes(CAR.club));
     if(m){const home=m[0]===CAR.club;const pMe=carP(CAR.club,home);const ps=carShotPs(m[0],m[1],C.st===5);
-      if(self){const out=await twMatch({A:teamSide(m[0]),D:teamSide(m[1]),pA:ps.pA,pD:ps.pD,pAuto:home?ps.pA:ps.pD,mine:home?'A':'D',aim:carMyAim(pMe),title:'DFB-Pokal',logo:compLogo('cup'),sub:CUP_ST[C.st],ball:CAR.ball,wall:CAR.wall});
-        my={h:m[0],a:m[1],gh:out.a,ga:out.d,st:out.st.length>0,self:!out.auto,hits:out.hits,top:out.top,perf:out.sh[home?'A':'D'].every(Boolean)}}
+      if(self){const out=await twMatch({A:teamSide(m[0]),D:teamSide(m[1]),pA:ps.pA,pD:ps.pD,pAuto:home?ps.pA:ps.pD,mine:home?'A':'D',aim:carMyAim(pMe),title:'DFB-Pokal',logo:compLogo('cup'),sub:CUP_ST[C.st],ball:CAR.ball,wall:CAR.wall,teamA:penTeam(m[0]),teamD:penTeam(m[1]),home:C.st===5?null:'A',big:C.st>=4});
+        my={h:m[0],a:m[1],gh:out.a,ga:out.d,st:out.st.length>0,self:!out.auto,hits:out.hits,top:out.top,log:out.log,shots:out.my,saves:out.saves,perf:out.sh[home?'A':'D'].length>=5&&out.sh[home?'A':'D'].every(Boolean)}}
       else my=simGame(m[0],m[1],{ko:true,neutral:C.st===5})}
     carCupResolve(my);carSave();carRender()}finally{carBusy=false}carFlushToasts()}
 function carCupResolve(my){const C=CAR.cup;carCupDraw();const res=[];const next=[];
@@ -4296,8 +5860,8 @@ async function carPlayEuro(self){if(carBusy)return;carBusy=true;try{const E=CAR.
     const ko=st.t==='ko'&&(st.leg===1||st.s===4),neutral=st.t==='ko'&&st.s===4;const t=st.t==='ko'?E.ties.find(t=>t.a===CAR.club||t.b===CAR.club):null;const agg=t&&st.leg===1?[t.l1.ga,t.l1.gh]:null;
     const label=euStepLabel(st,E);let my;
     if(self){const pMe=carP(CAR.club,home);const ps=carShotPs(m[0],m[1],neutral);
-      const out=await twMatch({A:teamSide(m[0]),D:teamSide(m[1]),pA:ps.pA,pD:ps.pD,pAuto:home?ps.pA:ps.pD,mine:home?'A':'D',aim:carMyAim(pMe),draw:!ko,agg:agg?{a:agg[0],d:agg[1]}:null,title:euName(E.comp),logo:compLogo(E.comp),sub:label,ball:CAR.ball,wall:CAR.wall});
-      my={h:m[0],a:m[1],gh:out.a,ga:out.d,st:out.st.length>0,self:!out.auto,hits:out.hits,top:out.top,perf:out.sh[home?'A':'D'].every(Boolean)}}
+      const out=await twMatch({A:teamSide(m[0]),D:teamSide(m[1]),pA:ps.pA,pD:ps.pD,pAuto:home?ps.pA:ps.pD,mine:home?'A':'D',aim:carMyAim(pMe),draw:!ko,agg:agg?{a:agg[0],d:agg[1]}:null,title:euName(E.comp),logo:compLogo(E.comp),sub:label,ball:CAR.ball,wall:CAR.wall,teamA:penTeam(m[0]),teamD:penTeam(m[1]),home:neutral?null:'A',big:st.t==='ko'&&st.s>=3});
+      my={h:m[0],a:m[1],gh:out.a,ga:out.d,st:out.st.length>0,self:!out.auto,hits:out.hits,top:out.top,log:out.log,shots:out.my,saves:out.saves,perf:out.sh[home?'A':'D'].length>=5&&out.sh[home?'A':'D'].every(Boolean)}}
     else my=simGame(m[0],m[1],{ko,neutral,agg});
     E.cur=null;carEuroResolve(my,label);carUnlock('euro');carSave();carRender()}finally{carBusy=false}carFlushToasts()}
 function carEuroResolve(my,label,quiet){const E=CAR.euro;const home=my.h===CAR.club;const st=euStep(E);
@@ -4310,9 +5874,9 @@ function euMigrate45(){const E=CAR.euro;if(!E||E.v)return false;const q=E.comp;C
   const N=CAR.euro;if(CAR.phase!=='season')euSimRest();else{let st;while((st=euStep(N))&&st.r<CAR.R){if(euInvolved(N,st)){const m=carEuroMatch();const t=st.t==='ko'?N.ties.find(t=>t.a===CAR.club||t.b===CAR.club):null;
       carEuroResolve(simGame(m[0],m[1],{ko:st.t==='ko'&&(st.leg===1||st.s===4),neutral:st.t==='ko'&&st.s===4,agg:t&&st.leg===1?[t.l1.ga,t.l1.gh]:null}),euStepLabel(st,N),true)}else euPlayStep(null)}}
   carToastQ.push(['🇪🇺',euName(q)+' im neuen Format','Ligaphase mit 36 Teams – bisherige Spieltage wurden simuliert']);return true}
-function carStatsMatch(my,home,won){const s=CAR.st;const myG=home?my.gh:my.ga;s.pl++;carEv('played');
+function carStatsMatch(my,home,won){const s=CAR.st;const myG=home?my.gh:my.ga;s.pl++;carEv('played');formTick(my.log);if(my.saves)s.saves=(s.saves||0)+my.saves;
   if(won){s.w++;s.streak++;s.best=Math.max(s.best,s.streak);carEv('win');if(!my.st)carEv('cleanwin');if(!home)carEv('awaywin');if(my.st)s.stw++}else s.streak=0;
-  if(my.self){s.self++;carEv('self');s.hits+=my.hits;s.shots+=TW_N;carEv('hit',my.hits);carEv('top',my.top);if(my.perf){s.perfect++;carEv('perfect')}}}
+  if(my.self){s.self++;carEv('self');s.hits+=my.hits;s.shots+=my.shots||TW_N;carEv('hit',my.hits);carEv('top',my.top);if(my.perf){s.perfect++;carEv('perfect')}}}
 
 
 /* ================= Torwand-Duell (2 Spieler, ein iPhone) ================= */
@@ -4322,13 +5886,13 @@ function duelClubOpts(sel){return [1,2,3].map(l=>'<optgroup label="'+ligaName(l)
 function renderDuel(){const b=$('#duelBody');if(!b)return;const L=DUEL.last;
   b.innerHTML=(L?'<div class="carRes win"><div class="crT">Letztes Duell</div><div class="crS">'+clubBadgeHTML(CLUB[L.ca],'mb')+'<b>'+L.a+' : '+L.d+'</b>'+clubBadgeHTML(CLUB[L.cd],'mb')+'</div><div class="crN">🏆 '+esc(L.w)+' gewinnt'+(L.st?' im Stechen':'')+'</div><div class="crE">Gesamtstand '+DUEL.score[0]+' : '+DUEL.score[1]+'</div></div>':'')+
     [0,1].map(i=>{const p=DUEL.p[i];return '<div class="lbl">Spieler '+(i+1)+'</div><div class="drow">'+clubBadgeHTML(CLUB[p.c],'mb')+'<input class="dname" data-i="'+i+'" value="'+esc(p.n)+'" maxlength="14" autocomplete="off"><select class="dclub" data-i="'+i+'">'+duelClubOpts(p.c)+'</select></div>'}).join('')+
-    '<div class="note">Je 5 Schüsse, abwechselnd auf diesem iPhone – reicht es einfach weiter. Bei Gleichstand gibt es ein Stechen. Beide haben die gleiche Treffsicherheit: Es zählt nur, wer besser wischt.</div>'+
+    '<div class="note">Je 5 Elfmeter, abwechselnd auf diesem iPhone – reicht es einfach weiter. Bei Gleichstand gibt es ein Stechen. Beide schießen gleich gut, der Torwart ist neutral: Es zählt nur, wer besser wischt.</div>'+
     '<button class="big glass tint press" id="duelGo">'+(L?'🔁 Revanche':'⚽ Duell starten')+'</button>'+(L?'<button class="big glass press" id="duelReset" style="margin-top:8px">Gesamtstand zurücksetzen</button>':'');
   b.querySelectorAll('.dname').forEach(e=>e.oninput=()=>{DUEL.p[+e.dataset.i].n=e.value.trim()||('Spieler '+(+e.dataset.i+1));duelSave()});
   b.querySelectorAll('.dclub').forEach(e=>e.onchange=()=>{DUEL.p[+e.dataset.i].c=+e.value;duelSave();renderDuel()});
   const go=$('#duelGo');if(go)go.onclick=()=>{closeSheet();setTimeout(runDuel,250)};const rs=$('#duelReset');if(rs)rs.onclick=()=>{DUEL.score=[0,0];DUEL.last=null;duelSave();renderDuel()}}
 async function runDuel(){const [P1,P2]=DUEL.p;const side=p=>({name:p.n||'Spieler',short:CLUB[p.c].short,badge:clubBadgeHTML(CLUB[p.c],'mb')});voiceUnlock();
-  const out=await twMatch({A:side(P1),D:side(P2),pA:.5,pD:.5,mine:'both',n:5,aim:twAimFor(.5,{pra:75,kra:75,ner:75}),title:'Torwand-Duell',sub:CLUB[P1.c].mid+' gegen '+CLUB[P2.c].mid});
+  const out=await twMatch({A:side(P1),D:side(P2),pA:.5,pD:.5,mine:'both',n:5,aim:twAimFor(.5,{pra:75,kra:75,ner:75}),title:'Elfmeter-Duell',sub:CLUB[P1.c].mid+' gegen '+CLUB[P2.c].mid});
   const w=out.a>out.d?0:1;DUEL.score[w]++;DUEL.last={a:out.a,d:out.d,w:DUEL.p[w].n,ca:P1.c,cd:P2.c,st:out.st.length>0};duelSave();openSheet('shDuel')}
 
 /* ================= Kader, Trikots & Wettbewerbslogos (Wikipedia, zur Laufzeit) ================= */
@@ -4345,13 +5909,16 @@ function wxCol(c){c=String(c||'').trim().replace(/^#/,'');if(/^[0-9a-f]{6}$/i.te
 function wxParseKit(t){const g=k=>{const m=t.match(new RegExp('\\|\\s*'+k+'\\s*=\\s*([^\\n|}<]*)'));return m?m[1].trim():''};const kit={};
   [1,2].forEach(n=>{const o={la:g('pattern_la'+n),b:g('pattern_b'+n),ra:g('pattern_ra'+n),sh:g('pattern_sh'+n),so:g('pattern_so'+n),cla:wxCol(g('leftarm'+n)),cb:wxCol(g('body'+n)),cra:wxCol(g('rightarm'+n)),csh:wxCol(g('shorts'+n)),cso:wxCol(g('socks'+n))};if(o.cb)kit[n===1?'h':'a']=o});
   return kit.h?kit:null}
+/* Vorlagen-Parameter auf oberster Ebene trennen (Links/Vorlagen im Wert bleiben ganz) */
+function wxParams(line){const o={};let d=0,cur='';const push=()=>{const k=cur.indexOf('=');if(k>0)o[cur.slice(0,k).trim().toLowerCase()]=cur.slice(k+1).trim();cur=''};
+  for(let i=0;i<line.length;i++){const c=line[i],c2=line.substr(i,2);if(c2==='[['||c2==='{{'){d++;cur+=c2;i++;continue}if(c2===']]'||c2==='}}'){if(d===0){push();return o}d--;cur+=c2;i++;continue}if(c==='|'&&d===0){push();continue}cur+=c}push();return o}
 function wxParseSquad(t){const out=[];const seen=new Set();
-  t.replace(/football squad2? player\s*\|([^\n]*)/gi,(m,line)=>{const no=(line.match(/\bno\s*=\s*(\d+)/)||[])[1];const pos=((line.match(/\bpos\s*=\s*([A-Za-z]+)/)||[])[1]||'').toUpperCase();const nat=((line.match(/\bnat\s*=\s*([A-Za-z ]+)/)||[])[1]||'').trim();let nm=null;const nl=line.match(/name\s*=\s*(.*)$/);const v=nl?nl[1]:'';
-    let x=v.match(/\[\[([^\]|]+)(?:\|[^\]]*)?\]\]/);if(x)nm=x[1];else{x=v.match(/\{\{\s*Abbr\s*\|[^|}]*\|([^}]+)\}\}/i);if(x)nm=x[1];else{x=v.match(/^([^{}\[\]|]+)/);if(x)nm=x[1]}}
-    if(nm){nm=nm.replace(/\s*\([^)]*\)\s*$/,'').trim();if(nm&&!seen.has(nm)){seen.add(nm);out.push([no?+no:null,nm,pos,nat])}}return m});
+  t.replace(/football squad2? player\s*\|([^\n]*)/gi,(m,line)=>{const P=wxParams(line);const no=(String(P.no||'').match(/\d+/)||[])[0];const pos=(String(P.pos||'').match(/[A-Za-z]+/)||[''])[0].toUpperCase();const nat=(String(P.nat||'').match(/[A-Za-z ]+/)||[''])[0].trim();
+    const v=P.name||'';let nm=null;let x=v.match(/^\s*\[\[([^\]|]+)(?:\|[^\]]*)?\]\]/);if(x)nm=x[1];else{x=v.match(/\{\{\s*(?:Abbr|sortname)\s*\|([^}]+)\}\}/i);if(x){const a=x[1].split('|');nm=/sortname/i.test(v)?(a[0]+' '+a[1]):a[1]||a[0]}else{x=v.match(/^([^{}\[\]|<]+)/);if(x)nm=x[1]}}
+    if(nm){nm=nm.replace(/\s*\([^)]*\)\s*$/,'').replace(/&nbsp;/g,' ').trim();if(nm&&plValid(nm)&&!seen.has(nm)){seen.add(nm);out.push([no?+no:null,nm,pos,nat])}}return m});
   return out}
 async function wxPool(items,n,fn){let i=0;const run=async()=>{while(i<items.length){const k=i++;try{await fn(items[k])}catch(e){}await twWait(60)}};await Promise.all(Array.from({length:n},run))}
-async function loadWikiExtras(force){if(wxLoading)return;const fresh=Date.now()-WX._t<14*864e5;if(!force&&fresh&&Object.keys(WX.sq).length>=50)return;wxLoading=true;
+async function loadWikiExtras(force){if(wxLoading)return;const fresh=Date.now()-WX._t<14*864e5;if(!force&&fresh&&Object.keys(WX.sq).length>=50&&WX._sqv===5)return;wxLoading=true;if(WX._sqv!==5)force=true;
   /* Wappen zuerst laden – die Wikipedia-API erlaubt Browsern nur begrenzt viele Anfragen pro Minute */
   await twWait(500);while(vcoaLoading)await twWait(400);
   try{const keys=wxTeamKeys();const full=!!force||WX._t>0;WX._kt=WX._kt||{};
@@ -4363,7 +5930,7 @@ async function loadWikiExtras(force){if(wxLoading)return;const fresh=Date.now()-
       ch.forEach(t=>{let x=nm[t]||t;x=rd[x]||x;const p=pg[x];const ll=p&&p.langlinks&&p.langlinks.find(l=>l.lang==='en');if(ll)need.filter(kk=>wxWiki(kk)===t).forEach(kk=>WX.en[kk]=ll.title)})}
     CLUB.forEach(k=>{if(CLUB_EN[k.short])WX.en['V'+k.i]=CLUB_EN[k.short]});
     // 2) aktuelle Kader (Navigationsleisten „… squad“)
-    const vk=CLUB.map(k=>'V'+k.i).filter(k=>WX.en[k]&&(full||!WX.sq[k]));
+    const vk=wxTeamKeys().filter(k=>WX.en[k]&&(full||!WX.sq[k]));
     for(let k=0;k<vk.length;k+=40){const ch=vk.slice(k,k+40);const tt=ch.map(kk=>'Template:'+WX.en[kk]+' squad');
       const j=await wxApi('en','action=query&prop=revisions&rvprop=content&rvslots=main&titles='+encodeURIComponent(tt.join('|')));const q=j.query||{};const nm={},rd={},pg={};
       (q.normalized||[]).forEach(x=>nm[x.from]=x.to);(q.redirects||[]).forEach(x=>rd[x.from]=x.to);(q.pages||[]).forEach(p=>pg[p.title]=p);
@@ -4376,7 +5943,7 @@ async function loadWikiExtras(force){if(wxLoading)return;const fresh=Date.now()-
     store.set(WX_KEY,WX);plPoolV++;if(typeof CAR!=='undefined'&&CAR){carRealCards();carSave();if(!$('#car').classList.contains('off'))carRender()}
     // 4) Trikots aus der Infobox (eine Anfrage pro Verein – läuft gemächlich im Hintergrund)
     let kn=0;    await wxPool(keys.filter(kk=>WX.en[kk]&&(full||(!WX.kit[kk]&&!WX._kt[kk]))),1,async kk=>{WX._kt[kk]=1;const j=await wxApi('en','action=parse&prop=wikitext&section=0&page='+encodeURIComponent(WX.en[kk]));const t=j.parse&&j.parse.wikitext;if(t){const kit=wxParseKit(typeof t==='string'?t:t['*']);if(kit)WX.kit[kk]=kit}if(++kn%15===0)store.set(WX_KEY,WX)});
-    WX._t=Date.now();store.set(WX_KEY,WX);plPoolV++;
+    WX._t=Date.now();WX._sqv=5;store.set(WX_KEY,WX);plPoolV++;
     if(typeof CAR!=='undefined'&&CAR){carRealCards();carSave();if(!$('#car').classList.contains('off'))carRender()}
   }catch(e){console.warn('Kader/Trikots',e)}wxLoading=false}
 /* ---- Wettbewerbslogos ---- */
