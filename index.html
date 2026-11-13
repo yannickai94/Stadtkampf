@@ -1683,6 +1683,140 @@ body.co66on #lt,body.co66on #g3{filter:saturate(.7)}
 .fc63 .bfgrid .big span{white-space:nowrap}
 .fc63 .bfgrid #bfWM span{display:flex;flex-direction:row;align-items:baseline;gap:8px}
 .fc63 .bfgrid #bfWM small{font-family:-apple-system,system-ui,sans-serif;font-style:normal;text-transform:none;letter-spacing:0;font-size:12px;font-weight:700;color:rgba(235,242,255,.6)}
+/* ================= v6.8 ================= */
+/* Ausgeblendete Hinweise blockieren keine Taps */
+#toast:not(.show){pointer-events:none!important}
+#toast.hide{pointer-events:none!important}
+/* Größere Touch-Ziele (mind. 44 px) */
+.seg button{min-height:44px}
+.seg.sm button{min-height:42px}
+.chips button,.chips .press{min-height:44px;padding-left:15px;padding-right:15px;font-size:14px}
+.chips.sm button{min-height:42px}
+.chipb{min-height:44px;padding:0 14px}
+.backb{min-height:46px}
+.mrow{min-height:62px}
+.stb .press,.stb button{min-height:44px;min-width:44px}
+.bau>.press,.bau>button{min-height:52px;min-width:88px}
+.tchips span{min-height:40px}
+.rsel button,.cupst button{min-height:44px}
+#tmBack,#tmFa,#tmSc{min-height:44px}
+.xbtn{min-width:44px;min-height:44px}
+.chips{scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.fl68c,.tn68n,#tn68s{display:flex;flex-wrap:nowrap;overflow-x:auto;gap:8px;padding-bottom:4px;-webkit-overflow-scrolling:touch}
+.fl68c button,.tn68n button,#tn68s button{flex:none;white-space:nowrap}
+/* Bauen */
+.b68 b{display:block}
+.b68d{display:flex;gap:5px;margin:5px 0 3px}
+.b68d em{width:16px;height:7px;border-radius:4px;background:rgba(255,255,255,.14)}
+.b68d em.b{background:rgba(255,255,255,.78)}
+.b68d em.u{background:var(--cAi,#7dffa0);box-shadow:0 0 8px rgba(var(--cAr,125,255,160),.5)}
+/* Jugend */
+.y68seg{margin:2px 0 10px}
+.y68h{display:grid;grid-template-columns:1fr 1fr 1.4fr;gap:8px;margin-bottom:6px}
+.y68h>div{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:9px 12px}
+.y68h small{display:block;font-size:11.5px;opacity:.65;text-transform:uppercase;letter-spacing:.4px}
+.y68h b{font-size:18px}
+.y68g{font-size:12px;text-transform:uppercase;letter-spacing:.6px;opacity:.6;margin:14px 4px 6px;font-weight:800}
+.y68r{display:flex;align-items:center;gap:10px;padding:8px 8px 8px 10px;border-radius:14px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.07);margin-bottom:6px}
+.y68p{flex:none;width:40px;text-align:center;font-size:12px;font-weight:900;padding:5px 0;border-radius:8px;background:rgba(var(--cAr,125,255,160),.16);color:var(--cAi,#bfffd0)}
+.y68n{flex:1;min-width:0}
+.y68n b{display:block;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.y68n small{font-size:12px;opacity:.7}
+.y68o{flex:none;font-size:19px;font-weight:900;width:32px;text-align:center}
+.y68b{flex:none;width:44px;height:44px;border-radius:12px;font-size:17px;font-weight:900;display:grid;place-items:center;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);color:#fff}
+.y68b.warn{color:#ff8f8f}
+.y68b.arm{background:rgba(255,80,80,.35)}
+/* Trikots im Klub */
+.k68{display:flex;gap:18px;justify-content:center;padding:6px 0 4px}
+.k68>div{display:flex;flex-direction:column;align-items:center;gap:4px}
+.k68 small{opacity:.7}
+/* Kalender */
+.c68top{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:4px 2px 2px}
+.c68top small{display:block;font-size:11.5px;opacity:.65;text-transform:uppercase;letter-spacing:.4px}
+.c68top b{font-size:16px}
+.c68tw{font-size:12.5px;font-weight:800;padding:8px 11px;border-radius:99px;background:rgba(255,90,90,.16);color:#ffb3b3;white-space:nowrap}
+.c68tw.on{background:rgba(90,255,150,.16);color:#a9ffc8}
+.c68e{display:flex;align-items:center;gap:11px;padding:9px 10px;border-radius:14px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.07);margin-bottom:6px;min-height:52px}
+.c68e.done{opacity:.55}
+.c68e.cur{border-color:var(--cA,#7dffa0);background:rgba(var(--cAr,125,255,160),.1)}
+.c68e>div{flex:1;min-width:0}
+.c68e>div b{display:block;font-size:14.5px}
+.c68e>div small{font-size:12px;opacity:.7}
+.c68d{flex:none;width:42px;text-align:center;line-height:1.05}
+.c68d b{display:block;font-size:19px}
+.c68d small{font-size:11px;opacity:.7;text-transform:uppercase}
+.c68i{flex:none;font-size:20px}
+.c68ok{font-style:normal;opacity:.8}
+.k-cup .c68d b{color:#ffd76a}.k-eu .c68d b{color:#8fb8ff}.k-tw .c68d b{color:#a9ffc8}.k-tn .c68d b{color:#e2a6ff}
+.c68m{display:flex;align-items:center;justify-content:space-between;margin:16px 0 8px}
+.c68m b{font-size:17px;text-transform:capitalize}
+.c68nav{width:44px;height:44px;border-radius:12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);color:#fff;font-size:22px;font-weight:900}
+.c68g{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:12px}
+.c68g i{font-style:normal;font-size:11px;opacity:.55;text-align:center;padding:2px 0 4px;font-weight:800}
+.c68g span{min-height:46px;border-radius:10px;background:rgba(255,255,255,.035);display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding-top:4px}
+.c68g span b{font-size:12.5px;opacity:.75}
+.c68g span em{font-style:normal;font-size:12px;line-height:1.1;margin-top:2px}
+.c68g span.has{background:rgba(255,255,255,.08)}
+.c68g span.has.k-lg{background:rgba(var(--cAr,125,255,160),.14)}
+.c68g span.done{opacity:.5}
+.c68g span.t{outline:2px solid var(--cA,#7dffa0)}
+.cal68t{min-height:auto}
+.c68hub{display:flex;flex-direction:column;gap:3px;margin:4px 0 4px}
+.c68hub p{display:flex;align-items:center;gap:8px;margin:0;font-size:13.5px}
+.c68hub i{font-style:normal;width:20px;text-align:center}
+.c68hub b{flex:1;font-size:13.5px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.c68hub em{font-style:normal;opacity:.7;font-size:12.5px}
+.c68st{font-size:12px!important;opacity:.85}
+.c68st.on{color:#a9ffc8}
+.m68{font-size:20px;display:grid;place-items:center}
+/* Top-Ligen */
+.fl68t .ctr.z-cl{box-shadow:inset 3px 0 0 #3d7bff}
+.fl68t .ctr.z-el{box-shadow:inset 3px 0 0 #ff8a1f}
+.fl68t .ctr.z-ecl{box-shadow:inset 3px 0 0 #2fcf6a}
+.fl68ch{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.fl68ch>div{display:flex;align-items:center;gap:8px;padding:8px;border-radius:12px;background:rgba(255,255,255,.05)}
+.fl68ch b{flex:1;font-size:13.5px}
+.fl68ch small{opacity:.65;font-size:11.5px}
+/* WM & EM */
+.tn68nx,.tn68ch,.tn68sum{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:16px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);margin:6px 0 10px}
+.tn68nx>span,.tn68ch>span,.tn68sum>span{font-size:30px}
+.tn68nx small,.tn68ch small,.tn68sum small{display:block;font-size:12px;opacity:.7}
+.tn68nx b,.tn68ch b{font-size:18px}
+.tn68ch{background:linear-gradient(135deg,rgba(255,215,90,.2),rgba(255,255,255,.04));border-color:rgba(255,215,90,.35)}
+.tn68sum{margin:4px 0 12px}
+.tn68sum>div{flex:1}
+.tn68sum b{font-size:14.5px}
+.tn68sum .press{min-height:44px;padding:0 14px;border-radius:12px;background:rgba(255,255,255,.1);color:#fff;font-weight:800}
+.tn68k>div{display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:center;padding:9px 10px;border-radius:12px;background:rgba(255,255,255,.04);margin-bottom:5px;font-size:13.5px}
+.tn68k>div.de{background:rgba(255,215,90,.1)}
+.tn68k span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:.75}
+.tn68k span.w{opacity:1;font-weight:800}
+.tn68k span.r{text-align:right}
+.tn68k b{font-size:15px;text-align:center;min-width:44px}
+.tn68k b small{display:block;font-size:10px;opacity:.7}
+.tn68g{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.tn68g>div{padding:9px 10px;border-radius:12px;background:rgba(255,255,255,.04)}
+.tn68g>div>b{display:block;font-size:12px;opacity:.7;text-transform:uppercase;margin-bottom:4px}
+.tn68g p{display:flex;gap:6px;margin:3px 0;font-size:12.5px;align-items:center;opacity:.7}
+.tn68g p.q{opacity:1}
+.tn68g p.de{color:#ffe08a}
+.tn68g p span{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tn68g p em{font-style:normal;opacity:.7;width:26px;text-align:right}
+.tn68g p i{font-style:normal;font-weight:800;width:18px;text-align:right}
+.tn68p>div{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:12px;background:rgba(255,255,255,.04);margin-bottom:5px}
+.tn68p>div.mine{background:rgba(var(--cAr,125,255,160),.14)}
+.tn68p em{font-style:normal;flex:none;width:36px;font-size:12px;font-weight:800;opacity:.75}
+.tn68p b{flex:1;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tn68p small{font-size:12px;opacity:.65;max-width:38%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tn68p i{font-style:normal;font-weight:900;width:44px;text-align:right}
+#tn68tb{margin:4px 0 6px}
+.snd68cr{font-size:11.5px;line-height:1.4;opacity:.65}
+/* WM-Modus auf dem Startbildschirm entfällt (läuft in der Karriere) */
+#bfWM{display:none!important}
+.tw68n{margin:8px 0 4px;padding:10px 12px;border-radius:12px;font-size:13px;background:rgba(255,90,90,.12);color:#ffc4c4;border:1px solid rgba(255,90,90,.2)}
+.tw68n.on{background:rgba(90,255,150,.1);color:#bfffd5;border-color:rgba(90,255,150,.2)}
+.ctr.fl68p{grid-template-columns:20px 28px 1fr 40px 34px!important}
 </style>
 </head>
 <body>
@@ -18200,6 +18334,2879 @@ ptSVG=function(c,o){o=o||{};const L=look67(c);const id=++PT67;const kit=o.kit||p
   if(L.bd<2||L.bd===4)s+='<path d="M43.6 59.8Q47 58.6 50 59.3Q53 58.6 56.4 59.8Q50 61.2 43.6 59.8Z" fill="'+sh67(lip,-.15)+'"/><path d="M44.4 60.1Q50 64.4 55.6 60.1Q50 61.6 44.4 60.1Z" fill="'+lip+'"/><path d="M47.6 62.4Q50 63.2 52.4 62.4" fill="none" stroke="#fff" stroke-width=".6" opacity=".25"/>';
   s+=hairFront67(L,id,hc,hD,hL);
   return s+'</svg>'};
+
+const CL68=[["RSC Anderlecht", "Anderlecht", "RSC", "#5c2195", "#f9f9ef", "BE", "RSC Anderlecht", "RSC Anderlecht"], ["Royal Antwerpen", "Antwerp", "ANT", "#d6001c", "#ffffff", "BE", "Royal Antwerpen", "Royal Antwerp FC"], ["SK Beveren", "Beveren", "BEV", "#ffd200", "#004a99", "BE", "SK Beveren", "SK Beveren"], ["Sporting Charleroi", "Charleroi", "CHA", "#111111", "#ffffff", "BE", "Sporting Charleroi", "Royal Charleroi SC"], ["KRC Genk", "Genk", "GEN", "#007aff", "#ffffff", "BE", "KRC Genk", "KRC Genk"], ["KAA Gent", "Gent", "GE1", "#0023dd", "#ffffff", "BE", "KAA Gent", "KAA Gent"], ["KV Kortrijk", "Kortrijk", "KOR", "#ff0000", "#ffffff", "BE", "KV Kortrijk", "KV Kortrijk"], ["RAAL La Louvière", "La Louvière", "LAL", "#009150", "#000060", "BE", "RAAL La Louvière", "RAAL La Louvière"], ["KV Mechelen", "Mechelen", "MEC", "#ffd700", "#000000", "BE", "KV Mechelen", "KV Mechelen"], ["Standard Lüttich", "Standard Liège", "STA", "#dd0000", "#000000", "BE", "Standard Lüttich", "Standard Liège"], ["Oud-Heverlee Löwen", "OH Leuven", "OHL", "#ffffff", "#000050", "BE", "Oud-Heverlee Löwen", "Oud-Heverlee Leuven"], ["Lommel SK", "Lommel", "LOM", "#009150", "#ffffff", "BE", "Lommel SK", "Lommel SK"], ["VV St. Truiden", "Sint-Truiden", "SIN", "#ffff00", "#0000ff", "BE", "VV St. Truiden", "Sint-Truidense VV"], ["Union Saint-Gilloise", "Union SG", "USG", "#ffd700", "#003d8f", "BE", "Royale Union Saint-Gilloise", "Royale Union Saint-Gilloise"], ["KVC Westerlo", "Westerlo", "WES", "#ffff00", "#0000ff", "BE", "KVC Westerlo", "KVC Westerlo"], ["SV Zulte Waregem", "Zulte Waregem", "ZUL", "#d6001c", "#00843d", "BE", "SV Zulte Waregem", "SV Zulte Waregem"], ["Cercle Brügge", "Cercle Brugge", "CER", "#00852d", "#000000", "BE", "Cercle Brügge", "Cercle Brugge KSV"], ["FC Brügge", "Brügge", "BRU", "#0068b3", "#111111", "BE", "FC Brügge", "Club Brugge KV"], ["Ajax Amsterdam", "Ajax", "AJA", "#d2122e", "#ffffff", "NL", "Ajax Amsterdam", "AFC Ajax"], ["AZ Alkmaar", "Alkmaar", "AZ", "#db0021", "#ffffff", "NL", "AZ Alkmaar", "AZ Alkmaar"], ["SC Cambuur", "Cambuur", "CAM", "#ffee00", "#0000ff", "NL", "SC Cambuur", "SC Cambuur"], ["ADO Den Haag", "ADO", "ADO", "#ffd400", "#00843d", "NL", "ADO Den Haag", "ADO Den Haag"], ["Fortuna Sittard", "Fortuna", "FOR", "#ffff00", "#00684b", "NL", "Fortuna Sittard", "Fortuna Sittard"], ["Go Ahead Eagles Deventer", "Go Ahead", "GAE", "#d6001c", "#ffd400", "NL", "Go Ahead Eagles Deventer", "Go Ahead Eagles"], ["FC Groningen", "Groningen", "GRO", "#009b48", "#ffffff", "NL", "FC Groningen", "FC Groningen"], ["SC Heerenveen", "Heerenveen", "HEE", "#0050a0", "#ffffff", "NL", "SC Heerenveen", "SC Heerenveen"], ["NEC Nijmegen", "Nijmegen", "NEC", "#e30613", "#00a650", "NL", "NEC Nijmegen", "NEC Nijmegen"], ["PEC Zwolle", "Zwolle", "ZWO", "#0050a0", "#ffffff", "NL", "PEC Zwolle", "PEC Zwolle"], ["PSV Eindhoven", "PSV", "PSV", "#ed1c24", "#ffffff", "NL", "PSV Eindhoven", "PSV Eindhoven"], ["Telstar 1963", "Telstar", "TEL", "#ffffff", "#d6001c", "NL", "Telstar 1963", "SC Telstar"], ["FC Twente", "Twente", "TWE", "#e30613", "#ffffff", "NL", "FC Twente Enschede", "FC Twente"], ["FC Utrecht", "Utrecht", "UTR", "#d6001c", "#ffffff", "NL", "FC Utrecht", "FC Utrecht"], ["Willem II Tilburg", "Willem II", "WIL", "#c8102e", "#1b2a6b", "NL", "Willem II Tilburg", "Willem II (football club)"], ["Excelsior Rotterdam", "Excelsior", "EXC", "#d6001c", "#111111", "NL", "Excelsior Rotterdam", "Excelsior Rotterdam"], ["Feyenoord Rotterdam", "Feyenoord", "FEY", "#e5021b", "#ffffff", "NL", "Feyenoord Rotterdam", "Feyenoord"], ["Sparta Rotterdam", "Sparta", "SP1", "#d6001c", "#ffffff", "NL", "Sparta Rotterdam", "Sparta Rotterdam"], ["Alanyaspor", "Alanyaspor", "ALA", "#f58220", "#00843d", "TR", "Alanyaspor", "Alanyaspor"], ["Amed SFK", "Amed", "AME", "#d6001c", "#00843d", "TR", "Amed SFK", "Amed S.F.K."], ["Çorum FK", "Çorum", "COR", "#d6001c", "#111111", "TR", "Çorum FK", "Çorum FK"], ["Erzurumspor FK", "Erzurumspor", "ERZ", "#0050a0", "#ffffff", "TR", "Erzurumspor FK", "Erzurumspor F.K."], ["Gaziantep FK", "Gaziantep", "GAZ", "#d6001c", "#111111", "TR", "Gaziantep FK", "Gaziantep F.K."], ["Gençlerbirliği Ankara", "Gençlerbirliği", "GE2", "#d6001c", "#111111", "TR", "Gençlerbirliği Ankara", "Gençlerbirliği S.K."], ["Göztepe Izmir", "Göztepe", "GOZ", "#ffd400", "#d6001c", "TR", "Göztepe Izmir", "Göztepe S.K."], ["Kocaelispor", "Kocaelispor", "KOC", "#00843d", "#111111", "TR", "Kocaelispor", "Kocaelispor"], ["Konyaspor", "Konyaspor", "KON", "#008250", "#ffffff", "TR", "Konyaspor", "Konyaspor"], ["Çaykur Rizespor", "Rizespor", "RIZ", "#00843d", "#0050a0", "TR", "Çaykur Rizespor", "Çaykur Rizespor"], ["Samsunspor", "Samsunspor", "SAM", "#d0021b", "#ffffff", "TR", "Samsunspor", "Samsunspor"], ["Trabzonspor", "Trabzonspor", "TRA", "#8b1538", "#6cace4", "TR", "Trabzonspor", "Trabzonspor"], ["Istanbul Başakşehir FK", "Başakşehir", "BAS", "#ffffff", "#ff7b0d", "TR", "Istanbul Başakşehir FK", "İstanbul Başakşehir F.K."], ["Beşiktaş Istanbul", "Beşiktaş", "BJK", "#111111", "#ffffff", "TR", "Beşiktaş Istanbul", "Beşiktaş J.K."], ["Eyüpspor", "Eyüpspor", "EYU", "#5b2d82", "#fcd116", "TR", "Eyüpspor", "Eyüpspor"], ["Fenerbahçe Istanbul", "Fenerbahçe", "FEN", "#163962", "#ffed00", "TR", "Fenerbahçe Istanbul", "Fenerbahçe S.K. (football)"], ["Galatasaray Istanbul", "Galatasaray", "GAL", "#a90432", "#fdb912", "TR", "Galatasaray Istanbul", "Galatasaray S.K. (football)"], ["Kasımpaşa Istanbul", "Kasımpaşa", "KAS", "#1b2a6b", "#ffffff", "TR", "Kasımpaşa Istanbul", "Kasımpaşa S.K."], ["FC Arouca", "Arouca", "ARO", "#ffff00", "#0000ff", "PT", "FC Arouca", "F.C. Arouca"], ["Vitória Guimarães", "Vitória", "VIT", "#ffffff", "#111111", "PT", "Vitória Guimarães", "Vitoria S.C."], ["Moreirense FC", "Moreirense", "MOR", "#008a3e", "#ffffff", "PT", "Moreirense FC", "Moreirense F.C."], ["Sporting Braga", "Braga", "SCB", "#e30613", "#ffffff", "PT", "Sporting Braga", "S.C. Braga"], ["FC Famalicão", "Famalicão", "FAM", "#1b3a8c", "#ffffff", "PT", "FC Famalicão", "F.C. Famalicão"], ["FC Porto", "Porto", "POR", "#003c8c", "#ffffff", "PT", "FC Porto", "FC Porto"], ["Gil Vicente FC", "Gil Vicente", "GIL", "#d60000", "#1b3a8c", "PT", "Gil Vicente FC", "Gil Vicente F.C."], ["Rio Ave FC", "Rio Ave", "RIO", "#00843d", "#ffffff", "PT", "Rio Ave FC", "Rio Ave F.C."], ["FC Alverca", "Alverca", "ALV", "#0000ff", "#ffffff", "PT", "FC Alverca", "F.C. Alverca"], ["Casa Pia AC", "Casa Pia", "CAS", "#111111", "#ffffff", "PT", "Casa Pia AC", "Casa Pia A.C."], ["GD Estoril Praia", "Estoril", "EST", "#ffe000", "#0033ff", "PT", "GD Estoril Praia", "G.D. Estoril Praia"], ["Académico de Viseu FC", "Académico de Viseu", "ACA", "#000000", "#ffffff", "PT", "Académico de Viseu FC", "Académico de Viseu F.C."], ["Sporting Lissabon", "Sporting", "SCP", "#008057", "#ffffff", "PT", "Sporting Lissabon", "Sporting CP"], ["Benfica Lissabon", "Benfica", "BEN", "#e83030", "#ffffff", "PT", "Benfica Lissabon", "S.L. Benfica"], ["CF Estrela Amadora", "Est. Amadora", "EAM", "#c8102e", "#00843d", "PT", "CF Estrela Amadora (2020)", "C.F. Estrela da Amadora"], ["Marítimo Funchal", "Marítimo", "MAR", "#00843d", "#d6001c", "PT", "Marítimo Funchal", "C.S. Marítimo"], ["Nacional Funchal", "Nacional", "NAC", "#111111", "#ffffff", "PT", "Nacional Funchal", "C.D. Nacional"], ["CD Santa Clara", "Santa Clara", "SAN", "#d6001c", "#ffffff", "PT", "CD Santa Clara", "C.D. Santa Clara"], ["FK Jablonec", "Jablonec", "JAB", "#00843d", "#111111", "CZ", "FK Jablonec", "FK Jablonec"], ["Slovan Liberec", "Slovan Liberec", "SL1", "#0050a0", "#ffffff", "CZ", "Slovan Liberec", "FC Slovan Liberec"], ["FK Mladá Boleslav", "Mladá Boleslav", "MLA", "#0042ff", "#ffdd00", "CZ", "FK Mladá Boleslav", "FK Mladá Boleslav"], ["SK Sigma Olmütz", "Olomouc", "OLO", "#000066", "#ffffff", "CZ", "SK Sigma Olmütz", "SK Sigma Olomouc"], ["FC Hradec Králové", "Hradec Králové", "HRA", "#111111", "#ffffff", "CZ", "FC Hradec Králové", "FC Hradec Králové"], ["Baník Ostrava", "Baník Ostrava", "BAN", "#0050a0", "#ffffff", "CZ", "Baník Ostrava", "FC Baník Ostrava"], ["FK Pardubice", "Pardubice", "PAR", "#ff0000", "#ffffff", "CZ", "FK Pardubice", "FK Pardubice"], ["Viktoria Pilsen", "Pilsen", "PLZ", "#e2001a", "#003d8f", "CZ", "FC Viktoria Pilsen", "FC Viktoria Plzeň"], ["1. FC Slovácko", "Slovácko", "SLO", "#ffffff", "#000060", "CZ", "1. FC Slovácko", "1. FC Slovácko"], ["FK Teplice", "Teplice", "TEP", "#ffd400", "#0050a0", "CZ", "FK Teplice", "FK Teplice"], ["FC Trinity Zlín", "Zlín", "ZLI", "#ffff00", "#0000ff", "CZ", "FC Trinity Zlín", "FC Zlín"], ["Bohemians Prag 1905", "Bohemians 1905", "BOH", "#00843d", "#ffffff", "CZ", "Bohemians Prag 1905", "Bohemians 1905"], ["Slavia Prag", "Slavia", "SLA", "#e30613", "#ffffff", "CZ", "SK Slavia Prag", "SK Slavia Prague"], ["Sparta Prag", "Sparta", "SPA", "#d6001c", "#ffffff", "CZ", "AC Sparta Prag", "AC Sparta Prague"], ["SK Artis Brno", "Artis Brno", "ART", "#ffffff", "#0000cd", "CZ", "", "SK Artis Brno"], ["FC Zbrojovka Brünn", "Zbrojovka Brno", "ZBR", "#d6001c", "#ffffff", "CZ", "FC Zbrojovka Brünn", "FC Zbrojovka Brno"]];
+const PL68=`Zoumana Keita|59|24|39|CB|0|GER|2005
+Lucas Hey|68|41|57|CB|0|DEN|2003
+Giulian Biancone|72|45|65|CB|0|FRA|2000
+Oleg Reabciuk|68|61|69|LM|0||
+Ludwig Augustinsson|74|59|74|LB|0|SWE|1994
+Ilay Camara|69|54|66|RB|0|SEN|2003
+Romeo Amane|70|62|67|CM|0|CIV|2003
+Mihajlo Cvetković|70|71|65|ST|0|SRB|2007
+Marten Winkler|70|63|60|RM|0|GER|2002
+Oliver Antman|72|65|69|RM|0|FIN|2001
+Danylo Sikan|72|70|62|ST|0|UKR|2001
+Lukáš Ambros|62|53|60|CAM|0|CZE|2004
+Thelo Aasgaard|71|70|71|CAM|0|NOR|2002
+Tawfik Bentayeb|71|71|52|ST|0|MAR|2002
+Enric Llansana|73|60|66|CDM|0|NED|2001
+Colin Coosemans|76|73|75|GK|0|BEL|1992
+Léo Pétrot|72|33|58|CB|0|FRA|1997
+Mario Stroeykens|72|72|70|CM|0|COD|2004
+Justin Heekeren|66|64|65|GK|0|GER|2000
+Mattis Seghers|60|53|61|CAM|0||
+Jayden Onia Seke|67|60|68|LM|0||
+Kaïs Barry|63|56|64|LM|0||
+Noa Ojea|73|66|74|CDM|0||
+Killian Sardella|72|38|68|RB|0|BEL|2002
+Marco Kana|65|32|62|CDM|0|BEL|2002
+Joshua Nga Kana|65|32|62|CDM|0|BEL|2002
+Michiel Haentjens|69|62|70|LM|0||
+Noah Kalonji|69|62|70|CAM|0||
+Ali Maamar|60|33|51|RB|0|MAR|2005
+Tristan Degreef|64|56|62|CAM|0|BEL|2005
+Adriano Bertaccini|75|75|62|ST|0|BEL|2000
+Yuto Tsunashima|62|42|46|CB|1|JPN|2000
+Daam Foulon|72|58|70|LM|1|BEL|1999
+Bahmed Deuff|62|48|57|CDM|1|FRA|2006
+Mauricio Benítez|62|55|60|CM|1|ARG|2004
+Michael Frey|69|69|61|ST|1|SUI|1994
+Xander Dierckx|62|55|63|RM|1||
+Yannick Thoelen|64|63|63|GK|1|BEL|1990
+Louie Van Gelder|56|49|57|CM|1||
+Semm Renders|62|30|55|RB|1|BEL|2008
+Mukhammadali Urinboev|63|68|62|RW|1|UZB|2005
+Rein Van Helden|69|29|61|CB|1|BEL|2002
+Farouck Adekami|58|45|55|CAM|1|CIV|2006
+Koki Ando|58|51|59|CAM|1||
+Thibo Somers|73|69|65|RM|1|BEL|1999
+Modibo Fofana|60|53|61|CM|1||
+Eran Tuypens|55|48|56|CAM|1||
+Luca Schelfhout|64|57|65|CM|1||
+Jeff Godelaine|64|57|65|CAM|1||
+Christopher Scott|70|67|64|CAM|1|GER|2002
+Snayder Porozo|63|56|64|RM|1||
+Taishi Nozawa|55|55|54|GK|1|JPN|2003
+Youssef Hamdaoui|55|48|60|CM|1|MAR|2008
+Maxime Busi|68|49|62|RB|1|BEL|1999
+Arthur Vermeeren|76|55|78|CM|1|BEL|2005
+Ibrahim Salah|68|67|60|RM|1|MAR|2001
+Carlos Mejía|63|54|57|RW|1|ECU|2007
+Niels Devalckeneer|58|59|57|GK|1|BEL|2004
+Luis Narh|55|48|56|CDM|1||
+Johannes Schenk|70|70|69|GK|2|GER|2003
+Dominic Thompson|63|40|54|LB|2|ENG|2000
+Viktor Boone|58|51|59|CAM|2||
+Christophe Janssens|62|55|63|CM|2||
+Chris Lokesa|65|57|59|LW|2|BEL|2004
+Ilyes Najim|60|53|61|LM|2||
+Ferre Slegers|63|56|64|CAM|2||
+Elohim Kaboré|63|61|49|ST|2|CIV|2006
+Guillaume De Schryver|59|52|60|LM|2||
+Junior Diouf|57|50|58|CDM|2||
+Léandre Kuavita|65|58|61|CM|2|BEL|2004
+Maxim Deman|61|54|62|LM|2||
+Jearl Margaritha|69|66|64|LW|2|CUW|2000
+Sieben Dewaele|66|59|67|CM|2||
+Milan De Schutter|60|53|61|CM|2||
+Laurent Jans|60|53|61|RM|2||
+Christian Brüls|71|69|74|CAM|2|BEL|1988
+Arno Verschueren|68|66|63|CAM|2|BEL|1997
+Cheick Oumar Konaté|66|29|55|RB|2|MLI|2004
+Noah Mawete|59|52|60|RM|2||
+Bruno Godeau|60|53|61|RM|2||
+Kurt Abrahams|66|63|59|RW|2|RSA|1996
+Yoni Gomis|64|57|65|CM|2||
+Cheick Condé|68|65|63|CM|2|GUI|2000
+Jannik Robatsch|65|31|49|CB|2|AUT|2005
+Stephane Keller|61|54|62|CDM|2||
+Josua Lusamba|61|54|62|CM|2||
+Lennart Mertens|67|60|68|CM|2||
+Victor Olatunji|70|67|56|ST|2|NGA|1999
+Martin Delavallée|70|70|69|GK|3|BEL|2004
+Kevin Van Den Kerkhof|70|66|66|RB|3|ALG|1996
+Aiham Ousou|71|31|59|CB|3|SYR|2000
+Amine Boukamir|57|35|49|CDM|3|MAR|2006
+Jakob Napoleon Romsaas|67|64|61|ST|3|NOR|2004
+Adama Bojang|64|62|50|ST|3|GAM|2004
+Gaku Nawata|70|63|71|LM|3||
+Patrick Pflücke|76|67|74|RM|3|GER|1996
+Arthur Cremer|59|52|60|CM|3||
+Antoine Bernier|71|68|65|RM|3|BEL|1997
+Yassine Khalifi|61|54|62|CDM|3||
+Isaac Cissé|61|54|62|LM|3||
+Freddy Mbemba|64|62|53|LM|3|FRA|2002
+Aurélien Scheidler|68|68|55|ST|3|FRA|1998
+Boubakar Dembaga|61|54|62|CM|3||
+Mardochee Nzita|65|46|60|LB|3|BEL|2000
+Antoine Colassin|64|62|58|CAM|3|BEL|2001
+Mohamed Koné|68|66|67|GK|3|CIV|2002
+Noah Solheid|71|64|72|CM|3||
+Massamba Sow|64|30|42|CB|3|FRA|2004
+Mory Kera|67|60|68|CM|3||
+Naël Piron|63|56|64|LM|3||
+Rafaël Teugels|63|56|64|CAM|3||
+Cheick Keita|69|30|43|CB|3|FRA|2003
+Tobe Leysen|71|67|70|GK|4|BEL|2002
+Benjamin Tahirović|67|50|62|CDM|4|BIH|2003
+Christiaan Ravych|70|28|53|CB|4|BEL|2002
+Matte Smets|76|33|69|CB|4|BEL|2004
+Bryan Heynen|79|73|76|CDM|4|BEL|1997
+Junya Itō|76|69|72|RM|4|JPN|1993
+Jeppe Erenbjerg|74|72|71|CAM|4|DEN|2000
+Rafiu Durosinmi|74|72|61|ST|4|NGA|2003
+Joris Kayembe|75|60|72|LB|4|COD|1994
+Yaimar Medina|70|58|64|LB|4|ECU|2004
+Kevin Amaro|71|53|57|RB|4|URU|2004
+Ibrahima Sory Bangoura|70|41|57|CDM|4|GUI|2004
+Aaron Bibout|59|60|37|ST|4|CMR|2004
+Nikolas Sattlberger|70|43|63|CDM|4|AUT|2004
+Milan Roganović|63|56|64|CAM|4||
+Tobias Lawal|71|70|70|GK|4|AUT|2000
+Ken Nkuba|67|61|61|RM|4|BEL|2002
+Lucca Brughmans|59|59|58|GK|4|BEL|2008
+Ayumu Yokoyama|64|58|60|LM|4|JPN|2003
+Noah Adedeji-Sternberg|69|66|62|LM|4|BEL|2005
+Jerry Afriyie|69|62|70|CDM|4||
+Adrián Palacios|59|27|41|CB|4|VEN|2004
+Daan Heymans|73|76|71|CAM|4|BEL|1999
+Josue Kongolo|62|29|46|CB|4|BEL|2006
+August De Wannemacker|65|58|66|LM|4||
+Christian Akpan|67|60|68|LM|4||
+Elie Mbavu|73|66|74|RM|4||
+Emmanuel Sarfo|67|60|68|LM|4||
+Kenan Haroun|68|61|69|RM|4||
+Emile Doucouré|71|64|72|CM|4||
+Maksim Paskotši|64|40|54|CB|5|EST|2003
+El Bachir Ngom|69|62|70|LM|5||
+Michel-Ange Balikwisha|70|68|67|LW|5|COD|2001
+László Bénes|71|73|74|CM|5|SVK|1997
+Aimé Omgba|66|62|63|CAM|5|NED|2002
+Momodou Sonko|67|63|57|LM|5|SWE|2005
+Kyrell Wilson|61|54|62|CM|5||
+Christian Burgess|79|34|55|CB|5|ENG|1991
+Mathias Delorge|72|61|74|CM|5|BEL|2004
+Matisse Samoise|70|64|66|RB|5|BEL|2001
+Tiago Araújo|69|60|67|LM|5|POR|2001
+Max Dean|70|72|55|ST|5|ENG|2004
+Leonardo Lopes|70|62|66|CM|5|POR|1999
+Tom Vandenberghe|67|66|66|GK|5|BEL|1992
+Tibe De Vlieger|61|65|62|CAM|5|BEL|2005
+Mohammed El Âdfaoui|58|38|56|CDM|5|BEL|2008
+Lars Cooman|66|59|67|CM|5||
+Kjell Peersman|61|62|60|GK|5|BEL|2004
+Bas Evers|63|56|64|CDM|5||
+Davy Roef|76|74|75|GK|5|BEL|1994
+Gilles De Meyer|61|55|55|RB|5|BEL|2006
+Abdelkahar Kadri|75|72|73|CM|5|ALG|2000
+Abdoul Ayinde|66|59|67|CM|5||
+Siebe Van der Heyden|73|34|57|CB|5|BEL|1998
+Hyllarion Goore|62|59|49|ST|5|CIV|2005
+Josué Vergara|66|59|67|RM|5||
+Victor De Coninck|65|58|66|CM|5||
+Mamadou Diallo|54|54|53|GK|5|ENG|2008
+Matties Volckaert|68|61|69|LM|5||
+El Hadji Seck|62|55|63|LM|5||
+Abubakar Abdullahi|68|61|69|RM|5||
+Ibrahima Cissé|61|30|44|CB|5|MLI|2001
+Pieter Gerkens|69|68|68|CM|5|BEL|1995
+Patrik Gunnarsson|66|62|65|GK|6|ISL|2000
+Matthew Anderson|60|53|61|CAM|6||
+Harrison Murray-Campbell|66|62|58|LW|6|RSA|2005
+James Ndjeungoue|67|60|68|CDM|6||
+Liam De Smet|65|58|66|LM|6||
+Suf Podgoreanu|65|64|60|LW|6|ISR|2002
+Nayel Mehssatou|67|57|65|CM|6|CHI|2002
+Goduine Koyalipou|72|70|62|ST|6|CTA|2000
+Shandre Campbell|66|62|58|LW|6|RSA|2005
+Ebbe De Vlaeminck|63|56|64|RM|6||
+Lenn De Smet|63|56|64|LM|6||
+Mohamed Fofana|60|53|61|CDM|6||
+Rok Štorman|62|55|63|CAM|6||
+Jellert Van Landschoot|60|53|61|CM|6||
+Brecht Dejaegere|71|69|71|CM|6|BEL|1991
+Gilles Dewaele|65|58|66|RM|6||
+Axel Drouhin|67|27|45|CB|6|FRA|2000
+Gilles Ruyssen|62|55|63|RM|6||
+Jamie Roche|70|65|65|CM|6|SWE|2001
+Basile Vroninks|58|51|59|LM|6||
+Marko Ilić|69|69|68|GK|6|SRB|1998
+Boris Lambert|63|56|64|CAM|6||
+Rudy Kohon|64|57|65|LM|6||
+Thierry Ambrose|71|72|61|ST|6|FRA|1997
+Anthony Philips|66|59|67|LM|6||
+Ken Masui|68|57|61|LM|6|JPN|2001
+Sixtus Ogbuehi|61|54|62|CM|6||
+Nolan Gillot|60|30|52|RB|7|FRA|2002
+Wagane Faye|66|23|42|CB|7|SEN|1993
+Thierry Lutonda|65|31|57|LB|7|BEL|2000
+Mátyás Kovács|63|56|64|LM|7||
+Elias Filet|61|54|62|LM|7||
+Mame Wade|68|61|69|LM|7||
+Mustapha Isah|63|59|53|ST|7|NGA|2004
+Mouhamed Belkheir|70|71|67|RW|7|ALG|1999
+Tiago Pereira Cardoso|67|62|66|GK|7|LUX|2006
+Shaquil Delos|69|54|58|RB|7|FRA|1999
+Timéo Kerckhofs|64|57|65|CAM|7||
+Noah Makembo-Ntemo|63|56|64|CM|7||
+Marcos Peano|71|71|70|GK|7|ARG|1998
+Siad Gourville|61|38|46|CB|7|FRA|2000
+Joël Ito|68|63|64|CM|7|BEL|1998
+Djibril Lamego|70|50|63|CB|7|FRA|2003
+Bryan Soumaré|62|55|63|CDM|7||
+Marius Courcoul|65|42|54|CDM|7|FRA|2007
+Zsombor Gruber|69|70|58|ST|7|HUN|2004
+Patrick Nkoa|63|56|64|CDM|7||
+Quentin Benaets|53|53|43|RW|7|BEL|2003
+Mehdi Boukamir|62|25|39|CB|7|MAR|2004
+Ismaila Coulibaly|67|63|62|CM|7|MLI|2000
+Lucas Monteiro|61|54|62|LM|7||
+Anas Tajaouart|54|44|56|CM|7|MAR|2005
+Léandro Rousseau|62|55|63|CM|7||
+Théo Radelet|64|57|65|CDM|7||
+Yllan Okou|65|31|48|CB|7|FRA|2003
+Ortwin De Wolf|73|69|72|GK|8|BEL|1997
+Luc Marijnissen|63|24|45|CB|8|NED|2003
+José Marsà|67|41|55|CB|8|ESP|2002
+Gora Diouf|67|27|44|CB|8|SEN|2003
+Leo Hjelde|66|32|55|LB|8|NOR|2003
+Fredrik Hammar|72|57|66|CDM|8|SWE|2001
+Thérence Koudou|69|57|65|RB|8|FRA|2004
+Dikeni Salifou|64|48|59|CDM|8|TOG|2003
+Myron van Brederode|73|64|65|LM|8|NED|2003
+Maksim Kireev|61|54|62|CAM|8||
+Bilal Bafdili|68|58|65|CAM|8|BEL|2004
+Nacho Miras|63|64|62|GK|8|ESP|1997
+Benito Raman|73|73|67|ST|8|BEL|1994
+Tijn Van Ingelgom|57|57|56|GK|8|BEL|2007
+Adeshina Adoyele|63|56|64|CAM|8||
+Cedric Van Meirvenne|66|59|67|CDM|8||
+Ian Struyf|60|48|56|CB|8|BEL|2007
+Malcolm Lohunanu-Mbasi|64|57|65|CM|8||
+Kobe Corbanie|67|55|63|RB|8|BEL|2005
+Halil Özdemir|58|59|50|ST|8|BEL|2005
+Simion Michez|65|58|66|RM|8||
+Dennis Praet|74|71|75|CAM|8|BEL|1994
+Keano Vanrafelghem|63|64|57|ST|8|BEL|2003
+Bouke Boersma|63|56|64|CM|8||
+Bill Antonio|62|56|55|RM|8|ZIM|2002
+Marco Decherf|61|54|62|CDM|8||
+Axel Willockx|55|55|54|GK|8|BEL|2007
+Tommy St. Jago|69|32|53|ST|8|NED|2000
+Massimo Decoene|63|56|64|CM|8||
+Amine Ouahabi|55|46|55|CM|8|BEL|2008
+Ryan Teague|68|56|61|CDM|8|AUS|2002
+Mike Eerdhuijzen|73|25|54|CB|8|NED|2000
+Mats Van Helden|67|60|68|CM|8||
+Yanis Asghir|62|55|63|LM|8||
+Matthieu Epolo|75|73|74|GK|9|COD|2005
+Gustav Mortensen|67|60|68|CM|9||
+Dimitri Lavalée|72|50|63|LB|9|BEL|1997
+Laurens Goemaere|68|61|69|CAM|9||
+Tobias Mohr|70|65|68|LM|9|GER|1995
+Andi Zeqiri|72|74|60|ST|9|SUI|1999
+Dennis Eckert|62|55|63|CM|9||
+Adnane Abid|58|49|54|RW|9|BEL|2003
+Marlon Fossey|71|53|62|RB|9|USA|1998
+Salieu Drammeh|69|62|70|CAM|9||
+Bernard Nguene|60|58|47|ST|9|CMR|2006
+Henry Lawrence|67|45|58|CB|9|ENG|2001
+Sylvester Jasper|64|57|60|RM|9|BUL|2000
+Ibrahim Karamoko|61|47|54|CDM|9|FRA|2001
+Lucas Pirard|67|65|66|GK|9|BEL|1995
+Alexis Trouillet|68|55|67|CM|9|FRA|2001
+Marco Ilaimaharitra|71|62|67|CDM|9|MAD|1995
+Josué Homawoo|69|30|46|CB|9|TOG|1997
+Ibe Hautekiet|70|33|51|CB|9|BEL|2002
+Mohamed El Hankouri|63|56|64|LM|9||
+Daan Dierckx|65|31|48|CB|9|BEL|2003
+Noah Sy|70|63|71|LM|9||
+Belmin Dizdarević|66|59|67|RM|9||
+Bruny Nsimba|70|68|55|ST|9|BEL|2000
+Ryan Fosso|68|48|61|CDM|9|SUI|2002
+Rayan Touzghar|65|57|65|CM|9|MAR|2003
+Casper Nielsen|71|70|69|CDM|9|DEN|1994
+Dani van den Heuvel|60|60|59|GK|10|NED|2003
+Noë Dussenne|73|50|52|CB|10|BEL|1992
+Birger Verstraete|67|63|68|CM|10|BEL|1994
+Jamie Lawrence|70|26|49|CB|10|GER|2002
+Wouter George|59|50|61|CM|10|BEL|2002
+Emmanuel Addai|70|60|66|LM|10|GHA|2001
+Siebe Schrijvers|73|72|73|CM|10|BEL|1996
+Abdoul Karim Traoré|69|58|63|CDM|10|MLI|2005
+Thibaud Verlinden|70|63|66|LM|10|BEL|1999
+Henok Teklab|65|61|65|LM|10|GER|1998
+Kiany Vroman|66|59|67|CM|10||
+Viktor Damjanić|66|38|55|CB|10|CRO|2005
+Kyan Vaesen|66|65|58|ST|10|BEL|2001
+Robin Mirisola|61|54|62|CM|10||
+Chukwubuikem Ikwuemesi|69|69|61|ST|10|NGA|2001
+Shin Yamada|68|67|49|ST|10|JPN|2000
+William Balikwisha|67|61|63|CAM|10|COD|1999
+Łukasz Łakomy|71|65|66|CM|10|POL|2001
+Manuel Osifo|67|60|68|CAM|10||
+Takuya Ogiwara|66|59|66|LB|10|JPN|1999
+Óscar Gil|69|46|62|RB|10|ESP|1998
+Ewoud Pletinckx|70|30|46|CB|10|BEL|2000
+Alessandro Fontanarosa|67|52|56|CB|10|ITA|2003
+Roggerio Nyakossi|61|26|41|CB|10|SUI|2004
+Hasan Bulut|66|59|67|CM|10||
+Bryang Kayo|64|50|61|CM|10|USA|2002
+Owen Jochmans|58|59|57|GK|10|BEL|2003
+Christ Souanga|55|27|32|LB|10|BEL|2006
+Sebastian Murru|66|59|67|LM|10||
+Thibault Vlietinck|65|57|63|RM|10|BEL|1997
+Matteo Heremans|64|57|65|CAM|10||
+Marcel Van Dijck|69|62|70|CDM|10||
+Chike Van De Ven|62|55|63|RM|10||
+Davis Opoku|62|55|63|CAM|10||
+Nikola Ivezić|65|58|66|RM|11||
+Jason van Duiven|64|66|49|ST|11|NED|2005
+Timothy Eyoma|64|57|65|RM|11||
+Shawn Adewoye|67|24|46|CB|11|BEL|2000
+Dries Wouters|63|56|64|CM|11||
+Joey Pelupessy|70|63|71|CM|11||
+Juho Talvitie|66|53|59|RM|11|FIN|2005
+Nicolas Rommens|68|62|71|CM|11|BEL|1994
+Don-Angelo Konadu|63|60|48|ST|11|NED|2006
+Tom Reyners|68|66|61|RW|11|BEL|2000
+Stredair Appuah|62|55|63|CM|11||
+Jhon Banguera|61|54|62|RM|11||
+Jesper Tolinsson|61|54|62|CM|11||
+Lucas Schoofs|68|64|64|CM|11|BEL|1997
+Emile Vandecraen|64|57|65|CDM|11||
+Đorđe Gordić|64|57|65|CM|11||
+Matthias Pieklak|67|60|68|CAM|11||
+Josias Lama|66|59|67|CAM|11||
+Ralf Seuntjens|69|62|70|RM|11||
+Rik Vercauteren|63|56|64|CDM|11||
+Henry Oware|55|48|56|CM|11||
+Sverre Nypan|69|64|67|CM|11|NOR|2006
+Isaiah Dada-Mascoll|56|49|57|CDM|11||
+Niek Corthouts|61|54|62|CAM|11||
+Tristan Gooijer|62|55|63|RM|11||
+Lars Beirinckx|62|55|63|CM|11||
+Alexander Reumers|61|54|62|CDM|11||
+Sam de Grand|65|58|66|CAM|11||
+Taiga Hata|67|56|63|LB|12|JPN|2002
+Shōgo Taniguchi|69|45|59|CB|12|JPN|1991
+Arbnor Muja|74|69|68|LM|12|ALB|1998
+Abdoulaye Sissako|74|64|69|CM|12|FRA|1998
+Samed Baždar|69|66|70|ST|12|BIH|2004
+Ilias Sebaoui|72|68|67|LM|12|MAR|2001
+Nathanaël Mbuku|73|63|68|RM|12|COD|2002
+Ryan Merlen|63|56|64|CDM|12||
+Leo Kokubo|74|75|73|GK|12|JPN|2001
+Nelson Ishiwatari|64|57|65|LM|12||
+Frédéric Soèllé Soèllé|64|57|65|RM|12||
+Matt Lendfers|55|57|54|GK|12|BEL|2006
+Wolke Janssens|65|62|57|CB|12|BEL|1995
+Joedrick Pupe|67|60|68|RM|12||
+Ahmad Abu Rasen|63|56|64|LM|12||
+Visar Musliu|73|34|53|CB|12|MKD|1994
+Jeremy Mbambi|69|62|70|RM|12||
+Illyès Benachour|66|59|67|CM|12||
+Alouis Diriken|62|55|63|CAM|12||
+Kaito Matsuzawa|55|48|60|CAM|12|JPN|2001
+Rune Verheyden|72|65|73|CM|12||
+Robert-Jan Vanwesemael|66|49|60|RM|12|BEL|2002
+Ryōtarō Araki|69|66|63|CAM|12|JPN|2002
+Oumar Diouf|64|57|65|LM|12||
+Shion Shinkawa|69|62|70|CM|12||
+Vic Chambaere|67|62|66|GK|13|BEL|2003
+Nohim Chibani|67|60|68|CM|13||
+Kevin Mac Allister|79|49|61|CB|13|ARG|1997
+Kamiel Van de Perre|70|46|63|CDM|13|BEL|2004
+Adem Zorgane|79|71|78|CDM|13|ALG|2000
+Mateo Biondic|68|61|69|CAM|13||
+Anouar Ait El Hadj|74|71|71|CAM|13|BEL|2002
+Guilherme Smith|68|61|69|CDM|13||
+Hervé Koffi|79|77|78|GK|13|BFA|1996
+Kevin Rodríguez|71|68|58|ST|13|ECU|2000
+Ivan Pavlić|64|57|65|CM|13||
+Rob Schoofs|76|72|76|CM|13|BEL|1994
+Giorgi Kavlashvili|54|56|53|GK|13|GEO|2007
+Dylan Aquino|69|58|64|LM|13|ARG|2005
+Denzel De Roeve|62|31|51|RB|13|BEL|2004
+Besfort Zeneli|71|65|70|CM|13|SWE|2002
+Ilan Hurtevent|67|60|68|LM|13||
+Ross Sykes|72|47|57|CB|13|ENG|1999
+Louis Patris|69|59|66|RM|13|BEL|2001
+Darius Olaru|73|75|73|CM|13|ROU|1998
+Massiré Sylla|68|61|69|RM|13||
+Raul Florucz|73|75|70|RW|13|AUT|2001
+Relebohile Mofokeng|69|60|66|CAM|13|RSA|2004
+Nikki Havenaar|66|38|40|CB|13|JPN|1995
+Keo Boets|65|58|66|CM|13||
+Ondřej Kričfaluši|65|58|66|CDM|13||
+Bill Lathouwers|66|59|67|RM|14||
+Lasse Flø|60|35|55|RB|14|DEN|2005
+Amando Lapage|62|38|41|CB|14|BEL|2004
+Seiji Kimura|59|23|42|CB|14|JPN|2001
+Reno Münz|67|37|60|CB|14|GER|2005
+Shunsuke Saito|60|53|61|CM|14||
+Serhiy Sydorchuk|68|65|61|CDM|14|UKR|1991
+Norman Bassette|67|65|51|ST|14|BEL|2004
+Nikola Storm|74|73|71|LM|14|BEL|1994
+Naoufal Bohamdi-Kamoni|69|62|70|CDM|14||
+Reda Laalaoui|61|54|61|CM|14|MAR|2005
+Isa Sakamoto|69|67|61|CAM|14|JPN|2003
+Cisse Sandra|67|65|65|ST|14|BEL|2003
+David Amegnaglo|66|59|67|CAM|14||
+Cameron Congreve|68|62|65|RM|14|WAL|2004
+Jahnilo Wiegel-Triebel|67|60|68|RM|14||
+Emmanuel Tsimba|63|56|64|CDM|14||
+Lucas Mbamba|64|57|65|CM|14||
+Michée Ndembi|63|56|64|CAM|14||
+Abdoulaye Koné|64|57|65|LM|14||
+Dylan Ourega|65|30|58|LB|14|FRA|2004
+Doğucan Haspolat|76|56|73|CDM|14|TUR|2000
+Thomas Van den Keybus|69|54|66|CDM|14|BEL|2001
+Ibrahim Fofana|61|54|60|CM|14|CIV|2003
+Yang Min-hyeok|70|67|62|RM|14|KOR|2006
+Philippe Bibout|64|57|65|CAM|14||
+Fabio Ferraro|67|57|60|LB|14|BEL|2002
+Andreas Jungdal|64|60|63|GK|14|DEN|2002
+Louis Bostyn|64|63|63|GK|15|BEL|1993
+Laurent Lemoine|65|32|42|CB|15|BEL|1998
+Jakob Kiilerich|67|34|46|CB|15|DEN|2000
+Enrique Lofolomo|67|54|61|CDM|15|GER|2000
+Nikola Mituljikić|64|60|59|RW|15|SRB|2003
+Thomas Claes|66|65|69|CM|15|BEL|2004
+Malick Mbaye|65|62|59|RM|15|SEN|2004
+Marley Aké|71|67|65|LM|15|FRA|2001
+Wilguens Paugain|55|34|42|RB|15|HAI|2001
+Brent Gabriël|68|67|67|GK|15|BEL|1999
+Youssoupha Mbodji|68|54|59|LB|15|SEN|2004
+Anosike Ementa|69|68|55|ST|15|DEN|2002
+Niko Horvat|65|58|66|CDM|15||
+Tobias Hedl|63|66|47|ST|15|AUT|2003
+Zalán Átrok|64|57|65|CDM|15||
+Ousseynou Niang|75|70|68|LM|15|SEN|2001
+Salim Diakité|69|62|61|CB|15|MLI|2000
+Mouhamadou Sall|64|57|65|CAM|15||
+Tristan Panduro|61|54|62|CAM|15||
+Serxho Ujka|62|55|63|LM|15||
+Dirk Asare|61|54|62|CAM|15||
+Florian Van Bever|61|54|62|CAM|15||
+Arnaud Dobbels|56|58|55|GK|15|BEL|2005
+Benoit De Jaegere|65|58|66|LM|15||
+Franz Tangala|59|52|60|CDM|15||
+Kewan Vemba|64|57|65|CAM|15||
+Yannick Cappelle|60|40|53|LB|15|BEL|2003
+Hemsley Akpa-Chukwu|61|61|50|ST|15|CMR|2005
+Gaëtan Coucke|68|67|67|GK|16|BEL|1998
+Ibrahim Diakité|66|42|54|CB|16|GUI|2003
+Yago Lincoln|61|54|62|LM|16||
+Emmanuel Kakou|62|27|52|CB|16|CIV|2005
+Abdoul Kader Ouattara|62|62|46|ST|16|BFA|2005
+Erick Nunes|59|52|60|CAM|16||
+Steve Ngoura|67|65|50|ST|16|FRA|2005
+Lazare Amani|71|65|68|CM|16|CIV|1998
+Charles Herrmann|62|61|58|RM|16|GER|2006
+Valy Konaté|62|55|57|LB|16|CIV|2006
+Dante Vanzeir|69|66|69|ST|16|BEL|1998
+Gary Magnée|72|67|70|LM|16|BEL|1999
+Joel Ndala|66|59|57|LM|16|ENG|2006
+Luke Le Roux|66|59|62|CM|16|RSA|2000
+Abdoulie Manneh|73|67|66|LW|16|GAM|2004
+Yann Lienard|65|65|64|GK|16|FRA|2003
+Lucas Michal|64|58|58|LM|16|FRA|2005
+Geoffrey Kondo|62|40|58|LB|16|FRA|2002
+Hannes Van der Bruggen|70|62|70|CM|16|BEL|1993
+Tunde Akinsola|60|53|61|RM|16||
+Royer Caicedo|60|23|34|CB|16|COL|2006
+Krys Kouassi|59|52|60|CM|16||
+Lukas Mondele|63|56|64|CM|16||
+Tayo Adaramola|66|50|60|LB|16|IRL|2003
+Viggo Martens|65|58|66|CDM|16||
+Sebbe Gheerardyns|64|57|65|CM|16||
+Bas Langenbick|57|58|56|GK|16|BEL|2003
+Tiemen De Bel|58|51|59|RM|16||
+Yann Sommer|84|83|83|GK|17|SUI|1988
+Lee Han-beom|69|29|51|CB|17|KOR|2002
+Joel Ordóñez|76|26|55|CB|17|ECU|2004
+Nicolò Tresoldi|75|72|56|ST|17|GER|2004
+Freddie Potts|73|58|71|CDM|17|ENG|2003
+Carlos Forbs|70|67|62|LW|17|POR|2004
+Hugo Vetlesen|72|68|70|CDM|17|NOR|2000
+Jan Virgili|71|64|72|CDM|17||
+Cheveyo Tsawa|62|48|62|CM|17|SUI|2007
+Romeo Vermant|73|71|58|ST|17|BEL|2004
+Hans Vanaken|81|80|85|CAM|17|BEL|1992
+Wisdom Mike|68|61|69|CDM|17||
+Nordin Jackers|70|68|69|GK|17|BEL|1997
+Matteo Dams|68|50|56|LB|17|BEL|2004
+Hugo Siquet|70|62|73|RM|17|BEL|2002
+Brandon Mechele|78|40|57|CB|17|BEL|1993
+Samba Coulibaly|77|70|78|CAM|17||
+Jorne Spileers|70|31|58|CB|17|BEL|2005
+Lynnt Audoor|66|54|66|CDM|17|BEL|2003
+Kyriani Sabbe|72|62|69|RB|17|BEL|2005
+Joaquin Seys|74|54|70|LB|17|BEL|2005
+Mamadou Diakhon|70|63|63|LM|17|SEN|2005
+Alejandro Granados|64|52|68|CM|17|ESP|2006
+Andrej Vasovic|58|63|42|ST|17|SUI|2007
+Félix Lemaréchal|73|67|73|CAM|17|FRA|2003
+Argus Vanden Driessche|69|62|70|LM|17||
+Tian Nai Koren|69|62|70|CM|17||
+Gianluca Okon|69|62|70|CM|17||
+Marc-André ter Stegen|82|81|81|GK|18|GER|1992
+Lucas Rosa|71|42|61|RB|18|BRA|2000
+Anton Gaaei|71|66|63|RB|18|DEN|2002
+Sofyan Amrabat|79|70|74|CDM|18|MAR|1996
+Owen Wijndal|71|54|69|LB|18|NED|1999
+Julian Brandt|82|77|83|CAM|18|GER|1996
+Kasper Dolberg|77|78|66|ST|18|DEN|1997
+Oscar Gloukh|77|74|73|CAM|18|ISR|2004
+Viktor Tsyhankov|70|63|71|CM|18||
+Caio Henrique|77|58|77|LB|18|BRA|1997
+Youri Baas|78|41|72|CB|18|NED|2003
+Daley Blind|75|62|82|CB|18|NED|1990
+Davy Klaassen|76|77|72|CM|18|NED|1993
+Oliver Edvardsen|72|67|64|LW|18|NOR|1999
+Jofre Torrents|73|66|74|LM|18||
+Joeri Heerkens|66|62|65|GK|18|NED|2006
+Steven Berghuis|76|75|84|RW|18|NED|1991
+Jorthy Mokio|71|50|64|CDM|18|COD|2008
+Maarten Paes|71|70|70|GK|18|IDN|1998
+Yves Bissouma|78|66|74|CDM|18|MLI|1996
+Aaron Bouwman|64|50|52|CB|18|NED|2007
+Dies Janse|70|36|61|CB|18|NED|2006
+Marcos Leonardo|79|78|63|ST|18|BRA|2003
+Jano Monserrate|73|66|74|CM|18||
+Fouad Zahouani|75|68|76|CM|18||
+Rayane Bounida|69|62|72|RW|18|MAR|2006
+Marvyn Muzungu|72|65|73|CM|18||
+Charlie Setford|69|62|70|CAM|18||
+Abdellah Ouazane|66|61|64|CAM|18|MAR|2009
+Tolu Arokodare|75|74|56|ST|18|NGA|2000
+Rome-Jayden Owusu-Oduro|70|69|69|GK|19|NED|2004
+Seiya Maikuma|72|61|67|RB|19|JPN|1997
+Wouter Goes|77|31|58|CB|19|NED|2004
+Lewis Schouten|62|47|59|CB|19|NED|2004
+Mateo Chávez|70|45|63|LB|19|MEX|2004
+Peer Koopmeiners|74|54|73|CDM|19|NED|2000
+Weslley Patati|69|62|70|CDM|19||
+Jordy Clasie|77|63|79|CDM|19|NED|1991
+Mexx Meerdink|74|72|58|ST|19|NED|2003
+Kees Smit|75|63|74|CM|19|NED|2006
+Ro-Zangelo Daal|72|62|66|LW|19|NED|2004
+Hobie Verhulst|65|64|64|GK|19|NED|1993
+Calvin Stengs|76|68|77|CAM|19|NED|1998
+Stije Resink|72|59|68|CDM|19|NED|2003
+Valdemar Byskov|70|65|74|CM|19|DEN|2005
+Bendegúz Kovács|76|69|77|CM|19||
+Jizz Hornkamp|68|72|55|ST|19|NED|1998
+Andrea Natali|60|33|53|CB|19|ITA|2008
+Dave Kwakman|68|57|66|CM|19|NED|2004
+Elijah Dijkstra|70|53|64|RB|19|NED|2006
+Ayoub Oufkir|66|60|63|RW|19|NED|2006
+Wassim Bouziane|70|63|71|CM|19||
+Jari De Busser|73|72|72|GK|19|BEL|1999
+Wesley Hoedt|74|46|71|CB|19|NED|1994
+Denso Kasius|73|58|68|RB|19|NED|2002
+Rion Ichihara|67|35|64|CB|19|JPN|2005
+Mees de Wit|70|54|69|LB|19|NED|1998
+Jeroen Zoet|68|66|67|GK|19|NED|1991
+Thijs Jansen|68|65|67|GK|20|NED|2001
+Devid Eugene Bouah|65|42|62|RM|20|ITA|2001
+Jorn Berkhout|58|51|59|CM|20||
+Ismaël Baouf|64|57|65|CM|20||
+Wout Asselman|62|55|63|CDM|20||
+Jamal Amofa|68|34|50|CB|20|NED|1998
+Sami Bouhoudane|64|57|65|CAM|20||
+Nicky Souren|68|61|69|CM|20||
+Skye Vink|63|56|64|CM|20||
+Rafik El Arguioui|60|54|59|CAM|20|MAR|2005
+Ilyes Hamache|65|60|59|LW|20|FRA|2003
+Nicolas Binder|63|56|64|CM|20||
+Billy van Duijl|62|32|48|CB|20|NED|2005
+Fabian Kvam|62|55|63|LM|20||
+Rik Mulders|67|60|68|CM|20||
+Ethan Apkakou|61|54|62|CM|20||
+Wiebe van der Heide|65|58|66|CAM|20||
+Danyello Look|61|54|62|CAM|20||
+Daan Visser|60|53|61|CAM|20||
+Jasper Meijster|60|53|61|CDM|20||
+Luca Plogmann|67|68|66|GK|20|GER|2000
+Lucas Jetten|62|45|56|LB|20|NED|2007
+Matthijs Kalisvaart|60|53|61|LM|20||
+Wiebe Kooistra|65|58|66|CM|20||
+Morgan Costarelli|59|52|60|CAM|20||
+Iwan Henstra|59|52|60|RM|20||
+Jason Ceka|67|62|62|RW|20|GER|1999
+Mathieu Maertens|69|70|68|CAM|20|BEL|1995
+Kilian Nikiema|68|65|67|GK|21|BFA|2003
+Othniël Raterink|56|49|57|CDM|21||
+Pascal Mulder|63|56|64|LM|21||
+Matteo Waem|56|49|57|RM|21||
+Jonas Jensen-Abbew|64|34|48|CB|21|DEN|2002
+Daryl van Mieghem|66|62|62|RM|21|NED|1989
+Jan Žambůrek|66|58|61|CDM|21|CZE|2001
+Jesse Bal|58|51|59|RM|21||
+Illaijh de Ruijter|63|56|64|RM|21||
+Evan Rottier|66|64|55|ST|21|NED|2002
+Sem Eekhout|60|53|61|CM|21||
+Mylian Jimenez|66|59|67|RM|21||
+Milan Hokke|64|57|65|CAM|21||
+Finn de Bruin|60|53|61|CM|21||
+Jalen Hawkins|61|49|52|RM|21|USA|2001
+Sekou Sylla|68|61|69|CM|21||
+Luka Reischl|64|57|65|RM|21||
+Caleb Kramer|66|59|67|CM|21||
+Cameron Peupion|63|56|64|CM|21||
+Lasse Wilhelm|61|31|48|CB|21|GER|2003
+Niclas Thiede|66|65|65|GK|21|GER|1999
+Alejandro Pozo|69|64|66|RM|21|ESP|1999
+Juho Kilo|66|59|67|CM|21||
+Nigel Thomas|65|59|58|RM|21|CUW|2002
+Dani van Loenen|61|54|62|LM|21||
+Matěj Šín|72|64|71|CAM|21|CZE|2004
+Sanyika Bergtop|65|58|66|CM|21||
+Yannick Eduardo|59|52|60|RM|21||
+Donát Bárány|68|61|69|CDM|21||
+Luuk Koopmans|66|65|65|GK|22|NED|1993
+Siebe Wylin|60|53|61|CM|22||
+Rodrigo Guth|69|38|51|CB|22|BRA|2000
+Yassin Oukili|67|67|64|CM|22|MAR|2001
+Syb van Ottele|67|55|50|CB|22|NED|2002
+Kristoffer Peterson|67|68|63|LM|22|SWE|1994
+Jasper Dahlhaus|66|59|60|LB|22|NED|2001
+Anthony Descotte|65|68|55|ST|22|BEL|2003
+Ole Romeny|67|69|62|CAM|22|IDN|2000
+Ivo Pinto|69|46|63|RB|22|POR|1990
+Sven Simons|62|55|63|RM|22||
+Nick de Groot|64|57|65|CM|22||
+Édouard Michut|68|57|68|CDM|22|FRA|2003
+Shiloh 't Zand|66|67|63|CAM|22|NED|2003
+Philip Brittijn|68|61|64|CDM|22|NED|2004
+Daley Sinkgraven|69|60|71|LB|22|NED|1995
+Lequincio Zeefuik|65|64|49|ST|22|NED|2004
+Justin Hubner|64|40|53|CB|22|IDN|2003
+Mattijs Branderhorst|71|70|70|GK|22|NED|1993
+Kaylen Reitmaier|64|57|65|CAM|22||
+Kevin van Burgsteden|70|63|71|CDM|22||
+Moussa Gbemou|59|52|60|CDM|22||
+Gani Büyükhan|59|52|60|CDM|22||
+Iván Márquez|69|43|50|CB|22|ESP|1994
+Mohamed Ihattaren|74|71|75|CAM|22|MAR|2002
+Kjetil Haug|71|69|70|GK|23|NOR|1998
+Alfons Sampsted|68|47|60|RB|23|ISL|1998
+Gerrit Nauber|70|35|45|CB|23|GER|1992
+Joris Kramer|73|36|57|CB|23|NED|1996
+Dean James|69|56|65|LB|23|IDN|2000
+Tino Jukić|70|63|71|CM|23||
+Evert Linthorst|68|60|61|CDM|23|NED|2000
+Stefán Ingi Sigurðarson|66|66|53|ST|23|ISL|2001
+Søren Tengstedt|65|64|61|CAM|23|DEN|2000
+Oskar Sivertsen|63|58|57|LM|23|NOR|2004
+Robbin Weijenberg|61|49|61|CAM|23|NED|2004
+Victor Edvardsen|70|69|65|ST|23|SWE|1996
+Mathis Suray|71|70|68|LM|23|BEL|2001
+Richonell Margaret|66|61|59|RM|23|SUR|2000
+Eus Waayers|67|60|68|CM|23||
+Melle Meulensteen|74|67|68|CDM|23|NED|1999
+Nick Marsman|62|55|63|LM|23||
+Thibo Baeten|64|62|42|ST|23|BEL|2002
+Giovanni van Zwam|66|59|67|LM|23||
+Julius Dirksen|62|31|49|LB|23|NED|2003
+Tomas Galvez|60|53|61|CM|23||
+Pim Saathof|57|47|52|CB|23|NED|2004
+Erik Flataker|66|65|52|ST|23|NOR|2004
+Thomas Hulleman|68|61|69|CM|23||
+Dani Tijman|61|54|62|CM|23||
+Ofosu Boakye|57|57|49|ST|23|GHA|2007
+Nando Verdoni|58|58|57|GK|23|NED|2003
+Yassir Salah Rahmouni|57|44|56|CM|23|NED|2006
+Terence Lantveld|63|56|64|CM|23||
+Etienne Vaessen|71|68|70|GK|24|SUR|1995
+Wouter Prins|64|29|50|LB|24|NED|2004
+Thijmen Blokzijl|72|32|57|CB|24|NED|2005
+Márk Csinger|63|56|64|CDM|24||
+Marco Rente|68|31|53|RB|24|GER|1997
+Travis Hernes|61|54|62|LM|24||
+Tika de Jonge|66|57|66|CM|24|NED|2003
+Brynjólfur Willumsson|65|64|54|ST|24|ISL|2000
+Jacob Ondrejka|73|72|71|LW|24|SWE|2002
+Nikolas Brandis|62|55|63|CM|24||
+Lovro Štubljar|62|63|61|GK|24|SVN|2004
+Jorg Schreuders|68|63|62|LM|24|NED|2004
+Elvis van der Laan|57|23|38|CB|24|SWE|2008
+Alvin Nordin|61|54|62|CDM|24||
+David van der Werff|62|55|66|CAM|24|NED|2004
+Tygo Land|68|53|71|CM|24|NED|2006
+Oskar Zawada|68|67|56|ST|24|POL|1996
+Nils Eggens|62|55|63|RM|24||
+Malcolm Jeng|65|32|54|CB|24|SWE|2005
+Pelle Clement|67|61|70|CM|24|NED|1996
+Thom van Bergen|68|63|56|ST|24|NED|2004
+Tyrique Mercera|64|44|55|RB|24|CUW|2003
+Pelle Boevink|66|68|65|GK|24|NED|1998
+Rijk Janse|59|59|58|GK|24|NED|2002
+Hans Hateboer|76|63|71|CB|24|NED|1994
+Ryan Metu|61|54|62|LM|24||
+Jesper Mosselaar|64|57|65|CM|24||
+Mees Hilgers|71|43|54|CB|25|IDN|2001
+Maas Willemsen|62|34|48|CB|25|NED|2003
+Sam Kersten|66|45|48|CB|25|NED|1998
+Dirk Proper|70|56|65|CDM|25|NED|2002
+Maxence Rivera|67|61|61|LW|25|FRA|2002
+Dylan Vente|67|67|54|ST|25|SUR|1999
+Ringo Meerveld|73|67|69|CAM|25|NED|2002
+Luca Oyen|66|60|64|LW|25|BEL|2003
+Mats Egbring|66|59|67|CM|25||
+Levi Smans|67|62|63|CAM|25|NED|2003
+Marcus Linday|69|59|62|CDM|25|SWE|2003
+Roberts Uldriķis|64|63|55|ST|25|LVA|1998
+Vasilios Zagaritis|70|46|61|LB|25|GRE|2001
+Jacob Trenskow|73|70|69|RW|25|DEN|2000
+Bernt Klaverboer|68|68|67|GK|25|NED|2005
+Darling Bladi|62|55|63|CAM|25||
+Hristiyan Petrov|66|35|45|CB|25|BUL|2002
+Lanroy Machine|61|57|42|ST|25|FRA|2005
+Timo Schreuder|63|56|64|CM|25||
+Nolhan Courtens|64|57|65|CM|25||
+Jimte Scholten|64|57|65|CM|25||
+Andries Noppert|67|67|66|GK|25|NED|1994
+Oliver Braude|69|46|66|RB|25|NOR|2004
+Anass Bouziane|57|47|56|CAM|25|NED|2007
+Sten Kremers|63|56|64|CM|25||
+Gonzalo Crettaz|74|74|73|GK|26|ARG|2000
+Philippe Sandler|73|44|70|CB|26|NED|1997
+Perr Schuurs|76|64|71|CB|26|NED|1999
+Darko Nejašmić|76|49|65|CDM|26|CRO|1999
+Emre Mor|72|65|65|CAM|26|TUR|1997
+Isak Hansen-Aarøen|62|50|60|CAM|26|NOR|2004
+Tjaronn Chery|75|79|75|CAM|26|SUR|1988
+Dušan Tadić|79|75|84|CAM|26|SRB|1988
+Willum Þór Willumsson|70|69|71|CAM|26|ISL|1998
+Nikolas Polster|71|70|70|GK|26|AUT|2002
+Kaj Sierhuis|69|70|56|ST|26|NED|1998
+Bram Nuytinck|69|40|50|CB|26|NED|1990
+Dennis Geiger|71|53|72|CDM|26|GER|1998
+Adam Tahaui|72|65|73|RM|26||
+Noé Lebreton|72|64|68|CAM|26|FRA|2004
+Tobias Storm|64|45|58|CB|26|DEN|2004
+Ahmetcan Kaplan|74|30|58|CB|26|TUR|2003
+Deveron Fonville|69|34|47|CB|26|CUW|2003
+Sam de Laat|59|44|58|CM|26|NED|2006
+Bryan Linssen|74|74|71|ST|26|NED|1990
+Kevin Kers|66|59|67|CM|26||
+Jamiro Monteiro|69|59|70|CAM|26|CPV|1993
+Freek Entius|58|58|57|GK|26|NED|2006
+Merijn van de Wiel|66|59|67|CM|26||
+Joep Geneste|69|62|70|CDM|26||
+Yassin Moslih|70|63|71|RM|26||
+Almugera Kabar|65|45|60|LB|26|GER|2006
+Gabriel Brás|69|62|70|CM|26||
+Ayodele Thomas|64|62|57|LM|26|NED|2007
+Clement Bischoff|67|62|63|LM|26|DEN|2005
+Jasper Schendelaar|71|70|70|GK|27|NED|2000
+Sherel Floranus|65|42|54|LB|27|CUW|1998
+Olivier Aertssen|65|38|56|RB|27|NED|2004
+Tijs Velthuis|65|30|46|CB|27|NED|2002
+Jan Bürger|64|57|65|LM|27||
+Younes Namli|71|65|70|RM|27|DEN|1994
+Tobias Sommer|68|47|60|CDM|27|DEN|2001
+Elias Sørensen|66|65|62|LM|27|DEN|1999
+Koen Kostons|67|63|61|ST|27|NED|1999
+Dylan Mbayo|67|59|58|RM|27|BEL|2001
+Tom de Graaff|67|65|66|GK|27|NED|2004
+Sydney van Hooijdonk|68|69|57|ST|27|NED|2000
+Odysseus Velanas|66|65|62|LM|27|NED|1998
+Gabriël Reiziger|60|59|55|CAM|27|NED|2005
+Ibrahim Cissoko|67|60|61|LM|27|GUI|2003
+Nick Viergever|73|53|64|CB|27|NED|1989
+Thijs Oosting|80|81|80|CAM|27|NED|2000
+Jadiel Pereira da Gama|63|56|64|RM|27||
+Simon Graves Jensen|63|56|64|CM|27||
+Ryan Thomas|67|57|68|CM|27|NZL|1994
+Damian van der Haar|65|32|52|LB|27|NED|2004
+Nick Fichtinger|65|50|59|CDM|27|NED|2004
+Gilles van der Wal|59|52|60|CAM|27||
+Givaro Rahajaän|59|51|61|CM|27|NED|2008
+Duke Verduin|57|57|56|GK|27|NED|2003
+Filip Krastev|68|62|64|LM|27|BUL|2001
+Nick Olij|75|73|74|GK|28|NED|1995
+Lutsharel Geertruida|78|62|70|CB|28|NED|2000
+Yarek Gasiorowski|77|52|65|CB|28|ESP|2005
+Armando Obispo|74|43|60|CB|28|CUW|1999
+Ivan Perišić|81|80|81|LW|28|CRO|1989
+Ryan Flamingo|76|63|66|CB|28|NED|2002
+Ruben van Bommel|74|70|65|LW|28|NED|2004
+Sergiño Dest|79|60|75|RB|28|USA|2000
+Ricardo Pepi|78|80|61|ST|28|USA|2003
+Paul Wanner|76|66|74|CAM|28|AUT|2005
+Sami Ouaissa|74|66|66|RW|28|NED|2004
+Alassane Pléa|77|78|80|ST|28|FRA|1993
+Mauro Júnior|79|66|76|LB|28|BRA|1999
+Filip Kostić|77|71|80|LB|28|SRB|1992
+Esmir Bajraktarević|74|66|69|RW|28|BIH|2005
+Guus Til|78|77|74|CAM|28|NED|1997
+Sven Mijnans|77|71|77|CAM|28|NED|2000
+Jerdy Schouten|80|59|74|CB|28|NED|1997
+Mikkel Bro Hansen|77|70|78|LM|28||
+Kodai Sano|77|62|75|CM|28|JPN|2003
+Kiliann Sildillia|72|30|61|RB|28|FRA|2002
+Dennis Man|77|74|71|RW|28|ROU|1998
+Sam Lammers|72|70|67|ST|28|NED|1997
+Noah Fernandez|76|69|77|CM|28||
+Matěj Kovář|77|74|76|GK|28|CZE|2000
+Ayoni Santos|66|56|64|CAM|28|CPV|2005
+Amir Bouhamdi|64|55|59|LW|28|MAR|2008
+Fabian Merién|63|35|54|CB|28|NED|2008
+Adamo Nagalo|69|29|53|CB|28|BFA|2002
+Tijn Smolenaars|62|61|61|GK|28|NED|2005
+Ronald Koeman Jr.|72|71|71|GK|29|NED|1995
+Jeff Hardeveld|67|54|63|LB|29|NED|1995
+Gerald Alders|66|34|55|RB|29|NED|2005
+Abdelnour Soualhia|59|52|60|CAM|29||
+Prince Aning|62|39|54|LB|29|NED|2004
+Isaiah Ahmed|58|44|52|CDM|29|CUW|2006
+Rui Mendes|65|65|55|RM|29|POR|1999
+Emirhan Demircan|62|53|57|LW|29|TUR|2005
+Jelani Seedorf|60|53|61|RM|29||
+Tyrone Owusu|66|53|64|CM|29|NED|1999
+Nökkvi Þeyr Þórisson|57|50|58|CAM|29||
+Finn Mulder|67|60|68|LM|29||
+Harrie Kuster|66|59|67|LM|29||
+Nigel Ogidi Nwankwo|56|49|57|CM|29||
+Sem Valk|64|57|65|CM|29||
+Nils Rossen|67|57|64|CM|29|NED|2004
+Gabi Caschili|63|56|64|CAM|29||
+Fabiano Rust|61|54|62|RM|29||
+Daan Reiziger|63|63|62|GK|29|NED|2001
+Fofin Turay|63|56|64|LM|29||
+Noach Shenkman|59|52|60|LM|29||
+Abdelrafie Benzzine|58|51|59|RM|29||
+Yamano Olfers|62|55|63|CDM|29||
+Patrick Brouwer|66|66|61|CAM|29|NED|2001
+Rojendro Oudsten|59|52|60|CM|29||
+Ar'jany Martha|63|52|57|LM|29|CUW|2003
+Marvin Peersman|69|48|58|CB|29|BEL|1991
+Lars Unnerstall|76|75|75|GK|30|GER|1990
+Michał Rosiak|61|54|62|CAM|30||
+Robin Pröpper|73|51|60|CB|30|NED|1993
+Ruud Nijstad|70|49|57|CB|30|NED|2008
+Ramiz Zerrouki|74|66|71|CDM|30|ALG|1998
+Marko Pjaca|70|69|67|LW|30|CRO|1995
+Daouda Weidmann|64|57|65|CM|30||
+Wout Weghorst|77|78|61|ST|30|NED|1992
+Younes Taha|68|70|65|CAM|30|MAR|2002
+Daan Rots|73|69|69|RW|30|NED|2001
+Kristian Hlynsson|68|63|64|CAM|30|ISL|2004
+Joël Drommel|74|72|73|GK|30|NED|1996
+Filip Thorvaldsen|64|57|55|RM|30|NOR|2006
+Jordy Bawuah|70|63|71|CAM|30||
+Thomas van den Belt|71|67|69|CM|30|NED|2001
+Remko Pasveer|71|69|70|GK|30|NED|1983
+Stav Lemkin|70|37|53|CB|30|ISR|2003
+Krzysztof Kurowski|68|61|69|CDM|30||
+Lucas Vennegoor of Hesselink|72|65|73|CM|30||
+Sondre Ørjasæter|72|62|66|LW|30|NOR|2003
+Bart van Rooij|76|51|68|RB|30|NED|2001
+Aske Adelgaard|65|31|52|LB|30|DEN|2003
+Yannick Gerritsen|66|59|67|RM|30||
+Naci Ünüvar|68|62|69|LM|30|TUR|2003
+Max Bruns|69|43|61|CB|30|NED|2002
+Gijs Besselink|67|60|68|CM|30||
+Juliën Mesbahi|65|58|66|CM|30||
+Vasilis Barkas|75|74|74|GK|31|GRE|1994
+Siebe Horemans|70|40|62|CB|31|BEL|1998
+Matisse Didden|68|36|55|CB|31|BEL|2001
+Nikolas Panagiotou|65|58|66|CAM|31||
+Guus Offerhaus|64|36|41|CB|31|NED|2001
+Victor Jensen|69|67|65|CM|31|DEN|2000
+Joris van Overeem|73|58|70|CDM|31|NED|1994
+Artem Stepanov|63|64|47|ST|31|UKR|2007
+Yoann Cathline|75|70|67|LW|31|FRA|2002
+Ángel Alarcón|71|64|72|CM|31||
+Adrian Blake|67|64|59|LW|31|ENG|2005
+Sem van Duijn|65|62|59|ST|31|NED|2004
+Jakov Medić|70|52|59|CB|31|CRO|1998
+Dani de Wit|74|75|69|CM|31|NED|1998
+Neville Ogidi Nwankwo|66|36|47|CB|31|NED|2002
+Sergio Padt|70|70|69|GK|31|NED|1990
+Niklas Vesterlund|66|54|60|RM|31|DEN|1999
+Miliano Jonathans|66|61|62|RW|31|IDN|2004
+Alonzo Engwanda|71|52|61|CDM|31|BEL|2003
+Noah Ohio|67|65|51|ST|31|NED|2003
+Kevin Paredes|72|61|65|LM|31|USA|2003
+Mees Eppink|62|55|63|CAM|31||
+Per Kloosterboer|68|61|69|RM|31||
+Kevin Gadellaa|62|61|61|GK|31|NED|2003
+Davy van den Berg|67|66|66|CM|31|NED|2000
+Oualid Agougil|67|60|68|CM|31||
+Nordin Amrabat|59|52|60|CDM|31||
+Emmanuel Chigozie Owen|66|59|67|LM|31||
+Marius Broholm|69|63|64|RM|31|NOR|2004
+Arthur Zagré|68|52|60|LM|31|BFA|2001
+Thomas Didillon-Hödl|68|66|67|GK|32|FRA|1995
+Alessandro Ciranni|65|57|62|RB|32|BEL|1996
+Finn Stam|66|42|56|CB|32|NED|
+Justin Hoogma|64|40|54|LB|32|NED|
+Hidde ter Avest|69|52|63|RB|32|NED|1997
+Calvin Twigt|66|59|67|CDM|32|NED|2003
+Jaden Slory|66|58|57|RM|32|NED|2005
+Kasper Boogaard|62|55|63|LM|32|NED|
+Devin Haen|70|70|50|ST|32|NED|2004
+Jari Schuurman|63|56|64|CDM|32|NED|
+Armin Ćulum|65|67|59|LW|32|SWE|
+Amine Et-Taïbi|68|44|58|RB|32|MAR|
+Thijs Muller|66|59|67|LM|32|NED|
+Wouter van der Steen|56|56|55|GK|32|NED|
+Maxim Dekker|67|36|54|CB|32|NED|2004
+Nathan Tjoe-A-On|62|38|52|RB|32|IDN|
+Maxime Delanghe|67|65|66|GK|32|BEL|2001
+Thomas Verheydt|63|65|57|RW|32|NED|
+Karst de Leeuw|61|61|60|GK|32|NED|
+Vito van Crooij|68|66|68|CAM|32|NED|1996
+Eser Gürbüz|60|54|55|RM|32|NED|2007
+Tonny Vilhena|70|71|72|CM|32|NED|1995
+Stijn van Gassel|71|70|70|GK|33|NED|1996
+Rick Meissen|65|33|43|CB|33|NED|2002
+Casper Widell|70|29|52|CB|33|SWE|2003
+Daniël van Vianen|62|55|63|RM|33||
+Aymen Sliti|67|58|59|LW|33|NED|2006
+Irakli Yegoian|63|59|60|CAM|33|GEO|2004
+Mario Domínguez|66|59|67|LM|33||
+Noah Naujoks|67|62|62|CM|33|NED|2002
+Alireza Jahanbakhsh|68|70|66|RW|33|IRN|1993
+Kasey Bos|65|46|54|LB|33|AUS|2004
+Jan Plug|66|48|59|CB|33|NED|2005
+Simon Janssen|63|56|64|LM|33||
+Celton Biai|67|66|66|GK|33|GNB|2000
+Valentin Sulzbacher|60|56|58|CM|33|AUT|2005
+David Garden|61|54|62|CDM|33||
+Lennard Hartjes|67|47|63|CDM|33|NED|2003
+Ilano Silva Timas|62|55|63|CM|33||
+Osman Turay|65|58|66|CAM|33||
+Yacqub Finey|61|54|62|CDM|33||
+Guilliano Cairo|63|56|64|CM|33||
+Marlon van de Wetering|66|59|67|LM|33||
+Nesto Groen|59|61|45|ST|33|NED|2004
+Ágúst Orri Þorsteinsson|63|56|64|CM|33||
+Tijmen Holla|68|61|69|CM|33||
+Tjark Ernst|72|66|71|GK|34|GER|2003
+Bart Nieuwkoop|72|62|71|RB|34|NED|1996
+Thomas Beelen|73|43|63|CB|34|NED|2001
+Tsuyoshi Watanabe|78|39|53|CB|34|JPN|1997
+Gijs Smal|73|61|75|LB|34|NED|1997
+Jerry St. Juste|74|57|65|ST|34|NED|1996
+Jakub Moder|74|70|74|CM|34|POL|1999
+Gjivai Zechiël|74|67|68|CM|34|NED|2004
+Luciano Valente|77|67|78|CM|34|NED|2003
+Gonçalo Borges|72|58|63|RW|34|POR|2001
+Sem Steijn|77|82|74|CAM|34|NED|2001
+Jordan Bos|76|65|68|LB|34|AUS|2002
+Javi López|73|45|66|LB|34|ESP|2002
+Nacho Ferri|67|69|49|ST|34|ESP|2004
+Mats Deijl|72|58|62|RB|34|NED|1997
+Tobias van den Elshout|77|70|78|LM|34||
+Anis Hadj Moussa|77|74|69|RW|34|ALG|2002
+Thijs Kraaijeveld|59|52|60|CM|34|NED|2007
+Givairo Read|76|56|70|RB|34|NED|2006
+Gaoussou Diarra|70|69|62|LW|34|MLI|2002
+Oussama Targhalline|76|64|72|CDM|34|MAR|2002
+Tijme Wessels|73|66|74|CDM|34||
+Florian Kastenmeier|72|73|71|GK|34|GER|1997
+Charles Vanhoutte|75|65|73|CDM|34|BEL|1998
+Mika Mármol|75|38|66|LB|34|ESP|2001
+Jivayno Zinhagel|72|65|73|LM|34||
+Manou Berger|59|61|58|GK|34|NED|2004
+Liam Bossin|65|65|64|GK|34|IRL|1996
+Shaqueel van Persie|65|65|53|ST|34|NED|2006
+Filip Bednarek|66|65|65|GK|35|POL|1992
+Michael Brouwer|68|68|67|GK|35|NED|1993
+Pascal Kuiper|59|59|58|GK|35|NED|2004
+Bas Kuipers|70|44|64|LB|35|NED|1994
+Max de Ligt|57|30|42|CB|35|NED|2004
+Lushendry Martes|67|34|56|RB|35|NED|2008
+Bruno Martins Indi|68|42|57|CB|35|NED|1992
+Teo Quintero|65|30|48|CB|35|VEN|1999
+Boyd Reith|63|56|64|RM|35||
+Nick Verschuren|66|59|67|CDM|35||
+Giannino Vianello|70|63|71|CM|35||
+Marvin Young|70|33|63|CB|35|NED|2005
+Julian Baas|67|56|68|CM|35|NED|2002
+Isaac Babadi|67|53|60|CAM|35|NED|2005
+Robin van Cruijsen|58|54|58|CAM|35|NED|2006
+Cedric Hatenboer|64|47|61|CM|35|NED|2005
+Shunsuke Mito|69|62|60|LM|35|JPN|2002
+Alwande Roaldsøy|62|58|58|CM|35|NOR|2004
+Jens Toornstra|69|72|72|CAM|35|NED|1989
+Mitchell van Bergen|70|60|61|RM|35|NED|1999
+Joel Ideho|64|55|60|LM|35|NED|2003
+Andrej Kostić|65|58|66|CM|35||
+Casper Terho|66|63|61|RM|35|FIN|2003
+Milan Zonneveld|64|57|65|RM|35||
+Mahmut Can Kara|65|58|66|CM|36||
+Nuno Lima|67|31|41|CB|36|POR|2001
+Bedirhan Özyurt|60|53|61|LM|36||
+Fidan Aliti|68|46|57|CB|36|KOS|1993
+İbrahim Kaya|59|52|60|CAM|36||
+Enes Keskin|57|39|57|CM|36|TUR|2001
+Omar Ben Ali|65|58|66|CM|36||
+Ianis Hagi|72|72|73|CAM|36|ROU|1998
+Ruan|65|31|60|RM|36|BRA|1995
+Meschak Elia|67|66|64|CAM|36|COD|1997
+Emre Demir|63|56|64|CM|36||
+Hwang Ui-jo|71|72|63|ST|36|KOR|1992
+Arda Usluoğlu|52|55|42|ST|36|TUR|2006
+Iván Cédric|68|61|69|RM|36||
+Fatih Aksoy|68|42|55|CB|36|TUR|1997
+Paolo Fernandes|71|65|65|RW|36|ESP|1998
+Mert Bayram|50|50|49|GK|36|TUR|2005
+İzzet Çelik|59|52|57|CAM|36|TUR|2004
+Şahin Dik|66|59|67|CAM|36||
+Arouna Soro|66|59|67|CM|36||
+Gaius Makouta|71|66|67|CM|36|CGO|1997
+Bilal Demirağ|59|52|60|CM|36||
+Paulo Victor|75|76|74|GK|36|BRA|1987
+Baran Ali Gezek|61|49|61|CM|36|TUR|2005
+Maestro|69|48|61|CDM|36|ANG|2003
+Yusuf Özdemir|66|53|59|LM|36|TUR|2001
+Florent Hadergjonaj|71|59|68|RM|36|KOS|1994
+Miraç Acer|61|54|62|CAM|37||
+David Bates|69|29|48|CB|37|SCO|1996
+Lumbardh Dellova|60|53|61|CM|37||
+Cem Üstündağ|63|52|57|CDM|37|AUT|2001
+Ermal Krasniqi|68|66|62|LM|37|KOS|1998
+Furkan Soyalp|66|61|68|CM|37|TUR|1995
+Samuel Ballet|65|63|57|RM|37|SUI|2001
+Yira Sor|71|70|62|ST|37|NGA|2000
+Umut Meraş|67|41|58|LB|37|TUR|1996
+Gökhan Gül|66|37|55|CDM|37|TUR|1998
+Muhammed Yıldırım|60|53|61|CM|37||
+Mehmet Yeşil|65|58|66|LM|37||
+Rayan Raveloson|71|68|65|CDM|37|MAD|1997
+Mustafa Burak Bozan|66|62|65|GK|37|TUR|2000
+Amadou Cissé|68|61|69|CM|37||
+Alban Lafont|74|71|73|GK|37|CIV|1999
+Mbaye Diagne|73|76|56|ST|37|SEN|1991
+Kahraman Demirtaş|58|51|59|RM|37||
+Mohamed Khalil|63|56|64|RM|37||
+Dilhan Demir|55|48|56|CAM|37||
+Ali Turap Bülbül|62|46|56|RB|37|TUR|2005
+Dia Saba|70|69|70|CAM|37|ISR|1992
+Rayan Lutin|67|53|64|CAM|37|COM|2003
+Berk Kızıldemir|61|54|62|CM|37||
+Gift Orban|73|78|65|ST|37|NGA|2002
+Berat Perçin|58|51|59|CM|37||
+Veysel Sapan|64|61|63|GK|37|TUR|1996
+Marcos Felipe|67|69|66|GK|38|BRA|1996
+Çağlar Söyüncü|74|47|57|CB|38|TUR|1996
+Berat Özdemir|69|60|69|CDM|38|TUR|1998
+Serdar Saatçı|70|30|48|CB|38|TUR|2003
+Alexandre Penetra|74|36|56|CB|38|POR|2001
+Hrvoje Smolčić|72|28|49|CB|38|CRO|2000
+Cengiz Ünder|73|72|74|RM|38|TUR|1997
+Markus Karlsbakk|67|63|63|CM|38|NOR|2000
+Mame Thiam|75|74|66|ST|38|SEN|1992
+Mohamed Diomande|73|68|71|CDM|38|CIV|2001
+Gökhan Sazdağı|69|64|68|RB|38|TUR|1994
+Youssoufa Moukoko|71|70|61|ST|38|GER|2004
+Arda Şengül|71|47|61|CB|38|TUR|
+Fredy|66|59|67|CAM|38|ANG|
+Emircan Gürlük|73|66|74|CM|38|TUR|
+Erhan Erentürk|62|63|61|GK|38|TUR|1995
+Jesús Ramírez|74|73|61|ST|38|VEN|1998
+Ylber Ramadani|70|58|60|CDM|38|ALB|1996
+Göktan Gürpüz|62|49|60|CAM|38|TUR|2003
+Hüseyin Bulut|62|38|52|RB|38|TUR|
+Hasanege Akdoğan|73|75|67|ST|38|TUR|
+Andrei Borza|70|61|64|LB|38|ROM|2005
+Ermin Mahmić|63|56|64|RM|38|BIH|
+Ahmed Ildız|65|64|66|CM|38|TUR|1996
+Furkan Çetinkaya|67|69|61|ST|38|TUR|
+Arif Şimşir|61|61|60|GK|38|TUR|
+Cemali Sertel|61|37|51|CB|38|TUR|
+Alexandros Kyziridis|75|73|73|LW|38|GRE|2000
+Atakan Akkaynak|71|64|72|CDM|38|GER|
+Ertuğrul Taşkıran|68|67|67|GK|39|TUR|1989
+Festy Ebosele|68|55|59|RB|39|IRL|2002
+Yakup Kırtay|62|55|63|RM|39||
+Amar Gërxhaliu|66|59|67|LM|39||
+Brandon Baiye|62|55|63|CM|39||
+Sefa Akgün|65|58|66|CAM|39||
+Gyrano Kerk|72|73|63|RW|39|SUR|1995
+Eren Tozlu|64|57|65|LM|39||
+Guram Giorbelidze|65|48|58|LB|39|GEO|1996
+Erkan Anapa|62|55|63|CM|39||
+Nihad Mujakić|66|28|50|CB|39|BIH|1998
+Ibrahim Diabate|72|72|55|ST|39|CIV|1999
+Miguel Cardoso|70|68|66|LM|39|POR|1994
+Emirhan Acar|69|62|70|CDM|39||
+Mustafa Yumlu|68|61|69|CM|39||
+Cengizhan Bayrak|61|54|62|CDM|39||
+Ömer Arda Kara|66|59|67|RM|39||
+Matija Orbanić|69|68|68|GK|39|CRO|2000
+Elisha Owusu|74|54|68|CDM|39|GHA|1997
+Orhan Ovacıklı|69|62|70|LM|39||
+Martín Rodríguez|65|61|65|LW|39|CHI|1994
+Lawrence Agyekum|67|62|62|CM|39|GHA|2003
+Nariman Akhundzade|61|54|62|CM|39||
+Mustafa Fettahoğlu|61|54|62|CDM|39||
+Emre Erdem|65|58|66|CM|39||
+Taha Rençber|63|56|64|RM|39||
+Şerefhan Sağlık|69|62|70|CM|39||
+Luis Pérez|70|46|59|RB|40|ESP|1995
+Drissa Camara|67|60|68|CM|40||
+Arda Kızıldağ|69|37|48|CB|40|TUR|1998
+Efe Sarıkaya|60|32|46|CB|40|TUR|2006
+Ulrich Meleke|68|27|53|CDM|40|CIV|1999
+Juninho Bacuna|69|68|69|CM|40|CUW|1997
+Victor Gidado|61|54|62|CAM|40||
+Trivante Stewart|69|69|60|ST|40|JAM|2000
+Kacper Kozłowski|72|65|68|CM|40|POL|2003
+Mirza Cihan|59|52|56|LM|40|TUR|2000
+Myenty Abena|68|41|55|CB|40|SUR|1994
+Karamba Gassama|68|61|69|CM|40||
+Deian Sorescu|69|70|64|RM|40|ROU|1997
+Serdar Dursun|68|61|69|CM|40||
+Sontje Hansen|69|63|62|LM|40|CUW|2002
+Kerim Çalhanoğlu|66|59|67|RM|40||
+Kacper Tobiasz|66|65|65|GK|40|POL|2002
+Enver Kulašin|65|58|66|CM|40||
+Halil Dervişoğlu|64|57|65|LM|40||
+Nazım Sangaré|66|47|59|CB|40|TUR|1994
+Ataberk Dadakdeniz|66|66|65|GK|40|TUR|1999
+Alexandru Maxim|74|73|76|CAM|40|ROU|1990
+Ali Osman Kalın|61|54|62|CM|40||
+Ogün Özçiçek|66|57|65|CDM|40|TUR|1999
+Sabahattin Destici|63|56|64|RM|40||
+Cemilhan Aslan|69|62|70|LM|40||
+İbrahim Kağan Alkış|60|53|61|LM|40||
+Fuat Bavuk|61|54|62|CM|40||
+Thalisson|63|56|64|CM|41||
+Hamza Aydar|67|60|68|RM|41||
+Peter Etebo|66|64|64|CDM|41|NGA|1995
+Dimitrios Goutas|72|45|48|CB|41|GRE|1994
+Tiago Gouveia|73|68|67|RM|41|POR|2001
+Pedro Mendes|70|72|56|ST|41|POR|1999
+Franco Tongya|69|62|70|CM|41||
+Kévin Rodrigues|75|72|76|LB|41|POR|1994
+Pedro Pereira|74|57|69|RB|41|POR|1998
+Adama Traoré|68|68|60|RM|41|MLI|1995
+Arda Çağan Çelik|69|62|70|CDM|41||
+Erk Aslan|68|61|69|CM|41||
+Cheikh Niasse|71|44|61|CDM|41|SEN|2000
+Sékou Koïta|71|71|68|ST|41|MLI|1999
+Gökhan Akkan|68|66|67|GK|41|TUR|1995
+Oğulcan Ülgün|65|53|63|CM|41|TUR|1998
+Ousmane Diabaté|84|68|78|CDM|41|GUI|2007
+Prince Martor Jr.|66|59|67|CAM|41||
+Salih Uçan|69|68|73|CM|41|TUR|1994
+Göktuğ Erdem|68|61|69|LM|41||
+Ensar Çavuşoğlu|66|59|67|RM|41||
+Berk Deniz Çukurcu|67|60|68|CM|41||
+İrfan Can Eğribayat|71|70|70|GK|41|TUR|1998
+Abdurrahim Dursun|63|47|53|LB|41|TUR|1999
+Rafael Luís|65|51|63|CDM|41|POR|2005
+Fıratcan Üzüm|63|62|59|RM|41|TUR|1999
+Metehan Baltacı|66|33|50|CB|41|TUR|2002
+Ayaz Özcan|65|58|66|RM|41||
+Arda Özçimen|63|59|62|GK|42|TUR|2002
+Arda Okan Kurtulan|69|60|64|RM|42|ALB|2002
+Allan Godói|63|56|64|RM|42||
+Taha Altıkardeş|67|43|54|CB|42|TUR|2003
+Rhaldney|65|58|66|CAM|42||
+Alex Matos|67|60|64|CM|42|ENG|2004
+André Henrique|66|59|67|LM|42||
+Alexis Antunes|69|62|66|CAM|42|SUI|2000
+Juan|69|67|63|ST|42|BRA|2002
+Efkan Bekiroğlu|71|70|73|CAM|42|TUR|1995
+Richard Akonnor|65|58|66|CAM|42||
+Ege Yıldırım|65|58|66|CM|42||
+Bekir Turaç Böke|60|53|61|CDM|42||
+Ogün Bayrak|66|62|63|RM|42|TUR|1998
+Gökdeniz Bayrakdar|69|69|63|RM|42|TUR|2001
+Noah Sonko Sundberg|67|60|68|CAM|42||
+Novatus Miroshi|69|56|66|CM|42|TAN|2002
+Nevzat Üzel|60|53|61|CM|42||
+Sinclair Armstrong|68|65|54|ST|42|IRL|2003
+Furkan Bayır|65|31|43|CB|42|TUR|2000
+Luka Gugeshashvili|69|66|68|GK|42|GEO|1999
+Malcom Bokele|70|47|55|CB|42|CMR|2000
+Ibrahim Sabra|64|61|41|ST|42|JOR|2006
+Mehmet Şamil Öztürk|60|53|61|CM|42||
+Janderson|67|68|49|ST|42|BRA|1999
+Aleksandar Jovanović|67|66|66|GK|43|SRB|1992
+Anfernee Dijksteel|70|38|56|CB|43|SUR|1996
+Muharrem Cinan|60|42|48|LB|43|TUR|1998
+Tanguy Zoukrou|65|32|43|CB|43|FRA|2003
+Emir Ortakaya|58|37|51|CB|43|TUR|2004
+Matej Maglica|68|52|45|CB|43|CRO|1998
+Dan Agyei|66|62|54|RM|43|GHA|1997
+Tobias Gulliksen|70|66|69|CAM|43|NOR|2003
+Bruno Petković|75|73|77|ST|43|CRO|1994
+Berkan Kutlu|70|64|64|CDM|43|TUR|1998
+Gonçalo Sousa|67|60|68|CDM|43||
+Show|66|39|60|CDM|43|ANG|1999
+Arda Özyar|64|57|65|RM|43||
+Hulusi Destici|60|53|61|LM|43||
+Haydar Karataş|60|53|61|RM|43||
+Mahamadou Susoho|65|58|66|CM|43||
+Massadio Haïdara|72|60|62|LB|43|MLI|1992
+Uğur Kaan Yıldız|57|32|37|RB|43|TUR|2002
+Onurcan Piri|64|64|63|GK|43|TUR|1994
+Metehan Altunbaş|58|59|49|ST|43|TUR|2003
+Ege Bilim|68|61|69|CM|43||
+Makana Baku|66|61|54|LM|43|GER|1998
+Onur Öztonga|63|56|64|LM|43||
+Tayfur Bingöl|66|60|65|CM|43|TUR|1993
+Serhat Öztaşdelen|51|52|50|GK|43|TUR|2005
+Bedirhan Yıldız|63|56|64|CM|43||
+Florian Ayé|71|69|57|ST|43|FRA|1997
+Talha Polat|68|61|69|CAM|43||
+Rigoberto Rivas|65|61|60|RM|43|HON|1998
+Deniz Ertaş|62|63|61|GK|44|TUR|2005
+Ahmet Oğuz|71|59|67|RB|44|TUR|1993
+Arif Boşluk|61|40|54|LB|44|TUR|2003
+Adil Demirbağ|70|36|50|CB|44|TUR|1998
+Uğurcan Yazğılı|65|34|42|CB|44|TUR|1999
+Diogo Gonçalves|74|70|72|LM|44|POR|1997
+Marko Jevtović|69|62|61|CDM|44|SRB|1993
+Deniz Türüç|71|70|74|RM|44|TUR|1993
+Enis Bardhi|73|75|75|CAM|44|MKD|1995
+Jackson Muleka|70|69|59|ST|44|COD|1999
+Bahadır Han Güngördü|68|66|67|GK|44|TUR|1996
+Chidozie Awaziem|72|39|50|CB|44|NGA|1997
+Ata Yanık|65|58|66|CDM|44||
+Yhoan Andzouana|66|59|61|RB|44|CGO|1996
+Ebrima Colley|66|64|58|RW|44|GAM|2000
+Rayyan Baniya|71|31|43|CB|44|TUR|1999
+Mücahit İbrahimoğlu|65|56|64|CM|44|TUR|2000
+Ömer Çobanoğlu|70|63|71|CAM|44||
+Arthur Masuaku|75|62|74|LB|44|COD|1993
+Egemen Aydın|65|58|66|CM|44||
+Da Mata|67|60|68|RM|44||
+Mostafa Mohamed|71|71|58|ST|44|EGY|1997
+Emir Bars|66|59|67|CM|44||
+Emir Gündoğdu|67|60|68|LM|44||
+Rajmund Tóth|63|56|64|LM|44||
+Melih İbrahimoğlu|65|56|64|CM|44|TUR|2000
+Jean-Luc Dompé|74|71|72|LW|44|FRA|1995
+Enis Destan|68|67|62|ST|44|TUR|2002
+Husniddin Aliqulov|67|60|68|CDM|45||
+Attila Mocsi|68|34|42|CB|45|HUN|2000
+Tayyip Talha Sanuç|63|56|64|LM|45||
+Moussa Diakité|65|51|57|CDM|45|MLI|2003
+Valentin Mihăilă|68|64|63|LM|45|ROU|2000
+Dal Varešanović|67|62|65|CAM|45|BIH|2001
+Ali Sowe|70|68|59|ST|45|GAM|1994
+Ibrahim Olawoyin|70|65|65|CM|45|NGA|1997
+Adedire Mebude|64|61|56|RM|45|SCO|2004
+Taylan Antalyalı|67|60|68|CAM|45||
+Zakaria Ariss|70|49|62|LB|45|MAR|2004
+Umut Erdem|64|57|65|RM|45||
+Qazim Laçi|71|67|71|CM|45|ALB|1996
+Siaka Bakayoko|62|29|50|CB|45|FRA|2005
+Ahmed Kutucu|67|72|61|LM|45|TUR|2000
+Zafer Görgen|68|66|67|GK|45|TUR|2000
+Hasan Döne|64|57|65|CM|45||
+Taha Şahin|69|46|60|RB|45|TUR|2000
+Emirhan Yılmaz|62|55|63|CM|45||
+Iustin Doicaru|64|57|65|CAM|45||
+Mithat Pala|64|52|63|CDM|45|TUR|2000
+Can Bozdoğan|67|66|67|CM|45|GER|2001
+Yahia Fofana|72|71|71|GK|45|CIV|2000
+Mustafa Coşkun Tosun|67|60|68|RM|45||
+Modibo Sagnan|70|32|56|CB|45|MLI|1999
+Yakup Ayan|63|56|64|CM|45||
+Efe Doğan|64|57|65|CM|45||
+Emrecan Bulut|61|55|57|LM|45|TUR|2003
+Okan Kocuk|72|69|71|GK|46|TUR|1995
+Joe Mendes|69|40|60|RB|46|SWE|2002
+Igor Drapiński|68|42|57|CB|46|POL|2004
+Elliot Watt|72|61|71|CM|46|SCO|2000
+Celil Yüksel|65|52|60|CDM|46|TUR|1998
+Elayis Tavşan|68|64|62|RW|46|NED|2001
+Samed Onur|60|60|60|CAM|46|TUR|2002
+Tanguy Coulibaly|69|58|61|RM|46|FRA|2001
+Emre Kılınç|70|67|66|LM|46|TUR|1994
+Efe Yiğit Üstün|65|58|66|CM|46||
+Fatih Kaya|68|66|58|ST|46|GER|1999
+Jaurès Assoumou|63|64|49|ST|46|CIV|2002
+Strahinja Eraković|65|58|66|CM|46||
+Logi Tómasson|70|58|65|LB|46|ISL|2000
+Oskar Øhlenschlæger|68|62|62|CM|46|DEN|2004
+Yalçın Kayan|68|68|67|CM|46|TUR|1999
+Yunus Emre Çift|64|31|36|CB|46|TUR|2003
+Enes Albak|59|44|53|LB|46|TUR|2005
+Bilal Bayazıt|69|68|68|GK|46|TUR|1999
+Mustafa Tan|62|55|63|LM|46||
+Saikuba Jarju|66|59|67|LM|46||
+Gabriele Guarino|65|28|43|CB|46|ITA|2004
+Anto Sekongo|68|70|62|CM|46|MLI|2004
+Efe Berat Töruz|67|60|68|LM|46||
+Afonso Sousa|74|71|70|CAM|46|POR|2000
+Bedirhan Çetin|57|27|37|CB|46|TUR|2006
+Ahmet Doğan Yıldırım|73|66|74|CM|47||
+Batista Mendy|75|61|67|CDM|47|FRA|2000
+Samet Akaydin|70|37|43|CB|47|TUR|1994
+Okay Yokuşlu|72|69|69|CDM|47|TUR|1994
+Fabinho|82|69|78|CDM|47|BRA|1993
+Ernest Muçi|75|73|75|CAM|47|ALB|2001
+Benjamin Bouchouari|68|59|69|CM|47|MAR|2001
+Franculino Djú|74|73|64|ST|47|GNB|2004
+Mohamed Salah|87|83|83|RM|47|EGY|1992
+Ozan Tufan|72|76|71|CDM|47|TUR|1995
+Umut Nayir|70|69|53|ST|47|TUR|1993
+Stefan Savić|76|35|56|CB|47|MNE|1991
+Ruslan Malinovskyi|75|78|78|CM|47|UKR|1993
+Mustafa Eskihellaç|72|60|67|LB|47|TUR|1997
+Wagner Pina|71|51|64|RM|47|CPV|2002
+André Onana|78|77|77|GK|47|CMR|1996
+Onuralp Çevikkan|72|65|73|RM|47||
+Tim Jabol-Folcarelli|72|57|68|CDM|47|FRA|1999
+Chibuike Nwaiwu|72|33|53|CB|47|NGA|2003
+Paul Onuachu|77|78|61|ST|47|NGA|1994
+Cenk Özkacar|72|36|56|CB|47|TUR|2000
+Arseniy Batahov|70|63|71|LM|47||
+Sidny Lopes Cabral|71|61|69|RB|47|CPV|2002
+Melih Kabasakal|68|51|65|CDM|47|TUR|1996
+Aral Şimşir|76|69|74|LW|47|TUR|2002
+Cihan Çanak|66|59|64|CAM|47|TUR|2005
+Noah Saviolo|69|64|62|LM|47|POR|2004
+Metehan Mimaroğlu|67|66|61|LM|47|TUR|1994
+Çolak|72|65|73|RM|47||
+Habeşoğlu|72|65|73|LM|47||
+Volkan Babacan|66|64|65|GK|48|TUR|1988
+Jerome Opoku|72|43|54|CB|48|GHA|1998
+Onur Ergün|67|63|63|CDM|48|TUR|1992
+Onur Bulut|67|61|65|RB|48|TUR|1994
+Yusuf Sarı|73|69|69|RM|48|TUR|1998
+Olivier Kemen|71|67|65|CDM|48|CMR|1996
+Davie Selke|72|72|53|ST|48|GER|1995
+Edin Višća|73|74|72|RM|48|BIH|1990
+Abbosbek Fayzullaev|70|67|70|RM|48|UZB|2003
+Eldor Shomurodov|76|75|68|ST|48|UZB|1995
+Hamza Güreler|64|35|54|CB|48|TUR|2006
+Muhammed Şengezer|72|70|71|GK|48|TUR|1997
+Umut Bozok|69|70|61|ST|48|TUR|1996
+Jakub Kałuziński|68|56|67|CDM|48|POL|2002
+Berkay Özcan|67|64|68|CM|48|TUR|1998
+Umut Güneş|69|53|70|CDM|48|TUR|2000
+Christopher Opéri|73|61|70|LB|48|CIV|1997
+Emin Bayram|73|42|60|CB|48|TUR|2003
+Ousseynou Ba|69|31|47|CB|48|SEN|1995
+Michał Karbownik|70|45|67|LB|48|POL|2001
+Saba Kharebashvili|69|62|70|RM|48||
+Ömer Ali Şahiner|68|67|65|RB|48|TUR|1992
+Andreas Skov Olsen|73|74|70|RM|48|DEN|1999
+Ivan Brnić|69|66|64|LM|48|CRO|2001
+Ege Öztürk|66|59|67|LM|48||
+Bertuğ Yıldırım|69|67|53|ST|48|TUR|2002
+Deniz Dilmen|65|63|64|GK|48|TUR|2005
+Batuhan Çelik|70|63|71|LM|48||
+Efe Arda Koyuncu|72|65|73|CM|48||
+Luca Stančić|63|56|64|CM|48||
+Alexander Nübel|80|80|79|GK|49|GER|1996
+Wilfred Ndidi|75|65|71|CDM|49|NGA|1996
+Salih Özcan|74|59|67|CDM|49|TUR|1998
+Milot Rashica|74|75|71|RM|49|KOS|1996
+Kartal Yılmaz|69|52|72|CDM|49|TUR|2000
+Oh Hyeon-gyu|71|71|54|ST|49|KOR|2001
+Orkun Kökçü|82|80|84|CM|49|TUR|2000
+Kassoum Ouattara|72|44|65|LB|49|FRA|2004
+Emmanuel Agbadou|77|50|63|CB|49|CIV|1997
+Junior Olaitan|71|67|69|LM|49|BEN|2002
+Ernest Poku|76|67|68|RM|49|NED|2004
+Václav Černý|77|72|71|RM|49|CZE|1997
+Leandro Trossard|82|82|79|LW|49|BEL|1994
+Taylan Bulut|67|49|59|RB|49|GER|2006
+Mustafa Erhan Hekimoğlu|67|65|53|ST|49|TUR|2007
+Dušan Vlahović|81|84|69|ST|49|SRB|2000
+İlhan Fakılı|84|79|78|LM|49|TUR|2006
+Rıdvan Yılmaz|72|56|66|LB|49|TUR|2001
+Tiago Djaló|75|42|61|CB|49|POR|2000
+Ümit Akdağ|67|35|58|CB|49|ROU|2003
+Emirhan Topçu|74|33|57|CB|49|TUR|2000
+Yasin Özcan|70|48|62|CB|49|TUR|2006
+Michael Amir Murillo|74|58|70|RB|49|PAN|1996
+Azem Yortaç|77|70|78|CM|49||
+Ozan Sevim|66|59|67|LM|49||
+Sami Bircan|70|63|71|CAM|49||
+Can Keleş|66|63|59|RM|49|AUT|2001
+Doğan Alemdar|68|66|67|GK|49|TUR|2002
+Semih Kılıçsoy|73|74|67|ST|49|TUR|2005
+Emir Yaşar|74|67|75|RM|49||
+Emre Bilgin|64|65|63|GK|50|TUR|2004
+Arda Yavuz|62|55|63|CM|50||
+Seyfettin Anıl Yaşar|60|53|61|CAM|50||
+Jawad El Yamiq|69|53|53|CB|50|MAR|1992
+Talha Ülvan|63|56|64|RM|50||
+David Costa|59|52|60|LM|50||
+Yusuf Barası|64|64|52|ST|50|TUR|2003
+Abdelhamid Sabiri|70|68|70|CAM|50|MAR|1996
+Lenny Pintor|66|64|58|LM|50|FRA|2000
+Charles-André Raux-Yao|62|55|63|LM|50||
+Hamza Akman|57|51|55|CM|50|TUR|2004
+Simone Giordano|69|53|65|LB|50|ITA|2001
+Abdou Khadre Sy|61|54|62|CDM|50||
+Yiğit Demir|63|55|57|LW|50|TUR|1998
+Taşkın İlter|60|53|61|RM|50||
+Ahmed Abdullahi|58|58|41|ST|50|NGA|2004
+Horațiu Moldovan|70|68|69|GK|50|ROU|1998
+Zak Jules|65|40|57|CB|50|SCO|1997
+Berhan Şatlı|60|53|61|CM|50||
+Ömer Ceyhan|66|59|67|CM|50||
+Musa Eren Karakaş|62|55|63|RM|50||
+Mete Kaan Demir|63|55|57|LW|50|TUR|1998
+Konrad Michalak|67|54|61|RW|50|POL|1997
+Christ Sadia|63|56|64|CAM|50||
+Chandrel Massanga|57|50|58|CM|50||
+Bilal Boutobba|69|68|67|RM|50|FRA|1998
+Umut Keseci|63|56|64|RM|50||
+Diabel Ndoye|67|60|68|CAM|50||
+Archie Brown|71|48|65|LB|51|ENG|2002
+İsmail Yüksek|77|59|70|CDM|51|TUR|1999
+Mattéo Guendouzi|81|73|79|CDM|51|FRA|1999
+Kerem Aktürkoğlu|79|76|75|LM|51|TUR|1998
+Mert Hakan Yandaş|70|69|73|CM|51|TUR|1994
+Romelu Lukaku|82|82|75|ST|51|BEL|1993
+Marco Asensio|80|78|81|RW|51|ESP|1996
+Mason Greenwood|83|85|78|RM|51|ENG|2001
+Tarık Çetin|69|64|68|GK|51|TUR|1997
+Yiğit Efe Demir|80|56|70|LB|51|TUR|
+Nathan Aké|80|53|71|CB|51|NED|1995
+İrfan Can Kahveci|74|74|75|RM|51|TUR|1995
+Mert Müldür|73|54|65|RB|51|TUR|1999
+Vedat Muriqi|81|83|66|ST|51|KOS|1994
+Levent Mercan|73|63|74|LB|51|TUR|2000
+Jayden Oosterwolde|76|42|64|CB|51|NED|2001
+Nélson Semedo|77|56|69|RB|51|POR|1993
+Bartuğ Elmaz|66|56|66|CDM|51|TUR|2003
+Amara Diouf|78|80|72|ST|51|SEN|
+Mert Günok|73|72|72|GK|51|TUR|1989
+Milan Škriniar|81|52|60|CB|51|SVK|1995
+Dorgeles Nene|75|73|69|RM|51|MLI|2002
+Oğuz Aydın|74|70|68|LM|51|TUR|2000
+Ognjen Mimović|70|44|64|RB|51|SRB|2004
+N'Golo Kanté|83|65|73|CDM|51|FRA|1991
+Uğurcan Çakır|80|79|79|GK|52|TUR|1996
+El Chadaille Bitshiabu|75|36|60|CB|52|FRA|2005
+Ismail Jakobs|75|60|65|LB|52|SEN|1999
+Eyüp Aydın|66|54|67|CDM|52|TUR|2004
+Davinson Sánchez|80|57|62|CB|52|COL|1996
+Roland Sallai|78|70|72|RB|52|HUN|1997
+Gabriel Sara|80|74|83|CM|52|BRA|1999
+Leroy Sané|82|81|78|RM|52|GER|1996
+Yunus Akgün|79|75|75|CAM|52|TUR|2000
+Eren Elmalı|75|52|72|LB|52|TUR|2000
+Lesley Ugochukwu|76|62|70|CDM|52|FRA|2004
+Günay Güvenç|72|71|71|GK|52|TUR|1991
+İlkay Gündoğan|78|77|80|CM|52|GER|1990
+Deniz Gül|72|71|60|ST|52|TUR|2004
+Kaan Ayhan|73|63|73|CDM|52|TUR|1994
+Jankat Yılmaz|66|63|65|GK|52|TUR|2004
+Armando Güner|79|72|80|CM|52|ARG|
+Lucas Torreira|81|72|78|CDM|52|URU|1996
+Abdülkerim Bardakcı|79|50|70|CB|52|TUR|1994
+Victor Osimhen|85|84|65|ST|52|NGA|1998
+Barış Alper Yılmaz|80|75|72|LM|52|TUR|2000
+Arda Yılmaz|78|78|77|GK|52|TUR|
+Ada Yüzgeç|72|74|66|LW|52|TUR|
+Enes Büyük|78|78|77|GK|52|TUR|
+Berat Luş|62|56|56|LW|52|TUR|2007
+Renato Nhaga|78|71|79|CM|52|GNB|
+Aleksey Batrakov|74|67|75|CAM|52|RUS|
+Kazımcan Karataş|67|57|59|LB|52|MKD|2003
+Wilfried Singo|78|61|68|CB|52|CIV|2000
+Arda Ünyay|64|29|54|CB|52|TUR|2007
+Mario Lemina|78|67|74|CDM|52|GAB|1993
+Andreas Gianniotis|70|70|69|GK|53|GRE|1992
+Cláudio Winck|74|63|71|RB|53|BRA|1994
+Adem Arous|80|50|63|CB|53|TUN|2004
+Jakob Jessen|60|54|54|CM|53|DEN|2004
+Ali Yavuz Kol|62|60|56|LW|53|TUR|2001
+Atakan Müjde|50|38|54|CM|53|TUR|2003
+Adrian Benedyczak|72|70|66|LM|53|POL|2000
+Haris Hajradinović|73|73|76|CM|53|BIH|1994
+Thiemoko Diarra|69|62|70|CM|53||
+Mortadha Ben Ouanes|68|60|68|LM|53|TUN|1994
+Kévin Mouanga|69|31|46|CB|53|CGO|2000
+Andri Baldursson|62|49|60|CDM|53|ISL|2002
+Ömer Bayram|70|63|71|RM|53||
+Marcus Rafferty|67|64|61|LW|53|SWE|2004
+Kamil Çörekçi|66|49|63|RB|53|TUR|1992
+Sinan Alkaş|63|56|64|RM|53||
+Salih Arıcı|67|60|68|RM|53||
+Ali Emre Yanar|60|59|59|GK|53|TUR|1998
+Kerem Demirbay|73|69|77|CDM|53|GER|1993
+Matei Ilie|70|29|49|CB|53|ROU|2002
+Ahmet Taha Dağbaşı|68|61|69|RM|53||
+Fousseni Diabaté|67|64|59|LM|53|MLI|1995
+Sercan Deniz|65|58|66|CAM|53||
+Ayberk Karapo|61|54|62|CDM|53||
+Güven Yalçın|68|71|61|ST|53|TUR|1999
+Elson Mendes|64|57|65|CDM|53||
+Ege Albayrak|64|57|65|LM|53||
+Emirhan Boz|64|57|65|RM|53||
+Muhammed Emin Bektaş|69|62|70|LM|53||
+Godfried Frimpong|68|39|56|LB|53|NED|1999
+Emirhan Yiğit|67|60|68|RM|53||
+Jakub Vinarčík|60|60|59|GK|54|SVK|2005
+José Fontán|70|45|61|CB|54|ESP|2000
+Diogo Monteiro|62|24|51|CB|54|POR|2005
+Boris Popović|67|33|51|CB|54|SRB|2000
+Espen van Ee|70|58|62|CDM|54|NED|2003
+Naïs Djouahra|71|68|66|LM|54|FRA|1999
+Taichi Fukui|72|57|70|CM|54|JPN|2004
+Fally Mayulu|66|66|51|ST|54|FRA|2002
+Pablo Gozálbez|67|65|66|CAM|54|ESP|2001
+Miguel Puche|67|65|59|LM|54|ESP|2001
+Ignacio de Arruabarrena|74|74|73|GK|54|URU|1997
+Lee Hyun-ju|68|56|63|CAM|54|KOR|2003
+Javi Sánchez|72|56|55|CB|54|ESP|1997
+Iván Barbero|67|69|56|ST|54|ESP|1998
+Orest Lebedenko|69|44|63|LB|54|UKR|1998
+Alfonso Trezza|73|71|62|RM|54|URU|1999
+Gabriel Rukavina|62|55|63|RM|54||
+Mateo Flores|66|56|62|CDM|54|ESP|2004
+Dylan Nandín|69|71|45|ST|54|URU|2002
+Brian Mansilla|68|64|64|RM|54|URU|2002
+Tiago Esgaio|73|56|69|RB|54|POR|1995
+Mario Climent|58|51|59|LM|54||
+Martim Duarte|67|60|68|CAM|54||
+Park Si-hoo|66|59|67|CM|54||
+Pedro Santos|68|56|66|CM|54|POR|2000
+Miguel Maga|71|56|64|RB|55|POR|2002
+Óscar Rivas|67|44|50|CB|55|ESP|2000
+Ahmed Sidibé|70|46|60|LB|55|FRA|
+Matija Mitrović|61|54|62|CM|55|SRB|
+Oumar Camara|70|67|64|RM|55|FRA|2007
+Gonçalo Nogueira|66|61|60|CM|55|POR|2004
+Arnel Jakupović|62|64|56|ST|55|AUT|
+Alan|74|65|71|CAM|55|BRA|2000
+Gustavo Silva|74|69|72|CAM|55|BRA|1996
+João Mendes|73|72|71|CAM|55|POR|1994
+Yeimar Mosquera|67|43|57|CB|55|COL|
+Beni Mukendi|72|60|64|CDM|55|ANG|2002
+Miguel Nogueira|66|61|60|CM|55|POR|2004
+Telmo Arcanjo|72|61|68|RM|55|CPV|2001
+Victor Andersson|62|56|55|LM|55|SWE|2004
+Samu|79|79|58|ST|55|POR|2004
+Toni Borevković|73|30|47|CB|55|CRO|1997
+Juan Diego Castillo|68|67|67|GK|55|COL|2003
+Tony Strata|70|46|60|RB|55|ROU|
+Alioune Ndoye|66|68|60|RW|55|SEN|
+Thiago Balieiro|70|46|60|RB|55|BRA|
+Patrick Ouotro|60|58|43|ST|55|CIV|2005
+Fabio Blanco|64|57|60|RM|55|ESP|2004
+Lohann Doucet|68|50|63|CDM|55|BFA|2002
+Marco Cruz|70|63|71|LM|55|POR|
+Oliwier Zych|70|66|69|GK|55|POL|2004
+Santiago Verdi|68|61|69|RM|55|POR|
+Rica Rocha|66|59|67|RM|55|POR|
+Francisco Dias|68|44|58|CB|55|POR|
+Lucas Furtado|68|68|67|GK|55|BRA|
+Aranha|62|55|63|RM|56||
+Leandro Santos|67|47|57|RB|56|POR|2005
+Kevyn Monteiro|65|58|66|RM|56||
+Manuel Mendonça|58|51|59|CM|56||
+Mateja Stjepanović|60|53|61|LM|56||
+Alexandre Parsemain|63|67|47|ST|56|FRA|2003
+Kiko Bondoso|71|69|67|LM|56|POR|1995
+Landerson|69|62|70|CM|56||
+André Ferreira|68|68|67|GK|56|POR|1996
+Álvaro Martínez|63|56|64|CDM|56||
+Tiago Andrade|66|59|67|RM|56||
+João Veloso|64|61|63|CM|56|POR|2005
+Nile John|65|58|66|RM|56||
+Afonso Assis|64|57|65|RM|56||
+Maracás|72|30|50|CB|56|BRA|1994
+Francisco Domingues|64|57|65|CAM|56||
+Chipyoka Songa|64|57|65|LM|56||
+Jimi Gower|66|52|66|CM|56|ENG|2004
+Pedro Jesus|67|60|68|CM|56||
+Michael Dacosta|59|52|60|CAM|56||
+Guilherme Liberato|65|58|66|CDM|56||
+Gilberto Batista|84|44|73|CB|56|GNB|2003
+Dinis Pinto|69|42|61|RB|56|POR|2000
+Koby Mottoh|60|53|61|CAM|56||
+Leonardo Vonić|64|57|65|CM|56||
+Afonso Vieira|63|56|64|CAM|56||
+Yan Maranhão|60|53|61|RM|56||
+Víctor Gómez|76|51|74|RB|57|ESP|2000
+Sikou Niakaté|74|39|52|CB|57|MLI|1999
+Vitor Carvalho|74|60|63|CDM|57|BRA|1997
+Diogo Travassos|69|64|66|RB|57|POR|2004
+João Moutinho|77|67|80|CM|57|POR|1986
+Fran Navarro|74|75|56|ST|57|ESP|1998
+Pau Víctor|69|68|61|ST|57|ESP|2002
+Gabriel Silva|74|69|67|LW|57|BRA|2002
+Tiago Sá|66|65|65|GK|57|POR|1995
+Gustaf Lagerbielke|75|37|61|CB|57|SWE|2000
+Tommy Marqués|71|69|69|LW|57|POR|2002
+Jovan Milošević|70|63|71|CM|57||
+Jonas Wind|75|76|71|ST|57|DEN|1999
+Mario Dorgeles|70|62|67|CM|57|CIV|2004
+Ricardo Horta|81|81|81|CAM|57|POR|1994
+Sergio Barcia|67|32|54|CB|57|ESP|2001
+Denis Huseinbašić|70|62|65|CDM|57|BIH|2001
+Bright Arrey-Mbi|74|29|53|CB|57|GER|2003
+Jean-Baptiste Gorby|74|55|67|CDM|57|FRA|2002
+Bernardo Fontes|71|70|70|GK|57|BRA|2002
+Demir Ege Tıknaz|72|65|66|CDM|57|TUR|2004
+Adrian Leon Barišić|71|64|72|RM|57||
+Adrian Bajrami|67|27|44|CB|57|ALB|2002
+Diego Rodrigues|64|46|59|CM|57|POR|2005
+João Aragão|69|62|70|CAM|57||
+Gabri Martínez|73|65|65|LM|57|ESP|2003
+João Carvalho|72|69|73|CAM|57|POR|1997
+Ivan Zlobin|70|70|69|GK|58|RUS|1997
+Gustavo Garcia|72|40|63|RB|58|BRA|2002
+Leonardo Realpe|69|62|70|RM|58||
+Finn van Breemen|69|31|51|CB|58|NED|2003
+Leny Meyer|62|43|55|LB|58|SUI|2004
+Tom van de Looi|71|66|69|CDM|58|NED|1999
+Sorriso|74|72|67|RM|58|BRA|2001
+Marcos Peña|61|54|62|CM|58||
+Umar Abubakar|67|60|68|CDM|58||
+Óscar Aranda|74|72|67|LM|58|ESP|2002
+Mathias De Amorim|73|65|70|CM|58|POR|2004
+Víctor Rofino|68|61|69|RM|58||
+Rodrigo Pinheiro|69|36|59|RB|58|POR|2002
+Roméo Beney|62|61|48|RW|58|SUI|2005
+Paulo Moreira|68|64|71|CM|58|POR|2000
+Tamás Szűcs|63|56|64|CAM|58||
+Gabriel Cabral|64|57|65|CAM|58||
+Gil Dias|70|64|67|RM|58|POR|1996
+Mathis Jangéal|62|55|63|CAM|58||
+Lazar Carević|76|75|75|GK|58|MNE|1999
+Pedro Bondo|70|63|71|CM|58||
+Vojin Serafimović|65|58|66|LM|58||
+Patricio Salas|62|55|63|LM|58||
+Matheus Mattara|73|66|74|CAM|58||
+Georgios Koutsias|67|67|56|ST|58|GRE|2004
+Jakub Kiwior|82|42|72|CB|59|POL|2000
+Jan Bednarek|82|22|63|CB|59|POL|1996
+Chris Smalling|80|47|57|CB|59|ENG|1989
+William Gomes|68|64|57|LW|59|BRA|2006
+Victor Froholdt|82|76|76|CM|59|DEN|2006
+Samu Aghehowa|80|80|58|ST|59|ESP|2004
+Gabri Veiga|76|75|70|CAM|59|ESP|2002
+Pepê|78|70|72|CAM|59|BRA|1997
+Zaidu Sanusi|74|37|58|LB|59|NGA|1997
+Pablo Rosario|78|64|70|CDM|59|DOM|1997
+Cláudio Ramos|73|73|72|GK|59|POR|1991
+Vasco Sousa|69|58|68|CAM|59|POR|2003
+Hwang In-beom|77|70|76|CM|59|KOR|1996
+Borja Sainz|75|75|68|LW|59|ESP|2001
+Nehuén Pérez|76|37|54|CB|59|ARG|2000
+André Silva|76|76|70|ST|59|POR|1995
+Alberto Costa|69|56|64|RB|59|POR|2003
+Dominik Prpić|73|31|61|CB|59|CRO|2004
+Alan Varela|80|65|75|CDM|59|ARG|2001
+João Costa|71|69|63|RM|59|BRA|2005
+Gabriel Mec|79|72|80|CM|59||
+João Afonso|69|31|52|CB|59|POR|1990
+Martim Fernandes|75|51|70|RB|59|POR|2006
+Francisco Moura|78|63|75|LB|59|POR|1999
+Oskar Pietuszewski|74|68|71|LM|59|POL|2008
+Diogo Costa|84|85|83|GK|59|POR|1999
+André Picornell|57|57|56|GK|60|SWE|2004
+José Silva|61|54|62|CM|60||
+Antonio Espigares|66|39|55|CB|60|ESP|2004
+Marvin Elimbi|64|34|37|CB|60|FRA|2003
+Zé Carlos|70|40|57|RB|60|POR|1998
+Tidjany Touré|68|61|60|LM|60|FRA|2002
+Walace França|63|56|64|CDM|60||
+Santi García|69|63|67|CM|60|ESP|2001
+Joelson Fernandes|62|55|63|CM|60||
+Andreas Lausen|63|56|64|CDM|60||
+Sergio Bermejo|68|56|66|RM|60|ESP|1997
+Guilherme Gomes|63|56|64|CAM|60||
+Gil Martins|64|57|65|CDM|60||
+Héctor Hernández|69|62|70|RM|60||
+Weverson|63|56|64|CAM|60||
+Agustín Moreira|63|38|49|CB|60|CPV|2004
+Lucão|62|55|63|CM|60||
+Martín Fernández|69|63|65|CDM|60|URU|2001
+Jonathan Buatu|69|41|52|CB|60|ANG|1993
+Tiago Ferreira|59|52|60|CAM|60||
+David Moreira|63|38|49|CB|60|CPV|2004
+Ricardo Esgaio|73|66|72|RB|60|POR|1993
+Murilo Costa|74|72|69|RM|60|BRA|1994
+Gonçalo Maia|64|57|65|CAM|60||
+Diogo Prioste|66|60|62|CM|60|POR|2004
+Bassco Soyer|64|57|65|CDM|60||
+Samuel Portugal|70|71|69|GK|60|BRA|1994
+Arthur Tchaptchet|66|59|67|CM|60||
+Cezary Miszta|74|70|73|GK|61|POL|2001
+Simón García|69|42|53|CB|61|COL|2005
+Andreas Ntoi|72|38|54|CB|61|GRE|2003
+Nelson Abbey|66|31|50|CB|61|ENG|2003
+Diogo Bezerra|64|57|65|CAM|61||
+Ryan Guilherme|68|61|69|CDM|61||
+Tamble Monteiro|65|58|66|CM|61||
+Brandon Aguilera|70|65|69|CM|61|CRC|2003
+Jalen Blesa|69|62|70|CM|61||
+Julien Lomboto|65|35|44|CB|61|FRA|2002
+Jakub Brabec|72|51|62|CB|61|CZE|1992
+Marios Vrousai|72|68|71|RB|61|GRE|1998
+Malik Sellouki|68|68|68|RM|61|FRA|2000
+João Tomé|66|45|57|RB|61|POR|2003
+Radek Šiler|62|55|63|CM|61||
+Kevin Chamorro|66|65|65|GK|61|CRC|2000
+Francisco Petrasso|67|60|68|CDM|61||
+Pedro Amaral|70|57|58|LB|61|POR|1997
+Tobías Medina|64|56|64|CM|61|ARG|2004
+Roland Galčík|68|61|69|RM|61||
+Vitor Hugo|64|57|65|CM|61||
+Gustavo Mancha|63|56|64|CAM|61||
+Tamás Nikitscher|69|66|65|CDM|61|HUN|1999
+Georgios Liavas|69|56|61|CDM|61|GRE|2001
+Caike|67|60|68|CM|61||
+Samuel Alves|58|51|59|LM|61||
+Antoine Wenck|69|62|70|CDM|61||
+Dario Špikić|70|66|63|LW|61|CRO|1999
+Miguel Patrício|69|62|70|CAM|61||
+Sebastian Clemmensen|66|63|57|LW|61|DEN|2003
+Diogo Nascimento|68|52|66|CM|61|POR|2002
+Rodrigo Real|65|58|66|CAM|61||
+Ennio van der Gouw|68|66|67|GK|61|NED|2000
+Antzelo Sina|64|57|65|RM|61||
+Noah Raveyre|59|61|58|GK|62|FRA|2005
+Nabil Touaizi|64|60|60|ST|62|MAR|2001
+Julián Martínez|55|48|56|RM|62||
+Yaya Bojang|63|32|47|CB|62|GAM|2004
+Sabit Abdulai|62|54|61|CM|62|GHA|1999
+Davy Gui|63|56|64|CDM|62||
+André Vidigal|68|63|60|LM|62|ANG|1998
+Vasco Moreira|63|56|64|CM|62||
+Vivaldo Semedo|60|53|61|LM|62||
+Chiquinho|78|75|78|CM|62|POR|1995
+Cédric Nuozzi|56|49|57|CDM|62||
+Isaac James|63|42|50|LB|62|NGA|2004
+Steven Baseya|63|56|64|LM|62||
+Ikker Julian|52|45|53|CDM|62||
+Samy Merheg|60|53|61|RM|62||
+Zakaria Kassary|63|56|64|CAM|62||
+Dawda Camara|68|66|53|ST|62|MTN|2002
+Diogo Spencer|64|49|64|RB|62|POR|2004
+Sergi Gómez|72|46|60|CB|62|ESP|1992
+Figueiredo|71|70|67|RW|62|BRA|2001
+André Paulo|63|63|62|GK|62|POR|1997
+Mofe Jemide|55|48|56|RM|62||
+Ian Luccas|64|57|65|CAM|62||
+Toni Tamarit|61|54|62|CM|62||
+Matheus Mendes|60|54|54|CM|62|ESP|2004
+Bastien Meupiyou|61|33|43|CB|62|FRA|2006
+Rayan Lucas|58|51|59|CM|62||
+Francisco Chissumba|70|44|66|LB|62|POR|2005
+Óscar Torrellas|61|54|62|CAM|62||
+Tiago Octávio|56|49|57|LM|62||
+Jhonatan|59|52|60|CDM|62||
+Zé Rafael|57|50|58|LM|62||
+Patrick Sequeira|73|71|72|GK|63|CRC|1999
+Khaly|69|62|70|CDM|63||
+João Goulart|70|30|45|CB|63|POR|2000
+Abdu Conté|64|45|53|LB|63|POR|1998
+Gabi|66|59|67|CM|63||
+Henrique Araújo|70|70|59|ST|63|POR|2002
+Rochinha|71|64|66|LM|63|POR|1995
+Mo Salah|69|62|70|CDM|63||
+Selvi Clua|63|56|64|CM|63||
+Evans Maurin|61|61|54|ST|63|FRA|2001
+André Geraldes|69|41|63|RB|63|POR|1991
+Kevin Prieto|69|62|70|LM|63||
+Alassana Jatta|65|62|50|ST|63|GAM|1999
+Aymen Zouin|63|56|64|CAM|63||
+Daniel Azevedo|60|61|59|GK|63|POR|1998
+Sebastián Pérez|70|61|63|CDM|63|COL|1993
+Kaique Rocha|69|42|53|CB|63|BRA|2001
+Jérémy Livolant|73|69|67|RW|63|FRA|1998
+André Gomes|75|66|75|CDM|63|POR|1993
+David Sousa|66|28|47|CB|63|BRA|2001
+Lipe|65|58|66|CDM|63||
+Abdu Dafé|68|61|69|CAM|63||
+João Rego|67|59|63|CAM|63|POR|2005
+Pedro Rosas|61|54|62|CDM|63||
+Benjamin Pauwels|64|55|58|LW|63|BEL|2004
+Lawrence Ofori|71|65|67|CDM|63|GHA|1998
+Cassiano|72|71|54|ST|63|BRA|1989
+Ivan Mandić|68|67|67|GK|63|CRO|2003
+Joel Robles|73|73|72|GK|64|ESP|1990
+Ricard Sánchez|59|52|60|CAM|64||
+Fernando Medrano|68|61|69|CM|64||
+Ferro|68|42|54|CB|64|POR|1997
+Antef Tsoungui|69|36|54|CB|64|BEL|2002
+Xavi Sintes|68|42|53|CB|64|ESP|2001
+André Lacximicant|68|71|52|ST|64|POR|2001
+Xeka|72|62|71|CM|64|POR|1994
+Jordan Holsgrove|75|65|74|CM|64|SCO|1999
+Nail Omerović|65|58|66|LM|64||
+Yanis Begraoui|75|76|66|ST|64|MAR|2001
+Ismael Sierra|66|59|67|CM|64||
+Martin Turk|66|62|65|GK|64|SVN|2003
+Peixinho|67|60|68|CDM|64||
+Gonçalo Costa|67|41|49|LB|64|POR|2000
+Tiago Parente|56|49|57|CAM|64||
+Roko Jurišić|67|60|68|LM|64||
+Pedro Carvalho|64|41|48|RB|64|POR|2003
+Diogo Dias|59|59|58|GK|64|POR|2003
+Stelios Andreou|72|30|56|CB|64|CYP|2002
+Samuel Amissah|62|55|63|LM|64||
+Israel Salazar|64|57|65|CDM|64||
+Jordan Arnolin|63|56|64|CAM|64||
+Fletcher Smythe-Lowe|67|60|68|RM|64||
+Luís Gomes|62|55|63|CDM|64||
+Tiago Brito|64|57|65|RM|64||
+Fabrício Garcia|67|67|59|LM|64|CPV|2001
+Rafik Guitane|74|65|68|RW|64|ALG|1999
+Khayon Edwards|62|64|44|ST|64|JAM|2003
+Marcos Lavín|63|64|62|GK|65|ESP|1996
+Nikos Michelis|63|56|64|CDM|65||
+Miguel Ángel Brau|68|61|69|CDM|65||
+Pedro Barcelos|56|49|57|CM|65||
+André Ceitil|63|56|64|CM|65||
+Luís Silva|70|67|71|CM|65|POR|1992
+Cihan Kahraman|64|57|65|CAM|65||
+Mohamed Bouldini|66|66|51|ST|65|MAR|1996
+Álvaro Zamora|68|61|69|CM|65||
+Juan Soriano|75|76|74|GK|65|ESP|1997
+Soufiane Messeguem|58|51|59|CM|65||
+Valery Fernández|58|51|59|CDM|65||
+Cristian Ferreira|67|69|70|CAM|65|ARG|1999
+Tomás Domingos|64|57|65|CAM|65||
+Nils Mortimer|59|52|60|RM|65||
+Andro Babić|60|53|61|CM|65||
+João Guilherme|63|56|64|CAM|65||
+André Clóvis|60|53|61|CM|65||
+Anthony Correia|63|56|64|CAM|65||
+Rúben Pereira|56|49|57|CDM|65||
+Alejandro Mestanza|60|53|61|CM|65||
+Lorougnon Gohi|66|59|67|CM|65||
+Tomás Silva|62|41|53|LB|65|ARG|2003
+Gu Costa|65|58|66|CDM|65||
+Matheus Sampaio|65|58|66|CAM|65||
+Igor Milioransa|63|56|64|LM|65||
+Robinho|68|61|69|CM|65||
+Paulinho|69|64|65|LB|65|BRA|1995
+Raphael Nunes|62|55|63|CDM|65||
+Ewerton|62|55|63|CAM|65||
+Hugo Gambor|69|36|54|CB|65|CTA|2002
+Rui Silva|81|82|80|GK|66|POR|1994
+Silas Andersen|74|55|65|CDM|66|DEN|2004
+Sergi Altimira|77|70|78|LM|66||
+Zeno Debast|78|56|76|CB|66|BEL|2003
+Fotis Ioannidis|76|75|62|ST|66|GRE|2000
+João Simões|69|60|68|CM|66|POR|2007
+Rafael Nel|68|67|53|ST|66|POR|2005
+Geny Catamo|78|74|69|RM|66|MOZ|2001
+Nuno Santos|79|81|76|LM|66|POR|1995
+Georgios Vagiannidis|75|54|70|RB|66|GRE|2001
+Rodrigo Zalazar|82|83|80|CAM|66|URU|1999
+Moncef Zekri|73|66|74|RM|66||
+Nestory Irankunda|70|71|63|RM|66|AUS|2006
+Maximiliano Araújo|81|69|76|LM|66|URU|2000
+Pedro Lima|68|48|67|RB|66|BRA|2006
+Iván Fresneda|74|51|60|RB|66|ESP|2004
+Gonçalo Inácio|81|37|71|CB|66|POR|2001
+Jesse Derry|68|65|63|LM|66|ENG|2007
+Kaique Pereira|67|60|68|RM|66||
+Luis Guilherme|71|62|64|RM|66|BRA|2006
+Diego Callai|77|70|78|CM|66||
+Rodrigo Dias|74|67|75|CM|66||
+Ibrahima Ba|77|70|78|CDM|66||
+Flávio Gonçalves|84|77|84|CAM|66|POR|2007
+Eduardo Quaresma|77|54|66|CB|66|POR|2002
+Eduardo Felicíssimo|75|68|76|RM|66||
+Issa Doumbia|73|68|70|CM|66|ITA|2003
+Luis Suárez|78|81|74|ST|66|URU|1987
+Francisco Silva|64|64|63|GK|66|POR|2005
+Rodrigo Ribeiro|68|66|58|ST|66|POR|2005
+Biel Teixeira|74|67|75|CDM|66||
+Mateo Tanlongo|73|66|74|RM|66||
+Rafael Pontelo|75|68|76|CM|66||
+Koba Koindredi|74|67|75|RM|66||
+Sotiris Alexandropoulos|68|59|63|CM|66|GRE|2002
+Anatoliy Trubin|80|79|79|GK|67|UKR|2001
+Clément Lenglet|77|45|69|CB|67|FRA|1995
+Alessandro Circati|71|35|53|CB|67|AUS|2003
+Enzo Barrenechea|77|69|72|CDM|67|ARG|2001
+Alexander Bah|78|65|72|RB|67|DEN|1997
+Fredrik Aursnes|81|72|78|CM|67|NOR|1995
+Heorhiy Sudakov|78|76|77|CAM|67|UKR|2002
+Dodi Lukébakio|80|79|75|RW|67|BEL|1997
+Jakub Kamiński|77|70|69|LM|67|POL|2002
+Vangelis Pavlidis|82|82|72|ST|67|GRE|1998
+Manu Silva|72|51|66|CDM|67|POR|2001
+Leandro Barreiro|77|70|69|CM|67|LUX|2000
+Andreas Schjelderup|80|75|75|LW|67|NOR|2004
+Jhon Durán|78|81|62|ST|67|COL|2003
+Samuel Soares|70|71|69|GK|67|POR|2002
+Gianluca Prestianni|75|64|65|RW|67|ARG|2006
+Samuel Dahl|75|52|68|LB|67|SWE|2003
+Rafa Silva|80|75|77|CAM|67|POR|1993
+Gabriel Índio|82|75|83|LM|67||
+Souffian El Karouani|76|58|77|LB|67|MAR|2000
+João Palhinha|76|69|77|CDM|67||
+Tomás Araújo|78|30|69|CB|67|POR|2002
+Diogo Ferreira|64|64|63|GK|67|POR|2007
+Daniel Banjaqui|74|67|75|RM|67||
+José Neto|73|66|74|CAM|67||
+Anísio Cabral|74|67|75|CAM|67||
+Lucas Mincarelli|71|51|63|LB|68|FRA|2004
+Bernardo Schappo|69|38|43|CB|68|BRA|1998
+Stefan Leković|60|53|61|RM|68||
+Kevin Höög Jansson|63|53|57|CB|68|SWE|2000
+Ianis Stoica|70|67|61|LM|68|ROU|2002
+Rodrigo Dudok|64|57|65|CDM|68||
+Lovro Zvonarek|65|60|63|CAM|68|CRO|2005
+Jefferson Encada|66|53|61|RB|68|GNB|1998
+Vuk Pavićević|65|58|66|LM|68||
+Joan Jordán|76|74|77|CM|68|ESP|1994
+Max Scholze|62|37|46|RB|68|GER|2005
+David Grilo|64|57|65|CM|68||
+Léo Linck|70|69|69|GK|68|BRA|2001
+Tom Moustier|65|55|62|CM|68|FRA|2002
+Jeremy Arévalo|68|61|69|LM|68||
+Luan Patrick|64|32|42|CB|68|BRA|2002
+Leandro Antonetti|66|59|67|CAM|68||
+Eddy Doué|60|53|61|CDM|68||
+Yang Si-Woo|60|53|61|CAM|68||
+René Mitongo|61|54|62|LM|68||
+Diogo Pinto|68|69|67|GK|68|POR|2004
+Rafa Soares|70|59|67|LB|68|POR|1995
+Emerson Vanga|69|62|70|CM|68||
+Henrique Poniewas|62|55|63|CM|68||
+Santiago Serra|61|54|62|CAM|68||
+Atanas Chernev|63|56|64|CM|68||
+Alisson Souza|63|66|52|LW|68|FRA|2003
+Bénito|60|53|61|LM|68||
+Abraham Marcus|70|68|67|RM|68|NGA|2000
+Gonçalo Tabuaço|63|56|64|RM|69||
+Igor Julião|67|47|59|RB|69|BRA|1994
+Nathanael Ogbeta|64|45|54|LB|69|ENG|2001
+Rafael Fernandes|63|37|49|CB|69|POR|2002
+Nilton Varela|69|51|58|LB|69|POR|2001
+Rodrigo Andrade|64|57|65|CM|69||
+Enrique Peña Zauner|65|56|64|RM|69|VEN|2000
+Maxime Dominguez|67|66|67|CM|69|SUI|1996
+José Melro|66|59|67|CM|69||
+Martín Tejón|60|53|61|LM|69||
+Simo Bouzaidi|62|55|63|CAM|69||
+Mons Bassouamina|63|56|64|CM|69||
+Alfonso Pastor|64|65|63|GK|69|ESP|2000
+Raphael Guzzo|68|62|68|CM|69|POR|1995
+Tomás Tavares|65|58|66|CM|69||
+Adrián Butzke|55|48|56|CAM|69||
+Vladan Danilović|65|58|66|CM|69||
+Francisco Gomes|64|57|65|CM|69||
+Ibrahim Alani|59|52|60|CM|69||
+Gábor Szalai|69|47|52|CB|69|HUN|2000
+Paulo Henrique|58|51|59|LM|69||
+Yellu Santiago|68|49|61|CDM|69|ESP|2004
+Samuel Bamba|64|50|57|LM|69|GER|2004
+Fran Vieites|68|68|67|GK|69|ESP|1999
+Kimiss Zavala|59|52|60|CDM|69||
+Bryan Limbombe|64|58|55|RM|69|BEL|2001
+Romain Correia|61|54|62|CM|69||
+Israel Isaac Ayuma|69|62|70|CDM|69||
+Nélio Batista|65|58|66|RM|69||
+Maurice Boakye|63|56|64|RM|69||
+Renato Marin|62|62|61|GK|70|ITA|2006
+Daniel de la Cruz|62|55|63|CM|70||
+Ulisses|64|57|65|LM|70||
+José Gomes|68|50|55|LB|70|POR|1996
+Matheus Dias|68|50|60|CDM|70|BRA|2002
+Markus Jensen|62|54|56|LW|70|DEN|2005
+Miguel Baeza|67|63|70|CM|70|ESP|2000
+Allen Obando|64|61|49|ST|70|ECU|2006
+Daniel Júnior|59|52|60|CM|70||
+Stavros Gavriil|62|55|63|LM|70||
+Song Min-kyu|70|69|66|LM|70|KOR|1999
+João Gonçalves|69|69|68|GK|70|POR|2000
+Ivanildo Fernandes|66|28|46|CB|70|CPV|1996
+Chiheb Labidi|64|51|61|CM|70|TUN|2001
+Fernando Nava|66|59|67|CDM|70||
+Matchoi Djaló|68|59|67|CM|70|POR|2003
+William Kokolo|66|44|53|LB|70|FRA|2000
+Filipe Soares|67|67|66|CM|70|POR|1999
+Mateus Iseppe|63|56|64|CDM|70||
+Joel Silva|70|62|64|CM|70|POR|2003
+Igor Liziero|70|61|67|CM|70|BRA|1998
+Njoya Abdel|65|58|66|LM|70||
+Martim Gustavo|67|60|68|CDM|70||
+Danel Dongmo|69|62|70|RM|70||
+Francisco Gonçalves|61|34|37|CB|70|POR|2004
+Léo Santos|68|65|58|LW|70|URU|2003
+Zé Vitor|71|32|47|CB|70|BRA|2001
+Kevyn|57|50|58|CDM|70||
+Wesley Gasolina|60|53|61|RM|70||
+Deivison|67|60|68|CDM|70||
+Pablo Ruan|60|53|61|CDM|70||
+Josué|65|58|66|CM|70||
+Lucas França|75|76|74|GK|71|BRA|1996
+Henrique Silva|66|59|67|CM|71||
+Pedro Pacheco|67|39|45|CB|71|POR|1997
+Guilherme Romão|69|62|70|RM|71||
+Pedro Ferreira|69|48|59|CDM|71|POR|1998
+Fernando|72|72|71|GK|71|ESP|1990
+Djé Tavares|68|61|69|CM|71||
+Gonçalo Paciência|72|75|59|ST|71|POR|1994
+Brenner Lucas|67|60|68|CM|71||
+Welinton|66|59|67|RM|71||
+Neneca|62|63|61|GK|71|BRA|2003
+João Vasconcelos|66|59|67|CDM|71||
+Afonso Duarte|67|60|68|CM|71||
+Ythallo|68|61|69|RM|71||
+Tiago Ribeiro|65|58|66|CDM|71||
+Emanuel Moreira|62|55|63|RM|71||
+Vitinho|67|60|68|LM|71||
+Dani Borges|59|52|60|RM|71||
+Lucas Soares|69|37|60|RB|71|BRA|1998
+Vinícius Lopes|73|70|69|RW|71|BRA|1999
+Léo Jacó|70|63|71|CAM|71||
+Kamika|67|60|68|CM|71||
+Jan Hanuš|55|48|56|LM|72||
+Nemanja Tekijaški|54|47|55|LM|72||
+Nelson Okeke|55|48|56|CM|72||
+Vakhtang Chanturishvili|58|51|59|CDM|72||
+Filip Zorvan|54|47|55|RM|72||
+Antonín Růsek|56|49|57|CM|72||
+Jan Suchan|60|53|61|LM|72||
+Kevin-Prince Milla|58|57|50|ST|72|CMR|2004
+David Nykrín|56|49|57|CM|72||
+Richard Sedláček|58|51|59|RM|72||
+Daniel Souček|63|56|64|CM|72||
+Dušan Pavlović|52|45|53|CM|72||
+Hugo Ahl|58|51|59|LM|72||
+Martin Cedidla|55|48|56|CDM|72||
+Jan Chramosta|56|49|57|LM|72||
+Jiří Sláma|59|52|60|CM|72||
+Matěj Polidar|57|50|58|CM|72||
+Roman Horák|54|47|55|CM|72||
+Eduard Sobol|69|64|66|LB|72|UKR|1995
+Sebastian Nebyla|55|48|56|RM|72||
+Kryštof Karban|57|50|58|CDM|72||
+Filip Vecheta|57|50|58|CM|72||
+Michal Kukučka|61|61|60|GK|72|SVK|2002
+Garang Kuol|55|48|56|CAM|72||
+Matej Malenšek|59|52|60|CM|72||
+Lamin Jawo|49|42|50|CM|72||
+Filip Novák|60|53|61|CDM|72||
+Nassim Innocenti|52|45|53|CDM|72||
+Klement Mihelak|61|54|62|CM|72||
+Saidou Alioum|66|62|58|LW|72|CMR|2003
+Dominik Hollý|56|45|58|CM|72|SVK|2003
+Jan Mikula|56|49|57|RM|73||
+Petr Hodouš|59|52|60|CM|73||
+Aleko Basiladze|61|54|62|CAM|73||
+Afolabi Soliu|58|51|59|LM|73||
+Lukáš Masopust|61|54|62|CAM|73||
+Lukáš Mašek|55|48|56|CDM|73||
+Qëndrim Zyba|58|51|59|RM|73||
+Vojtěch Stránský|52|45|53|CM|73||
+Augustin Drakpe|60|53|61|RM|73||
+Milan Lexa|59|52|60|CM|73||
+Alexandr Bužek|62|55|63|CM|73||
+Petr Juliš|56|49|57|LM|73||
+Josef Koželuh|53|46|54|RM|73||
+Vasil Kušej|74|68|67|LW|73|CZE|2000
+Jan Knapík|54|47|55|LM|73||
+Haris Berbić|58|51|59|CDM|73||
+Patrik Dulay|56|49|57|CDM|73||
+Dominik Kúdelčík|53|46|54|CDM|73||
+Jan Bořil|74|62|69|CB|73|CZE|1991
+Aziz Kayondo|57|50|58|CM|73||
+Vojtěch Sychra|59|52|60|CM|73||
+Lukáš Hůlka|56|49|57|CM|73||
+Šimon Gabriel|55|48|56|LM|73||
+Lukáš Pešl|59|52|60|RM|73||
+Tomáš Koubek|57|50|58|CM|73||
+Fallou Faye|61|54|62|CAM|73||
+Enej Marsetič|56|49|57|RM|73||
+Vénuste Baboula|52|45|53|CAM|73||
+Raimonds Krollis|51|44|52|CAM|73||
+Matěj Mikulenka|64|57|65|CAM|73||
+David Hamansenya|55|48|56|CDM|73||
+Marek Obdržálek|58|51|59|RM|74||
+Martin Králik|55|48|56|CM|74||
+Adam Zouhar|60|53|61|LM|74||
+Jan Harušťák|57|50|58|CDM|74||
+Lukáš Letenay|57|50|58|CM|74||
+Filip Lehký|61|54|62|CM|74||
+Matěj Hybš|56|49|57|CM|74||
+Denis Donát|57|50|58|CM|74||
+Samuel Grygar|57|50|58|CAM|74||
+Nicolas Penner|56|49|57|RM|74||
+Roman Teterja|56|49|57|LM|74||
+Filip Špatenka|58|51|59|LM|74||
+Marek Havran|58|51|59|CAM|74||
+David Kozel|56|49|57|CAM|74||
+Solomon John|61|54|62|LM|74||
+Martin Šubert|53|46|54|RM|74||
+Jiří Klíma|54|47|55|CM|74||
+Dominik Mareš|59|52|60|CM|74||
+Matěj Zachoval|60|53|61|CDM|74||
+Adam Kadlec|54|47|55|CAM|74||
+Daniel Langhamer|63|56|64|CAM|74||
+Filip Matoušek|58|51|59|CAM|74||
+Matouš Krulich|63|56|64|LM|74||
+Filip Kolář|58|51|59|CDM|74||
+Jan Jinoch|52|45|53|CAM|74||
+Vojtěch Vorel|69|70|68|GK|74|CZE|1996
+Ondřej Karafiát|68|57|62|CB|74|CZE|1995
+Josef Kolářík|58|51|59|RM|74||
+Jiří Floder|56|49|57|CAM|74||
+Jan Buryán|55|48|56|RM|74||
+Jan Zíka|59|52|60|CAM|74||
+David Pech|59|52|60|CAM|74||
+Victor Ogungbayi|58|51|59|RM|74||
+Patrik Berka|58|51|59|LM|75||
+Abdoulaye Sylla|54|47|55|RM|75||
+Louis Lurvink|61|54|62|RM|75||
+Léo Borges|69|45|64|CB|75|BRA|2001
+Tomáš Huk|63|56|64|CDM|75||
+Jáchym Šíp|56|49|57|CAM|75||
+Jiří Spáčil|60|53|61|CDM|75||
+Jan Kliment|56|49|57|RM|75||
+Václav Sejk|66|62|45|ST|75|CZE|2002
+Hilmir Rafn Mikaelsson|63|61|48|ST|75|ISL|2004
+Marko Soldo|55|48|56|CDM|75||
+Filip Slavíček|56|49|57|RM|75||
+John Paul Dembe|62|60|45|ST|75|UGA|2005
+Daniel Barát|55|48|56|CM|75||
+Jan Král|59|52|60|CM|75||
+Matěj Hadaš|57|50|58|RM|75||
+Fabijan Krivak|61|54|62|CAM|75||
+David Tkáč|56|49|57|LM|75||
+Stéphane Noumbissie|58|51|59|LM|75||
+Filip Uriča|55|48|56|CM|75||
+Anton Ekeroth|63|37|53|LB|75|SWE|2001
+Anthony Pavlešić|58|51|59|RM|75||
+Matúš Malý|53|46|54|CDM|75||
+Dominik Janošek|54|47|55|CDM|75||
+Michal Beran|58|51|59|RM|75||
+Ahmad Ghali|57|50|58|CAM|75||
+Václav Zahradníček|56|49|57|CAM|75||
+Péter Baráth|64|54|62|CM|75|HUN|2002
+Jan Koutný|58|51|59|CM|75||
+Matúš Hruška|54|47|55|RM|75||
+Igor Brzyski|56|49|57|RM|75||
+Patrik Vízek|56|49|57|RM|76||
+David Ludvíček|55|48|56|RM|76||
+Filip Mielke|58|51|59|LM|76||
+Tomáš Petrášek|52|45|53|CM|76||
+Filip Čihák|53|46|54|CDM|76||
+Elione Fernandes Neto|59|52|60|CDM|76||
+Jakub Uhrinčať|57|50|58|LM|76||
+Viktor Zentrich|61|54|62|LM|76||
+Matěj Valenta|68|64|66|CM|76|CZE|2000
+Mick van Buren|61|54|62|RM|76||
+Samuel Dancák|59|52|60|LM|76||
+Adam Zadražil|55|48|56|CAM|76||
+Vladimír Darida|61|54|62|RM|76||
+Ondřej Mihálik|57|50|58|LM|76||
+Tom Slončík|59|52|60|CAM|76||
+Matyáš Vágner|58|51|59|CDM|76||
+Tomáš Wiesner|52|45|53|CDM|76||
+Adam Binar|58|51|59|LM|76||
+Abdullahi Umar|60|53|61|LM|76||
+František Čech|54|47|55|LM|76||
+Daniel Horák|57|50|58|CDM|76||
+Daniel Trubač|59|52|60|LM|76||
+Jakub Kučera|56|49|57|CAM|76||
+Juraj Chvátal|66|59|67|CAM|76||
+Ro Abajas|62|27|48|LB|76|ESP|2003
+Adam Vlkanova|59|52|60|CAM|76||
+Tomáš Čvančara|72|70|65|ST|76|CZE|2000
+Viktor Budinský|58|51|59|CAM|77||
+Jiří Boula|54|47|55|CDM|77||
+Dantaye Gilbert|59|52|60|CAM|77||
+Aboubacar Traore|56|49|57|CAM|77||
+David Látal|53|46|54|LM|77||
+Abdallah Gning|56|49|57|RM|77||
+Václav Jurečka|70|70|65|ST|77|CZE|1994
+Maksym Dyachuk|68|32|56|CB|77|UKR|2003
+Michal Frydrych|56|49|57|CM|77||
+David Planka|64|57|65|LM|77||
+Filip Šancl|60|53|61|RM|77||
+Michal Kohút|59|52|60|CAM|77||
+Vít Škrkoň|61|54|62|CAM|77||
+Martin Jedlička|75|76|74|GK|77|CZE|1998
+Martin Hrubý|57|50|58|CM|77||
+Filip Kubala|58|51|59|CM|77||
+Abdullahi Bewene|65|58|66|RM|77||
+Matěj Chaluš|57|50|58|CAM|77||
+Jiří Míček|66|59|67|RM|77||
+Yevheniy Skyba|61|54|62|CM|77||
+Artúr Musák|57|50|58|LM|77||
+Matouš Babka|65|58|66|CDM|77||
+Matúš Kmeť|66|39|62|RB|77|SVK|2000
+Roan Nogha|58|51|59|CDM|77||
+Daniel Holzer|58|51|59|CAM|77||
+Vlasiy Sinyavskiy|55|48|56|CAM|77||
+Rhodri Smith|60|38|51|LB|77|SUI|2006
+Jakub Elbel|56|49|57|CAM|77||
+Jáchym Šerák|53|53|52|GK|78|CZE|
+Marek Icha|62|38|52|LB|78|CZE|
+Daniel Smékal|54|56|48|RW|78|CZE|
+Vojtěch Patrák|57|59|51|LW|78|CZE|
+Jiří Zima|57|50|58|CDM|78|CZE|
+Jan Trédl|61|37|51|LB|78|CZE|
+Jan Stejskal|55|55|54|GK|78|CZE|
+Emmanuel Godwin|54|30|44|LB|78|NGA|
+Tomáš Jelínek|55|48|56|CM|78|CZE|
+Václav Drchal|60|62|54|LW|78|CZE|
+Michal Hlavatý|60|53|61|CM|78|CZE|
+Abdullahi Tanko|59|61|53|ST|78|NGA|
+Mouhamed Traore|54|30|44|RB|78|CIV|
+Luka Kharatishvili|61|61|60|GK|78|GEO|
+Tomáš Solil|57|50|58|CDM|78|CZE|
+Ryan Mahuta|54|30|44|CB|78|FIN|
+Samuel Šimek|60|53|61|RM|78|CZE|
+Aleš Mandous|64|64|63|GK|78|CZE|
+Denis Halinský|58|34|48|LB|78|CZE|
+Victor Samuel|58|60|52|ST|78|NGA|
+Dávid Krčík|63|39|53|CB|78|SVK|
+Tobias Boledovič|59|35|49|CB|78|CZE|
+Jason Noslin|55|31|45|LB|78|NED|
+Simon Bammens|56|32|46|CB|78|BEL|
+Vladimír Neuman|63|63|62|GK|78|CZE|
+Robi Saarma|62|55|63|CAM|78|EST|
+Giannis Fivos Botos|65|58|66|CM|78|GRE|
+Kahuan Vinicius|61|63|55|ST|78|BRA|
+Dominik Ťapaj|66|59|67|CDM|79||
+Tobiáš Pališčák|70|63|71|CAM|79||
+Denis Vavro|76|59|58|CB|79|SVK|1996
+Karel Spáčil|71|56|62|CB|79|CZE|2003
+Lukáš Červ|74|68|67|CDM|79|CZE|2001
+Salim Fago Lawal|66|65|53|ST|79|NGA|2003
+Denis Višinský|69|66|66|LW|79|CZE|2003
+Mohamed Toure|70|69|57|ST|79|AUS|2004
+Matěj Vydra|74|75|66|ST|79|CZE|1992
+Alexandr Sojka|68|61|69|CDM|79||
+Marián Tvrdoň|68|62|67|GK|79|SVK|1994
+Merchas Doski|69|54|65|LB|79|IRQ|1999
+Patrik Hrošovský|77|76|76|CM|79|SVK|1992
+Tomáš Ladra|73|71|73|CAM|79|CZE|1997
+Cheick Souaré|72|67|70|LM|79|FRA|2002
+Jiří Panoš|63|52|63|CAM|79|CZE|2007
+Václav Jemelka|76|49|65|CB|79|CZE|1995
+Jan Paluska|66|33|52|CB|79|CZE|2005
+Baboucarr Faal|62|55|63|CAM|79||
+Christophe Kabongo|68|70|57|ST|79|CZE|2003
+Adam Gabriel|65|41|56|RB|79|CZE|2001
+Viktor Baier|66|64|65|GK|79|CZE|2005
+Stefan Pirgić|72|65|73|RM|79||
+Sampson Dweh|75|34|62|CB|79|LBR|2001
+Florian Wiegele|69|67|68|GK|79|AUT|2001
+Prince Kwabena Adu|71|70|58|ST|79|GHA|2003
+Filip Prebsl|68|46|67|CB|79|CZE|2003
+Amar Memić|75|69|71|RM|79|BIH|2001
+Gigli Ndefe|58|34|48|LB|80|ANG|
+Milan Rundić|59|35|49|RB|80|SRB|
+Andrej Stojchevski|59|35|49|CB|80|MKD|
+Filip Vaško|61|37|51|RB|80|SVK|
+Martin Šviderský|56|49|57|CAM|80|SVK|
+Giannis Niarchos|66|68|60|ST|80|GRE|
+Daniel Tetour|60|53|61|CM|80|CZE|
+Alan Marinelli|55|48|56|CM|80|ARG|
+Michal Trávník|55|48|56|CM|80|CZE|
+Filip Horský|58|60|52|ST|80|CZE|
+Patrik Blahút|59|52|60|CAM|80|SVK|
+Gibril Sosseh|58|60|52|ST|80|GAM|
+Filip Hruška|50|43|51|LM|80|CZE|
+Jan Fiala|60|62|54|ST|80|CZE|
+Tomáš Král|59|35|49|LB|80|CZE|
+Marek Havlík|64|57|65|RM|80|CZE|
+Šimon Slončík|58|34|48|CB|80|CZE|
+Jocelin Behiratche|56|32|46|CB|80|CIV|
+David Štěpánek|52|28|42|CB|80|CZE|
+Paul Ndubuisi|56|32|46|CB|80|NGA|
+Tihomir Kostadinov|56|49|57|CAM|80|MKD|
+Artūr Dolžnikov|57|50|58|CAM|80|LTU|
+Leoš Prior|62|38|52|RB|80|CZE|
+Milan Heča|63|63|62|GK|80|CZE|
+David Puškáč|54|56|48|LW|80|CZE|
+Alexandr Urban|61|61|60|GK|80|CZE|
+Pavel Halouska|57|57|56|GK|80|CZE|
+Lukáš Vorlický|70|67|75|CAM|80|CZE|2002
+Pavel Juroška|59|52|60|CM|80|CZE|
+Luděk Němeček|59|52|60|RM|81||
+Josef Švanda|60|53|61|CAM|81||
+Oskars Vientiess|59|52|60|CM|81||
+Jakub Jakubko|59|52|60|LM|81||
+Michal Bílek|59|52|60|LM|81||
+Abdourahman Badamosi|55|48|56|CAM|81||
+Jan Fortelný|54|47|55|CM|81||
+Matěj Pulkrab|54|47|55|RM|81||
+Matyáš Kozák|59|52|60|CM|81||
+Marcel Čermák|55|48|56|CAM|81||
+Denys Taraduda|56|49|57|CM|81||
+Ladislav Krejčí|78|68|68|CB|81|CZE|1999
+Jaroslav Harušťák|57|50|58|CM|81||
+Petr Kodeš|58|51|59|RM|81||
+John Auta|63|56|64|CDM|81||
+Robert Jukl|57|50|58|CDM|81||
+Artem Garzha|59|52|60|CAM|81||
+Idris Hopi|58|51|59|CM|81||
+Ladislav Takács|59|52|60|CDM|81||
+Lukáš Mareček|53|46|54|CM|81||
+Pavel Svatek|57|50|58|CDM|81||
+Matej Riznič|57|50|58|CAM|81||
+Daniel Danihel|52|45|53|CM|81||
+Matěj Náprstek|58|51|59|CM|81||
+Dalibor Večerka|57|50|58|LM|81||
+Matouš Trmal|57|50|58|CM|81||
+Kryštof Lichtenberg|56|49|57|RM|81||
+Sebastian Pech|60|53|61|RM|81||
+Tomáš Zlatohlávek|58|51|59|LM|81||
+Nojus Vytis Audinis|56|49|57|RM|81||
+Matěj Radosta|62|55|63|CM|81||
+Marek Beránek|56|49|57|RM|81||
+Daniel Mareček|57|50|58|CM|81||
+Tom Ulbrich|52|45|53|CAM|82|CZE|
+Kristers Penkevics|60|53|61|LM|82|LVA|
+Joss Didiba|60|53|61|RM|82|CMR|
+David Machalík|55|48|56|CM|82|CZE|
+Daniel Šmiga|60|62|54|RW|82|CZE|
+Stanislav Petruta|54|47|55|CM|82|CZE|
+Adam Gaži|55|48|56|CAM|82|SVK|
+Stanley Kanu|57|59|51|RW|82|NGA|
+Zvonimir Katalinić|59|35|49|RB|82|CRO|
+Prince Emmanuel|56|49|57|CM|82|NGA|
+Stanislav Dostál|58|58|57|GK|82|CZE|
+Cletus Nombil|58|51|59|CDM|82|GHA|
+Frank Appiah|52|45|53|LM|82|GHA|
+Michal Fukala|58|34|48|CB|82|CZE|
+Miloš Kopečný|59|35|49|RB|82|CZE|
+Jakub Černín|55|31|45|RB|82|CZE|
+Jakub Jugas|68|45|52|CB|82|CZE|1992
+Michal Cupák|57|50|58|CM|82|CZE|
+Miloš Kratochvíl|58|51|59|CM|82|CZE|
+Jakub Kolář|57|33|47|LB|82|CZE|
+Lukáš Bartošák|57|33|47|CB|82|CZE|
+Milan Knobloch|53|53|52|GK|82|CZE|
+Ondřej Kukučka|59|35|49|LB|82|CZE|
+Antonín Křapka|64|40|54|CB|82|CZE|
+Prince Mukuba|64|40|54|CB|82|COD|
+Tomáš Hellebrand|58|51|59|CM|82|CZE|
+Štěpán Bachůrek|57|57|56|GK|82|CZE|
+Marián Pišoja|59|52|60|CM|82|SVK|
+Tomáš Poznar|63|65|57|LW|82|CZE|
+Matěj Kadlec|61|37|51|RB|83|CZE|
+Benson Sakala|59|52|60|CAM|83|ZAM|
+Dominik Pleštil|59|52|60|CDM|83|CZE|
+David Heidenreich|58|34|48|CB|83|CZE|
+Ladislav Krobot|56|58|50|RW|83|CZE|
+Jan Matoušek|60|62|54|ST|83|CZE|
+Václav Pilař|56|49|57|LM|83|CZE|
+Michal Reichl|59|59|58|GK|83|CZE|
+Vladimír Zeman|60|62|54|RW|83|CZE|
+Mohamed Yasser|63|65|57|ST|83|EGY|
+Mathews Banda|66|42|56|CB|83|ZAM|
+Roman Květ|70|74|70|CM|83|CZE|1998
+Jakub Tichý|56|32|46|RB|83|CZE|
+Denis Vala|59|35|49|CB|83|CZE|
+Jan Kovařík|57|50|58|LM|83|CZE|
+Jan Vondra|58|34|48|LB|83|CZE|
+Tomáš Frühwald|59|59|58|GK|83|SVK|
+Milan Havel|71|53|66|RB|83|CZE|1994
+Peter Kareem|52|28|42|LB|83|NGA|
+David Lischka|57|33|47|CB|83|CZE|
+Petr Mirvald|54|30|44|CB|83|CZE|
+Vojtěch Smrž|58|51|59|RM|83|CZE|
+Aleš Čermák|58|51|59|CM|83|CZE|
+Samuel Obinaya|56|49|57|CAM|83|UKR|
+Oliver Mikuda|55|48|56|CAM|83|CZE|
+Šimon Černý|58|51|59|CAM|83|CZE|
+Jakub Šiman|57|57|56|GK|83|CZE|
+Ladislav Almási|60|62|54|LW|83|SVK|
+Ondřej Kolář|65|64|64|GK|84|CZE|1994
+Štěpán Chaloupek|77|52|59|CB|84|CZE|2003
+Tomáš Holeš|76|58|69|CB|84|CZE|1993
+David Zima|76|39|56|CB|84|CZE|2000
+Igoh Ogbu|74|39|55|CB|84|NGA|2000
+Ange N'Guessan|67|32|50|CB|84|FRA|2003
+Oskar Kubiak|65|64|58|LM|84|POL|2006
+Danijel Šturm|73|66|74|CM|84||
+Mojmír Chytil|75|74|56|ST|84|CZE|1999
+Samuel Isife|68|53|61|RM|84|NGA|2004
+Mubarak Suleiman|66|58|64|CM|84|NGA|2007
+David Moses|74|64|70|CM|84|NGA|2004
+Lukáš Provod|79|75|79|CAM|84|CZE|1996
+Adonija Ouanda|66|59|67|CM|84||
+Emmanuel Ayaosi|68|65|62|LW|84|NGA|2004
+Toumani Diakité|69|62|70|CM|84||
+Michal Sadílek|77|61|75|CDM|84|CZE|1999
+Ivan Schranz|69|72|65|LM|84|SVK|1993
+Tomáš Vlček|73|39|60|CB|84|CZE|2001
+Nazar Domchak|67|66|66|GK|84|UKR|2007
+Wiktor Nowak|64|57|60|CAM|84|POL|2004
+Pavel Kačor|68|61|69|RM|84||
+Jakub Markovič|74|71|73|GK|84|CZE|2001
+David Jurásek|74|61|73|LB|84|CZE|2000
+Mikuláš Konečný|74|67|75|RM|84||
+Eliáš Piták|71|64|72|CM|84||
+Martin Suchomel|68|52|61|RB|85|CZE|2002
+Pavel Kadeřábek|74|47|71|RB|85|CZE|1992
+Jakub Martinec|67|60|68|CM|85||
+Santiago Eneme|60|53|55|CAM|85|EQG|2000
+Tobias Guddal|70|36|51|CB|85|NOR|2002
+Josimar Alcócer|67|61|60|LM|85|CRC|2004
+Magnus Kofod Andersen|69|60|68|CM|85|DEN|1999
+Adam Karabec|73|68|74|RM|85|CZE|2003
+Matěj Ryneš|74|69|74|LM|85|CZE|2001
+Jonatan Braut Brunes|75|74|57|ST|85|NOR|2000
+Viktor Vitályos|69|62|70|RM|85||
+Emmanuel Uchenna|71|44|56|CB|85|NGA|2003
+John Mercado|73|69|66|LW|85|ECU|2002
+Andy Irving|72|67|73|CM|85|SCO|2000
+Adam Ševínský|71|43|58|CB|85|CZE|2004
+Sivert Mannsverk|69|58|66|CDM|85|NOR|2002
+Joao Grimaldo|69|67|64|RW|85|PER|2003
+Loïc Mbe Soh|71|64|72|RM|85||
+Ki-Jana Hoever|71|55|67|RB|85|NED|2002
+Patrik Vydra|74|68|70|CDM|85|CZE|2003
+Ebrima Singhateh|69|62|70|RM|85||
+Roman Macek|68|61|69|CDM|85||
+Matyáš Vojta|69|62|70|RM|85||
+Jaroslav Zelený|73|62|71|CB|85|CZE|1992
+Matěj Jurásek|68|67|65|RM|85|CZE|2003
+Hugo Sochůrek|68|61|64|CM|85|CZE|2008
+Jakub Surovčík|69|66|68|GK|85|SVK|2002
+Krisztián Hegyi|59|59|58|GK|85|HUN|2002
+Ondřej Penxa|66|59|67|CM|85||
+Štěpán Harazim|58|51|59|CM|86||
+Dominik Plechatý|54|47|55|CM|86||
+Michal Jeřábek|60|53|61|CAM|86||
+Quadri Adediran|58|51|59|CAM|86||
+Alexis Alégué|55|48|56|LM|86||
+Sacha Komljenovic|60|53|61|CM|86||
+Albert Labík|59|52|60|CM|86||
+Daniel Samek|57|50|58|CAM|86||
+Issa Fomba|60|53|61|CM|86||
+El Hadji Ndiaye|53|46|54|CDM|86||
+Ismael Sylla|58|51|59|CDM|86||
+Adam Petrák|54|47|55|CM|86||
+Emmanuel Fully|56|49|57|CDM|86||
+Danijel Kolarić|61|54|62|CM|86||
+Papalélé|59|52|60|RM|86||
+Daniel Toula|60|53|61|CAM|86||
+Dominik Sarapata|62|49|60|CDM|86|POL|2007
+Adam Carlén|65|43|56|CDM|86|SWE|2000
+Jakub Fulnek|57|50|58|CAM|86||
+Ondřej Čoudek|62|55|63|CDM|86||
+Martin Pospíšil|60|53|61|LM|86||
+Dominik Preisler|55|48|56|CM|86||
+David Šimek|57|50|58|CAM|86||
+Richard Kašík|58|51|59|RM|86||
+Jan Navrátil|59|52|60|CM|86||
+Jiří Borek|61|54|62|CM|86||
+Tadeáš Stoppen|61|54|62|CAM|86||
+Neil Glossoa|61|54|62|CAM|86||
+Karel Pojezný|53|46|54|CAM|86||
+Sebastian Boháč|57|50|58|CDM|86||
+Martin Tauš|53|46|54|CM|86||
+Vukadin Vukadinović|61|54|62|LM|86||
+Daniel Švancara|55|48|56|CAM|86||
+Youssoupha Sanyang|67|61|61|LW|86|GAM|2005
+Vladimir Perišić|59|52|60|RM|86||
+Adam Hrdina|54|47|55|CM|87||
+Kaká|53|46|54|CM|87||
+Eric Hunal|55|48|56|CM|87||
+Lukáš Penxa|62|55|63|CAM|87||
+Štěpán Langer|60|53|61|CM|87||
+Patrik Čavoš|58|51|59|RM|87||
+Oliver Velich|56|49|57|CDM|87||
+Antonín Vaníček|55|48|56|CM|87||
+Martin Rymarenko|54|47|55|CAM|87||
+Tadeáš Vachoušek|62|55|63|CM|87||
+Daniel Vašulín|56|49|57|CAM|87||
+Jaromír Zmrhal|64|57|65|RM|87||
+Denis Granečný|63|56|64|CAM|87||
+Bienvenue Kanakimana|66|59|67|CDM|87||
+Lukas Saal|54|47|55|CAM|87||
+Filip Večeřa|57|50|58|CAM|87||
+Petr Ševčík|74|69|76|CM|87|CZE|1994
+Dominik Sváček|55|48|56|RM|87||
+Tomáš Břečka|57|50|58|CDM|87||
+Filip Vedral|63|56|64|CM|87||
+Patrik Žitný|56|49|57|RM|87||
+Colin Andrew|65|58|66|RM|87||
+Martin Gjorgievski|55|48|56|LM|87||
+Jan Juroška|60|53|61|RM|87||
+Jakub Pokorný|59|52|60|CDM|87||
+Jakub Klíma|56|49|57|CAM|87||
+Amadou Dante|68|51|56|LB|87|MLI|2000
+Jakub Janetzký|57|50|58|CM|87||
+Lucky Ezeh|58|51|59|LM|87||
+Ondřej Prodělal|58|51|59|LM|87||`;
+
+/* ================= v6.8: Top-10-Ligen nach UEFA-Wertung ================= */
+/* Niederlande, Portugal, Belgien, Türkei, Tschechien kommen zu England, Spanien, Italien, Frankreich (und Deutschland) dazu.
+   Kader: Wikipedia (Stand Saison 2026/27), Werte: EA FC 27 bzw. EA FC 26, sonst nach Vereinsstärke geschätzt. */
+Object.assign(FX_LG,{NL:'Eredivisie',PT:'Liga Portugal',BE:'Pro League',TR:'Süper Lig',CZ:'Chance Liga'});
+Object.assign(FX_CC_NAT,{NL:'NED',PT:'POR',BE:'BEL',TR:'TUR',CZ:'CZE'});
+Object.assign(FX_FLAG,{NL:'NED',PT:'POR',BE:'BEL',TR:'TUR',CZ:'CZE'});
+const FX68_0=FX_CLUBS.length;const FX68_NEW=[];
+CL68.forEach((c,k)=>{const i=FX68_0+k;FX_CLUBS.push(c);let j=EURO.findIndex(e=>e.en===c[7]);
+  if(j<0){j=EURO.length;EURO.push({i:j,name:c[0],mid:c[1],short:c[2],c1:c[3],c2:c[4],ea:68,rt:61,comp:null,cc:c[5],wiki:c[6],en:c[7]})}
+  const e=EURO[j];e.fx=1;e.fxi=i;e.lgn=FX_LG[c[5]];e.cc=c[5];FX_E[i]='e'+j;FX68_NEW.push(e)});
+FX_PL+='\n'+PL68.split('\n').map(l=>{const x=l.split('|');x[5]=String(+x[5]+FX68_0);return x.join('|')}).join('\n');
+try{FX_B=null;PB53=null;plCurC=null;if(typeof plPoolV!=='undefined')plPoolV++}catch(e){}
+FX68_NEW.forEach(e=>{const id='e'+e.i;const ea0=e.ea;
+  Object.defineProperty(e,'ea',{get(){let k;try{k=xiCache().k}catch(x){return ea0||70}if(e._ek!==k){e._ek=k;const v=fxTeamEA(id);e._ea=clubRoster(id).length>=6?v:(ea0||70)}return e._ea},configurable:true});
+  Object.defineProperty(e,'rt',{get(){return Math.round(40+(e.ea-55)*1.6)},configurable:true})});
+Object.assign(FX_CMUL,{NL:1,PT:1.05,BE:.9,TR:1,CZ:.75});
+/* Ursprüngliche Europapokal-Teilnehmer merken (neue Karriere startet wieder damit) */
+EURO.forEach(e=>{e.comp0=e.comp});
+const TOP68=['EN','ES','IT','FR','NL','PT','BE','TR','CZ'];
+
+/* ================= v6.8: Klicks, Verein, Jugend, Statistik, Bälle ================= */
+/* ---------- Ausgeblendeter Hinweis fängt keine Taps mehr ab ---------- */
+(()=>{const t=$('#toast');if(t)t.addEventListener('animationend',()=>{if(t.classList.contains('hide')){t.classList.remove('show','tap66','act');t.onclick=null}})})();
+
+/* ---------- Gebäude: Startstufen nach Größe des Vereins ---------- */
+function up0Make68(id){let R=10,cap=0;try{R=rev66(id)}catch(e){}try{const c=ci66(id);cap=(c&&c.cap)||0}catch(e){}
+  if(!cap){try{cap=CAP63[CLUB[id].short]||0}catch(e){}}if(!cap)cap=({1:40000,2:22000,3:10000,4:3500})[carLeagueOf(id)]||5000;
+  const b=R>=500?5:R>=200?4:R>=90?3:R>=35?2:R>=10?1:0;const st=cap>=60000?5:cap>=40000?4:cap>=22000?3:cap>=12000?2:cap>=5000?1:0;
+  return{stadium:st,train:b,youth:Math.min(5,b+(R>=35&&R<200?1:0)),med:b,shop:Math.max(0,b-1),fans:Math.min(5,Math.round((st+b)/2))}}
+function up0Of68(){if(!CAR)return{};if(!CAR.up0||CAR.up0c!==CAR.club){CAR.up0=up0Make68(CAR.club);CAR.up0c=CAR.club}return CAR.up0}
+const lvT68=k=>Math.min(5,(up0Of68()[k]||0)+((CAR.up&&CAR.up[k])||0));
+bauStart=function(k){const lv=lvT68(k);if(lv>=5||bauQ().some(p=>p.k===k))return;
+  if(bauQ().length>=bauMax()){miniToast('🏗️','Bauplatz belegt','Maximal '+bauMax()+' Projekt'+(bauMax()>1?'e':'')+' gleichzeitig');return}
+  const c=bauCost(k,lv);if(CAR.money<c){miniToast('💸','Zu wenig Geld','Kosten '+fmtMoney(c));return}const d=bauDays(k,lv);CAR.money-=c;
+  bauQ().push({k,to:((CAR.up&&CAR.up[k])||0)+1,tl:lv+1,left:d,tot:d});if(CAR.tok){CAR.tok.disc=0;CAR.tok.bd=0}
+  fxNews('🏗️','Baustart: '+BAU[k].n+' Stufe '+(lv+1)+' · fertig in '+d+' Spieltagen','me');carEv('build');sfx('conq');haptic(1);carSave();carRender()};
+bauTick=function(n){const done=[];bauQ().forEach(p=>{p.left-=n||1});CAR.bau.q=bauQ().filter(p=>{if(p.left>0)return true;CAR.up[p.k]=p.to;done.push(p);return false});
+  done.forEach(p=>{const L=p.tl||lvT68(p.k);fxNews(BAU[p.k].em,BAU[p.k].n+' Stufe '+L+' ist fertig!','me');carToastQ.push([BAU[p.k].em,BAU[p.k].n+' fertig','Stufe '+L+' · '+BAU[p.k].d]);carUnlock('bau1');if(L>=5)carUnlock('maxup')})};
+const BAU68_D={stadium:'Mehr Plätze und Einnahmen pro Ausbaustufe',train:'Spieler entwickeln sich schneller',youth:'Bessere Talente in U19 und U17',med:'Weniger Verletzungen, schnellere Rückkehr',shop:'Mehr Einnahmen an jedem Heimspieltag',fans:'Lautere Kurve, mehr Heimstärke'};
+function bauHTML68(){const q=bauQ();const U0=up0Of68();
+  let h='<div class="vhead"><div><small>Kasse</small><b>'+fmtMoney(CAR.money)+'</b></div><div><small>Gleichzeitig</small><b>'+q.length+' / '+bauMax()+'</b></div></div>';
+  h+='<div class="note">Startstufen entsprechen der echten Infrastruktur von '+esc(CLUB[CAR.club].mid)+'. Ausbauten dauern mehrere Spieltage und kosten Unterhalt.</div>';
+  h+=BAU_K.map(k=>{const B=BAU[k],lv=lvT68(k),own=(CAR.up&&CAR.up[k])||0,p=q.find(x=>x.k===k);const c=bauCost(k,lv),d=bauDays(k,lv);
+    const dots='<i class="b68d">'+[0,1,2,3,4].map(i=>'<em class="'+(i<(U0[k]||0)?'b':i<lv?'u':'')+'"></em>').join('')+'</i>';
+    return '<div class="bau b68'+(p?' run':'')+'"><span class="ue">'+B.em+'</span><div><b>'+B.n+'</b>'+dots+'<small>'+(BAU68_D[k]||B.d)+(own?' · Unterhalt '+fmtMoney(bauUpkeep(k,own))+'/Sp.':'')+'</small>'+
+      (p?'<i class="bbar"><em style="width:'+Math.round((1-p.left/p.tot)*100)+'%"></em></i><small class="bleft">🏗️ Stufe '+(p.tl||lv+1)+' · noch '+p.left+' Spieltag'+(p.left>1?'e':'')+'</small>':'')+'</div>'+
+      (p?'':'<button class="press'+(lv>=5||CAR.money<c?' dis':'')+'" data-bau="'+k+'">'+(lv>=5?'Max':fmtMoney(c)+'<small>'+d+' Sp.</small>')+'</button>')+'</div>'}).join('');
+  return h+'<div class="note">● Grundausstattung des Vereins · <span style="color:var(--cAi,#7dffa0)">●</span> eigener Ausbau</div>'}
+
+/* ---------- Jugend: U19 (A-Jugend) und U17 (B-Jugend) mit vollen Kadern ---------- */
+const YT68={U19:{n:'U19 · A-Jugend',a:[17,18],off:0},U17:{n:'U17 · B-Jugend',a:[15,16],off:-5}};
+const YT68_POS=['TW','TW','TW','IV','IV','IV','LV','RV','IV','LV','ZDM','ZM','ZM','ZOM','LM','RM','ZM','ST','ST','LF','RF','ST'];
+function yth68(){const Y=ythState();if(!Y.U19){Y.U19=(Y.L||[]).slice();Y.U17=[];Y.L=[]}if(Y.L&&Y.L.length){Y.U19=Y.U19.concat(Y.L);Y.L=[]}return Y}
+function ythBase68(){const l=carMyL();return 46+({1:7,2:5,3:2,4:0}[l]||0)+lvT68('youth')*1.9+stf('ju')*1.3}
+function ythKid68(t,pos,age){const gk=pos==='TW';const g=()=>{let u=0,v=0;while(!u)u=Math.random();while(!v)v=Math.random();return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v)};
+  const o=Math.round(clamp(ythBase68()+YT68[t].off+(age-YT68[t].a[0])*2+g()*4.2,38,74));const lv=lvT68('youth'),ju=stf('ju');const pr=Math.random();
+  const pot=pr<.04+lv*.025+ju*.02?2:pr<.3+lv*.04?1:0;
+  const r=fxRegen(CAR.club,gk,{own:true,age,o,pot,nat:Math.random()<.8?'GER':null});r.club=CAR.club;r.yth=CAR.season;r.pos=pos;r.t68=t;return r}
+function ythFill68(t,n){const Y=yth68();const L=Y[t];const have={};L.forEach(p=>{have[p.pos]=(have[p.pos]||0)+1});const need=YT68_POS.slice();
+  L.forEach(p=>{const i=need.indexOf(p.pos);if(i>=0)need.splice(i,1)});const add=[];
+  while(L.length<n){const pos=need.length?need.shift():RG_POS[Math.random()*RG_POS.length|0];const a=YT68[t].a;const age=a[0]+(Math.random()<.5?0:1);const p=ythKid68(t,pos,age);L.push(p);add.push(p)}return add}
+const ythAge68=p=>{const a=ageAt(p.by);return a==null?16:a};
+ythIntake=function(){const Y=yth68();if(Y.s68===CAR.season)return;const first=Y.s68==null;Y.s68=CAR.season;Y.s=CAR.season;
+  let left=[],up=[];if(!first){
+    /* Wachstum über den Sommer */
+    ['U19','U17'].forEach(t=>Y[t].forEach(p=>{const d=1+(p.pot||0)+(Math.random()<.5?1:0)+(lvT68('train')>=4?1:0);['o','pra','kra','ner'].forEach(k=>{if(p[k]!=null)p[k]=Math.min(84,p[k]+d)})}));
+    Y.U19=Y.U19.filter(p=>{if(ythAge68(p)>=19){left.push(p);return false}return true});
+    Y.U17=Y.U17.filter(p=>{if(ythAge68(p)>=17){p.t68='U19';Y.U19.push(p);up.push(p);return false}return true})}
+  if(Y.U19.length>26){const cut=Y.U19.slice().sort((a,b)=>(a.o+(a.pot||0)*3)-(b.o+(b.pot||0)*3)).slice(0,Y.U19.length-26);Y.U19=Y.U19.filter(p=>!cut.includes(p));left=left.concat(cut)}
+  const a19=ythFill68('U19',22),a17=ythFill68('U17',22);
+  if(!first){fxNews('🌱','Jugend: '+up.length+' Spieler rücken in die U19 auf, '+a17.length+' neue U17-Talente'+(left.length?' · '+left.length+' verlassen die U19':''),'me');
+    const best=a17.concat(up).sort((x,y)=>(y.pot-x.pot)||(y.o-x.o))[0];carToastQ.push(['🌱','Neuer Jahrgang',up.length+' Aufrücker in die U19 · '+a17.length+' neue U17-Spieler'+(best?' · Toptalent: '+best.n+' ('+best.o+')':'')])}
+  else if(a19.length+a17.length>20)fxNews('🌱','Nachwuchsleistungszentrum: U19 und U17 mit je 22 Spielern','me')};
+function ythUp68(t,i){const Y=yth68();const p=Y[t][i];if(!p)return;Y[t].splice(i,1);Y.L=[p];ythPromote(0)}
+function ythOut68(t,i){const Y=yth68();Y[t].splice(i,1);sfx('tap');carSave();carRender()}
+function ythHTML68(){const Y=yth68();if(!Y.U19.length&&!Y.U17.length)try{Y.s68=null;ythIntake()}catch(e){}
+  const t=CAR.ys68==='U17'?'U17':'U19';const L=Y[t].map((p,i)=>[p,i]);const grp=p=>p.pos==='TW'?0:['IV','LV','RV'].includes(p.pos)?1:['ZDM','ZM','ZOM','LM','RM'].includes(p.pos)?2:3;
+  L.sort((a,b)=>grp(a[0])-grp(b[0])||b[0].o-a[0].o);const avg=L.length?Math.round(L.reduce((s,x)=>s+x[0].o,0)/L.length):0;
+  let h='<div class="seg sm y68seg" id="y68s"><div class="hl"></div><button data-v="U19">U19 · A-Jugend</button><button data-v="U17">U17 · B-Jugend</button></div>';
+  h+='<div class="y68h"><div><small>Spieler</small><b>'+L.length+'</b></div><div><small>Ø Stärke</small><b>'+avg+'</b></div><div><small>Jugendzentrum</small><b>'+'●'.repeat(lvT68('youth'))+'<span style="opacity:.3">'+'●'.repeat(5-lvT68('youth'))+'</span></b></div></div>';
+  h+='<div class="note">'+(t==='U19'?'Jahrgänge 17–18. Wer 19 wird, verlässt im Sommer die Jugend – zieh ihn vorher hoch.':'Jahrgänge 15–16. Rücken jeden Sommer in die U19 auf, dazu kommt ein neuer Jahrgang.')+'</div>';
+  const G=['Torhüter','Abwehr','Mittelfeld','Sturm'];let g0=-1;
+  h+='<div class="y68l">'+L.map(([p,i])=>{const g=grp(p);const hd=g!==g0?'<div class="y68g">'+G[g]+'</div>':'';g0=g;const a=ythAge68(p);
+    return hd+'<div class="y68r"><span class="y68p">'+esc(p.pos||'')+'</span><div class="y68n"><b>'+esc(p.n)+'</b><small>'+a+' J. · '+natFlag(p.nat||'GER')+' · Potenzial '+'★'.repeat(1+(p.pot||0))+'</small></div><b class="y68o">'+p.o+'</b>'+
+      '<button class="press y68b" data-y68p="'+t+':'+i+'" aria-label="Hochziehen">⬆︎</button><button class="press y68b warn" data-y68r="'+t+':'+i+'" aria-label="Entlassen">✕</button></div>'}).join('')+'</div>';
+  return h}
+
+/* ---------- Verein: Tabs Stab, Bauen, Jugend, Trikots im Klub ---------- */
+const _clubView68=clubView60;
+clubView60=function(){const s=CAR.vsub;
+  if(s==='stf'){CAR.vsub='st';try{return _clubView66().replace(/<button class="press vpk"[\s\S]*?<\/button>/,'')}finally{CAR.vsub='stf'}}
+  if(s==='bau')return subSeg('vSub',VSUB,'bau')+bauHTML68();
+  if(s==='ju')return subSeg('vSub',VSUB,'ju')+ythHTML68();
+  let h=_clubView68();if(s==='klub')h+=kits68();return h};
+function kits68(){const ck='V'+CAR.club;let h='<div class="lbl">Trikots '+seasonLbl(CAR.season)+'</div><div class="kits k68"><div>'+kitHTML(ck,{w:104,full:1})+'<small>Heim</small></div>';
+  try{if(WX.kit[ck]&&WX.kit[ck].a)h+='<div>'+kitHTML(ck,{w:104,full:1,away:1})+'<small>Auswärts</small></div>'}catch(e){}return h+'</div>'}
+
+/* ---------- Spielstatistik: realistisch und bei jedem Spiel anders ---------- */
+const _mmStats68=mmStatsOf;
+mmStatsOf=function(M){const S=_mmStats68(M);try{if(!M||!M.lam||!M.stx)return S;
+  const g=()=>{let u=0,v=0;while(!u)u=Math.random();while(!v)v=Math.random();return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v)};
+  const R=M._r68||(M._r68={p:g()*6,sa:g(),sd:g(),ca:g(),cd:g(),fa:g(),fd:g(),pa:g(),pd:g(),q:.25+Math.random()*.12,r:.25+Math.random()*.12});
+  const fr=clamp((M.min||0)/90,.03,1.08);const X=M.stx;
+  let pos=S[0][3];pos=Math.round(clamp(pos*.5+(50+(M.lam.A-M.lam.D)*10)*.5+R.p-(M.g.A-M.g.D)*1.6,26,74));
+  const ex=(sd,r,po)=>Math.round(Math.max(1.6+M.lam[sd]*1.4,3.4+M.lam[sd]*3.2+(po-50)*.1+r*2.2)*fr);
+  const shA=X.A.sh+ex('A',R.sa,pos),shD=X.D.sh+ex('D',R.sd,100-pos);
+  const sotA=Math.min(shA,X.A.sot+Math.round((shA-X.A.sh)*R.q)),sotD=Math.min(shD,X.D.sot+Math.round((shD-X.D.sh)*R.r));
+  const corA=X.A.cor+Math.round(Math.max(.8,2+M.lam.A*1.4+(pos-50)*.06+R.ca*1.4)*fr),corD=X.D.cor+Math.round(Math.max(.8,2+M.lam.D*1.4+(50-pos)*.06+R.cd*1.4)*fr);
+  const fouA=Math.max(0,Math.round(X.A.fou*.6+(4+(50-pos)*.08+R.fa*1.8)*fr)),fouD=Math.max(0,Math.round(X.D.fou*.6+(4+(pos-50)*.08+R.fd*1.8)*fr));
+  const xg=(sh,sot,gl)=>Math.max(.02,sh*.065+sot*.1+gl*.16);const xa=xg(shA,sotA,M.g.A),xd=xg(shD,sotD,M.g.D);const f2=v=>v.toFixed(2).replace('.',',');
+  const pa=Math.round(clamp(76+(pos-50)*.38+R.pa*3.5,62,93)),pd=Math.round(clamp(76+(50-pos)*.38+R.pd*3.5,62,93));
+  const cards=S.find(r=>r[0]==='Karten')||['Karten',0,0];
+  return[['Ballbesitz',pos+' %',(100-pos)+' %',pos,100-pos],['Expected Goals',f2(xa),f2(xd),xa,xd],['Schüsse',shA,shD],['Aufs Tor',sotA,sotD],['Ecken',corA,corD],['Passquote',pa+' %',pd+' %',pa,pd],['Fouls',fouA,fouD],cards]}catch(e){console.error(e);return S}};
+
+/* ---------- Bälle: automatisch je Wettbewerb ---------- */
+const BALL68={l1:{n:'Liga',a:'#ffffff',b:'#c8102e'},l2:{n:'2. Liga',a:'#ffffff',b:'#0a3a7a'},l3:{n:'3. Liga',a:'#ffffff',b:'#11713a'},l4:{n:'Regionalliga',a:'#f4f4f4',b:'#333a46'},
+  cup:{n:'Pokal',a:'#fbf6e8',b:'#b8860b'},cl:{n:'Königsklasse',a:'#ffffff',b:'#0b1d4f'},el:{n:'Europa',a:'#ff7a1a',b:'#151515'},ecl:{n:'Conference',a:'#e9ff5c',b:'#0d6b3a'},nt:{n:'Turnier',a:'#ffffff',b:'#7a1fa2'}};
+const _ballTex68=ballTex;
+ballTex=function(s){if(BALL68[s]){TW_BALLS.__b68=BALL68[s];try{return _ballTex68('__b68')}finally{delete TW_BALLS.__b68}}return _ballTex68(s)};
+function ball68Of(o){try{const t=String(o.title||''),sb=String(o.sub||'');if(/Pokal/.test(t))return 'cup';if(/Champions/.test(t))return 'cl';if(/Conference/.test(t))return 'ecl';if(/Europa League/.test(t))return 'el';
+  if(o.A&&String(o.A.id||'').startsWith('n'))return 'nt';for(const l of [1,2,3,4])if(sb===CL_NAME[l]||sb===CL_SHORT[l])return 'l'+l;if(/Relegation/.test(t))return 'l1';return 'l'+carMyL()}catch(e){return 'l1'}}
+const _g3Prep68=g3Prep;
+g3Prep=function(M,...a){const r=_g3Prep68.call(this,M,...a);try{if(!G3.only2d&&G3.ballM){G3.ballM.map=ballTex(ball68Of(M.o||{}));G3.ballM.needsUpdate=true}}catch(e){}return r};
+
+/* ================= Top-10-Ligen: komplette Saison im Hintergrund ================= */
+function rng68(seed){let s=(seed>>>0)||1;return()=>{s=(Math.imul(s,1664525)+1013904223)>>>0;return s/4294967296}}
+const flIds68=cc=>EURO.filter(e=>e.fx&&e.cc===cc).map(e=>'e'+e.i);
+const FLF68={};
+function flFix68(cc){const k=cc+'|'+CAR.season;if(FLF68[k])return FLF68[k];const r=rng68(hashStr(cc)+CAR.season*7919);const T=flIds68(cc);
+  for(let i=T.length-1;i>0;i--){const j=r()*(i+1)|0;[T[i],T[j]]=[T[j],T[i]]}if(T.length%2)T.push(null);const n=T.length;const a=T.slice();const H=[];
+  for(let k2=0;k2<n-1;k2++){const rd=[];for(let i=0;i<n/2;i++){const x=a[i],y=a[n-1-i];if(x!=null&&y!=null)rd.push((i===0?k2%2:i%2)?[y,x]:[x,y])}H.push(rd);a.splice(1,0,a.pop())}
+  return FLF68[k]=H.concat(H.map(rd=>rd.map(([x,y])=>[y,x])))}
+function flState68(){if(!CAR)return null;let F=CAR.fl68;if(!F||F.s!==CAR.season){const ch=F&&F.ch||[];let prev=null;if(F&&F.s===CAR.season-1){prev={s:F.s};TOP68.forEach(cc=>{const L=F.L[cc];if(!L)return;prev[cc]=Object.keys(L.tab).sort((a,b)=>{const A=L.tab[a],B=L.tab[b];return B[6]-A[6]||(B[4]-B[5])-(A[4]-A[5])||B[4]-A[4]}).map(id=>[id,L.tab[id][6],L.tab[id][4]-L.tab[id][5]])})}F=CAR.fl68={s:CAR.season,L:{},ch,prev};
+  TOP68.forEach(cc=>{const ids=flIds68(cc);F.L[cc]={r:0,tab:Object.fromEntries(ids.map(id=>[id,[0,0,0,0,0,0,0]])),last:[]}})}return F}
+/* tab: [Sp,S,U,N,Tore,Gegentore,Punkte] */
+function flPlay68(cc){const F=flState68();const L=F.L[cc];const fx=flFix68(cc);const rd=fx[L.r];if(!rd){L.r++;return}const res=[];
+  rd.forEach(([h,a])=>{if(!L.tab[h]||!L.tab[a])return;const r=simGame(h,a);const H=L.tab[h],A=L.tab[a];H[0]++;A[0]++;H[4]+=r.gh;H[5]+=r.ga;A[4]+=r.ga;A[5]+=r.gh;
+    if(r.gh>r.ga){H[1]++;A[3]++;H[6]+=3}else if(r.gh<r.ga){A[1]++;H[3]++;A[6]+=3}else{H[2]++;A[2]++;H[6]++;A[6]++}res.push([h,a,r.gh,r.ga])});L.last=res;L.r++}
+function flTick68(all){const F=flState68();if(!F)return;const N=(CAR.fx[carMyL()]||[]).length||34;const ratio=all||CAR.phase!=='season'?1:clamp(CAR.R/N,0,1);
+  TOP68.forEach(cc=>{const L=F.L[cc];if(!L)return;const tot=flFix68(cc).length;const tg=Math.min(tot,Math.round(ratio*tot));let g=0;while(L.r<tg&&g<60){flPlay68(cc);g++}})}
+function flTable68(cc){const F=flState68();const L=F&&F.L[cc];if(!L)return[];return Object.keys(L.tab).sort((a,b)=>{const A=L.tab[a],B=L.tab[b];return B[6]-A[6]||(B[4]-B[5])-(A[4]-A[5])||B[4]-A[4]||carR(b,false)-carR(a,false)})}
+const _carRound68=carRound;
+carRound=function(...a){const r=_carRound68.apply(this,a);try{flTick68()}catch(e){console.error('fl68',e)}return r};
+const _carSeasonEnd68=carSeasonEnd;
+carSeasonEnd=function(...a){try{flTick68(true);const F=flState68();TOP68.forEach(cc=>{const T=flTable68(cc);if(T[0])F.ch.unshift({s:CAR.season,cc,id:T[0]})});if(F.ch.length>90)F.ch.length=90}catch(e){console.error(e)}
+  return _carSeasonEnd68.apply(this,a)};
+/* Europapokal-Startplätze für die nächste Saison aus den Abschlusstabellen */
+function euSlots68(cc){const s={cl:0,el:0,ecl:0};EURO.forEach(e=>{if(e.cc===cc&&e.comp0&&s[e.comp0]!=null)s[e.comp0]++});return s}
+function euReassign68(){const a={};TOP68.forEach(cc=>{const S=euSlots68(cc);const T=flTable68(cc);let i=0;['cl','el','ecl'].forEach(q=>{for(let k=0;k<S[q]&&i<T.length;k++)a[T[i++]]=q})});CAR.euC68={s:CAR.season+1,a}}
+function euApply68(){const A=CAR&&CAR.euC68&&CAR.euC68.s<=CAR.season?CAR.euC68.a:null;EURO.forEach(e=>{e.comp=(A&&TOP68.includes(e.cc))?(A['e'+e.i]||null):e.comp0})}
+const _carEuroInit68=carEuroInit;
+carEuroInit=function(...a){try{euApply68()}catch(e){}return _carEuroInit68.apply(this,a)};
+
+/* ================= WM & EM in der Karriere (nur Ergebnisse) ================= */
+Object.assign(NT_INFO,{NGA:['Nigeria','#008751','#ffffff'],CMR:['Kamerun','#007a5e','#ce1126'],MLI:['Mali','#14b53a','#fcd116'],PER:['Peru','#d91023','#ffffff'],CHI:['Chile','#d52b1e','#0039a6'],
+  VEN:['Venezuela','#7c0a02','#ffcc00'],BOL:['Bolivien','#007934','#f9e300'],CRC:['Costa Rica','#002b7f','#ce1126'],JAM:['Jamaika','#fed100','#009b3a'],HON:['Honduras','#ffffff','#0073cf'],
+  UAE:['VAE','#ffffff','#00732f'],CHN:['China','#de2910','#ffde00'],BFA:['Burkina Faso','#ef2b2d','#009e49'],GUI:['Guinea','#ce1126','#009460'],ZAM:['Sambia','#198a00','#ef7d00']});
+const NT_CONF68={UEFA:['FRA','ESP','ENG','GER','POR','NED','BEL','ITA','CRO','SUI','AUT','DEN','TUR','NOR','SWE','SRB','POL','UKR','CZE','HUN','SVK','SVN','SCO','WAL','IRL','NIR','GEO','ROU','GRE','ALB','ISL','FIN','ISR','KOS','MKD','MNE','BUL','BIH'],
+  CONMEBOL:['ARG','BRA','URU','COL','ECU','PAR','PER','CHI','VEN','BOL'],CAF:['MAR','SEN','EGY','CIV','ALG','TUN','NGA','CMR','GHA','RSA','CPV','COD','MLI','BFA','GUI','ZAM'],
+  AFC:['JPN','KOR','IRN','AUS','KSA','QAT','IRQ','UZB','JOR','UAE','CHN'],CONCACAF:['USA','MEX','CAN','PAN','CRC','JAM','HAI','CUW','HON'],OFC:['NZL']};
+const NT_Q68={UEFA:16,CAF:9,AFC:8,CONMEBOL:6,CONCACAF:6,OFC:1};
+const TN68_HOST={2028:{t:'em',h:['ENG','IRL','SCO','WAL','NIR'],g:2,n:'England · Irland · Schottland · Wales'},2030:{t:'wm',h:['ESP','POR','MAR'],n:'Spanien · Portugal · Marokko'},2032:{t:'em',h:['ITA','TUR'],g:2,n:'Italien · Türkei'},
+  2034:{t:'wm',h:['KSA'],n:'Saudi-Arabien'},2036:{t:'em',h:[],n:'Europa'},2038:{t:'wm',h:[],n:'Welt'}};
+const tnType68=y=>y%4===0?'em':y%4===2?'wm':null;
+const tnName68=(t,y)=>(t==='wm'?'WM ':'EM ')+y;
+function ntPool68(){const M={};const seen=new Set();const add=p=>{if(!p||!p.n||!p.nat)return;const k=eaNorm(p.n);if(seen.has(k))return;seen.add(k);(M[p.nat]=M[p.nat]||[]).push(p)};
+  (CAR.cards||[]).forEach(c=>{if(c.loan&&c.loan.out)return;add({n:c.n,nat:c.nat,o:ovr(c),gk:!!c.gk,pos:c.gk?'TW':c.pos,club:CAR.club,mine:1,by:c.by})});
+  const own=ownedSet();plCur().forEach(p=>{if(own.has(p.n)||isRetired(p.by))return;add({n:p.n,nat:p.nat,o:p.o,gk:!!p.gk,pos:p.gk?'TW':p.pos,club:p.club,by:p.by})});
+  try{NT_PL.split('\n').forEach(l=>{const [c,n,o,s,pp,pos,by]=l.split('|');if(!n||isRetired(+by||0))return;add({n,nat:c,o:+o,gk:pos==='GK',pos:pos==='GK'?'TW':(EA_POS[pos]||pos),club:null,by:+by||null})})}catch(e){}
+  return M}
+function ntSquad68(P,c){const a=(P[c]||[]).slice().sort((x,y)=>y.o-x.o);const gk=a.filter(p=>p.gk).slice(0,3),f=a.filter(p=>!p.gk).slice(0,23);
+  if(gk.length<1||f.length<11)return null;const ea=xiOVR(f.slice(0,5),gk[0])*.55+(f.slice(0,10).reduce((s,p)=>s+p.o,0)/10)*.45;return{gk,f,ea,rt:Math.round(40+(ea-55)*1.6)}}
+function ntStrOf68(P,c){const s=ntSquad68(P,c);if(s)return s;try{if(ntIx()[c]){const e=ntEA(c);return{gk:[],f:[],ea:e,rt:Math.round(40+(e-55)*1.6),nt:1}}}catch(e){}return null}
+function tnTeams68(t,y,S){const H=TN68_HOST[y]||{h:[]};const nz=()=>(Math.random()-.5)*5;const out=[];const pick=(list,n)=>list.filter(c=>S[c]&&!out.includes(c)).map(c=>[c,S[c].ea+nz()]).sort((a,b)=>b[1]-a[1]).slice(0,n).map(x=>x[0]);
+  if(t==='em'){const hosts=H.h.filter(c=>S[c]).sort((a,b)=>S[b].ea-S[a].ea).slice(0,H.g||H.h.length);out.push(...hosts);out.push(...pick(NT_CONF68.UEFA,24-out.length));return out}
+  H.h.filter(c=>S[c]).forEach(c=>out.push(c));Object.entries(NT_Q68).forEach(([cf,n])=>{const have=out.filter(c=>NT_CONF68[cf].includes(c)).length;out.push(...pick(NT_CONF68[cf],Math.max(0,n-have)))});
+  const rest=Object.values(NT_CONF68).flat();out.push(...pick(rest,48-out.length));return out.slice(0,48)}
+function tnSim68(S,h,a,ko,host){const d=(S[h].rt-S[a].rt)/1.6+(host===h?3:host===a?-3:0);const f=Math.exp((Math.random()-.5)*.2);
+  const r={h,a,gh:poi(clamp(1.25*Math.exp(.055*d),.15,3.8)*f),ga:poi(clamp(1.25*Math.exp(-.055*d),.15,3.8)/f)};
+  if(ko&&r.gh===r.ga){if(Math.random()<.35){if(Math.random()<clamp(.5+d*.01,.3,.7))r.gh++;else r.ga++;r.et=1}else{r.p=1;r.w=Math.random()<clamp(.5+d*.004,.4,.6)?h:a}}
+  if(ko&&!r.w)r.w=r.gh>r.ga?h:a;return r}
+function tnRun68(y){const t=tnType68(y);if(!t)return null;const P=ntPool68();const S={};
+  [...new Set(Object.values(NT_CONF68).flat())].forEach(c=>{const s=ntStrOf68(P,c);if(s)S[c]=s});
+  const teams=tnTeams68(t,y,S);const G=teams.length/4;const pots=[0,1,2,3].map(i=>euShuffle(teams.slice().sort((a,b)=>S[b].ea-S[a].ea).slice(i*G,i*G+G)));
+  const H=(TN68_HOST[y]||{}).h||[];const groups=Array.from({length:G},(_,g)=>[pots[0][g],pots[1][g],pots[2][g],pots[3][g]]);
+  /* Gastgeber in Gruppe A */H.slice(0,1).forEach(c=>{const gi=groups.findIndex(g=>g.includes(c));if(gi>0){const x=groups[0][0];groups[0][0]=c;groups[gi][groups[gi].indexOf(c)]=x}});
+  const tab={};teams.forEach(c=>tab[c]=[0,0,0,0,0,0,0]);const gres=[];const goals={};
+  const scorer=(c,n)=>{const s=S[c];if(!s||!s.f.length)return;for(let i=0;i<n;i++){const L=s.f;const w=L.map(p=>{const k=['ST','MS','LF','RF','LA','RA'].includes(p.pos)?3:['ZOM','LM','RM'].includes(p.pos)?1.6:['ZM','ZDM'].includes(p.pos)?.9:.35;return k*Math.pow(Math.max(1,p.o-55),1.6)});
+    let x=Math.random()*w.reduce((a,b)=>a+b,0);let j=0;while(j<L.length-1&&(x-=w[j])>0)j++;const p=L[j];const k=c+'|'+p.n;goals[k]=(goals[k]||0)+1}};
+  const host=H[0];
+  groups.forEach((g,gi)=>WM_MD.forEach(md=>md.forEach(([x,yy])=>{const r=tnSim68(S,g[x],g[yy],false,host);r.g=gi;gres.push(r);scorer(r.h,r.gh);scorer(r.a,r.ga);
+    const A=tab[r.h],B=tab[r.a];A[0]++;B[0]++;A[4]+=r.gh;A[5]+=r.ga;B[4]+=r.ga;B[5]+=r.gh;if(r.gh>r.ga){A[1]++;B[3]++;A[6]+=3}else if(r.gh<r.ga){B[1]++;A[3]++;B[6]+=3}else{A[2]++;B[2]++;A[6]++;B[6]++}})));
+  const rk=(a,b)=>{const A=tab[a],B=tab[b];return B[6]-A[6]||(B[4]-B[5])-(A[4]-A[5])||B[4]-A[4]||S[b].ea-S[a].ea};
+  const gt=groups.map(g=>g.slice().sort(rk));const thirds=gt.map(g=>g[2]).sort(rk).slice(0,t==='wm'?8:4);
+  const W1=gt.map(g=>g[0]).sort(rk),W2=gt.map(g=>g[1]).sort(rk);let Q=W1.concat(W2,thirds);const n=Q.length;
+  const grpOf=c=>groups.findIndex(g=>g.includes(c));const seed=seedOrder(n);let slots=seed.map(s=>Q[s-1]);
+  for(let i=0;i<n;i+=2){if(grpOf(slots[i])===grpOf(slots[i+1])){for(let j=i+2;j<n;j++){if(j%2===1&&grpOf(slots[j])!==grpOf(slots[i])&&grpOf(slots[j-1])!==grpOf(slots[i+1])){[slots[i+1],slots[j]]=[slots[j],slots[i+1]];break}}}}
+  const KO_N=n===32?['Sechzehntelfinale','Achtelfinale','Viertelfinale','Halbfinale','Finale']:['Achtelfinale','Viertelfinale','Halbfinale','Finale'];const ko=[];let cur=slots;
+  KO_N.forEach(nm=>{const m=[];for(let i=0;i<cur.length;i+=2){const r=tnSim68(S,cur[i],cur[i+1],true,host);scorer(r.h,r.gh);scorer(r.a,r.ga);m.push(r)}ko.push({n:nm,m});cur=m.map(r=>r.w)});
+  const ch=cur[0];const top=Object.entries(goals).sort((a,b)=>b[1]-a[1]).slice(0,10).map(([k,g])=>{const [c,nm]=k.split('|');return[nm,c,g]});
+  const sq={};teams.forEach(c=>{const s=S[c];sq[c]={ea:Math.round(s.ea),p:s.gk.concat(s.f).map(p=>[p.n,p.o,p.pos||'',typeof p.club==='number'?CLUB[p.club].mid:p.club?teamOf(p.club).mid:'',p.mine?1:0])}});
+  return{y,t,n:tnName68(t,y),host:(TN68_HOST[y]||{}).n||'',groups,tab:Object.fromEntries(teams.map(c=>[c,tab[c]])),gres:gres.map(r=>[r.g,r.h,r.a,r.gh,r.ga]),ko:ko.map(R=>({n:R.n,m:R.m.map(r=>[r.h,r.a,r.gh,r.ga,r.p?1:r.et?2:0,r.w])})),ch,top,sq}}
+const _carFinish68=carFinish;
+carFinish=function(...a){const r=_carFinish68.apply(this,a);
+  try{euReassign68()}catch(e){console.error('eu68',e)}
+  try{const y=CAR.season+1;const t=tnType68(y);CAR.tn68=CAR.tn68||[];if(t&&!CAR.tn68.some(x=>x.y===y)){const T=tnRun68(y);if(T){CAR.tn68.unshift(T);CAR.tn68.slice(3).forEach(x=>{delete x.sq});
+    const de=T.ko.flatMap(R=>R.m).filter(m=>m[0]==='GER'||m[1]==='GER');const deOut=T.ch==='GER'?'🏆 Deutschland ist '+(t==='wm'?'Weltmeister':'Europameister')+'!':
+      'Champion: '+ntName(T.ch)+(de.length?' · Deutschland raus im '+T.ko.find(R=>R.m.some(m=>(m[0]==='GER'||m[1]==='GER')&&m[5]!=='GER')).n:T.groups.some(g=>g.includes('GER'))?' · Deutschland in der Vorrunde raus':'');
+    if(CAR.sum)CAR.sum.tn68={n:T.n,t:deOut};fxNews(t==='wm'?'🌍':'🇪🇺',T.n+': '+deOut,'');carToastQ.push([t==='wm'?'🌍':'🏆',T.n+' beendet',deOut])}}}catch(e){console.error('tn68',e)}
+  try{carSave()}catch(e){}return r};
+
+/* ================= Kalender & Transferfenster ================= */
+const CAL68C={};
+const sat68=(y,m,d)=>{const x=new Date(y,m,d,15,30);x.setDate(x.getDate()+((6-x.getDay()+7)%7));return x};
+function calRounds68(l){l=l||carMyL();const s=CAR.season;const N=(CAR.fx[l]||[]).length||34;const k=s+'|'+l+'|'+N;if(CAL68C[k])return CAL68C[k];
+  const start=l===1?sat68(s,7,26):l===2?sat68(s,7,1):sat68(s,6,25);const end=sat68(s+1,4,15);const W=[];
+  for(let d=new Date(start);d<=end;d.setDate(d.getDate()+7)){const m=d.getMonth(),dd=d.getDate();const winter=(m===11&&dd>=20)||(m===0&&dd<(l<=2?10:24));
+    const intl=l<=2&&((m===8&&dd>=4&&dd<=10)||(m===9&&dd>=9&&dd<=15)||(m===10&&dd>=13&&dd<=19)||(m===2&&dd>=21&&dd<=27));if(!winter&&!intl)W.push(new Date(d))}
+  let R;if(W.length>=N){const cut=W.length-N;const skip=new Set(Array.from({length:cut},(_,i)=>Math.round((i+.5)*W.length/cut)));R=W.filter((_,i)=>!skip.has(i)).slice(0,N);while(R.length<N)R.push(W[R.length])}
+  else{R=W.slice();const ex=N-W.length;for(let i=0;i<ex;i++){const d=new Date(W[Math.min(W.length-1,Math.floor((i+.5)*W.length/ex))]);d.setDate(d.getDate()+4);d.setHours(19,0);R.push(d)}R.sort((a,b)=>a-b)}
+  return CAL68C[k]=R}
+const midweek68=(d,back)=>{const x=new Date(d);x.setDate(x.getDate()-(back||3));x.setHours(21,0);return x};
+function calToday68(){if(!CAR)return new Date();const R=calRounds68();if(CAR.phase!=='season'){const e=new Date(CAR.season+1,4,24);return e}const d=R[Math.min(CAR.R,R.length-1)];const x=new Date(d);x.setDate(x.getDate()-2);return x}
+function tw68Open(){if(!CAR||CAR.phase!=='season')return true;const R=calRounds68();const d=R[CAR.R];if(!d)return true;const s=CAR.season;
+  return d<=new Date(s,8,1,23,59)||(d>=new Date(s+1,0,2)&&d<=new Date(s+1,1,2,23,59))}
+function tw68Next(){const s=CAR.season;const R=calRounds68();const d=R[CAR.R]||new Date();return d<new Date(s+1,0,2)?new Date(s+1,0,2):new Date(s+1,6,1)}
+const fmtD68=(d,o)=>d.toLocaleDateString('de-DE',o||{day:'numeric',month:'short'});
+function tw68Toast(){miniToast('🔒','Transferfenster geschlossen','Käufe und Leihen wieder ab '+fmtD68(tw68Next(),{day:'numeric',month:'long',year:'numeric'})+'. Vereinslose Spieler kannst du jederzeit holen.')}
+const _tmBuy68=tmBuy;tmBuy=function(n){if(!tw68Open()){tw68Toast();return false}return _tmBuy68(n)};
+const _loanSheet68=loanSheet;loanSheet=function(n){if(!tw68Open()){tw68Toast();return}return _loanSheet68(n)};
+const _loanIn68=loanIn;loanIn=function(n){if(!tw68Open()){tw68Toast();return false}return _loanIn68(n)};
+function calEvents68(){const ev=[];const l=carMyL();const R=calRounds68(l);const s=CAR.season;const fx=CAR.fx[l]||[];
+  R.forEach((d,r)=>{const m=(fx[r]||[]).find(p=>p[0]===CAR.club||p[1]===CAR.club);if(!m)return;const home=m[0]===CAR.club;const o=home?m[1]:m[0];
+    ev.push({d,k:'lg',ic:'⚽',t:(r+1)+'. Spieltag',s:(home?'vs ':'@ ')+teamOf(o).mid,id:o,done:CAR.phase!=='season'||r<CAR.R,cur:CAR.phase==='season'&&r===CAR.R})});
+  const C=CAR.cup;if(C&&C.sl)C.sl.forEach((r,k)=>{const d=midweek68(R[Math.min(r,R.length-1)]);const out=C.myOut||(C.part&&!C.part.includes(CAR.club));if(k<C.st||!out||k===C.st)ev.push({d,k:'cup',ic:'🏆',t:'DFB-Pokal',s:CUP_ST[k]+(k<C.st?'':out?' · ohne dich':''),done:k<C.st})});
+  const E=CAR.euro;if(E&&E.sched)E.sched.forEach((st,i)=>{if(st.t==='ko'&&E.out&&i>=E.step)return;const d=midweek68(R[Math.min(st.r,R.length-1)],st.t==='md'?(i%2?2:3):3);ev.push({d,k:'eu',ic:'⭐',t:euName(E.comp),s:euStepLabel(st,E),done:i<E.step})});
+  [[new Date(s,6,1),'🔓','Transferfenster öffnet','Sommer · bis 1. September'],[new Date(s,8,1,23),'🔒','Transferfenster schließt','Deadline Day'],[new Date(s+1,0,2),'🔓','Wintertransferfenster','bis 2. Februar'],[new Date(s+1,1,2,23),'🔒','Transferfenster schließt','Deadline Day Winter']]
+    .forEach(([d,ic,t,x])=>ev.push({d,k:'tw',ic,t,s:x}));
+  ev.push({d:new Date(R[R.length-1].getTime()+86400000*2),k:'end',ic:'🏁',t:'Saisonende',s:'Abschlusstabelle, Auf- und Abstieg'});
+  const y=s+1,tt=tnType68(y);if(tt){const H=TN68_HOST[y]||{};ev.push({d:new Date(y,5,11),k:'tn',ic:tt==='wm'?'🌍':'🇪🇺',t:tnName68(tt,y)+' beginnt',s:H.n||''},{d:new Date(y,6,tt==='wm'?19:14),k:'tn',ic:'🏆',t:tnName68(tt,y)+' · Finale',s:'nur Ergebnisse'})}
+  ev.push({d:new Date(y,6,1),k:'new',ic:'📅',t:'Neue Saison '+seasonLbl(y),s:'Vorbereitung beginnt'});
+  return ev.sort((a,b)=>a.d-b.d)}
+let cal68M=null;
+function calHTML68(){const ev=calEvents68();const today=calToday68();if(!cal68M)cal68M=[today.getFullYear(),today.getMonth()];const [Y,M]=cal68M;
+  const nx=ev.filter(e=>e.d>=today&&!e.done).slice(0,6);const open=tw68Open();
+  let h=backRow('Mehr')+'<div class="c68top"><div><small>Heute im Spiel</small><b>'+fmtD68(today,{weekday:'short',day:'numeric',month:'long',year:'numeric'})+'</b></div><span class="c68tw '+(open?'on':'')+'">'+(open?'🔓 Transferfenster offen':'🔒 Fenster zu bis '+fmtD68(tw68Next()))+'</span></div>';
+  h+='<div class="lbl">Nächste Termine</div><div class="c68nx">'+nx.map(e=>'<div class="c68e k-'+e.k+'"><span class="c68d"><b>'+e.d.getDate()+'</b><small>'+fmtD68(e.d,{month:'short'})+'</small></span><span class="c68i">'+e.ic+'</span><div><b>'+esc(e.t)+'</b><small>'+esc(e.s||'')+' · '+fmtD68(e.d,{weekday:'long'})+'</small></div></div>').join('')+'</div>';
+  const first=new Date(Y,M,1);const off=(first.getDay()+6)%7;const days=new Date(Y,M+1,0).getDate();const byDay={};ev.forEach(e=>{if(e.d.getFullYear()===Y&&e.d.getMonth()===M)(byDay[e.d.getDate()]=byDay[e.d.getDate()]||[]).push(e)});
+  h+='<div class="c68m"><button class="press c68nav" data-c68m="-1" aria-label="Vormonat">‹</button><b>'+first.toLocaleDateString('de-DE',{month:'long',year:'numeric'})+'</b><button class="press c68nav" data-c68m="1" aria-label="Nächster Monat">›</button></div>';
+  h+='<div class="c68g">'+['Mo','Di','Mi','Do','Fr','Sa','So'].map(x=>'<i>'+x+'</i>').join('')+'<span></span>'.repeat(off)+Array.from({length:days},(_,i)=>{const d=i+1;const E=byDay[d]||[];const isT=today.getFullYear()===Y&&today.getMonth()===M&&today.getDate()===d;
+    return '<span class="'+(isT?'t ':'')+(E.length?'has k-'+E[0].k:'')+(E.some(e=>e.done)?' done':'')+'"><b>'+d+'</b>'+(E.length?'<em>'+E.map(e=>e.ic).join('')+'</em>':'')+'</span>'}).join('')+'</div>';
+  const inM=ev.filter(e=>e.d.getFullYear()===Y&&e.d.getMonth()===M);
+  h+='<div class="c68list">'+(inM.length?inM.map(e=>'<div class="c68e k-'+e.k+(e.done?' done':'')+(e.cur?' cur':'')+'"><span class="c68d"><b>'+e.d.getDate()+'</b><small>'+fmtD68(e.d,{weekday:'short'})+'</small></span><span class="c68i">'+e.ic+'</span><div><b>'+esc(e.t)+'</b><small>'+esc(e.s||'')+'</small></div>'+(e.done?'<em class="c68ok">✓</em>':'')+'</div>').join(''):'<div class="note">Keine Termine in diesem Monat.</div>')+'</div>';
+  h+='<div class="note">⚽ Liga · 🏆 Pokal · ⭐ Europapokal · 🔓🔒 Transferfenster · 🌍 Turniere. Termine nach dem echten Rahmenterminkalender, Uhrzeiten vereinfacht.</div>';return h}
+
+/* ================= Ansichten: Top-Ligen, Turniere ================= */
+let fl68cc=null,tn68i=0,tn68tab='ko';
+function flHTML68(){const F=flState68();const cc=fl68cc&&TOP68.includes(fl68cc)?fl68cc:'EN';const L=F.L[cc];const T=flTable68(cc);const S=euSlots68(cc);const tot=flFix68(cc).length;
+  const P=F.prev&&F.prev[cc];const useP=L.r===0&&P;
+  let h=backRow('Mehr')+'<div class="chips fl68c" id="fl68c">'+TOP68.map(k=>'<button class="press'+(k===cc?' on':'')+'" data-flc="'+k+'">'+natFlag(FX_FLAG[k])+' '+FX_LG[k]+'</button>').join('')+'</div>';
+  h+='<div class="lbl">'+natFlag(FX_FLAG[cc])+' '+FX_LG[cc]+' '+(useP?'· Abschlusstabelle '+seasonLbl(F.prev.s):seasonLbl(CAR.season)+' · '+L.r+'/'+tot+' Spieltage')+'</div>';
+  const z=i=>{let a=0;for(const q of ['cl','el','ecl']){a+=S[q];if(i<a)return 'z-'+q}return ''};
+  if(useP)h+='<div class="ctab fl68t"><div class="ctr th fl68p"><span>#</span><span></span><span>Verein</span><span>Tr</span><span>Pkt</span></div>'+P.map((x,i)=>'<div class="ctr fl68p '+z(i)+'"><span>'+(i+1)+'</span>'+teamBadge(x[0],'mb')+'<span class="cn">'+esc(teamOf(x[0]).mid)+'</span><span>'+(x[2]>0?'+':'')+x[2]+'</span><b>'+x[1]+'</b></div>').join('')+'</div><div class="note">Die neue Saison '+seasonLbl(CAR.season)+' startet zusammen mit deiner Liga.</div>';
+  else h+='<div class="ctab fl68t"><div class="ctr th"><span>#</span><span></span><span>Verein</span><span>Sp</span><span>S-U-N</span><span>Tr</span><span>Pkt</span></div>'+T.map((id,i)=>{const t=L.tab[id];
+    return '<div class="ctr '+z(i)+'"><span>'+(i+1)+'</span>'+teamBadge(id,'mb')+'<span class="cn">'+esc(teamOf(id).mid)+'</span><span>'+t[0]+'</span><span>'+t[1]+'-'+t[2]+'-'+t[3]+'</span><span>'+(t[4]-t[5]>0?'+':'')+(t[4]-t[5])+'</span><b>'+t[6]+'</b></div>'}).join('')+'</div>';
+  h+='<div class="note">'+(useP?'Europapokal '+seasonLbl(CAR.season)+': ':'Europapokal nächste Saison: ')+(S.cl?'🔵 Champions League '+S.cl+' · ':'')+(S.el?'🟠 Europa League '+S.el+' · ':'')+(S.ecl?'🟢 Conference League '+S.ecl:'')+'. Jede Liga wird mit allen echten Kadern simuliert.</div>';
+  if(L.last.length)h+='<div class="lbl">Letzter Spieltag</div><div class="rlist">'+L.last.map(r=>resLine({h:r[0],a:r[1],gh:r[2],ga:r[3]})).join('')+'</div>';
+  const ch=(F.ch||[]).filter(x=>x.cc===cc).slice(0,8);if(ch.length)h+='<div class="lbl">Meister</div><div class="fl68ch">'+ch.map(x=>'<div>'+teamBadge(x.id,'mb')+'<b>'+esc(teamOf(x.id).mid)+'</b><small>'+seasonLbl(x.s)+'</small></div>').join('')+'</div>';
+  return h}
+const ntN68=c=>esc(ntName(c));const ntF68=c=>natFlag(c);
+function tnHTML68(){const L=CAR.tn68||[];let h=backRow('Mehr');let yN=CAR.season+1;while(!tnType68(yN)||L.some(x=>x.y===yN))yN++;
+  h+='<div class="tn68nx"><span>'+(tnType68(yN)==='wm'?'🌍':'🇪🇺')+'</span><div><small>Nächstes Turnier</small><b>'+tnName68(tnType68(yN),yN)+'</b><small>'+esc((TN68_HOST[yN]||{}).n||'')+' · Sommer '+yN+' · läuft automatisch nach Saisonende</small></div></div>';
+  if(!L.length)return h+'<div class="note">Die Welt- und Europameisterschaften laufen im Sommer automatisch mit – du siehst nur die Ergebnisse. Die Kader werden aus den besten Spielern jeder Nation zusammengestellt, inklusive deiner eigenen Spieler.</div>'+tnPreview68();
+  const T=L[Math.min(tn68i,L.length-1)];
+  if(L.length>1)h+='<div class="chips" id="tn68s">'+L.map((x,i)=>'<button class="press'+(x===T?' on':'')+'" data-tni="'+i+'">'+x.n+'</button>').join('')+'</div>';
+  h+='<div class="tn68ch"><span>🏆</span><div><small>'+esc(T.n)+' · '+esc(T.host)+'</small><b>'+ntF68(T.ch)+' '+ntN68(T.ch)+'</b><small>'+(T.t==='wm'?'Weltmeister':'Europameister')+'</small></div></div>';
+  h+='<div class="seg sm" id="tn68tb"><div class="hl"></div><button data-v="ko">K.-o.-Runde</button><button data-v="gr">Gruppen</button><button data-v="sq">Kader</button><button data-v="sc">Torjäger</button></div>';
+  if(tn68tab==='ko')h+=T.ko.slice().reverse().map(R=>'<div class="lbl">'+R.n+'</div><div class="tn68k">'+R.m.map(m=>'<div class="'+(m[0]==='GER'||m[1]==='GER'?'de':'')+'"><span class="'+(m[5]===m[0]?'w':'')+'">'+ntF68(m[0])+' '+ntN68(m[0])+'</span><b>'+m[2]+':'+m[3]+(m[4]===1?'<small>i.E.</small>':m[4]===2?'<small>n.V.</small>':'')+'</b><span class="r '+(m[5]===m[1]?'w':'')+'">'+ntN68(m[1])+' '+ntF68(m[1])+'</span></div>').join('')+'</div>').join('');
+  else if(tn68tab==='gr')h+='<div class="tn68g">'+T.groups.map((g,gi)=>{const rk=g.slice().sort((a,b)=>{const A=T.tab[a],B=T.tab[b];return B[6]-A[6]||(B[4]-B[5])-(A[4]-A[5])||B[4]-A[4]});
+    return '<div><b>Gruppe '+'ABCDEFGHIJKL'[gi]+'</b>'+rk.map((c,i)=>{const t=T.tab[c];return '<p class="'+(i<2?'q':'')+(c==='GER'?' de':'')+'"><span>'+ntF68(c)+' '+ntN68(c)+'</span><em>'+(t[4]-t[5]>0?'+':'')+(t[4]-t[5])+'</em><i>'+t[6]+'</i></p>'}).join('')+'</div>'}).join('')+'</div>';
+  else if(tn68tab==='sq'){if(!T.sq)h+='<div class="note">Kader älterer Turniere werden nicht gespeichert.</div>';else{let ks=Object.keys(T.sq).sort((a,b)=>T.sq[b].ea-T.sq[a].ea);const c=T.sq[tn68sq]?tn68sq:(T.sq.GER?'GER':ks[0]);ks=[c].concat(ks.filter(k=>k!==c));
+    h+='<div class="chips tn68n" id="tn68n">'+ks.map(k=>'<button class="press'+(k===c?' on':'')+'" data-tnn="'+k+'">'+ntF68(k)+' '+ntN68(k)+'</button>').join('')+'</div>';
+    h+='<div class="lbl">'+ntF68(c)+' '+ntN68(c)+' · Stärke '+T.sq[c].ea+'</div><div class="tn68p">'+T.sq[c].p.map(p=>'<div class="'+(p[4]?'mine':'')+'"><em>'+esc(p[2])+'</em><b>'+esc(p[0])+'</b><small>'+esc(p[3]||'vereinslos/Ausland')+'</small><i>'+p[1]+'</i></div>').join('')+'</div>'}}
+  else h+='<div class="tn68p">'+T.top.map((x,i)=>'<div><em>'+(i+1)+'.</em><b>'+esc(x[0])+'</b><small>'+ntF68(x[1])+' '+ntN68(x[1])+'</small><i>'+x[2]+' ⚽</i></div>').join('')+'</div>';
+  return h}
+let tn68sq=null;
+function tnPreview68(){try{const P=ntPool68();const s=ntSquad68(P,'GER');if(!s)return '';return '<div class="lbl">🇩🇪 Deutschland – aktuell beste Spieler</div><div class="tn68p">'+s.gk.concat(s.f).slice(0,26).map(p=>'<div class="'+(p.mine?'mine':'')+'"><em>'+esc(p.pos||'')+'</em><b>'+esc(p.n)+'</b><small>'+esc(typeof p.club==='number'?CLUB[p.club].mid:p.club?teamOf(p.club).mid:'')+'</small><i>'+p.o+'</i></div>').join('')+'</div>'}catch(e){return ''}}
+const V68=new Set(['cal68','fl68','tn68']);
+const _carViewHTML68=carViewHTML;
+carViewHTML=function(){if(CAR){if(carView==='cal68')return calHTML68();if(carView==='fl68')return flHTML68();if(carView==='tn68')return tnHTML68()}
+  let h=_carViewHTML68();try{if(carView==='tab')h=h.replace('<div class="tabhd">','<div class="tabhd"><button class="chipb press" data-go68="fl68">🌍 Top-Ligen</button>');
+    if((carView==='day'||!carView)&&CAR&&CAR.phase==='end'&&CAR.sum&&CAR.sum.tn68)h='<div class="tn68sum glass"><span>'+(/WM/.test(CAR.sum.tn68.n)?'🌍':'🏆')+'</span><div><small>'+esc(CAR.sum.tn68.n)+'</small><b>'+esc(CAR.sum.tn68.t)+'</b></div><button class="press" data-go68="tn68">Ansehen</button></div>'+h}catch(e){}return h};
+const _carNavSet68=carNavSet;carNavSet=function(){_carNavSet68();try{if(V68.has(carView)){const b=document.querySelector('#carNav [data-nav="more"]');if(b)b.classList.add('on')}}catch(e){}};
+/* Mehr: Verein & Aussehen entfällt (Trikots im Verein › Klub, Bälle automatisch), dafür Kalender, Top-Ligen, WM & EM */
+const _moreHTML68=moreHTML;
+moreHTML=function(){let h=_moreHTML68();const row=(k,ic,t,s)=>'<button class="mrow press" data-go68="'+k+'"><span class="mi m68">'+ic+'</span><span class="mt"><b>'+t+'</b><small>'+s+'</small></span><span class="mc">'+ICO.chev+'</span></button>';
+  h=h.replace(/<button class="mrow press" data-more="club"[\s\S]*?<\/button>/,'').replace(/<button class="mrow press" data-more="wm"[\s\S]*?<\/button>/,'');
+  const nx=calEvents68().find(e=>e.d>=calToday68()&&!e.done);const L=CAR.tn68||[];
+  return '<div class="mlist">'+row('cal68','📅','Kalender',nx?'Als Nächstes: '+nx.t+' · '+fmtD68(nx.d):'Termine der Saison')+row('fl68','🌍','Top-10-Ligen Europas','Tabellen, Meister, Europapokal-Plätze')+row('tn68','🏆','WM & EM',L.length?L[0].n+': '+ntName(L[0].ch):'Turniere laufen im Sommer automatisch')+'</div>'+h};
+/* Hub: Kalender-Kachel */
+const _hubTiles68=hubTiles;
+hubTiles=function(){let h=_hubTiles68();try{const today=calToday68();const nx=calEvents68().filter(e=>e.d>=today&&!e.done).slice(0,3);const open=tw68Open();
+  const t='<button class="hubT press wide cal68t" data-go68="cal68"><span class="hubI">📅</span><small>Kalender · '+fmtD68(today,{day:'numeric',month:'long'})+'</small><div class="c68hub">'+nx.map(e=>'<p><i>'+e.ic+'</i><b>'+esc(e.t)+'</b><em>'+fmtD68(e.d)+'</em></p>').join('')+'</div><em class="c68st '+(open?'on':'')+'">'+(open?'🔓 Transferfenster offen':'🔒 Transferfenster zu')+'</em></button>';
+  h=h.replace(/<\/div>\s*$/,t+'</div>')}catch(e){}return h};
+document.addEventListener('click',e=>{if(typeof CAR==='undefined'||!CAR)return;const t=e.target.closest('[data-go68],[data-flc],[data-tni],[data-tnn],[data-c68m],[data-y68p],[data-y68r]');if(!t)return;
+  if(t.dataset.go68){carView=t.dataset.go68;if(carView==='cal68')cal68M=null;sfx('tap');carRender();const b=$('#carBody');if(b)b.scrollTop=0;return}
+  if(t.dataset.flc){fl68cc=t.dataset.flc;sfx('tap');carRender();return}
+  if(t.dataset.tni){tn68i=+t.dataset.tni;sfx('tap');carRender();return}
+  if(t.dataset.tnn){tn68sq=t.dataset.tnn;sfx('tap');carRender();return}
+  if(t.dataset.c68m){const [Y,M]=cal68M||[2026,7];const d=new Date(Y,M+(+t.dataset.c68m),1);cal68M=[d.getFullYear(),d.getMonth()];sfx('tap');carRender();return}
+  if(t.dataset.y68p){const [tt,i]=t.dataset.y68p.split(':');sfx('tap');ythUp68(tt,+i);return}
+  if(t.dataset.y68r){if(t.dataset.arm!=='1'){t.dataset.arm='1';t.textContent='?';t.classList.add('arm');setTimeout(()=>{if(t.isConnected){t.dataset.arm='';t.textContent='✕';t.classList.remove('arm')}},2500);return}const [tt,i]=t.dataset.y68r.split(':');ythOut68(tt,+i)}});
+const _carBind568=carBind5;
+carBind5=function(){_carBind568();try{if(carView==='club'&&CAR.vsub==='ju')subBind('y68s',CAR.ys68||'U19',v=>CAR.ys68=v);if(carView==='tn68')subBind('tn68tb',tn68tab,v=>tn68tab=v)}catch(e){console.error(e)}};
+/* Einstellungen: Musik & Gesänge, Ball-Auswahl entfällt */
+const _carMenuHTML68=carMenuHTML;
+carMenuHTML=function(){const tg=(key,t,sub)=>'<div class="opt" data-ctg="'+key+'"><div>'+t+'<small>'+sub+'</small></div><div class="tg'+(SET[key]?' on':'')+'"></div></div>';
+  return _carMenuHTML68().replace(/(<div class="opt" data-ctg="kom">[\s\S]*?<\/div><\/div>)/,'$1'+tg('mus68','Hintergrundmusik','Lizenzfreie Musik im Menü (online)')+tg('fan68','Fangesänge & Stadion','Echte Stadionaufnahmen in 3D-Spielen (online)'))
+    .replace(/<div class="lbl">Aussehen<\/div><button class="wzrow press" data-cm="look">[\s\S]*?<\/button>/,'')+'<div class="note snd68cr">Audio von Wikimedia Commons: '+SND68_CR+'</div><div id="cmMap" hidden></div>'};
+const _carMenuRender68=carMenuRender;
+carMenuRender=function(){_carMenuRender68();try{document.querySelectorAll('#carMenuBody [data-ctg="mus68"],#carMenuBody [data-ctg="fan68"]').forEach(o=>o.addEventListener('click',()=>setTimeout(()=>snd68Apply(true),0)))}catch(e){}};
+/* Spielstand-Anpassungen */
+const _carMigrate68=carMigrate;
+carMigrate=function(){_carMigrate68();try{if(!CAR)return;euApply68();up0Of68();const Y=yth68();if(!Y.U17.length||Y.s68==null){Y.s68=null;ythIntake()}if(CAR.vsub==='st')CAR.vsub='stf'}catch(e){console.error('mig68',e)}};
+
+/* ================= Sound: Hintergrundmusik & echte Stadionaufnahmen (Wikimedia Commons, freie Lizenzen) ================= */
+const WMC68='https://upload.wikimedia.org/wikipedia/commons/transcoded/';
+const SND68={
+  music:[['5/59/Kevin_MacLeod_-_04_-_Presenterator.ogg','Presenterator'],['6/68/Kevin_MacLeod_-_01_-_Aces_High.ogg','Aces High'],['7/7c/Funkorama_%28MacLeod%2C_Kevin%29_%28ISRC_USUAN1100474%29.oga','Funkorama'],
+    ['0/0c/Cipher_%28ISRC_USUAN1100844%29.oga','Cipher'],['7/70/Fork_and_Spoon_%28MacLeod%2C_Kevin%29_%28ISRC_USUAN1100226%29.oga','Fork and Spoon'],['7/7c/Kevin_MacLeod_-_Vibe_Ace.ogg','Vibe Ace']],
+  crowd:[['e/ec/WWS_FootballAustriavs.Sweden.ogg'],['6/6e/Arrowhead_Stadium_crowd_noise.wav']],
+  chant:[['a/a7/EisernUnion.webm'],['5/55/2024-11-10_SVE-H96_Ohne_Rochelt_habt_ihr_keine_Chance.ogg']],
+  goal:[['9/94/F1-Race-Crowd-Applause-Air-Horns.wav'],['5/5b/Applause_i.ogg']],
+  end:[['a/a3/Slow_starting_applause.ogg']]};
+const SND68_CR='Musik: Kevin MacLeod (incompetech.com), CC BY 3.0 · Stadion: Work With Sounds/Torsten Nilsson (CC BY 4.0), Kj1595 (CC BY-SA 4.0), Lear 21 (CC BY-SA 4.0), Simon Mannweiler (CC BY-SA 4.0), WebbFilmsUK (CC BY 4.0), thore & stephan (gemeinfrei).';
+const sndUrl68=f=>WMC68+f+'/'+f.split('/').pop()+'.mp3';
+if(SET.mus68==null)SET.mus68=true;if(SET.fan68==null)SET.fan68=true;
+const S68={el:{},g:{},mi:Math.random()*SND68.music.length|0,inMatch:false,unlocked:false};
+function snd68El(key,url,loop){if(S68.el[key])return S68.el[key];const a=new Audio();a.crossOrigin='anonymous';a.preload='none';a.loop=!!loop;a.src=url;a.playsInline=true;
+  const ac=audioOn();let g=null;if(ac){try{const src=ac.createMediaElementSource(a);g=ac.createGain();g.gain.value=0;src.connect(g).connect(ac.destination)}catch(e){g=null}}
+  S68.el[key]=a;S68.g[key]=g;a.addEventListener('error',()=>{a._bad=1});return a}
+function snd68Vol(key,v,dur){const a=S68.el[key],g=S68.g[key];if(!a)return;if(g&&AC){const t=AC.currentTime;g.gain.cancelScheduledValues(t);g.gain.setValueAtTime(g.gain.value,t);g.gain.linearRampToValueAtTime(v,t+(dur||.8))}else{try{a.volume=clamp(v,0,1)}catch(e){}}}
+function snd68Play(key,url,v,loop){if(!SET.sound)return null;const a=snd68El(key,url,loop);if(a._bad)return null;try{if(a.src!==url){a.src=url}const p=a.play();if(p&&p.catch)p.catch(()=>{});snd68Vol(key,v,.6)}catch(e){}return a}
+function snd68Stop(key,dur){const a=S68.el[key];if(!a)return;snd68Vol(key,0,dur||.8);setTimeout(()=>{try{if(S68.g[key]&&S68.g[key].gain.value<.02||!S68.g[key])a.pause()}catch(e){}},(dur||.8)*1000+120)}
+function snd68Music(){if(!SET.sound||!SET.mus68||S68.inMatch||document.hidden){snd68Stop('mus',1.2);return}const a=S68.el.mus;if(a&&!a.paused&&!a.ended)return;
+  const tr=SND68.music[S68.mi%SND68.music.length];const m=snd68Play('mus',sndUrl68(tr[0]),.16,false);if(m&&!m._nx){m._nx=1;m.addEventListener('ended',()=>{S68.mi++;const x=S68.el.mus;if(x){const n=SND68.music[S68.mi%SND68.music.length];x.src=sndUrl68(n[0]);snd68Music()}})}}
+function snd68Apply(user){if(!SET.mus68||!SET.sound)snd68Stop('mus');else if(user||S68.unlocked)snd68Music();if(!SET.fan68){snd68Stop('crowd');snd68Stop('chant')}}
+/* iOS: Audio darf erst nach einer Berührung starten */
+document.addEventListener('touchend',()=>{if(S68.unlocked)return;S68.unlocked=true;try{audioOn()}catch(e){}snd68Apply(true)},{passive:true});
+document.addEventListener('click',()=>{if(S68.unlocked)return;S68.unlocked=true;try{audioOn()}catch(e){}snd68Apply(true)});
+document.addEventListener('visibilitychange',()=>{if(document.hidden){snd68Stop('mus',.3);snd68Stop('crowd',.3)}else snd68Apply(false)});
+let chant68T=0;
+function chant68Next(first){clearTimeout(chant68T);if(!S68.inMatch||!SET.fan68)return;chant68T=setTimeout(()=>{if(!S68.inMatch)return;const c=SND68.chant[Math.random()*SND68.chant.length|0];snd68Play('chant',sndUrl68(c[0]),.5,false);chant68Next()},first?9000:30000+Math.random()*35000)}
+const _g3SndStart68=g3SndStart;
+g3SndStart=function(...a){const r=_g3SndStart68.apply(this,a);try{S68.inMatch=true;snd68Stop('mus',1);if(SET.fan68){const c=SND68.crowd[0];snd68Play('crowd',sndUrl68(c[0]),.38,true);chant68Next(true)}}catch(e){}return r};
+const _g3SndStop68=g3SndStop;
+g3SndStop=function(...a){const r=_g3SndStop68.apply(this,a);try{S68.inMatch=false;clearTimeout(chant68T);snd68Stop('crowd',1);snd68Stop('chant',1);if(SET.fan68)snd68Play('end',sndUrl68(SND68.end[0][0]),.35,false);setTimeout(()=>snd68Music(),2500)}catch(e){}return r};
+const _g3SndRoar68=g3SndRoar;
+g3SndRoar=function(v,dur){const r=_g3SndRoar68(v,dur);try{if(SET.fan68&&S68.inMatch&&(v||0)>=.3){const c=SND68.goal[Math.random()<.65?0:1];snd68Play('goal',sndUrl68(c[0]),.55,false);snd68Vol('crowd',.6,.4);setTimeout(()=>snd68Vol('crowd',.38,3),6000);chant68Next(true)}}catch(e){}return r};
+/* Markt: Hinweis zum Transferfenster */
+const _tmRender68=tmRender;
+tmRender=function(...a){const r=_tmRender68.apply(this,a);try{const bar=document.querySelector('.tm60');if(bar&&!document.querySelector('.tw68n')){const open=tw68Open();const d=document.createElement('div');d.className='tw68n '+(open?'on':'');
+  d.innerHTML=open?'🔓 <b>Transferfenster offen</b>'+(CAR.phase==='season'?' · schließt am '+fmtD68(calToday68()<new Date(CAR.season+1,0,1)?new Date(CAR.season,8,1):new Date(CAR.season+1,1,2),{day:'numeric',month:'long'}):' · Sommerpause'):'🔒 <b>Transferfenster geschlossen</b> · Käufe & Leihen ab '+fmtD68(tw68Next(),{day:'numeric',month:'long'})+'. Vereinslose gehen immer.';bar.after(d)}}catch(e){}return r};
+/* Einstellungen ließen sich seit dem Entfernen der Karten-Auswahl nicht mehr öffnen */
+const _segSet68=segSet;segSet=function(seg,val){if(!seg||!seg.querySelector('button'))return;return _segSet68(seg,val)};
 
 /* ================= Boot ================= */
 {const app=$('#app');const fix=()=>{if(app.scrollTop||app.scrollLeft){app.scrollTop=0;app.scrollLeft=0}if(document.scrollingElement&&(document.scrollingElement.scrollTop||document.scrollingElement.scrollLeft))window.scrollTo(0,0)};app.addEventListener('scroll',fix,{passive:true});window.addEventListener('scroll',fix,{passive:true});setInterval(fix,500)}
