@@ -2069,8 +2069,8 @@ body.co66on #lt,body.co66on #g3{filter:saturate(.7)}
 .fl68c .cl71{width:18px;height:18px;margin-right:2px}
 
 /* ---------- Schwebende Pillen-Tabs ohne eckigen Kasten ---------- */
-.subnav{background:none!important;box-shadow:none!important;border:0!important;padding:10px 6px 8px!important;pointer-events:none}
-.subnav .seg{pointer-events:auto;border-radius:999px!important;padding:4px!important;background:rgba(16,20,32,.78)!important;-webkit-backdrop-filter:blur(18px) saturate(1.4);backdrop-filter:blur(18px) saturate(1.4);border:1px solid rgba(255,255,255,.1)!important;box-shadow:0 10px 26px rgba(0,0,0,.45)}
+.subnav{background:none!important;box-shadow:none!important;border:0!important;padding:10px 6px 8px!important}
+.subnav .seg{border-radius:999px!important;padding:4px!important;background:#121622!important;border:1px solid rgba(255,255,255,.1)!important;box-shadow:0 10px 26px rgba(0,0,0,.45)}
 .subnav .seg .hl{border-radius:999px!important}
 .subnav .seg button{border-radius:999px!important}
 .seg{border-radius:999px}
@@ -2080,7 +2080,7 @@ body.co66on #lt,body.co66on #g3{filter:saturate(.7)}
 /* ---------- Startseite ---------- */
 #iHome.h71on>#ititle,#iHome.h71on>#isub,#iHome.h71on .bfgrid,#iHome.h71on .bfside,#iHome.h71on #bfWM{display:none!important}
 #iHome.h71on .ibtns{display:none}
-.icard:has(#iHome.h71on){background:none!important;border:0!important;box-shadow:none!important;-webkit-backdrop-filter:none;backdrop-filter:none;padding:10px 6px 18px}
+.icard.h71card{background:none!important;border:0!important;box-shadow:none!important;-webkit-backdrop-filter:none;backdrop-filter:none;padding:10px 6px 18px}
 .h71{display:flex;flex-direction:column;gap:12px;padding-top:6px}
 .h71top{display:flex;align-items:center;gap:12px}
 .h71logo{width:46px;height:46px;border-radius:13px;box-shadow:0 6px 18px rgba(0,0,0,.45)}
@@ -2109,7 +2109,7 @@ body.co66on #lt,body.co66on #g3{filter:saturate(.7)}
 .h71go .ic71{width:22px;height:22px;margin-left:3px}
 .h71grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .h71t{position:relative;min-height:104px;border-radius:20px;padding:14px;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start;text-align:left;color:#fff;
-  background:linear-gradient(160deg,rgba(255,255,255,.09),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.1);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);overflow:hidden}
+  background:linear-gradient(160deg,rgba(255,255,255,.09),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.1);overflow:hidden}
 .h71t::after{content:'';position:absolute;right:-30px;bottom:-30px;width:110px;height:110px;border-radius:50%;background:radial-gradient(circle,rgba(96,165,250,.25),transparent 70%)}
 .h71i{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:rgba(110,231,183,.14);color:#7ef0c0}
 .h71i .ic71{width:21px;height:21px}
@@ -2240,6 +2240,10 @@ body.co66on #lt,body.co66on #g3{filter:saturate(.7)}
 .cmini.r-l{--r71:#3ccf6e}.cmini.r-g{--r71:#a6e25f}.cmini.r-s{--r71:#ffd23f}.cmini.r-b{--r71:#ff9a4a}
 .cmini b{background:var(--r71,#c3e45a)!important;color:#0b0f1c!important;box-shadow:none!important;height:34px!important}
 .h71hero1 .h71ht em{padding-right:64px}
+
+/* iPhone: Scrollen auch auf Spieler-Tokens und Bank-Kacheln (Ziehen startet weiterhin per Gedrückthalten) */
+.xtok.x71,.xtok.x71 *,.btile.bt71,.btile.bt71 *{touch-action:pan-y!important}
+.xtok.x71 svg,.btile.bt71 svg,.fr71 svg,.pf71 svg{pointer-events:none}
 </style>
 </head>
 <body>
@@ -15342,9 +15346,9 @@ function kDragMove(x,y){if(!kD||!kD.on)return;kD.g.style.transform='translate('+
 function kDragEnd(){if(!kD)return;clearTimeout(kD.t);const was=kD.on,id=kD.id,to=kD.over;if(kD.g)kD.g.remove();document.body.classList.remove('kdrag');document.querySelectorAll('[data-drop].over').forEach(e=>e.classList.remove('over'));kD=null;
   if(was&&to!=null)carPut(id,to==='gk'?'gk':+to);return was}
 function kDragInit(){document.querySelectorAll('#carBody [data-drag]').forEach(el=>{const begin=(x,y)=>{kD={el,id:+el.dataset.drag,x0:x,y0:y,on:false,t:setTimeout(()=>kDragStart(x,y),260)}};
-  el.addEventListener('touchstart',e=>{const t=e.touches[0];begin(t.clientX,t.clientY)},{passive:true});el.addEventListener('touchmove',kTouchMove,{passive:false});el.addEventListener('mousedown',e=>{if(e.button===0)begin(e.clientX,e.clientY)})})}
+  el.addEventListener('touchstart',e=>{const t=e.touches[0];begin(t.clientX,t.clientY)},{passive:true});el.addEventListener('touchmove',kTouchMove,{passive:false});el.addEventListener('touchend',e=>{if(kD&&kD.on&&e.cancelable)e.preventDefault()},{passive:false});el.addEventListener('mousedown',e=>{if(e.button===0)begin(e.clientX,e.clientY)})})}
 function kTouchMove(e){if(!kD)return;const t=e.touches[0];if(kD.on){if(e.cancelable)e.preventDefault();kDragMove(t.clientX,t.clientY)}else if(Math.hypot(t.clientX-kD.x0,t.clientY-kD.y0)>9){clearTimeout(kD.t);kD=null}}
-document.addEventListener('touchend',e=>{if(!kD)return;if(kDragEnd()&&e.cancelable)e.preventDefault()},{passive:false});
+document.addEventListener('touchend',()=>{if(kD)kDragEnd()},{passive:true});
 document.addEventListener('touchcancel',()=>{if(kD)kDragEnd()});
 document.addEventListener('mousemove',e=>{if(!kD)return;if(kD.on)kDragMove(e.clientX,e.clientY);else if(Math.hypot(e.clientX-kD.x0,e.clientY-kD.y0)>9){clearTimeout(kD.t);kD=null}});
 document.addEventListener('mouseup',()=>{if(kD){const was=kDragEnd();if(was){const stop=ev=>{ev.stopPropagation();ev.preventDefault();window.removeEventListener('click',stop,true)};window.addEventListener('click',stop,true);setTimeout(()=>window.removeEventListener('click',stop,true),50)}}});
@@ -22068,7 +22072,7 @@ const ic71=k=>'<svg class="ic71" viewBox="0 0 24 24" fill="none" stroke="current
 function home71(){try{const H=$('#iHome');if(!H)return;let W=H.querySelector('.h71');const car=$('#iCar'),neu=$('#bfNew'),sl=$('#bfSlots');if(!car||!neu||!sl)return;
   if(!W){W=document.createElement('div');W.className='h71';W.innerHTML='<div class="h71top"><img class="h71logo" alt="" src="'+BF_LOGO65+'"><div class="h71ey"><b>Fußball-Manager</b><small>Karriere · Live-Ticker · 3D-Spiel</small></div></div>'+
       '<div class="h71claim"><span>Better Football.</span><span class="g">Better Game.</span></div><div class="h71hero"></div><div class="h71grid"></div>'+
-      '<div class="h71foot">10 Top-Ligen · 2.500+ echte Kader · 90 Minuten in 3D</div>';H.prepend(W);H.classList.add('h71on')}
+      '<div class="h71foot">10 Top-Ligen · 2.500+ echte Kader · 90 Minuten in 3D</div>';H.prepend(W);H.classList.add('h71on');const ic=H.closest('.icard');if(ic)ic.classList.add('h71card')}
   const hero=W.querySelector('.h71hero'),grid=W.querySelector('.h71grid');const has=typeof CAR!=='undefined'&&CAR&&CLUB[CAR.club];
   const tile=(el,ic,t,s,cls)=>{el.className='h71t press '+(cls||'');el.innerHTML='<span class="h71i">'+ic71(ic)+'</span><span class="h71tt"><b>'+t+'</b><small>'+s+'</small></span>';el.classList.remove('hidden','tint','hero65','big','glass');return el};
   let set=$('#h71set'),cal=$('#h71cal'),inf=$('#h71inf');if(!set){set=document.createElement('button');set.id='h71set';set.onclick=()=>{sfx('tap');if(typeof CAR!=='undefined'&&CAR){carMenuOpen()}else about71()}}
@@ -22094,12 +22098,13 @@ function fut71(root){(root||document).querySelectorAll('.futwrap:not(.c71)').for
   const col=v=>v>=85?'#3ccf6e':v>=75?'#9be15d':v>=65?'#ffd23f':v>=55?'#ff8a1f':'#ff5a4f';
   w.innerHTML='<div class="pf71"><div class="pf71p">'+pt+'</div><div class="pf71i"><div class="pf71r"><b style="--c:'+col(+ovr)+'">'+ovr+'</b><i>'+esc(pos)+'</i><span>'+flag+'</span><span class="pf71c">'+club+'</span></div><h3>'+esc(nm)+'</h3><small>'+esc(ft)+'</small></div></div>'+
     (st.length?'<div class="pf71s">'+st.map(([k,v])=>'<div><small>'+esc(k)+'</small><i><em style="width:'+Math.max(4,Math.min(100,v))+'%;background:'+col(v)+'"></em></i><b>'+v+'</b></div>').join('')+'</div>':'')}catch(e){console.error('fut71',e)}})}
-let fut71T=0;new MutationObserver(()=>{if(fut71T)return;fut71T=requestAnimationFrame(()=>{fut71T=0;if(document.querySelector('.futwrap:not(.c71)'))fut71(document)})}).observe(document.body,{childList:true,subtree:true});
+/* Profilkopf direkt beim Erzeugen umbauen (statt globalem Beobachter) */
+const _cardHTML71=cardHTML;cardHTML=function(c,extra){const h=_cardHTML71(c,extra);try{const d=document.createElement('div');d.innerHTML=h;fut71(d);return d.innerHTML}catch(e){return h}};
 
 /* ---------- Aufstellung im EA-Stil: Porträt, Stärke, Formbalken ---------- */
 const rcol71=v=>v>=85?'#3ccf6e':v>=80?'#7fdc6a':v>=75?'#c3e45a':v>=70?'#ffd23f':v>=65?'#ffae3a':'#ff7a4f';
 function formBar71(c){const m=moOf(c);const f=(c.fm||0);const v=clamp(m+f*8,10,100);return '<i class="x71f"><em style="width:'+v+'%;background:'+(v>=65?'#3ccf6e':v>=45?'#ffd23f':'#ff5a4f')+'"></em></i>'}
-xiTok=function(c,k,s,x,y){const sel=kSlot===k;const ft=c?(k==='gk'?(c.gk?1:.62):pfit(c,s)):1;const v=c?Math.round(slotVal(c,s)):0;const ch=c?chemOf60().per[c.id]||0:0;const yy=5+y*.9;
+xiTok=function(c,k,s,x,y){const sel=kSlot===k;const ft=c?(k==='gk'?(c.gk?1:.62):pfit(c,s)):1;const v=c?Math.round(slotVal(c,s)):0;const ch=c?chemOf60().per[c.id]||0:0;const yy=k==='gk'?91:6+y*.84;
   return '<div class="xtok x71 press'+(sel?' on':'')+(c?'':' empty')+(ft<.9?' xbad':ft<.97?' xmid':'')+'" style="left:'+x+'%;top:'+yy+'%" data-slot="'+k+'" data-drop="'+k+'"'+(c?' data-drag="'+c.id+'"':'')+'>'+
     (c?'<div class="x71p">'+ptSVG(c)+'<b class="x71o" style="--c:'+rcol71(v)+'">'+v+'</b>'+(typeof stTag==='function'&&stTag(c)?'<em class="x71t">'+stTag(c)+'</em>':'')+'</div>'+formBar71(c)+'<span class="x71n">'+esc(c.n.split(' ').slice(-1)[0])+'</span><i class="x71s">'+s+(c.pos&&c.pos!==s&&k!=='gk'?' · '+c.pos:'')+'</i><u class="c'+ch+'"></u>'
       :'<div class="x71p x71e"><b>+</b></div><i class="x71s">'+s+'</i>')+'</div>'};
@@ -22134,6 +22139,9 @@ futCard=function(c,sz,extra){if(sz==='l')return _futCard71(c,sz,extra);try{
   const tags=(c.loan?'<i class="ft-l">LEIHE</i>':'')+(t?'<i class="ft-i">'+t+'</i>':'')+(c.id!=null&&CAR&&CAR.tac&&CAR.tac.cap===c.id?'<i class="ft-c">C</i>':'')+(c.lk?'<i class="ft-k">🔒</i>':'');
   return '<div class="fr71 fz-'+sz+'"'+(c.id!=null&&sz!=='s'?' data-card="'+c.id+'"':'')+'><span class="fr71p">'+ptSVG(c)+'</span><span class="fr71i"><b>'+esc(c.n)+'</b><small>'+sub+'</small>'+(c.id!=null&&CAR&&CAR.cards&&CAR.cards.includes(c)?formBar71(c):'')+'</span>'+(tags?'<span class="fr71g">'+tags+'</span>':'')+'<span class="fr71o" style="--c:'+rcol71(v)+'">'+v+'</span></div>'+(extra||'')
 }catch(e){return _futCard71(c,sz,extra)}};
+
+/* Sicherheitsnetz: hängengebliebenes Ziehen (z. B. nach abgebrochener Geste) beim nächsten Antippen auflösen */
+document.addEventListener('touchstart',()=>{try{if(kD){if(kD.on){kDragEnd()}else{clearTimeout(kD.t);kD=null}}document.body.classList.remove('kdrag');document.querySelectorAll('.kghost').forEach(g=>g.remove())}catch(e){}},{capture:true,passive:true});
 
 /* ================= Boot ================= */
 {const app=$('#app');const fix=()=>{if(app.scrollTop||app.scrollLeft){app.scrollTop=0;app.scrollLeft=0}if(document.scrollingElement&&(document.scrollingElement.scrollTop||document.scrollingElement.scrollLeft))window.scrollTo(0,0)};app.addEventListener('scroll',fix,{passive:true});window.addEventListener('scroll',fix,{passive:true});setInterval(fix,500)}
